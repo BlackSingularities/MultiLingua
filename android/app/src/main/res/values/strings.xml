@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MultiLingua</string>
+    <string name="title_activity_main">MultiLingua</string>
+    <string name="package_name">com.redzikowski.multilingua</string>
+    <string name="custom_url_scheme">com.redzikowski.multilingua</string>
+</resources>

@@ -1,0 +1,180 @@
+id: u01
+title: Ciao!
+subtitle: Powitania i przedstawianie się
+cefr: A1
+icon: "👋"
+goals:
+  - Przywitasz się i pożegnasz o każdej porze dnia
+  - Przedstawisz się i zapytasz o imię
+  - Odmienisz czasowniki essere i stare
+
+vocab:
+  - {t: ciao, n: cześć, alt_n: [hej, pa], pos: interj, emoji: "👋", note: "Na powitanie i na pożegnanie — tylko wobec znajomych."}
+  - {t: buongiorno, n: dzień dobry, pos: interj, emoji: "☀️", note: "Do wczesnego popołudnia."}
+  - {t: buonasera, n: dobry wieczór, pos: interj, emoji: "🌆", note: "Mniej więcej od 16–17, także na pożegnanie."}
+  - {t: buonanotte, n: dobranoc, pos: interj, emoji: "🌙"}
+  - {t: arrivederci, n: do widzenia, pos: interj, emoji: "🚪"}
+  - {t: grazie, n: dziękuję, alt_n: [dzięki], pos: interj, emoji: "🙏"}
+  - {t: prego, n: proszę, alt_n: [nie ma za co, proszę bardzo], pos: interj, note: "Odpowiedź na „grazie” albo zachęta: proszę wejść, proszę usiąść."}
+  - {t: per favore, n: proszę, alt_t: [per piacere], alt_n: [poproszę], pos: phrase, note: "Kiedy o coś prosisz: Un caffè, per favore."}
+  - {t: scusa, n: przepraszam, alt_n: [przepraszam cię, wybacz], pos: interj, note: "Do osoby, z którą jesteś na „ty”. Formalnie: scusi."}
+  - {t: sì, n: tak, pos: adv, emoji: "✅", note: "Z akcentem! „si” bez akcentu to zaimek „się”."}
+  - {t: "no", n: nie, pos: adv, emoji: "❌"}
+  - {t: non, n: nie, pos: adv, note: "Przecza czasownik: non sono = nie jestem."}
+  - {t: io, n: ja, pos: pron, emoji: "🙋"}
+  - {t: tu, n: ty, pos: pron, emoji: "🫵"}
+  - {t: lui, n: "on", pos: pron, emoji: "👨"}
+  - {t: lei, n: ona, alt_n: [Pani, Pan], pos: pron, emoji: "👩", note: "Pisane wielką literą (Lei) znaczy „Pan/Pani” — forma grzecznościowa."}
+  - {t: noi, n: my, pos: pron}
+  - {t: voi, n: wy, pos: pron}
+  - {t: loro, n: oni, alt_n: [one], pos: pron}
+  - {t: essere, n: być, pos: verb, forms: [sono, sei, è, siamo, siete], ex: ["Io sono Marco.", "Jestem Marco."]}
+  - {t: stare, n: mieć się, alt_n: [czuć się], pos: verb, forms: [sto, stai, sta, stiamo, state, stanno], note: "W pytaniu o samopoczucie: Come stai?"}
+  - {t: come, n: jak, pos: adv}
+  - {t: bene, n: dobrze, pos: adv, emoji: "👍"}
+  - {t: male, n: źle, pos: adv, emoji: "👎"}
+  - {t: molto, n: bardzo, pos: adv}
+  - {t: anche, n: też, alt_n: [także, również], pos: adv, forms: ["anch'io"]}
+  - {t: e, n: i, alt_n: [a], pos: conj}
+  - {t: mi chiamo, n: nazywam się, alt_n: [mam na imię], pos: phrase, forms: [chiamo, ti chiami, chiami, si chiama, chiama]}
+  - {id: v-piacere-mi, t: piacere, n: miło mi, alt_n: [miło mi cię poznać], pos: interj, emoji: "🤝", note: "Przy poznawaniu kogoś. Odpowiedź: Piacere mio!"}
+  - {t: amico, n: przyjaciel, alt_n: [kolega], pos: noun, g: m, art: "l'", pl: amici, emoji: "🧑‍🤝‍🧑"}
+  - {t: amica, n: przyjaciółka, alt_n: [koleżanka], pos: noun, g: f, art: "l'", pl: amiche}
+  - {t: signore, n: pan, pos: noun, g: m, art: il, pl: signori, forms: [signor], emoji: "🎩", note: "Przed nazwiskiem traci -e: il signor Rossi."}
+  - {t: signora, n: pani, pos: noun, g: f, art: la, pl: signore, emoji: "👒"}
+  - {t: gentile, n: miły, alt_n: [miła, uprzejmy, uprzejma], pos: adj}
+
+sentences:
+  - {t: "Ciao, mi chiamo Marco.", n: "Cześć, nazywam się Marco.", alt_n: ["Cześć, mam na imię Marco."], gap: chiamo}
+  - {t: "Buongiorno, signora!", n: "Dzień dobry pani!", alt_n: ["Dzień dobry, pani!", "Dzień dobry, proszę pani!"], gap: Buongiorno}
+  - {t: "Come stai?", n: "Jak się masz?", alt_n: ["Jak się czujesz?", "Co u ciebie?"], gap: stai, gap_opts: [sto, sta]}
+  - {t: "Sto bene, grazie.", n: "Mam się dobrze, dziękuję.", alt_n: ["Dobrze, dziękuję.", "Czuję się dobrze, dziękuję.", "Mam się dobrze, dzięki."], gap: Sto, gap_opts: [Stai, Sta]}
+  - {t: "Io sono Anna.", n: "Jestem Anna.", alt_n: ["Ja jestem Anna."], gap: sono, gap_opts: [sei, è]}
+  - {t: "Tu sei Luca?", n: "Jesteś Luca?", alt_n: ["Ty jesteś Luca?", "Czy jesteś Luca?", "Czy ty jesteś Luca?"], gap: sei, gap_opts: [sono, siete]}
+  - {t: "Lei è molto gentile.", n: "Ona jest bardzo miła.", alt_n: ["Pani jest bardzo miła.", "Ona jest bardzo uprzejma."], gap: è, gap_opts: [sei, sono]}
+  - {t: "Noi siamo amici.", n: "Jesteśmy przyjaciółmi.", alt_n: ["My jesteśmy przyjaciółmi.", "Jesteśmy kolegami."], gap: siamo, gap_opts: [siete, sono]}
+  - {t: "Voi siete amici?", n: "Jesteście przyjaciółmi?", alt_n: ["Czy jesteście przyjaciółmi?", "Wy jesteście przyjaciółmi?"], gap: siete, gap_opts: [siamo, sei]}
+  - {t: "Loro sono Marco e Giulia.", n: "To są Marco i Giulia.", alt_n: ["Oni są Marco i Giulia.", "Oni to Marco i Giulia."], gap: sono}
+  - {t: "Scusa, come ti chiami?", n: "Przepraszam, jak masz na imię?", alt_n: ["Przepraszam, jak się nazywasz?"], gap: chiami, gap_opts: [chiamo, chiama]}
+  - {t: "Come si chiama Lei?", n: "Jak się pani nazywa?", alt_n: ["Jak się pan nazywa?", "Jak pani się nazywa?", "Jak pan się nazywa?", "Jak ma pani na imię?"], gap: chiama, gap_opts: [chiami, chiamo]}
+  - {t: "Piacere, io sono Paolo.", n: "Miło mi, jestem Paolo.", alt_n: ["Miło mi, ja jestem Paolo.", "Miło mi, nazywam się Paolo."], gap: Piacere, gap_opts: [Prego, Grazie]}
+  - {t: "Anche io sto bene.", n: "Ja też mam się dobrze.", alt_t: ["Anch'io sto bene."], alt_n: ["Też mam się dobrze.", "Ja też czuję się dobrze.", "Też czuję się dobrze."], gap: Anche}
+  - {t: "Buonasera, signor Rossi!", n: "Dobry wieczór, panie Rossi!", alt_n: ["Dobry wieczór panie Rossi!"], gap: Buonasera, gap_opts: [Buonanotte, Arrivederci]}
+  - {t: "Buonanotte, Anna!", n: "Dobranoc, Anno!", alt_n: ["Dobranoc, Anna!"], gap: Buonanotte, gap_opts: [Buongiorno, Prego]}
+  - {t: "Arrivederci e grazie!", n: "Do widzenia i dziękuję!", alt_n: ["Do widzenia i dzięki!"], gap: Arrivederci}
+  - {t: "Sì, sono io.", n: "Tak, to ja.", alt_n: ["Tak, jestem.", "Tak, to jestem ja."], gap: Sì, gap_opts: [Si, "No"]}
+  - {t: "No, non sono Marco.", n: "Nie, nie jestem Marco.", gap: non, gap_opts: ["no", sì]}
+  - {t: "Sto male, molto male.", n: "Czuję się źle, bardzo źle.", alt_n: ["Mam się źle, bardzo źle.", "Jest mi źle, bardzo źle."], gap: male, gap_opts: [bene, molto]}
+  - {t: "Come sta, signora?", n: "Jak się pani miewa?", alt_n: ["Jak się pani ma?", "Jak pani się czuje?", "Jak się pani czuje?"], gap: sta, gap_opts: [stai, sto]}
+  - {t: "Grazie! — Prego!", n: "Dziękuję! — Nie ma za co!", alt_n: ["Dziękuję! — Proszę!", "Dzięki! — Nie ma za co!"], gap: Prego, gap_opts: [Piacere, Scusa]}
+  - {t: "Un caffè, per favore.", n: "Kawę, proszę.", alt_t: ["Un caffè, per piacere."], alt_n: ["Poproszę kawę.", "Jedną kawę, proszę."], gap: favore}
+  - {t: "Lui non è il signor Bianchi.", n: "On nie jest panem Bianchi.", alt_n: ["To nie jest pan Bianchi."], gap: non}
+
+grammar:
+  - id: it-essere
+    title: Zaimki osobowe i czasownik essere
+    summary: "Ja, ty, on… i najważniejszy czasownik: być."
+    body: |
+      Czasownik **essere** (być) jest nieregularny — jego formy trzeba po prostu zapamiętać. To najczęściej używany czasownik w języku włoskim.
+
+      | osoba | zaimek | essere | po polsku |
+      |---|---|---|---|
+      | 1. lp | io | **sono** | jestem |
+      | 2. lp | tu | **sei** | jesteś |
+      | 3. lp | lui / lei / Lei | **è** | jest |
+      | 1. lm | noi | **siamo** | jesteśmy |
+      | 2. lm | voi | **siete** | jesteście |
+      | 3. lm | loro | **sono** | są |
+
+      Tak jak w polskim, zaimek zwykle **pomijamy**, bo końcówka czasownika już mówi, o kogo chodzi: *Sono Marco* = Jestem Marco. Zaimek dodajemy dla podkreślenia albo kontrastu: *Io sono Marco, lui è Luca.*
+
+      > Uważaj na **è** (jest) i **e** (i). Akcent zmienia znaczenie: *Marco è qui* — Marco jest tutaj; *Marco e Anna* — Marco i Anna.
+
+      ### Forma grzecznościowa
+      Do obcych i starszych osób zwracamy się w 3. osobie liczby pojedynczej, używając zaimka **Lei** (Pan / Pani) — dokładnie jak po polsku „Czy pan jest…?”. *Lei è italiano?* — Czy pan jest Włochem?
+
+      ### Przeczenie
+      Słówko **non** stawiamy przed czasownikiem: *Non sono Marco.* — Nie jestem Marco. Odpowiadając, często mówimy dwa razy „nie”: *No, non sono Marco.*
+
+      Forma **sono** jest taka sama dla „ja jestem” i „oni są” — znaczenie wynika z kontekstu.
+    examples:
+      - {t: "Sono Anna, e tu?", n: "Jestem Anna, a ty?"}
+      - {t: "Lei è molto gentile.", n: "Pani jest bardzo miła."}
+      - {t: "Noi siamo amici.", n: "Jesteśmy przyjaciółmi."}
+      - {t: "Marco non è qui.", n: "Marca tu nie ma.", note: "Dosłownie: Marco nie jest tutaj."}
+    check:
+      - {q: "Tu ___ Luca?", options: [sei, sono, è], answer: 0, explain: "tu → sei"}
+      - {q: "Noi ___ amici.", options: [siete, siamo, sono], answer: 1, explain: "noi → siamo"}
+      - {q: "Jak zapytać grzecznie nieznajomą osobę: „Czy pani jest Włoszką?”", options: ["Tu sei italiana?", "Lei è italiana?", "Voi siete italiana?"], answer: 1, explain: "Forma grzecznościowa to Lei + 3. osoba lp."}
+      - {q: "Które zdanie znaczy „Marco i Anna”?", options: ["Marco è Anna", "Marco e Anna"], answer: 1, explain: "e bez akcentu to spójnik „i”."}
+
+  - id: it-stare-saluti
+    title: "Come stai? — stare i powitania"
+    summary: Kiedy mówić buongiorno, a kiedy ciao, i jak zapytać o samopoczucie.
+    body: |
+      O samopoczucie pytamy czasownikiem **stare** (dosłownie: stać, przebywać), a nie *essere*:
+
+      | osoba | stare |
+      |---|---|
+      | io | **sto** |
+      | tu | **stai** |
+      | lui / lei / Lei | **sta** |
+      | noi | **stiamo** |
+      | voi | **state** |
+      | loro | **stanno** |
+
+      - *Come stai?* — Jak się masz? (do kolegi)
+      - *Come sta?* — Jak się pan/pani ma? (formalnie)
+      - *Sto bene / molto bene / così così / male.* — Dobrze / bardzo dobrze / tak sobie / źle.
+
+      ### Powitania według pory dnia
+      - **Buongiorno** — rano i do wczesnego popołudnia.
+      - **Buonasera** — od późnego popołudnia; we Włoszech wcześniej niż w Polsce, już około 16–17.
+      - **Buonanotte** — tylko na dobranoc, przed snem.
+      - **Ciao** — do znajomych, zarówno „cześć” na powitanie, jak i „pa” na pożegnanie.
+      - **Arrivederci** — do widzenia (formalnie *ArrivederLa*).
+
+      ### „Przepraszam” i „proszę”
+      Po polsku „proszę” ma kilka znaczeń, po włosku — kilka słów:
+      - **per favore** — gdy o coś prosisz: *Un caffè, per favore.*
+      - **prego** — w odpowiedzi na „dziękuję” albo zapraszając: *Prego, entri!* (Proszę wejść!)
+      - **scusa / scusi** — przepraszam (do kolegi / formalnie).
+
+      > Przedstawiając się mówimy **mi chiamo…** (dosłownie: nazywam siebie). Pytanie: *Come ti chiami?* (nieformalnie) i *Come si chiama?* (formalnie).
+    examples:
+      - {t: "Buonasera, signora, come sta?", n: "Dobry wieczór pani, jak się pani miewa?"}
+      - {t: "Sto molto bene, grazie.", n: "Mam się bardzo dobrze, dziękuję."}
+      - {t: "Grazie! — Prego!", n: "Dziękuję! — Nie ma za co!"}
+    check:
+      - {q: "Jest 20:00, wchodzisz do restauracji. Co mówisz?", options: [Buongiorno, Buonasera, Buonanotte], answer: 1}
+      - {q: "Ktoś mówi ci „grazie”. Odpowiadasz:", options: [Per favore, Prego, Scusa], answer: 1}
+      - {q: "Come ___? — Sto bene.", options: [stai, sei, chiami], answer: 0, explain: "O samopoczucie pytamy czasownikiem stare."}
+
+conjugations:
+  - {verb: essere, n: być, tense: presente, label: czas teraźniejszy, forms: [sono, sei, è, siamo, siete, sono], irregular: true}
+  - {verb: stare, n: mieć się, tense: presente, label: czas teraźniejszy, forms: [sto, stai, sta, stiamo, state, stanno], irregular: true}
+  - {verb: chiamarsi, n: nazywać się, tense: presente, label: czas teraźniejszy, forms: [mi chiamo, ti chiami, si chiama, ci chiamiamo, vi chiamate, si chiamano], note: "Czasownik zwrotny — zaimek (mi, ti, si…) stoi przed czasownikiem."}
+
+stories:
+  - id: primo-giorno
+    title: Il primo giorno
+    emoji: "🏫"
+    intro: Pierwszy dzień w szkole językowej we Florencji. Marco poznaje nową koleżankę z grupy.
+    lines:
+      - [Marco, "Ciao! Io sono Marco. E tu?", "Cześć! Jestem Marco. A ty?"]
+      - [Anna, "Ciao, Marco! Mi chiamo Anna. Piacere!", "Cześć, Marco! Mam na imię Anna. Miło mi!"]
+      - [Marco, "Piacere mio! Come stai?", "Mnie również! Jak się masz?"]
+      - [Anna, "Sto bene, grazie. E tu?", "Dobrze, dziękuję. A ty?"]
+      - [Marco, "Anch'io sto bene. Sei di Roma?", "Ja też dobrze. Jesteś z Rzymu?"]
+      - [Anna, "No, non sono italiana. Sono di Cracovia!", "Nie, nie jestem Włoszką. Jestem z Krakowa!"]
+      - [Marco, "Davvero? Che bello!", "Naprawdę? Jak fajnie!"]
+      - [Signora Bianchi, "Buongiorno, ragazzi!", "Dzień dobry, kochani!"]
+      - [Anna, "Buongiorno, signora!", "Dzień dobry pani!"]
+      - [Signora Bianchi, "Io sono la vostra insegnante. Come state?", "Jestem waszą nauczycielką. Jak się macie?"]
+      - [Marco, "Molto bene, grazie!", "Bardzo dobrze, dziękujemy!"]
+      - [Signora Bianchi, "Benissimo! Allora, cominciamo!", "Świetnie! No to zaczynamy!"]
+    questions:
+      - {q: "Jak ma na imię dziewczyna?", options: [Giulia, Anna, Maria], answer: 1}
+      - {q: "Skąd jest Anna?", options: [z Rzymu, z Krakowa, z Florencji], answer: 1, explain: "Sono di Cracovia — jestem z Krakowa."}
+      - {q: "Jak się ma Marco?", options: [dobrze, źle, tak sobie], answer: 0, explain: "Anch'io sto bene."}
+      - {q: "Kim jest signora Bianchi?", options: [mamą Marca, nauczycielką, kelnerką], answer: 1, explain: "Io sono la vostra insegnante."}

@@ -1,0 +1,27 @@
+id: pl-it
+title: Włoski
+tagline: Od „ciao” do swobodnej rozmowy w kawiarni
+description: >-
+  Kurs włoskiego dla Polaków od zera do poziomu A2. Gramatyka tłumaczona
+  po polsku z porównaniami do naszego języka, historyjki z życia we Włoszech,
+  ćwiczenia ze słuchu, mówienia, pisania i odmiany.
+color: "#1F8A5B"
+levels: A1–A2
+target:
+  code: it
+  name: włoski
+  endonym: italiano
+  speech: it-IT
+  flag: "🇮🇹"
+native:
+  code: pl
+  name: polski
+  endonym: polski
+  speech: pl-PL
+  flag: "🇵🇱"
+rules:
+  dropPronouns: [io, tu, lui, lei, noi, voi, loro]
+  persons: [io, tu, lui/lei, noi, voi, loro]
+  specialChars: [à, è, é, ì, ò, ù]
+  articles: [il, lo, la, "l'", i, gli, le]
+  elisions: ["l'", "un'", "dell'", "all'", "dall'", "nell'", "sull'", "c'", "dov'", "com'", "quest'", "quell'", "d'"]

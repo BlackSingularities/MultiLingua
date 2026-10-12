@@ -1,0 +1,12 @@
+.git
+.github
+.claude
+node_modules
+dist
+data
+android
+ios
+assets
+tests
+*.log
+.env

@@ -1,0 +1,168 @@
+# Wydanie powstaje samo, gdy na main trafi nowa wersja w package.json
+# (np. `npm version minor` + push). Tag v<wersja> i paczki dołączane są automatycznie.
+name: Release
+on:
+  push:
+    branches: [main]
+    paths: [package.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: multilingua-release
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      code: ${{ steps.v.outputs.code }}
+      release: ${{ steps.v.outputs.release }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: v
+        run: |
+          version=$(node -p "require('./package.json').version")
+          IFS=. read -r major minor patch <<< "${version%%-*}"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "code=$((major * 1000000 + minor * 1000 + patch))" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "refs/tags/v$version" >/dev/null; then
+            echo "Wersja $version jest już wydana — pomijam."
+            echo "release=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  test:
+    needs: prepare
+    if: needs.prepare.outputs.release == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run content
+      - run: npm run typecheck
+      - run: npm test
+
+  android:
+    needs: [prepare, test]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platforms;android-36 build-tools;36.0.0'
+      - run: npm ci
+      - name: Web assets for the app
+        run: npx vite build --mode mobile && npx cap sync android
+      - name: Build signed APK
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          set -euo pipefail
+          export ANDROID_KEYSTORE_PATH="$RUNNER_TEMP/release.p12"
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 -d > "$ANDROID_KEYSTORE_PATH"
+          trap 'rm -f "$ANDROID_KEYSTORE_PATH"' EXIT
+          cd android
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleRelease
+      - name: Verify signature and name artifacts
+        run: |
+          set -euo pipefail
+          apk=android/app/build/outputs/apk/release/app-release.apk
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --print-certs "$apk"
+          mkdir -p out
+          cp "$apk" out/MultiLingua.apk
+          cp "$apk" "out/MultiLingua-${{ needs.prepare.outputs.version }}.apk"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: out/*.apk
+          if-no-files-found: error
+
+  ios:
+    needs: [prepare, test]
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Web assets for the app
+        run: npx vite build --mode mobile && npx cap sync ios
+      - name: Build unsigned app
+        run: |
+          set -euo pipefail
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release \
+            -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build \
+            MARKETING_VERSION=${{ needs.prepare.outputs.version }} \
+            CURRENT_PROJECT_VERSION=${{ needs.prepare.outputs.code }} \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build | tail -n 40
+          test -d build/Build/Products/Release-iphoneos/App.app
+          mkdir -p Payload out
+          cp -R build/Build/Products/Release-iphoneos/App.app Payload/
+          zip -qr out/MultiLingua-unsigned.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios
+          path: out/*.ipa
+          if-no-files-found: error
+
+  release:
+    needs: [prepare, android, ios]
+    # iOS jest dodatkiem — wydanie z APK powstaje nawet, gdy build iOS się nie uda.
+    if: always() && needs.prepare.outputs.release == 'true' && needs.android.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - name: Release notes from CHANGELOG.md
+        env:
+          VERSION: ${{ needs.prepare.outputs.version }}
+        run: |
+          awk -v v="$VERSION" '
+            index($0, "## [" v "]") == 1 || index($0, "## " v) == 1 { on = 1; next }
+            on && /^## / { exit }
+            on { print }
+          ' CHANGELOG.md > notes.md || true
+          cat >> notes.md <<'NOTES'
+
+          ### Pobieranie
+          - **Android:** `MultiLingua.apk` — pobierz na telefon i zainstaluj (zezwól na instalację z tego źródła).
+          - **iOS:** `MultiLingua-unsigned.ipa` — niepodpisana paczka do samodzielnego podpisania (np. AltStore, Sideloadly).
+          - **Przeglądarka:** https://redzikowski.com/multilingua/
+          NOTES
+          cat notes.md
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.prepare.outputs.version }}
+        run: |
+          gh release create "v$VERSION" artifacts/* \
+            --title "MultiLingua $VERSION" \
+            --notes-file notes.md \
+            --target "$GITHUB_SHA"

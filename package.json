@@ -1,0 +1,60 @@
+{
+  "name": "multilingua",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MultiLingua — rozbudowana aplikacja do nauki języków obcych (web, Android, iOS).",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node --experimental-strip-types --disable-warning=ExperimentalWarning server/index.ts",
+    "content": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/build-content.ts",
+    "build": "vite build",
+    "build:mobile": "vite build --mode mobile && cap sync",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run content && npm run typecheck && npm test && npm run build",
+    "start": "node --experimental-strip-types --disable-warning=ExperimentalWarning server/index.ts"
+  },
+  "dependencies": {
+    "@fastify/compress": "^9.2.1",
+    "@fastify/cors": "^11.3.1",
+    "@fastify/static": "^10.1.6",
+    "fastify": "^5.12.5"
+  },
+  "devDependencies": {
+    "@capacitor-community/speech-recognition": "^7.0.1",
+    "@capacitor-community/text-to-speech": "^8.0.2",
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/ios": "^8.5.3",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4",
+    "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "dexie": "^4.4.6",
+    "fake-indexeddb": "^6.0.0",
+    "js-yaml": "^4.1.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4",
+    "sharp": "^0.34.5",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.4",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.15"
+  }
+}
