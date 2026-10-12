@@ -91,6 +91,13 @@ ZASADY PEDAGOGICZNE (najważniejsze):
    - ma pasujące zdania w "sentences" i przykłady w "examples" zawierające te formy.
    Krok ma 40–120 słów. Używaj tabel Markdown dla odmian i wskazówek "> " dla pułapek.
 4. "check" to 3–5 pytań sprawdzających zrozumienie (dokładnie jedna poprawna odpowiedź, bez powtórzeń w opcjach).
+   KAŻDE pytanie dotyczy rzeczy wprost wyjaśnionej w jednym z kroków (aplikacja zada je zaraz po tym kroku),
+   a poprawna odpowiedź i przykłady używają tylko słów z "vocab" (tego i wcześniejszych rozdziałów) albo form
+   pokazanych w treści kroku. Nie pytaj o nic, czego teoria nie omawia — i odwrotnie: jeśli pytanie czegoś
+   wymaga, krok musi to wyjaśnić. Aplikacja sprawdza to automatycznie i zgłasza każde odstępstwo.
+4a. Formatowanie kroków: krótkie akapity; zestawy zwrotów jako lista „- *fraza w języku kursu* — znaczenie”
+   (aplikacja pokaże je jako słowniczek z wymową); odmiany w tabelach z formami **pogrubionymi**;
+   pułapki jako „> Uważaj: …”, wskazówki jako „> …”.
 5. Słownictwo dobieraj tak, żeby miało sens w tej chwili nauki: najpierw słowa potrzebne do sytuacji z tematu,
    potrzebne do zdań i historyjki. Dodaj "emoji" tylko wtedy, gdy jednoznacznie przedstawia słowo.
 6. Zdania: naturalne, krótkie (3–10 słów), z wariantami tłumaczeń w alt_n (różne poprawne polskie wersje).

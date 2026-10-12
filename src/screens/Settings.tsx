@@ -28,7 +28,7 @@ export function SettingsScreen() {
     void voicesFor(lang).then(setVoices);
   }, [lang]);
 
-  const toggle = (k: 'sound' | 'listening' | 'speaking' | 'autoplay' | 'hard') => void update({ [k]: !settings[k] });
+  const toggle = (k: 'sound' | 'listening' | 'speaking' | 'autoplay' | 'hard' | 'instant') => void update({ [k]: !settings[k] });
 
   const exportData = async () => {
     const dump: Record<string, unknown[]> = {};
@@ -100,6 +100,12 @@ export function SettingsScreen() {
           </div>
         </div>
         <Switch name="Tryb wymagający" desc="Mniej wybierania z listy, więcej samodzielnego pisania." on={settings.hard} onToggle={() => toggle('hard')} />
+        <Switch
+          name="Sprawdzaj od razu po wyborze"
+          desc="Dotknięcie odpowiedzi ją sprawdza, a po poprawnej przechodzisz dalej bez klikania „Sprawdź”."
+          on={settings.instant}
+          onToggle={() => toggle('instant')}
+        />
       </section>
 
       <section className="panel">

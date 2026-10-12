@@ -22,6 +22,7 @@ vocab:
   - {t: moglie, n: żona, pos: noun, g: f, art: la, pl: mogli, emoji: "👰"}
   - {t: nonno, n: dziadek, pos: noun, g: m, art: il, pl: nonni, emoji: "👴"}
   - {t: nonna, n: babcia, pos: noun, g: f, art: la, pl: nonne, emoji: "👵"}
+  - {t: nipote, n: wnuk, alt_n: [wnuczka, wnuki, wnuczęta], pos: noun, g: mf, art: il, pl: nipoti, note: "Znaczy też „siostrzeniec / bratanek”."}
   - {t: genitori, n: rodzice, pos: noun, g: m, art: i, note: "Tylko w liczbie mnogiej."}
   - {t: cane, n: pies, pos: noun, g: m, art: il, pl: cani, emoji: "🐕"}
   - {t: gatto, n: kot, pos: noun, g: m, art: il, pl: gatti, emoji: "🐈"}
@@ -44,6 +45,7 @@ vocab:
   - {t: otto, n: osiem, pos: num, emoji: "8️⃣"}
   - {t: nove, n: dziewięć, pos: num, emoji: "9️⃣"}
   - {t: dieci, n: dziesięć, pos: num, emoji: "🔟"}
+  - {t: venti, n: dwadzieścia, pos: num}
 
 sentences:
   - {t: "Questa è la mia famiglia.", n: "To jest moja rodzina.", alt_n: ["To moja rodzina."], gap: mia, gap_opts: [mio, mie]}

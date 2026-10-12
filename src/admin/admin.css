@@ -381,3 +381,12 @@ code { font-size: 0.9em; padding: 1px 5px; border-radius: 5px; background: var(-
 .img-editor p { margin: 0; }
 .img-editor-preview { display: flex; align-items: flex-end; justify-content: center; gap: 16px; }
 .img-editor-preview .plate-lg { --ps: 200px; }
+
+.admin-coverage {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--marker-soft);
+}
+
+.admin-coverage ul { margin: 8px 0 0; padding-left: 1.2em; font-size: 0.9rem; }
+.admin-coverage p { margin: 4px 0 0; }

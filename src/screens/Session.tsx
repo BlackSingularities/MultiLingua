@@ -14,6 +14,10 @@ import { Empty, ProgressBar, Spinner, useSpeech } from '../components/ui.tsx';
 import { ACCEPTABLE_OVERRIDE, ExerciseView, promptOf } from '../exercises/index.tsx';
 import { Results } from './Results.tsx';
 
+/** Ćwiczenia, w których dotknięcie odpowiedzi od razu ją sprawdza. */
+const INSTANT = new Set<Exercise['type']>(['choice', 'picture', 'listen', 'article', 'judge', 'question', 'errorspot', 'cloze']);
+/** Po poprawnej odpowiedzi przechodzimy dalej sami — po krótkim potwierdzeniu. */
+const AUTO_NEXT_MS = 900;
 const PRAISE = ['Świetnie!', 'Doskonale!', 'Brawo!', 'Tak jest!', 'Idealnie!', 'Super!', 'Pięknie!'];
 const SPEED_SECONDS = 90;
 
@@ -57,6 +61,7 @@ export function SessionScreen() {
   const checkFn = useRef<(() => AnswerOutcome) | null>(null);
   const stats = useRef({ total: 0, correct: 0, maxCombo: 0, newWords: 0, started: Date.now() });
   const finishing = useRef(false);
+  const autoNext = useRef(false);
   const praise = useRef(PRAISE[0]);
 
   const isTest = mode?.kind === 'skip' || (mode?.kind === 'lesson' && course?.lessons.get(mode.lessonId)?.kind === 'test');
@@ -140,6 +145,7 @@ export function SessionScreen() {
 
   const advance = useCallback(() => {
     if (!queue) return;
+    autoNext.current = false;
     setOutcome(null);
     checkFn.current = null;
     setCanCheck(false);
@@ -160,6 +166,19 @@ export function SessionScreen() {
       setQueue((q) => (q ? [...q, { ...current, key: `${current.key}-r`, retry: true }] : q));
     }
   }, [current, outcome, settings.sound, record, isTest]);
+
+  const submit = useCallback(() => {
+    if (!settings.instant) return;
+    autoNext.current = true;
+    check();
+  }, [settings.instant, check]);
+
+  // Poprawna odpowiedź po natychmiastowym sprawdzeniu — dalej bez klikania.
+  useEffect(() => {
+    if (!outcome?.ok || !autoNext.current) return;
+    const t = setTimeout(advance, AUTO_NEXT_MS);
+    return () => clearTimeout(t);
+  }, [outcome, advance]);
 
   const finishSelf = useCallback(
     (o: AnswerOutcome, silent?: boolean) => {
@@ -253,8 +272,11 @@ export function SessionScreen() {
     );
   }
 
+  // W treningu mówienia/słuchania nie proponujemy „nie mogę teraz…” — to cel tej sesji.
+  const dedicated = mode.kind === 'speaking' || mode.kind === 'listening';
+  const instantNow = !!current && settings.instant && INSTANT.has(current.type) && !(current.type === 'cloze' && !current.options);
   const progressValue = mode.kind === 'speed' ? 1 - timeLeft / SPEED_SECONDS : pos / queue.length;
-  const showFooter = current && !['intro', 'theory', 'story', 'pairs'].includes(current.type) && !(current.type === 'speak' && !outcome);
+  const showFooter = current && !['intro', 'theory', 'story', 'pairs'].includes(current.type) && !(current.type === 'speak' && !outcome) && (!!outcome || !instantNow);
 
   return (
     <div className={`session${outcome ? (outcome.ok ? ' has-ok' : ' has-bad') : ''}`}>
@@ -280,9 +302,18 @@ export function SessionScreen() {
       <main className="session-body" key={current?.key}>
         {current?.retry && <p className="retry-note">Powtórka po błędzie</p>}
         {current && (
-          <ExerciseView ex={current} course={course} locked={!!outcome} outcome={outcome} setCheck={setCheck} finish={finishSelf} />
+          <ExerciseView
+            ex={current}
+            course={course}
+            locked={!!outcome}
+            outcome={outcome}
+            setCheck={setCheck}
+            finish={finishSelf}
+            submit={submit}
+            dedicated={dedicated}
+          />
         )}
-        {current?.needs === 'audio' && !outcome && (
+        {current?.needs === 'audio' && !outcome && !dedicated && (
           <button type="button" className="link-btn" onClick={cantListen}>
             Nie mogę teraz słuchać
           </button>

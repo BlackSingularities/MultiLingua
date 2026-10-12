@@ -60,70 +60,28 @@ export function splitArticle(article: GrammarArticle, isTargetWord: (w: string) 
     clean.splice(0, clean.length, { title: first.title, body: `${intro.body}\n\n${first.body}` }, ...rest);
   }
 
-  const usedExamples = new Set<number>();
-  const steps = clean.map((p, index) => {
-    const focus = [...new Set(marked(p.body).flatMap(words).filter(isTargetWord))];
-    const examples = article.examples.filter((e, i) => {
-      if (usedExamples.has(i)) return false;
-      const hit = words(e.t).some((w) => focus.includes(w));
-      if (hit) usedExamples.add(i);
-      return hit;
-    });
-    return { index, total: clean.length, title: p.title, body: p.body, focus, examples };
-  });
-  // Przykłady, które nie pasowały do żadnego kroku, trafiają do ostatniego.
-  const rest = article.examples.filter((_, i) => !usedExamples.has(i));
-  if (steps.length && rest.length) steps[steps.length - 1].examples.push(...rest);
-  return steps;
-}
-
-/**
- * Materiał do ćwiczeń dla każdego kroku. Słowa obecne prawie wszędzie
- * (np. rodzajnik „il”) nie wystarczą, żeby przypiąć zdanie do kroku.
- */
-export function stepMaterials(
-  steps: TheoryStep[],
-  pool: Sentence[],
-  tables: Conjugation[],
-  questions: ChoiceQuestion[],
-): StepMaterial[] {
-  const tokenized = pool.map((s) => ({ s, w: new Set(words(s.t)) }));
-  const freq = new Map<string, number>();
-  for (const { w } of tokenized) for (const x of w) freq.set(x, (freq.get(x) ?? 0) + 1);
-  const common = (w: string) => (freq.get(w) ?? 0) > Math.max(3, pool.length * 0.35);
-
-  const usedSentences = new Set<string>();
-  const usedQuestions = new Set<number>();
-  const out = steps.map((step) => {
-    const strong = step.focus.filter((f) => !common(f));
-    const keys = strong.length ? strong : step.focus;
-    const sentences = tokenized
-      .filter(({ s, w }) => !usedSentences.has(s.id) && keys.some((k) => w.has(k)))
-      .map(({ s }) => s)
-      .slice(0, 4);
-    sentences.forEach((s) => usedSentences.add(s.id));
-
-    const forms: StepMaterial['forms'] = [];
-    for (const table of tables) {
-      table.forms.forEach((f, person) => {
-        const variants = f.split('|').flatMap((x) => words(x));
-        if (variants.some((v) => step.focus.includes(v))) forms.push({ table, person });
-      });
-    }
-
-    const qs: ChoiceQuestion[] = [];
-    questions.forEach((q, i) => {
-      if (usedQuestions.has(i)) return;
-      const qWords = new Set([...words(q.q), ...q.options.flatMap(words)]);
-      if (keys.some((k) => qWords.has(k))) {
-        usedQuestions.add(i);
-        qs.push(q);
+  const steps = clean.map((p, index) => ({
+    index,
+    total: clean.length,
+    title: p.title,
+    body: p.body,
+    focus: [...new Set(marked(p.body).flatMap(words).filter(isTargetWord))],
+    examples: [] as GrammarArticle['examples'],
+  }));
+  // Przykład trafia do kroku, z którym ma najwięcej wspólnych form (remis — późniejszy krok,
+  // bo wtedy uczeń zna już wszystko z wcześniejszych); bez dopasowania — do ostatniego.
+  for (const e of article.examples) {
+    const ws = new Set(words(e.t));
+    let best = steps.length - 1;
+    let bestScore = 0;
+    steps.forEach((s, i) => {
+      const score = s.focus.filter((f) => ws.has(f)).length;
+      if (score > 0 && score >= bestScore) {
+        best = i;
+        bestScore = score;
       }
     });
-    return { step, sentences, forms, questions: qs };
-  });
-  // Pytania bez dopasowania — do ostatniego kroku (podsumowanie).
-  const leftover = questions.filter((_, i) => !usedQuestions.has(i));
-  if (out.length && leftover.length) out[out.length - 1].questions.push(...leftover);
-  return out;
+    if (steps[best]) steps[best].examples.push(e);
+  }
+  return steps;
 }

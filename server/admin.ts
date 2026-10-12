@@ -17,6 +17,9 @@ import yaml from 'js-yaml';
 import { checkSvg, compileCourse, ContentError, imageKeyOf } from '../scripts/content-lib.ts';
 import { buildContentDb } from '../scripts/content-db.ts';
 import type { ContentStore } from './content-store.ts';
+import { CourseIndex } from '../src/engine/course.ts';
+import { coverageProblems } from '../src/engine/coverage.ts';
+import { splitArticle } from '../src/engine/theory.ts';
 import { chat, extractYaml, listModels, loadCourseContext, revisePrompt, unitPrompt, type ModelInfo, type UnitBrief } from './ai.ts';
 
 export interface AdminOptions {
@@ -198,15 +201,20 @@ export async function registerAdmin(app: FastifyInstance, opts: AdminOptions) {
       }
       try {
         const { pack, warnings } = compileCourse(tmp);
+        // Pytania i przykłady muszą dotyczyć pokazanego materiału — inaczej uczeń dostanie
+        // pytanie o coś, czego nie było w teorii ani w słówkach.
+        const ix = new CourseIndex(pack);
+        const coverage = coverageProblems(ix, (g) => splitArticle(g, (w) => ix.isTarget(w)));
         return {
           ok: true as const,
           errors: [] as string[],
+          coverage,
           warnings: warnings.map((w) => w.replace(tmp, '')),
           stats: { units: pack.units, lessons: pack.lessons, words: pack.words, sentences: pack.sentences, grammar: pack.grammar, stories: pack.stories, images: pack.images.count },
         };
       } catch (e) {
         if (e instanceof ContentError || e instanceof yaml.YAMLException) {
-          return { ok: false as const, errors: [String(e.message).replaceAll(tmp, '')], warnings: [], stats: null };
+          return { ok: false as const, errors: [String(e.message).replaceAll(tmp, '')], coverage: [] as string[], warnings: [], stats: null };
         }
         throw e;
       }

@@ -24,6 +24,7 @@ vocab:
   - {t: torta, n: ciasto, alt_n: [tort], pos: noun, g: f, art: la, pl: torte, emoji: "🍰"}
   - {t: cornetto, n: rogalik, alt_n: [croissant], pos: noun, g: m, art: il, pl: cornetti, emoji: "🥐"}
   - {t: zucchero, n: cukier, pos: noun, g: m, art: lo, emoji: "🍬"}
+  - {t: formaggio, n: ser, pos: noun, g: m, art: il, pl: formaggi, emoji: "🧀"}
   - {t: conto, n: rachunek, pos: noun, g: m, art: il, pl: conti, emoji: "🧾"}
   - {t: cameriere, n: kelner, pos: noun, g: m, art: il, pl: camerieri, emoji: "🤵"}
   - {t: bambino, n: dziecko, alt_n: [chłopiec], pos: noun, g: m, art: il, pl: bambini, emoji: "🧒"}

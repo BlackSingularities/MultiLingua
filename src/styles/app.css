@@ -1363,12 +1363,22 @@ select {
 .theory-summary { font-size: 1.1rem; color: var(--ink-2); }
 .article-cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0; }
 
-.md p, .md li { line-height: 1.65; }
-.md h3 { font-size: 1.22rem; margin-top: 1.4em; }
-.md ul { padding-left: 1.2em; }
-.md li { margin-bottom: 4px; }
+/* Treść teorii: zwarta, z wyraźną hierarchią. */
+.md { font-size: 1rem; }
+.md > * + * { margin-top: 12px; }
+.md p { margin: 0; line-height: 1.62; }
+.md li { line-height: 1.55; margin-bottom: 4px; }
+.md ul { margin: 0; padding-left: 1.15em; }
+.md ul li::marker { color: var(--course); }
+.md h3 {
+  font-size: 1.12rem;
+  margin: 22px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.md strong { font-weight: 800; }
 
-/* Słowa w języku kursu: kursywa szeryfowa, jak hasła w słowniku. */
+/* Słowa w języku kursu: kursywa szeryfowa na zakreśleniu; dotknij, żeby usłyszeć. */
 .md-target {
   font-family: var(--font-display);
   font-style: italic;
@@ -1378,7 +1388,56 @@ select {
   padding: 0 1px;
 }
 
-.md-table-wrap { overflow-x: auto; margin: 14px 0; }
+button.md-say {
+  border: 0;
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button.md-say:hover { background: linear-gradient(transparent 20%, var(--marker) 20%); }
+
+/* Słowniczek: hasło | objaśnienie */
+.md-defs {
+  margin: 0;
+  display: grid;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.md-def {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 4px 16px;
+  padding: 9px 12px;
+  background: var(--surface);
+}
+
+.md-def + .md-def { border-top: 1px solid var(--line); }
+.md-def:nth-child(even) { background: var(--surface-2); }
+.md-def dt { font-family: var(--font-display); font-weight: 600; }
+.md-def dt strong { font-weight: 700; }
+.md-def dt .md-target { background: none; padding: 0; }
+.md-def dd { margin: 0; color: var(--ink-2); font-size: 0.95rem; }
+.md-def.is-note { grid-template-columns: 1fr; }
+.md-def.is-note dd { color: var(--muted); }
+
+@media (max-width: 520px) {
+  .md-def { grid-template-columns: 1fr; gap: 1px; }
+}
+
+.md-table-wrap {
+  /* Tabela zajmuje tyle miejsca, ile potrzebuje — wąskie tabele odmian nie rozciągają się. */
+  width: fit-content;
+  min-width: min(100%, 340px);
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-m);
+  box-shadow: 0 0 0 1px var(--line);
+}
 
 .md-table,
 .conj-table {
@@ -1386,47 +1445,60 @@ select {
   border-spacing: 0;
   width: 100%;
   background: var(--surface);
-  box-shadow: 0 0 0 1px var(--line);
-  border-radius: var(--radius-m);
-  overflow: hidden;
 }
+
+.conj-table { box-shadow: 0 0 0 1px var(--line); border-radius: var(--radius-m); overflow: hidden; }
 
 .md-table th,
 .md-table td,
 .conj-table th,
 .conj-table td {
-  padding: 9px 12px;
+  padding: 7px 12px;
   text-align: left;
   border-bottom: 1px solid var(--line);
+  vertical-align: baseline;
 }
 
-.md-table thead th { background: var(--surface-2); font-size: 0.9rem; }
+.md-table thead th {
+  background: var(--surface-2);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.md-table td { font-size: 0.95rem; }
+.md-table td:first-child { color: var(--muted); font-size: 0.88rem; }
+/* Formy w języku kursu wyróżnione pogrubieniem w tabeli — szeryfowo, jak hasła. */
+.md-table td strong { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+.md-table.is-wide td, .md-table.is-wide th { padding: 7px 10px; }
+.md-table tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-2) 60%, var(--surface)); }
 .md-table tr:last-child td,
 .conj-table tr:last-child th,
 .conj-table tr:last-child td { border-bottom: 0; }
 
 .md-tip {
-  display: flex;
-  gap: 12px;
-  margin: 16px 0;
-  padding: 14px 16px;
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
   border-radius: var(--radius-m);
   background: var(--marker-soft);
 }
 
-.md-tip p { margin: 0; }
+.md-tip p { margin: 0; font-size: 0.97rem; }
 
-.md-tip-mark {
-  flex: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
+.md-tip-label {
+  justify-self: start;
+  padding: 1px 8px;
+  border-radius: 6px;
   background: var(--marker);
   color: #151a3b;
+  font-size: 0.75rem;
   font-weight: 800;
 }
+
+.md-tip-warn { background: var(--bad-soft); }
+.md-tip-warn .md-tip-label { background: var(--bad); color: #fff; }
 
 .conj-figure { margin: 18px 0; }
 .conj-figure figcaption { margin-bottom: 8px; font-weight: 700; }
@@ -1458,6 +1530,89 @@ select {
 }
 
 .example-list p { margin: 0; }
+.example-list .muted { font-size: 0.9rem; }
+
+@media (min-width: 720px) {
+  .example-list.is-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.theory-more {
+  margin-top: 16px;
+  border-radius: var(--radius-m);
+  background: var(--surface-2);
+}
+
+.theory-more summary {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink-2);
+  font-size: 0.92rem;
+}
+
+.theory-more[open] summary { border-bottom: 1px solid var(--line); }
+.theory-more .md { padding: 12px 14px 16px; }
+
+.article-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 6px;
+}
+
+.article-toc a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 6px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.article-toc a:hover { box-shadow: 0 0 0 1.5px var(--ink-2); }
+
+.toc-num {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary-bg);
+  color: var(--primary-fg);
+  font-size: 0.75rem;
+}
+
+.article-step {
+  margin-top: 16px;
+  padding: 20px 20px 18px;
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  box-shadow: var(--lift);
+  scroll-margin-top: 80px;
+  display: grid;
+  gap: 14px;
+}
+
+.article-step .md > h3:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+.step-label { margin: 0; color: var(--course); font-weight: 800; font-size: 0.85rem; }
+.step-title { margin: -8px 0 0; font-size: 1.35rem; }
+
+.step-focus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.step-focus > span { font-weight: 800; color: var(--muted); font-size: 0.85rem; margin-right: 4px; }
+button.upcoming-chip { border: 0; cursor: pointer; }
+button.upcoming-chip:disabled { cursor: default; }
 .example-t { font-family: var(--font-display); font-weight: 600; font-size: 1.08rem; }
 
 .conj-grid {
@@ -2068,6 +2223,9 @@ select {
 
 .theory-card .theory-title { margin-top: 2px; }
 .theory-card .md > :last-child { margin-bottom: 0; }
+.theory-card { display: grid; gap: 4px; }
+.theory-card > .md { margin-top: 8px; }
+.theory-card .theory-examples h3 { font-size: 1rem; color: var(--muted); font-family: var(--font-body); margin: 18px 0 8px; letter-spacing: 0; }
 .ex-theory.is-tip .theory-card { background: var(--marker-soft); box-shadow: none; }
 .ex-theory.is-tip .theory-title { font-size: 1.35rem; }
 

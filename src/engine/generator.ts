@@ -8,7 +8,8 @@ import { numberAnswers, numberToWords, supportsNumbers } from './numbers.ts';
 import { stage as stageOf, strength, type SrsState } from './srs.ts';
 import { normalize, tokenize } from './text.ts';
 import type { Exercise, LessonVariant, SessionMode, Skill } from './types.ts';
-import { splitArticle, stepMaterials, type StepMaterial, type TheoryStep } from './theory.ts';
+import { splitArticle, type StepMaterial, type TheoryStep } from './theory.ts';
+import { Coverage, questionTopic, stepText } from './coverage.ts';
 
 export interface GenContext {
   index: CourseIndex;
@@ -59,12 +60,19 @@ function sample<T>(arr: readonly T[], k: number, rng: Rng): T[] {
   return shuffle(arr, rng).slice(0, k);
 }
 
+const coverageCache = new WeakMap<CourseIndex, Coverage>();
+
 class Gen {
   readonly ctx: GenContext;
   readonly ix: CourseIndex;
   readonly rng: Rng;
   readonly allVocab: VocabItem[];
   readonly allSentences: Sentence[];
+  /**
+   * Słowa, które uczeń już widział w tym miejscu ścieżki (ustawiane w lekcjach).
+   * Dystraktory i kafelki wybieramy wtedy spośród nich — nic obcego w odpowiedziach.
+   */
+  taught: Set<string> | null = null;
 
   constructor(ctx: GenContext) {
     this.ctx = ctx;
@@ -72,6 +80,17 @@ class Gen {
     this.rng = ctx.rng ?? Math.random;
     this.allVocab = [...this.ix.vocab.values()];
     this.allSentences = [...this.ix.sentences.values()];
+  }
+
+  get coverage(): Coverage {
+    let c = coverageCache.get(this.ix);
+    if (!c) coverageCache.set(this.ix, (c = new Coverage(this.ix)));
+    return c;
+  }
+
+  /** Czy uczeń widział już wszystkie słowa tekstu (gdy nie wiemy, co widział — tak). */
+  known(text: string): boolean {
+    return !this.taught || this.coverage.missing(text, this.taught).length === 0;
   }
 
   st(id: string) {
@@ -102,10 +121,13 @@ class Gen {
   vocabDistractors(v: VocabItem, k: number, needArt = false): VocabItem[] {
     const seen = new Set([normalize(v.n), normalize(v.t)]);
     const unitIdx = this.ix.unitById.get(v.unit)?.index ?? 0;
-    const candidates = this.allVocab.filter((x) => {
+    const all = this.allVocab.filter((x) => {
       if (x.id === v.id || (needArt && !hasArt(x))) return false;
       return !seen.has(normalize(x.n)) && !seen.has(normalize(x.t));
     });
+    // W lekcji: najpierw słowa już poznane; obce tylko, gdy znanych za mało.
+    const familiar = all.filter((x) => this.known(x.t));
+    const candidates = familiar.length >= k ? familiar : all;
     // Najpierw ta sama część mowy i bliskie jednostki — trudniejsze, sensowniejsze dystraktory.
     const scored = shuffle(candidates, this.rng).map((x) => ({
       x,
@@ -134,10 +156,11 @@ class Gen {
   tileDistractors(answer: string[], side: 't' | 'n', k: number): string[] {
     const have = new Set(answer.map((w) => normalize(w)));
     const pool = new Map<string, string>();
-    for (const s of shuffle(this.allSentences, this.rng).slice(0, 40)) {
+    const sentences = this.taught ? this.allSentences.filter((s) => this.known(s.t)) : this.allSentences;
+    for (const s of shuffle(sentences.length >= 6 ? sentences : this.allSentences, this.rng).slice(0, 40)) {
       for (const w of tokenize(side === 't' ? s.t : s.n)) {
         const nw = normalize(w);
-        if (!have.has(nw) && !pool.has(nw)) pool.set(nw, w);
+        if (!have.has(nw) && !pool.has(nw) && (side === 'n' || this.known(w))) pool.set(nw, w);
       }
     }
     return sample([...pool.values()], k, this.rng);
@@ -698,8 +721,15 @@ function learnSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercise[
   const replay = fresh.length === 0;
   const head: Exercise[] = [];
   // Wskazówki z teorii jednostki, które dotyczą właśnie poznawanych słów (najwyżej dwie na lekcję).
-  const steps = variant === 'mixed' ? unitSteps(ix, lesson.unit) : [];
+  // Wskazówki tylko z teorii, która na ścieżce jest PRZED tą lekcją albo zaraz po niej —
+  // nie zapowiadamy tematów z końca jednostki.
+  const pos = ix.lessonPosition(lesson.id);
+  const nextGrammar = ix.path.slice(pos + 1).find((l) => l.unit === lesson.unit && l.kind !== 'learn');
+  const allowed = new Set(ix.path.slice(0, pos + 1).filter((l) => l.kind === 'grammar').map((l) => l.grammar));
+  if (nextGrammar?.kind === 'grammar') allowed.add(nextGrammar.grammar);
+  const steps = variant === 'mixed' ? unitSteps(ix, lesson.unit).filter((x) => allowed.has(x.article.id)) : [];
   const shownSteps = new Set<TheoryStep>();
+  g.taught = new Set(g.coverage.taughtAt(lesson));
 
   // Nowe słówka wprowadzamy grupami po trzy: karta → szybkie rozpoznanie → pary.
   for (let i = 0; i < fresh.length; i += 3) {
@@ -710,6 +740,7 @@ function learnSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercise[
       : undefined;
     if (related) {
       shownSteps.add(related.step);
+      g.coverage.articleWords(related.step.body).forEach((w) => g.taught!.add(w));
       const tables = ix.unitById.get(lesson.unit)?.conjugations.filter((t) => t.forms.some((f) => groupWords.has(f.toLowerCase()))) ?? [];
       head.push({
         key: key('tip'), type: 'theory', skill: 'grammar', article: related.article, tables: tables.slice(0, 1),
@@ -736,15 +767,16 @@ function learnSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercise[
     if (p) body.push(p);
   }
 
-  // Zdania lekcji + (gdy mało) zdania z jednostki złożone z już znanych słów.
-  const known = new Set([...g.ctx.srs.keys(), ...lesson.vocab]);
-  let sentences = lesson.sentences.map((id) => ix.sentences.get(id)).filter((s): s is Sentence => !!s);
+  // Zdania lekcji + (gdy mało) inne zdania z jednostki — zawsze tylko takie, w których
+  // każde słowo i każda forma były już pokazane (karty, wskazówki, wcześniejsza teoria).
+  let sentences = lesson.sentences.map((id) => ix.sentences.get(id)).filter((s): s is Sentence => !!s && g.known(s.t));
   if (sentences.length < 3) {
     const unit = ix.unitById.get(lesson.unit);
-    const extra = (unit?.sentences ?? []).filter(
-      (s) => !sentences.includes(s) && (s.words ?? []).length > 0 && (s.words ?? []).every((w) => known.has(w)),
-    );
-    sentences = [...sentences, ...sample(extra, 3 - sentences.length, g.rng)];
+    const own = new Set(lesson.vocab);
+    const extra = (unit?.sentences ?? []).filter((s) => !sentences.includes(s) && g.known(s.t));
+    // Najpierw te, które używają słów z tej lekcji.
+    extra.sort((a, b) => Number((b.words ?? []).some((w) => own.has(w))) - Number((a.words ?? []).some((w) => own.has(w))));
+    sentences = [...sentences, ...extra.slice(0, 3 - sentences.length)];
   }
   const sentenceEx: Exercise[] = [];
   for (const s of sentences.slice(0, 5)) {
@@ -780,15 +812,36 @@ function grammarSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercis
   const tables = lesson.conjugations.map((id) => ix.tables.get(id)).filter((t): t is Conjugation => !!t);
   const unit = ix.unitById.get(lesson.unit);
   const steps = splitArticle(article, (w) => ix.isTarget(w));
-  const known = new Set([...g.ctx.srs.keys()]);
-  // Zdania do ćwiczeń: z tej jednostki i wcześniejszych, ale tylko złożone ze znanych już słów
-  // (albo z tej jednostki — te uczeń właśnie poznaje).
+  const cov = g.coverage;
+  const before = cov.taughtAt(lesson);
+  const stepTexts = steps.map((st) => stepText(st.title, st.body, st.examples));
+  // Rośnie krok po kroku: ćwiczenie po kroku i może używać tylko tego, co pokazały kroki 0…i.
+  g.taught = new Set(before);
+
+  // Pytania i zdania przypinamy do kroku, o którym są — i nie wcześniej, niż uczeń zobaczy
+  // wszystkie potrzebne słowa. Czego materiał nie pokrywa, o to nie pytamy.
+  const questions = cov.place(article.check, (q) => cov.questionText(q), questionTopic, stepTexts, before, 'last');
   const pool = [...ix.sentences.values()].filter((s) => {
     const u = ix.unitById.get(s.unit);
-    if (!u || !unit || u.index > unit.index) return false;
-    return u.id === unit.id || (s.words ?? []).every((w) => known.has(w));
+    return !!u && !!unit && u.index <= unit.index;
   });
-  const materials = stepMaterials(steps, pool, tables, article.check);
+  const sentences = cov.place(pool, (s) => s.t, (s) => s.t, stepTexts, before, 'none');
+
+  const materials: StepMaterial[] = steps.map((step, i) => {
+    const forms: StepMaterial['forms'] = [];
+    for (const table of tables) {
+      table.forms.forEach((f, person) => {
+        if (f.split('|').flatMap((x) => tokenize(x).map((w) => w.toLowerCase())).some((v) => step.focus.includes(v))) forms.push({ table, person });
+      });
+    }
+    // Najpierw zdania z tej jednostki, w których pada wyróżniona forma kroku.
+    const own = sentences
+      .filter((p) => p.step === i)
+      .map((p) => p.item)
+      .sort((a, b) => Number(b.unit === lesson.unit) - Number(a.unit === lesson.unit) ||
+        Number(tokenize(b.t).some((w) => step.focus.includes(w.toLowerCase()))) - Number(tokenize(a.t).some((w) => step.focus.includes(w.toLowerCase()))));
+    return { step, sentences: own.slice(0, 3), forms, questions: questions.filter((p) => p.step === i).map((p) => p.item) };
+  });
 
   // Krok bez własnego materiału do ćwiczeń łączymy z następnym (ostatni — z poprzednim),
   // żeby po każdej karcie teorii od razu przychodziły ćwiczenia.
@@ -796,6 +849,7 @@ function grammarSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercis
   const groups: { steps: StepMaterial[]; practice: Exercise[] }[] = [];
   let pending: StepMaterial[] = [];
   for (const m of materials) {
+    cov.articleWords(m.step.body).forEach((w) => g.taught!.add(w));
     const practice = stepPractice(g, m, article.id, lesson.unit, drilled);
     pending.push(m);
     if (practice.length) {
@@ -809,7 +863,11 @@ function grammarSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercis
   }
 
   const out: Exercise[] = [];
+  const shownTables = new Set<Conjugation>();
   groups.forEach((grp, index) => {
+    const forms = grp.steps.flatMap((m) => m.forms);
+    const groupTables = forms.length ? [...new Set(forms.map((f) => f.table))] : index === 0 ? tables : [];
+    groupTables.forEach((t) => shownTables.add(t));
     if (variant === 'mixed') {
       const [first, ...rest] = grp.steps;
       const step: TheoryStep = {
@@ -820,35 +878,27 @@ function grammarSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercis
         focus: [...new Set(grp.steps.flatMap((m) => m.step.focus))],
         examples: grp.steps.flatMap((m) => m.step.examples),
       };
-      const forms = grp.steps.flatMap((m) => m.forms);
       out.push({
         key: key('theory'), type: 'theory', skill: 'grammar', article,
-        tables: forms.length ? [...new Set(forms.map((f) => f.table))] : index === 0 ? tables : [],
-        step, upcoming: upcomingLabels({ ...first, step, forms }),
+        tables: groupTables, step, upcoming: upcomingLabels({ ...first, step, forms }),
       });
     }
     out.push(...grp.practice);
   });
 
-  // Tabele, których formy nie padły w żadnym kroku — krótki trening na koniec.
-  for (const t of tables) {
+  // Tabele pokazane w teorii, których formy nie padły w ćwiczeniach kroków — krótko na koniec.
+  for (const t of shownTables) {
     if (drilled.has(t.id)) continue;
     for (const p of sample([0, 1, 2, 3, 4, 5], 2, g.rng)) out.push(g.conjugate(t, p));
-  }
-  if (out.filter((e) => e.type !== 'theory').length < 5) {
-    const related = (unit?.sentences ?? []).filter((s) => !out.some((e) => e.item?.id === s.id));
-    for (const s of sample(related, 3, g.rng)) {
-      const ex = g.cloze(s, false) ?? g.errorSpot(s);
-      if (ex) out.push(ex);
-    }
   }
   return out;
 }
 
 /** Co pokażemy uczniowi jako „zaraz przećwiczysz”. */
 function upcomingLabels(m: StepMaterial): string[] {
+  // Gdy krok ma formy z tabeli — to je ćwiczymy; inaczej wyróżnione słowa kroku.
   const forms = m.forms.map((f) => f.table.forms[f.person].split('|')[0].trim());
-  return [...new Set([...forms, ...m.step.focus])].slice(0, 8);
+  return [...new Set(forms.length ? forms : m.step.focus)].slice(0, 8);
 }
 
 /** 2–5 ćwiczeń dokładnie z materiału jednego kroku teorii. */
@@ -868,7 +918,9 @@ function stepPractice(g: Gen, m: StepMaterial, articleId: string, unitId: string
     const made = cloze ?? g.errorSpot(s) ?? g.tiles(s, 'n2t');
     if (made) ex.push(made);
   }
-  const example = m.step.examples[Math.floor(g.rng() * m.step.examples.length)];
+  // Kafelki z przykładu tylko wtedy, gdy wszystkie jego słowa były już pokazane.
+  const examples = m.step.examples.filter((e) => g.known(e.t));
+  const example = examples[Math.floor(g.rng() * examples.length)];
   if (example && ex.length < 4) {
     const t = g.tiles({ id: `${articleId}-ex`, unit: unitId, t: example.t, n: example.n }, 'n2t');
     if (t) ex.push({ ...t, item: undefined });

@@ -72,7 +72,7 @@ export function PairsEx({ ex, course, finish }: ExProps<Of<'pairs'>>) {
   );
 }
 
-export function SpeakEx({ ex, course, finish }: ExProps<Of<'speak'>>) {
+export function SpeakEx({ ex, course, finish, dedicated }: ExProps<Of<'speak'>>) {
   const { micOn, sttOk, lang } = useSpeech();
   const speakingEnabled = useApp((s) => s.settings.speaking);
   const muteFor = useApp((s) => s.muteFor);
@@ -166,7 +166,7 @@ export function SpeakEx({ ex, course, finish }: ExProps<Of<'speak'>>) {
         </div>
       )}
 
-      {speakingEnabled && (
+      {speakingEnabled && !dedicated && (
         <button type="button" className="link-btn" onClick={skip}>
           {sttOk === false ? 'Pomiń ćwiczenie' : 'Nie mogę teraz mówić'}
         </button>
@@ -237,6 +237,8 @@ function SelfAssess({ text, onDone }: { text: string; onDone: (ok: boolean) => v
 
 export function TheoryEx({ ex, course, finish }: ExProps<Of<'theory'>>) {
   const a = ex.article;
+  const { say, ttsOk } = useSpeech();
+  const onSay = ttsOk === false ? undefined : (t: string) => void say(t);
   const step = ex.step;
   const lang = course.pack.target.code;
   const examples = step ? step.examples : a.examples;
@@ -270,14 +272,14 @@ export function TheoryEx({ ex, course, finish }: ExProps<Of<'theory'>>) {
         {!step && <p className="theory-kicker">{a.title}</p>}
         <h2 className="theory-title">{step ? step.title : a.title}</h2>
         {(!step || step.index === 0) && !ex.tip && <p className="theory-summary">{a.summary}</p>}
-        <Markdown source={body} />
+        <Markdown source={body} onSay={onSay} lang={lang} />
         {tables.map((t) => (
           <ConjTable key={t.id} table={t} persons={course.rules.persons} lang={lang} />
         ))}
         {examples.length > 0 && (
           <section className="theory-examples">
             <h3>Przykłady</h3>
-            <ul className="example-list">
+            <ul className="example-list is-grid">
               {examples.map((e, i) => (
                 <li key={i}>
                   <SpeakButton text={e.t} size="sm" />
@@ -289,6 +291,12 @@ export function TheoryEx({ ex, course, finish }: ExProps<Of<'theory'>>) {
               ))}
             </ul>
           </section>
+        )}
+        {step && step.total > 1 && !ex.tip && (
+          <details className="theory-more">
+            <summary>Cały temat: {a.title}</summary>
+            <Markdown source={a.body} onSay={onSay} lang={lang} />
+          </details>
         )}
       </article>
       {ex.upcoming && ex.upcoming.length > 0 && (
