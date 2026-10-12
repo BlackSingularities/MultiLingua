@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import type { CourseIndex } from '../engine/course.ts';
 import type { SessionMode } from '../engine/types.ts';
 import type { SessionResult } from '../data/progress.ts';
+import type { VocabItem } from '../data/types.ts';
+import { WordArt } from '../components/WordArt.tsx';
 import { useApp } from '../data/store.ts';
 import { sfx } from '../platform/sfx.ts';
 import { Icon } from '../components/Icon.tsx';
@@ -16,9 +18,10 @@ function headline(r: SessionResult, isTest: boolean): string {
 }
 
 export function Results({
-  result, mode, course, isTest, onContinue, onRetry,
+  result, mode, course, isTest, newWords, onContinue, onRetry,
 }: {
   result: SessionResult;
+  newWords: VocabItem[];
   mode: SessionMode;
   course: CourseIndex;
   isTest: boolean;
@@ -73,6 +76,20 @@ export function Results({
           </dd>
         </div>
       </dl>
+      {newWords.length > 0 && (
+        <section className="results-words" aria-label="Nowe słowa">
+          <h2 className="side-title">Nowe słowa w Twoim słowniku</h2>
+          <ul>
+            {newWords.map((v) => (
+              <li key={v.id}>
+                <WordArt source={v} size="sm" />
+                <span lang={course.pack.target.code}>{course.withArticle(v)}</span>
+                <span className="muted">{v.n}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       {result.goalReached && <p className="goal-banner">Dzienny cel {goal} XP osiągnięty. Do jutra!</p>}
 
       <div className="results-actions">

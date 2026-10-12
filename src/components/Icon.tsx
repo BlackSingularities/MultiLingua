@@ -1,6 +1,6 @@
 // Zestaw ikon liniowych (24×24, obrys 2px) — bez zewnętrznych bibliotek.
 const PATHS: Record<string, string> = {
-  path: 'M5 20c0-4 3-5 7-5s7-1 7-5-3-5-7-5M12 5h0M5 20h0',
+  path: 'M6 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM18 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM8 6h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7',
   dumbbell: 'M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12',
   book: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5zM4 19a2 2 0 0 1 2-2h13',
   cards: 'M7 4h11a2 2 0 0 1 2 2v12M4 8h11a2 2 0 0 1 2 2v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8z',
@@ -36,6 +36,9 @@ const PATHS: Record<string, string> = {
   phone: 'M7 2h10a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM11 18h2',
   skip: 'M5 5l8 7-8 7V5zM15 5v14',
   play: 'M7 4l13 8-13 8V4z',
+  grid: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
+  list: 'M9 6h11M9 12h11M9 18h11M4 6h0M4 12h0M4 18h0',
+  route: 'M6 3v18M6 7h8a4 4 0 0 1 0 8H6',
 };
 
 export type IconName = keyof typeof PATHS;

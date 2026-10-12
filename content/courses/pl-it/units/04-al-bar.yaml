@@ -1,0 +1,190 @@
+id: u04
+title: Al bar
+subtitle: Jedzenie, picie i zamawianie
+cefr: A1
+icon: "☕"
+goals:
+  - Zamówisz kawę i jedzenie w barze i restauracji
+  - Zapytasz o cenę i poprosisz o rachunek
+  - Odmienisz regularne czasowniki na -are i -ere oraz bere
+
+vocab:
+  - {t: caffè, n: kawa, alt_n: [espresso], pos: noun, g: m, art: il, pl: caffè, emoji: "☕", note: "We Włoszech „un caffè” to małe espresso."}
+  - {t: cappuccino, n: cappuccino, pos: noun, g: m, art: il, pl: cappuccini, emoji: "🥛", note: "Włosi piją cappuccino tylko rano."}
+  - {t: tè, n: herbata, pos: noun, g: m, art: il, pl: tè, emoji: "🍵", note: "Rodzaj męski: il tè."}
+  - {t: acqua, n: woda, pos: noun, g: f, art: "l'", pl: acque, emoji: "💧"}
+  - {t: vino, n: wino, pos: noun, g: m, art: il, pl: vini, emoji: "🍷"}
+  - {t: birra, n: piwo, pos: noun, g: f, art: la, pl: birre, emoji: "🍺"}
+  - {t: latte, n: mleko, pos: noun, g: m, art: il, emoji: "🥛"}
+  - {t: succo, n: sok, pos: noun, g: m, art: il, pl: succhi, emoji: "🧃"}
+  - {t: panino, n: kanapka, alt_n: [bułka], pos: noun, g: m, art: il, pl: panini, emoji: "🥪"}
+  - {t: pizza, n: pizza, pos: noun, g: f, art: la, pl: pizze, emoji: "🍕"}
+  - {t: pasta, n: makaron, alt_n: [pasta], pos: noun, g: f, art: la, emoji: "🍝"}
+  - {t: gelato, n: lody, pos: noun, g: m, art: il, pl: gelati, emoji: "🍨", note: "Po włosku w liczbie pojedynczej: un gelato — jedne lody."}
+  - {t: torta, n: ciasto, alt_n: [tort], pos: noun, g: f, art: la, pl: torte, emoji: "🍰"}
+  - {t: cornetto, n: rogalik, alt_n: [croissant], pos: noun, g: m, art: il, pl: cornetti, emoji: "🥐"}
+  - {t: zucchero, n: cukier, pos: noun, g: m, art: lo, emoji: "🍬"}
+  - {t: conto, n: rachunek, pos: noun, g: m, art: il, pl: conti, emoji: "🧾"}
+  - {t: cameriere, n: kelner, pos: noun, g: m, art: il, pl: camerieri, emoji: "🤵"}
+  - {t: bambino, n: dziecko, alt_n: [chłopiec], pos: noun, g: m, art: il, pl: bambini, emoji: "🧒"}
+  - {t: vorrei, n: chciałbym, alt_n: [chciałabym, poproszę], pos: phrase, note: "Grzeczna forma od volere — idealna do zamawiania."}
+  - {t: mangiare, n: jeść, pos: verb, forms: [mangio, mangi, mangia, mangiamo, mangiate, mangiano]}
+  - {t: bere, n: pić, pos: verb, forms: [bevo, bevi, beve, beviamo, bevete, bevono]}
+  - {t: prendere, n: brać, alt_n: [wziąć, zamawiać], pos: verb, forms: [prendo, prendi, prende, prendiamo, prendete, prendono]}
+  - {t: costare, n: kosztować, pos: verb, forms: [costa, costano]}
+  - {t: quanto, n: ile, pos: adv, forms: [quanta]}
+  - {t: euro, n: euro, pos: noun, g: m, art: "l'", pl: euro, emoji: "💶"}
+  - {t: caldo, n: gorący, alt_n: [ciepły, gorąca], pos: adj, forms: [calda, caldi, calde], emoji: "🔥"}
+  - {t: freddo, n: zimny, alt_n: [zimna], pos: adj, forms: [fredda, freddi, fredde], emoji: "🧊"}
+  - {t: buono, n: dobry, alt_n: [smaczny, dobra], pos: adj, forms: [buona, buoni, buone, buon]}
+  - {t: con, n: "z (razem z)", alt_n: [z], pos: prep}
+  - {t: senza, n: bez, pos: prep}
+  - {t: per, n: dla, alt_n: [do, na], pos: prep}
+  - {t: o, n: albo, alt_n: [czy, lub], pos: conj}
+  - {t: ancora, n: jeszcze, pos: adv}
+  - {t: tutto, n: wszystko, alt_n: [cały], pos: pron, forms: [tutta, tutti, tutte]}
+
+sentences:
+  - {t: "Vorrei un caffè, per favore.", n: "Poproszę kawę.", alt_n: ["Chciałbym kawę, proszę.", "Chciałabym kawę, proszę.", "Poproszę espresso.", "Chciałbym kawę.", "Chciałabym kawę."], gap: Vorrei, gap_opts: [Vuoi, Voglio]}
+  - {t: "Un cappuccino e un cornetto, per favore.", n: "Cappuccino i rogalika, proszę.", alt_n: ["Poproszę cappuccino i rogalika.", "Cappuccino i rogalik, proszę."], gap: cornetto, gap_opts: [conto, caffè]}
+  - {t: "Prendo un panino.", n: "Wezmę kanapkę.", alt_n: ["Biorę kanapkę.", "Poproszę kanapkę."], gap: Prendo, gap_opts: [Prendi, Prende]}
+  - {t: "Che cosa prendi?", n: "Co bierzesz?", alt_n: ["Co weźmiesz?", "Co zamawiasz?"], gap: prendi, gap_opts: [prendo, prende]}
+  - {t: "Bevo il caffè senza zucchero.", n: "Piję kawę bez cukru.", gap: senza, gap_opts: [con, per]}
+  - {t: "Lei beve il tè con il latte.", n: "Ona pije herbatę z mlekiem.", alt_t: ["Lei beve il tè col latte."], alt_n: ["Pani pije herbatę z mlekiem."], gap: beve, gap_opts: [bevo, bevi]}
+  - {t: "Mangiamo una pizza?", n: "Zjemy pizzę?", alt_n: ["Czy zjemy pizzę?", "Zjemy razem pizzę?"], gap: Mangiamo, gap_opts: [Mangiate, Mangiano]}
+  - {t: "I bambini mangiano il gelato.", n: "Dzieci jedzą lody.", gap: mangiano, gap_opts: [mangia, mangiate]}
+  - {t: "Quanto costa?", n: "Ile kosztuje?", alt_n: ["Ile to kosztuje?"], gap: costa, gap_opts: [costano, costi]}
+  - {t: "Costa due euro.", n: "Kosztuje dwa euro.", alt_n: ["To kosztuje dwa euro."], gap: due, gap_opts: [tre, cinque]}
+  - {t: "Il conto, per favore.", n: "Rachunek, proszę.", alt_n: ["Poproszę rachunek.", "Proszę rachunek."], gap: conto, gap_opts: [cornetto, caffè]}
+  - {t: "L'acqua è fredda.", n: "Woda jest zimna.", gap: fredda, gap_opts: [freddo, freddi]}
+  - {t: "Il caffè è molto caldo.", n: "Kawa jest bardzo gorąca.", alt_n: ["Kawa jest bardzo ciepła."], gap: caldo, gap_opts: [calda, caldi]}
+  - {t: "La pizza è buona!", n: "Pizza jest dobra!", alt_n: ["Pizza jest smaczna!", "Ta pizza jest dobra!", "Ta pizza jest smaczna!"], gap: buona, gap_opts: [buono, buoni]}
+  - {t: "Non bevo vino.", n: "Nie piję wina.", gap: bevo, gap_opts: [bevi, beve]}
+  - {t: "Ancora un caffè, per favore.", n: "Jeszcze jedną kawę, proszę.", alt_n: ["Poproszę jeszcze jedną kawę.", "Jeszcze jedna kawa, proszę.", "Jeszcze kawę, proszę."], gap: Ancora, gap_opts: [Tutto, Senza]}
+  - {t: "Per me una birra.", n: "Dla mnie piwo.", alt_n: ["Dla mnie jedno piwo."], gap: Per, gap_opts: [Con, Senza]}
+  - {t: "Il cameriere è molto gentile.", n: "Kelner jest bardzo miły.", alt_n: ["Kelner jest bardzo uprzejmy."], gap: cameriere, gap_opts: [conto, caffè]}
+  - {t: "Prendiamo due tè.", n: "Bierzemy dwie herbaty.", alt_n: ["Weźmiemy dwie herbaty.", "Zamawiamy dwie herbaty.", "Poprosimy dwie herbaty."], gap: Prendiamo, gap_opts: [Prendete, Prendono]}
+  - {t: "Che cosa mangiate?", n: "Co jecie?", alt_n: ["Co będziecie jeść?"], gap: mangiate, gap_opts: [mangiamo, mangiano]}
+  - {t: "Tutto bene?", n: "Wszystko w porządku?", alt_n: ["Wszystko dobrze?", "Wszystko okej?"], gap: Tutto, gap_opts: [Molto, Ancora]}
+  - {t: "Il gelato costa tre euro.", n: "Lody kosztują trzy euro.", gap: costa, gap_opts: [costano, costi]}
+  - {t: "Bevete vino o birra?", n: "Pijecie wino czy piwo?", alt_n: ["Pijecie wino albo piwo?", "Będziecie pić wino czy piwo?"], gap: Bevete, gap_opts: [Beviamo, Bevono]}
+  - {t: "Loro prendono un cappuccino.", n: "Oni biorą cappuccino.", alt_n: ["Biorą cappuccino.", "Oni zamawiają cappuccino."], gap: prendono, gap_opts: [prende, prendete]}
+  - {t: "Mangio la pasta senza formaggio.", n: "Jem makaron bez sera.", gap: Mangio, gap_opts: [Mangi, Mangia]}
+
+grammar:
+  - id: it-verbi-are-ere
+    title: Czasowniki regularne na -are i -ere
+    summary: "Jeden wzór, setki czasowników: mangiare, prendere."
+    body: |
+      Czasowniki włoskie dzielą się na trzy grupy według końcówki bezokolicznika: **-are**, **-ere**, **-ire**. Dwie pierwsze odmieniają się bardzo podobnie:
+
+      | osoba | -are: mangiare | -ere: prendere |
+      |---|---|---|
+      | io | mangi**o** | prend**o** |
+      | tu | mang**i** | prend**i** |
+      | lui / lei | mangi**a** | prend**e** |
+      | noi | mang**iamo** | prend**iamo** |
+      | voi | mangi**ate** | prend**ete** |
+      | loro | mangi**ano** | prend**ono** |
+
+      Różnią się tylko trzy formy: *lui/lei*, *voi* i *loro* (-a/-ate/-ano kontra -e/-ete/-ono).
+
+      > Czasowniki na **-iare** (mangiare, studiare) nie podwajają *i*: tu **mangi** (nie „mangii”), noi **mangiamo** (nie „mangiiamo”).
+
+      ### Bere — wyjątek
+      **Bere** (pić) odmienia się od dawnego rdzenia *bev-*: bevo, bevi, beve, beviamo, bevete, bevono. Końcówki są regularne, zmienia się tylko rdzeń.
+
+      ### Prendere = brać, ale też zamawiać
+      W barze i restauracji *prendere* znaczy „wziąć, zamówić”: *Che cosa prendi?* — Co zamawiasz? *Prendo un panino.* — Wezmę kanapkę. Polskie „wezmę” (przyszły) po włosku wyrażamy czasem teraźniejszym.
+    examples:
+      - {t: "I bambini mangiano il gelato.", n: "Dzieci jedzą lody."}
+      - {t: "Prendete un caffè?", n: "Napijecie się kawy?", note: "dosłownie: weźmiecie kawę?"}
+      - {t: "Non bevo vino.", n: "Nie piję wina."}
+    check:
+      - {q: "Tu ___ la pizza? (mangiare)", options: [mangii, mangi, mangia], answer: 1}
+      - {q: "Loro ___ un caffè. (prendere)", options: [prendano, prendono, prendete], answer: 1, explain: "-ere → loro -ono"}
+      - {q: "Noi ___ acqua. (bere)", options: [beriamo, beviamo, bevamo], answer: 1}
+      - {q: "Lei ___ il tè. (prendere)", options: [prenda, prende, prendi], answer: 1}
+
+  - id: it-ordinare
+    title: "Zamawianie: vorrei, per me, il conto"
+    summary: Grzeczne zwroty i kilka zasad włoskiego baru.
+    body: |
+      Najprostszy sposób, by grzecznie zamówić: **vorrei** + to, czego chcesz. To tryb przypuszczający od *volere* (chcieć) — dosłownie „chciałbym/chciałabym”, ale używamy go jak polskiego „poproszę”.
+
+      - *Vorrei un cappuccino, per favore.* — Poproszę cappuccino.
+      - **Per me** un caffè, **per lei** un tè. — Dla mnie kawa, dla niej herbata.
+      - *Posso avere il menù?* — Czy mogę prosić o menu?
+      - **Il conto, per favore.** — Rachunek, proszę.
+      - **Quanto costa?** / **Quanto costano?** — Ile kosztuje? / Ile kosztują?
+
+      ### Jak to działa we włoskim barze
+      - **Un caffè** to espresso. Kawa z mlekiem to *caffè latte* — samo „latte” to po prostu mleko!
+      - Przy barze (*al banco*) jest taniej niż przy stoliku (*al tavolo*). Często najpierw płaci się przy kasie i dostaje paragon (*lo scontrino*), który pokazuje się barmanowi.
+      - **Cappuccino** pije się do śniadania; po obiedzie zamówienie cappuccino zdradza turystę.
+
+      > Na „Grazie!” kelner odpowie **Prego!**, a podając jedzenie powie **Ecco a lei** (proszę bardzo) i **Buon appetito!** (smacznego).
+    examples:
+      - {t: "Vorrei un'acqua, per favore.", n: "Poproszę wodę."}
+      - {t: "Per me una pizza, per lui un panino.", n: "Dla mnie pizza, dla niego kanapka."}
+      - {t: "Scusi, il conto, per favore.", n: "Przepraszam, rachunek proszę."}
+    check:
+      - {q: "Jak grzecznie zamówić kawę?", options: ["Voglio caffè!", "Vorrei un caffè, per favore.", "Prego un caffè."], answer: 1}
+      - {q: "Zamawiasz „un caffè”. Co dostaniesz?", options: [kawę z mlekiem, espresso, mrożoną kawę], answer: 1}
+      - {q: "Jak poprosić o rachunek?", options: ["Il conto, per favore.", "Il cameriere, per favore.", "Il costo, prego."], answer: 0}
+
+  - id: it-aggettivi
+    title: Przymiotniki — zgodność z rzeczownikiem
+    summary: "Buono, buona, buoni, buone — i gdzie stawiać przymiotnik."
+    body: |
+      Przymiotnik zgadza się z rzeczownikiem w rodzaju i liczbie — tak jak w polskim. Są dwie grupy:
+
+      | typ | m. lp | ż. lp | m. lm | ż. lm |
+      |---|---|---|---|---|
+      | na -o | fredd**o** | fredd**a** | fredd**i** | fredd**e** |
+      | na -e | grand**e** | grand**e** | grand**i** | grand**i** |
+
+      - *il caffè freddo, l'acqua fredda, i panini freddi, le birre fredde*
+      - *il cane grande, la casa grande, i cani grandi, le case grandi*
+
+      ### Gdzie stoi przymiotnik?
+      Zwykle **po** rzeczowniku: *un vino rosso, una città italiana*. Kilka częstych przymiotników (buono, bello, grande, piccolo) stoi często **przed**: *una buona pizza, un piccolo bar*.
+
+      > Przed rzeczownikiem *buono* skraca się jak rodzajnik: **un buon** caffè, **una buona** torta. „Buon appetito!” i „Buongiorno!” to właśnie ta forma.
+    examples:
+      - {t: "La pizza è buona e il vino è buono.", n: "Pizza jest dobra i wino jest dobre."}
+      - {t: "Vorrei una birra fredda.", n: "Poproszę zimne piwo."}
+      - {t: "I cornetti sono caldi.", n: "Rogaliki są ciepłe."}
+    check:
+      - {q: "L'acqua è ___.", options: [freddo, fredda, freddi], answer: 1}
+      - {q: "I panini sono ___.", options: [buoni, buone, buona], answer: 0}
+      - {q: "Le torte sono ___. (grande)", options: [grande, grandi, grando], answer: 1}
+
+conjugations:
+  - {verb: mangiare, n: jeść, tense: presente, label: czas teraźniejszy, forms: [mangio, mangi, mangia, mangiamo, mangiate, mangiano]}
+  - {verb: prendere, n: brać, tense: presente, label: czas teraźniejszy, forms: [prendo, prendi, prende, prendiamo, prendete, prendono]}
+  - {verb: bere, n: pić, tense: presente, label: czas teraźniejszy, forms: [bevo, bevi, beve, beviamo, bevete, bevono], irregular: true}
+
+stories:
+  - id: al-bar
+    title: Al bar
+    emoji: "☕"
+    intro: Poniedziałkowy poranek. Marco i Anna wpadają na śniadanie do baru przy szkole.
+    lines:
+      - [Cameriere, "Buongiorno! Che cosa prendete?", "Dzień dobry! Co podać?"]
+      - [Marco, "Per me un cappuccino e un cornetto, per favore.", "Dla mnie cappuccino i rogalik, proszę."]
+      - [Cameriere, "E per la signorina?", "A dla pani?"]
+      - [Anna, "Vorrei un tè caldo con il latte.", "Poproszę gorącą herbatę z mlekiem."]
+      - [Cameriere, "Mi dispiace, il latte è finito. Va bene un tè al limone?", "Przykro mi, mleko się skończyło. Może być herbata z cytryną?"]
+      - [Anna, "Va bene, grazie. E anche un panino.", "Dobrze, dziękuję. I jeszcze kanapkę."]
+      - [Marco, "Anna, mangi un panino alle nove di mattina?", "Anna, jesz kanapkę o dziewiątej rano?"]
+      - [Anna, "Sì! Ho molta fame.", "Tak! Jestem bardzo głodna."]
+      - [Cameriere, "Ecco a voi. Buon appetito!", "Proszę bardzo. Smacznego!"]
+      - [Marco, "Scusi, quanto costa tutto?", "Przepraszam, ile kosztuje wszystko?"]
+      - [Cameriere, "Sono nove euro e cinquanta.", "Razem dziewięć euro pięćdziesiąt."]
+      - [Marco, "Ecco dieci euro. Tenga il resto!", "Proszę, dziesięć euro. Reszty nie trzeba!"]
+    questions:
+      - {q: "Co zamawia Marco?", options: [kawę i kanapkę, cappuccino i rogalika, herbatę z cytryną], answer: 1}
+      - {q: "Dlaczego Anna nie dostaje herbaty z mlekiem?", options: [mleko się skończyło, mleko jest zimne, kelner zapomniał], answer: 0}
+      - {q: "Ile kosztuje wszystko?", options: ["9,50 €", "10 €", "5 €"], answer: 0}
+      - {q: "Co mówi kelner, podając zamówienie?", options: ["Buon appetito!", "Il conto, per favore!", "Arrivederci!"], answer: 0}

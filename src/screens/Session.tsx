@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { buildSession } from '../engine/generator.ts';
 import type { AnswerOutcome, Exercise, SessionMode } from '../engine/types.ts';
 import { db } from '../data/db.ts';
@@ -17,8 +17,8 @@ import { Results } from './Results.tsx';
 const PRAISE = ['Świetnie!', 'Doskonale!', 'Brawo!', 'Tak jest!', 'Idealnie!', 'Super!', 'Pięknie!'];
 const SPEED_SECONDS = 90;
 
-export function modeFromParams(p: Record<string, string | undefined>): SessionMode | null {
-  if (p.lessonId) return { kind: 'lesson', lessonId: p.lessonId };
+export function modeFromParams(p: Record<string, string | undefined>, tryb?: string | null): SessionMode | null {
+  if (p.lessonId) return { kind: 'lesson', lessonId: p.lessonId, variant: tryb === 'cwiczenia' ? 'practice' : 'mixed' };
   if (p.unitId && p.action === 'cwicz') return { kind: 'unit', unitId: p.unitId };
   if (p.unitId && p.action === 'przeskocz') return { kind: 'skip', unitId: p.unitId };
   switch (p.kind) {
@@ -35,7 +35,9 @@ export function modeFromParams(p: Record<string, string | undefined>): SessionMo
 
 export function SessionScreen() {
   const params = useParams();
-  const mode = useMemo(() => modeFromParams(params), [params]);
+  const [search] = useSearchParams();
+  const tryb = search.get('tryb');
+  const mode = useMemo(() => modeFromParams(params, tryb), [params, tryb]);
   const navigate = useNavigate();
   const course = useApp((s) => s.course);
   const settings = useApp((s) => s.settings);
@@ -229,6 +231,7 @@ export function SessionScreen() {
         mode={mode}
         course={course}
         isTest={!!isTest}
+        newWords={(queue ?? []).flatMap((e) => (e.type === 'intro' && !e.retry ? [e.vocab] : []))}
         onContinue={() => navigate('/', { replace: true })}
         onRetry={() => navigate(0)}
       />
@@ -260,6 +263,11 @@ export function SessionScreen() {
           <Icon name="close" />
         </button>
         <ProgressBar value={progressValue} label="Postęp sesji" tone={mode.kind === 'speed' ? 'sun' : 'ok'} />
+        {mode.kind !== 'speed' && (
+          <span className="session-count" aria-hidden>
+            {Math.min(pos + 1, queue.length)}/{queue.length}
+          </span>
+        )}
         {mode.kind === 'speed' ? (
           <span className="timer" aria-live="off">{timeLeft}s</span>
         ) : (

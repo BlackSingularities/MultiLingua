@@ -2,7 +2,7 @@
 import Dexie, { type EntityTable } from 'dexie';
 import type { SrsState } from '../engine/srs.ts';
 import type { Skill } from '../engine/types.ts';
-import type { CoursePack } from './types.ts';
+import type { CoursePack, ImagePack } from './types.ts';
 
 export interface LessonResult {
   stars: number;
@@ -60,6 +60,9 @@ export interface CachedPack {
   fetchedAt: number;
 }
 
+/** Ilustracje kursu w pamięci urządzenia (klucz = id kursu). */
+export type CachedImages = ImagePack & { fetchedAt: number };
+
 export interface SessionLog {
   id?: number;
   course: string;
@@ -86,6 +89,7 @@ export const db = new Dexie('multilingua') as Dexie & {
   skills: EntityTable<SkillStat, 'key'>;
   packs: EntityTable<CachedPack, 'id'>;
   sessions: EntityTable<SessionLog, 'id'>;
+  images: EntityTable<CachedImages, 'course'>;
 };
 
 db.version(1).stores({
@@ -98,6 +102,9 @@ db.version(1).stores({
   packs: 'id',
   sessions: '++id, course, at',
 });
+
+// 1.1: ilustracje słówek (paczki SVG pobierane osobno od treści kursu).
+db.version(2).stores({ images: 'course' });
 
 /** Tabele z danymi użytkownika (bez cache kursów) — do eksportu i resetu. */
 export const USER_TABLES = ['settings', 'progress', 'srs', 'activity', 'mistakes', 'skills', 'sessions'] as const;

@@ -1,0 +1,199 @@
+id: u03
+title: La famiglia
+subtitle: Rodzina, wiek i czasownik avere
+cefr: A1
+icon: "👨‍👩‍👧"
+goals:
+  - Przedstawisz swoją rodzinę
+  - Powiesz, ile masz lat, i zapytasz o wiek
+  - Użyjesz rodzajników w liczbie mnogiej i zaimków mio, tuo, suo
+
+vocab:
+  - {t: famiglia, n: rodzina, pos: noun, g: f, art: la, pl: famiglie, emoji: "👨‍👩‍👧"}
+  - {t: padre, n: ojciec, pos: noun, g: m, art: il, pl: padri, emoji: "👨"}
+  - {t: madre, n: matka, alt_n: [mama], pos: noun, g: f, art: la, pl: madri, emoji: "👩"}
+  - {t: papà, n: tata, pos: noun, g: m, art: il, pl: papà}
+  - {t: mamma, n: mama, pos: noun, g: f, art: la, pl: mamme, emoji: "🤱"}
+  - {t: fratello, n: brat, pos: noun, g: m, art: il, pl: fratelli, emoji: "🧒", note: "Liczba mnoga „fratelli” znaczy też „rodzeństwo”."}
+  - {t: sorella, n: siostra, pos: noun, g: f, art: la, pl: sorelle, emoji: "👧"}
+  - {t: figlio, n: syn, pos: noun, g: m, art: il, pl: figli, note: "„I figli” to także „dzieci” (czyjeś potomstwo)."}
+  - {t: figlia, n: córka, pos: noun, g: f, art: la, pl: figlie}
+  - {t: marito, n: mąż, pos: noun, g: m, art: il, pl: mariti, emoji: "🤵"}
+  - {t: moglie, n: żona, pos: noun, g: f, art: la, pl: mogli, emoji: "👰"}
+  - {t: nonno, n: dziadek, pos: noun, g: m, art: il, pl: nonni, emoji: "👴"}
+  - {t: nonna, n: babcia, pos: noun, g: f, art: la, pl: nonne, emoji: "👵"}
+  - {t: genitori, n: rodzice, pos: noun, g: m, art: i, note: "Tylko w liczbie mnogiej."}
+  - {t: cane, n: pies, pos: noun, g: m, art: il, pl: cani, emoji: "🐕"}
+  - {t: gatto, n: kot, pos: noun, g: m, art: il, pl: gatti, emoji: "🐈"}
+  - {t: avere, n: mieć, pos: verb, forms: [ho, hai, ha, abbiamo, avete, hanno], ex: ["Ho un fratello.", "Mam brata."]}
+  - {t: anno, n: rok, pos: noun, g: m, art: "l'", pl: anni, emoji: "📅"}
+  - {t: quanti, n: ile, alt_n: [ilu], pos: adj, forms: [quante, quanto, quanta]}
+  - {t: mio, n: mój, pos: adj, forms: [mia, miei, mie]}
+  - {t: tuo, n: twój, pos: adj, forms: [tua, tuoi, tue]}
+  - {t: suo, n: jego, alt_n: [jej, pana, pani], pos: adj, forms: [sua, suoi, sue]}
+  - {t: grande, n: duży, alt_n: [duża, wielki], pos: adj, forms: [grandi]}
+  - {t: piccolo, n: mały, alt_n: [mała], pos: adj, forms: [piccola, piccoli, piccole]}
+  - {t: simpatico, n: sympatyczny, alt_n: [sympatyczna, miły], pos: adj, forms: [simpatica, simpatici, simpatiche]}
+  - {t: uno, n: jeden, pos: num, emoji: "1️⃣"}
+  - {t: due, n: dwa, alt_n: [dwie, dwoje], pos: num, emoji: "2️⃣"}
+  - {t: tre, n: trzy, alt_n: [troje], pos: num, emoji: "3️⃣"}
+  - {t: quattro, n: cztery, pos: num, emoji: "4️⃣"}
+  - {t: cinque, n: pięć, pos: num, emoji: "5️⃣"}
+  - {id: v-sei-num, t: sei, n: sześć, pos: num, emoji: "6️⃣", note: "Uwaga: „sei” to też „jesteś” (tu sei)."}
+  - {t: sette, n: siedem, pos: num, emoji: "7️⃣"}
+  - {t: otto, n: osiem, pos: num, emoji: "8️⃣"}
+  - {t: nove, n: dziewięć, pos: num, emoji: "9️⃣"}
+  - {t: dieci, n: dziesięć, pos: num, emoji: "🔟"}
+
+sentences:
+  - {t: "Questa è la mia famiglia.", n: "To jest moja rodzina.", alt_n: ["To moja rodzina."], gap: mia, gap_opts: [mio, mie]}
+  - {t: "Ho un fratello e una sorella.", n: "Mam brata i siostrę.", gap: Ho, gap_opts: [Hai, Ha]}
+  - {t: "Hai fratelli?", n: "Masz rodzeństwo?", alt_n: ["Czy masz rodzeństwo?", "Masz braci?", "Czy masz braci?"], gap: Hai, gap_opts: [Ho, Ha]}
+  - {t: "Mia madre si chiama Teresa.", n: "Moja mama ma na imię Teresa.", alt_n: ["Moja matka ma na imię Teresa.", "Moja mama nazywa się Teresa.", "Moja matka nazywa się Teresa."], gap: Mia, gap_opts: [Mio, Mie]}
+  - {t: "Mio padre è medico.", n: "Mój ojciec jest lekarzem.", alt_n: ["Mój tata jest lekarzem."], gap: Mio, gap_opts: [Mia, Miei]}
+  - {t: "Quanti anni hai?", n: "Ile masz lat?", gap: anni, gap_opts: [anno, ani]}
+  - {t: "Mio figlio ha otto anni.", n: "Mój syn ma osiem lat.", gap: ha, gap_opts: [ho, hanno]}
+  - {t: "Mia sorella ha tre figli.", n: "Moja siostra ma troje dzieci.", alt_n: ["Moja siostra ma trójkę dzieci.", "Moja siostra ma trzech synów."], gap: figli, gap_opts: [figlio, figlie]}
+  - {t: "I nonni abitano a Napoli.", n: "Dziadkowie mieszkają w Neapolu.", gap: I, gap_opts: [Gli, Le]}
+  - {t: "Gli amici di Marco sono simpatici.", n: "Przyjaciele Marca są sympatyczni.", alt_n: ["Koledzy Marca są sympatyczni.", "Przyjaciele Marca są mili."], gap: Gli, gap_opts: [I, Le]}
+  - {t: "Le ragazze sono sorelle.", n: "Dziewczyny są siostrami.", alt_n: ["Te dziewczyny są siostrami."], gap: Le, gap_opts: [I, Gli]}
+  - {t: "Abbiamo un cane e due gatti.", n: "Mamy psa i dwa koty.", alt_n: ["My mamy psa i dwa koty."], gap: Abbiamo, gap_opts: [Avete, Hanno]}
+  - {t: "Il cane è piccolo.", n: "Pies jest mały.", gap: piccolo, gap_opts: [piccola, piccoli]}
+  - {t: "La famiglia di Anna è grande.", n: "Rodzina Anny jest duża.", gap: grande, gap_opts: [grandi, piccola]}
+  - {t: "Avete figli?", n: "Macie dzieci?", alt_n: ["Czy macie dzieci?", "Czy państwo mają dzieci?", "Mają państwo dzieci?"], gap: Avete, gap_opts: [Abbiamo, Hanno]}
+  - {t: "Loro hanno una figlia.", n: "Oni mają córkę.", alt_n: ["Mają córkę.", "One mają córkę."], gap: hanno, gap_opts: [ha, avete]}
+  - {t: "Tuo fratello è simpatico.", n: "Twój brat jest sympatyczny.", alt_n: ["Twój brat jest miły."], gap: Tuo, gap_opts: [Tua, Tuoi]}
+  - {t: "Suo marito è italiano.", n: "Jej mąż jest Włochem.", alt_n: ["Pani mąż jest Włochem."], gap: Suo, gap_opts: [Sua, Suoi]}
+  - {t: "Sua moglie è polacca.", n: "Jego żona jest Polką.", alt_n: ["Pana żona jest Polką."], gap: Sua, gap_opts: [Suo, Sue]}
+  - {t: "La nonna ha due gatti.", n: "Babcia ma dwa koty.", gap: due, gap_opts: [tre, dieci]}
+  - {t: "I miei genitori sono di Torino.", n: "Moi rodzice są z Turynu.", gap: miei, gap_opts: [mie, mio]}
+  - {t: "Le mie sorelle abitano in Polonia.", n: "Moje siostry mieszkają w Polsce.", gap: mie, gap_opts: [miei, mia]}
+  - {t: "Non ho figli.", n: "Nie mam dzieci.", gap: ho, gap_opts: [hai, ha]}
+  - {t: "Quanti fratelli hai?", n: "Ilu masz braci?", alt_n: ["Ile masz rodzeństwa?", "Ilu braci masz?"], gap: Quanti, gap_opts: [Quante, Quanto]}
+  - {t: "Mio nonno ha cinque nipoti.", n: "Mój dziadek ma pięcioro wnucząt.", alt_n: ["Mój dziadek ma pięcioro wnuków.", "Mój dziadek ma piątkę wnucząt."], gap: cinque, gap_opts: [quattro, sette]}
+
+grammar:
+  - id: it-avere
+    title: Czasownik avere i wiek
+    summary: "Mieć — i dlaczego po włosku „ma się” lata."
+    body: |
+      **Avere** (mieć) to obok *essere* najważniejszy włoski czasownik. Jest nieregularny:
+
+      | osoba | avere | po polsku |
+      |---|---|---|
+      | io | **ho** | mam |
+      | tu | **hai** | masz |
+      | lui / lei / Lei | **ha** | ma |
+      | noi | **abbiamo** | mamy |
+      | voi | **avete** | macie |
+      | loro | **hanno** | mają |
+
+      Litera **h** jest niema — *ho* czytamy jak „o”, *hanno* jak „anno”. Jest w pisowni tylko po to, by odróżnić *ho* (mam) od *o* (albo), *ha* (ma) od *a* (w, do), *hanno* od *anno* (rok).
+
+      ### Ile masz lat?
+      Tak jak po polsku, wiek „się ma”: **Quanti anni hai?** — *Ho trent'anni.* Nigdy nie mów „sono trenta”!
+
+      > Po włosku pytamy *quanti anni* (ile lat), a odpowiadamy *ho … anni*. Słowo *anni* nie znika: *Ho otto anni* — mam osiem lat.
+
+      ### Przeczenie
+      **Non** przed czasownikiem: *Non ho figli* — nie mam dzieci. Uwaga: po polsku „nie mam brata” (dopełniacz), po włosku przedmiot się nie zmienia: *non ho un fratello* albo *non ho fratelli*.
+    examples:
+      - {t: "Quanti anni hai? — Ho venti anni.", n: "Ile masz lat? — Mam dwadzieścia lat."}
+      - {t: "Abbiamo un cane e due gatti.", n: "Mamy psa i dwa koty."}
+      - {t: "Non ho fratelli.", n: "Nie mam rodzeństwa."}
+    check:
+      - {q: "Loro ___ due figli.", options: [ha, hanno, avete], answer: 1}
+      - {q: "Jak powiesz „Mam dziesięć lat”?", options: ["Sono dieci anni.", "Ho dieci anni.", "Ho dieci."], answer: 1}
+      - {q: "Voi ___ un gatto?", options: [abbiamo, avete, hanno], answer: 1}
+      - {q: "Jak czytamy „ho”?", options: ["ho (z wyraźnym h)", "o", "cho"], answer: 1}
+
+  - id: it-plurale-articoli
+    title: "Rodzajniki w liczbie mnogiej: i, gli, le"
+    summary: Il → i, lo i l' → gli, la → le.
+    body: |
+      Każdy rodzajnik określony ma swoją formę w liczbie mnogiej:
+
+      | liczba pojedyncza | liczba mnoga | przykład |
+      |---|---|---|
+      | **il** | **i** | il fratello → **i** fratelli |
+      | **lo** | **gli** | lo studente → **gli** studenti |
+      | **l'** (męski) | **gli** | l'amico → **gli** amici |
+      | **la** | **le** | la sorella → **le** sorelle |
+      | **l'** (żeński) | **le** | l'amica → **le** amiche |
+
+      Zasada jest prosta: rodzaj żeński zawsze ma **le**; w rodzaju męskim **gli** stoi tam, gdzie w liczbie pojedynczej było *lo* albo *l'*, a w pozostałych przypadkach — **i**.
+
+      > Grupa mieszana (mężczyźni i kobiety) jest w rodzaju męskim: *i miei genitori* (moi rodzice), *gli amici* (przyjaciele i przyjaciółki).
+
+      ### Rzeczowniki w liczbie mnogiej
+      Przypomnienie: -o → -i, -a → -e, -e → -i. Słowa żeńskie na **-ca, -ga** zawsze dodają *h*, żeby zachować twarde brzmienie: *l'amica → le amiche*, *polacca → polacche*. W rodzaju męskim bywa różnie: *tedesco → tedeschi*, ale *amico → amici*, *medico → medici* — te formy najlepiej po prostu zapamiętać.
+    examples:
+      - {t: "I nonni abitano a Napoli.", n: "Dziadkowie mieszkają w Neapolu."}
+      - {t: "Gli studenti parlano italiano.", n: "Studenci mówią po włosku."}
+      - {t: "Le ragazze sono sorelle.", n: "Dziewczyny są siostrami."}
+    check:
+      - {q: "___ amici di Marco", options: [I, Gli, Le], answer: 1}
+      - {q: "___ sorelle", options: [Le, Gli, I], answer: 0}
+      - {q: "___ gatti", options: [Gli, I, Le], answer: 1}
+      - {q: "Ojciec i matka razem to:", options: ["le genitori", "i genitori", "gli genitori"], answer: 1}
+
+  - id: it-possessivi
+    title: "Mój, twój, jego — mio, tuo, suo"
+    summary: Zaimki dzierżawcze i ważny wyjątek przy rodzinie.
+    body: |
+      Zaimek dzierżawczy zgadza się z **rzeczą posiadaną** (jak w polskim: *mój brat, moja siostra*) i zwykle stoi **z rodzajnikiem**:
+
+      | | m. lp | ż. lp | m. lm | ż. lm |
+      |---|---|---|---|---|
+      | mój | il **mio** | la **mia** | i **miei** | le **mie** |
+      | twój | il **tuo** | la **tua** | i **tuoi** | le **tue** |
+      | jego / jej / pana | il **suo** | la **sua** | i **suoi** | le **sue** |
+      | nasz | il **nostro** | la **nostra** | i **nostri** | le **nostre** |
+      | wasz | il **vostro** | la **vostra** | i **vostri** | le **vostre** |
+      | ich | il **loro** | la **loro** | i **loro** | le **loro** |
+
+      **Suo** znaczy i „jego”, i „jej” — liczy się rodzaj rzeczy, nie właściciela: *suo marito* — jej mąż, *sua moglie* — jego żona.
+
+      ### Wyjątek: członkowie rodziny
+      Przed rzeczownikiem oznaczającym **jednego** członka rodziny **nie** dajemy rodzajnika: *mio padre, mia sorella, tuo fratello*. Rodzajnik wraca, gdy:
+      - jest liczba mnoga: **i miei** fratelli;
+      - słowo jest zdrobniałe lub potoczne: **la mia** mamma, **il mio** papà;
+      - zaimkiem jest *loro*: **il loro** figlio;
+      - mówimy o całej rodzinie: **la mia** famiglia.
+
+      > *Questa è la mia famiglia* — to jest moja rodzina. Ale: *Questo è mio padre* — to jest mój ojciec.
+    examples:
+      - {t: "Mia madre si chiama Teresa.", n: "Moja mama ma na imię Teresa."}
+      - {t: "I miei genitori sono di Torino.", n: "Moi rodzice są z Turynu."}
+      - {t: "Suo marito è italiano.", n: "Jej mąż jest Włochem."}
+      - {t: "La mia mamma è simpatica.", n: "Moja mama jest sympatyczna."}
+    check:
+      - {q: "___ sorella abita a Roma.", options: [La mia, Mia, Mie], answer: 1, explain: "Jeden członek rodziny → bez rodzajnika."}
+      - {q: "___ fratelli sono simpatici.", options: [Miei, I miei, Mio], answer: 1, explain: "Liczba mnoga → z rodzajnikiem."}
+      - {q: "„Jego żona” to:", options: [suo moglie, sua moglie, sue moglie], answer: 1, explain: "Liczy się rodzaj słowa „moglie” (żeński)."}
+
+conjugations:
+  - {verb: avere, n: mieć, tense: presente, label: czas teraźniejszy, forms: [ho, hai, ha, abbiamo, avete, hanno], irregular: true}
+
+stories:
+  - id: foto-famiglia
+    title: La foto di famiglia
+    emoji: "📷"
+    intro: Anna pokazuje Marcowi zdjęcie swojej rodziny z Polski.
+    lines:
+      - [Marco, "Che bella foto! Chi sono?", "Jakie ładne zdjęcie! Kto to jest?"]
+      - [Anna, "È la mia famiglia. Questo è mio padre, Piotr.", "To moja rodzina. To jest mój tata, Piotr."]
+      - [Marco, "E la signora accanto a lui?", "A ta pani obok niego?"]
+      - [Anna, "È mia madre. Si chiama Ewa ed è insegnante.", "To moja mama. Ma na imię Ewa i jest nauczycielką."]
+      - [Marco, "Hai fratelli?", "Masz rodzeństwo?"]
+      - [Anna, "Sì, ho un fratello. Si chiama Tomek e ha quindici anni.", "Tak, mam brata. Ma na imię Tomek i ma piętnaście lat."]
+      - [Marco, "E il cane? È vostro?", "A pies? Jest wasz?"]
+      - [Anna, "Sì, è il nostro cane, Burek. È piccolo ma molto simpatico!", "Tak, to nasz pies, Burek. Jest mały, ale bardzo sympatyczny!"]
+      - [Marco, "Io non ho fratelli, ma ho due cugine.", "Ja nie mam rodzeństwa, ale mam dwie kuzynki."]
+      - [Anna, "Abitano a Roma?", "Mieszkają w Rzymie?"]
+      - [Marco, "No, abitano a Milano con i nonni.", "Nie, mieszkają w Mediolanie z dziadkami."]
+    questions:
+      - {q: "Kim jest Ewa?", options: [siostrą Anny, mamą Anny, babcią Anny], answer: 1}
+      - {q: "Ile lat ma brat Anny?", options: ["5", "15", "50"], answer: 1, explain: "Ha quindici anni — ma piętnaście lat."}
+      - {q: "Jaki jest Burek?", options: [duży i groźny, mały i sympatyczny, stary i leniwy], answer: 1}
+      - {q: "Gdzie mieszkają kuzynki Marca?", options: [w Rzymie, w Mediolanie, w Krakowie], answer: 1}

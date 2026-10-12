@@ -23,7 +23,9 @@
     "@fastify/compress": "^9.2.1",
     "@fastify/cors": "^11.3.1",
     "@fastify/static": "^10.1.6",
-    "fastify": "^5.12.5"
+    "fastify": "^5.12.5",
+    "js-yaml": "^4.1.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@capacitor-community/speech-recognition": "^7.0.1",
@@ -37,7 +39,7 @@
     "@capacitor/splash-screen": "^8.0.2",
     "@capacitor/status-bar": "^8.0.4",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
-    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/literata": "^5.3.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.15.0",
     "@types/react": "^19.1.0",
@@ -45,7 +47,6 @@
     "@vitejs/plugin-react": "^6.1.2",
     "dexie": "^4.4.6",
     "fake-indexeddb": "^6.0.0",
-    "js-yaml": "^4.1.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-router-dom": "^7.18.4",
@@ -54,7 +55,6 @@
     "vite": "^8.3.4",
     "vite-plugin-pwa": "^2.0.0",
     "vitest": "^5.0.4",
-    "zod": "^4.6.7",
     "zustand": "^5.0.15"
   }
 }

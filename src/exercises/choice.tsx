@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { Exercise } from '../engine/types.ts';
 import { SpeakButton, Say } from '../components/ui.tsx';
+import { WordArt } from '../components/WordArt.tsx';
 import { HintText, Instruction, useNumberKeys, type ExProps } from './shared.tsx';
 
 type Of<T extends Exercise['type']> = Extract<Exercise, { type: T }>;
@@ -57,31 +58,36 @@ export function IntroEx({ ex, course, finish }: ExProps<Of<'intro'>>) {
   const full = course.withArticle(v);
   return (
     <div className="ex ex-intro">
-      <Instruction>Nowe słowo</Instruction>
-      <div className="intro-card">
-        {v.emoji && <div className="intro-emoji" aria-hidden>{v.emoji}</div>}
-        <div className="intro-word-row">
-          <Say text={full} className="intro-word">{full}</Say>
-          <SpeakButton text={full} autoPlay />
-          <SpeakButton text={full} slow size="sm" />
-        </div>
-        <p className="intro-meaning">{v.n}</p>
-        {(v.gender || v.plural) && (
-          <p className="intro-grammar">
-            {v.gender === 'm' && 'rodzaj męski'}
-            {v.gender === 'f' && 'rodzaj żeński'}
-            {v.gender === 'n' && 'rodzaj nijaki'}
-            {v.plural && <> · liczba mnoga: <Say text={v.plural}>{v.plural}</Say></>}
-          </p>
-        )}
-        {v.note && <p className="intro-note">{v.note}</p>}
-        {v.ex && (
-          <div className="intro-example">
-            <HintText text={v.ex.t} course={course} />
-            <p className="muted">{v.ex.n}</p>
+      <p className="ex-kicker">Nowe słowo</p>
+      <article className="intro-card">
+        <WordArt source={v} size="lg" className="intro-art" />
+        <div className="intro-body">
+          <div className="intro-word-row">
+            <Say text={full} className="intro-word">{full}</Say>
+            <span className="intro-audio">
+              <SpeakButton text={full} autoPlay />
+              <SpeakButton text={full} slow size="sm" />
+            </span>
           </div>
-        )}
-      </div>
+          <p className="intro-meaning">{v.n}</p>
+          {(v.gender || v.plural) && (
+            <p className="intro-grammar">
+              {v.gender === 'm' && 'rodzaj męski'}
+              {v.gender === 'f' && 'rodzaj żeński'}
+              {v.gender === 'n' && 'rodzaj nijaki'}
+              {v.gender && v.plural && ', '}
+              {v.plural && <>liczba mnoga: <Say text={v.plural}>{v.plural}</Say></>}
+            </p>
+          )}
+          {v.note && <p className="intro-note">{v.note}</p>}
+          {v.ex && (
+            <div className="intro-example">
+              <HintText text={v.ex.t} course={course} />
+              <p className="muted">{v.ex.n}</p>
+            </div>
+          )}
+        </div>
+      </article>
       <IntroContinue onGo={() => finish({ ok: true, skipped: true }, true)} />
     </div>
   );
@@ -134,8 +140,8 @@ export function PictureEx({ ex, locked, setCheck }: ExProps<Of<'picture'>>) {
         layout="grid"
         options={ex.options.map((o) => (
           <span className="pic-option">
-            <span className="pic-emoji" aria-hidden>{o.emoji}</span>
-            <span className="pic-label">{locked ? o.label : ''}</span>
+            <WordArt source={o} size="md" noLetter />
+            <span className="pic-label">{locked ? o.label : <span className="sr-only">obrazek {o.label}</span>}</span>
           </span>
         ))}
         answer={ex.answer}
@@ -167,7 +173,7 @@ export function ArticleEx({ ex, locked, setCheck }: ExProps<Of<'article'>>) {
     <div className="ex">
       <Instruction>Wybierz właściwy rodzajnik</Instruction>
       <div className="article-card">
-        {ex.emoji && <span className="article-emoji" aria-hidden>{ex.emoji}</span>}
+        <WordArt source={{ t: ex.word, emoji: ex.emoji, img: ex.img }} size="sm" />
         <p className="prompt big target">
           <span className={`article-slot${selected !== null ? ' filled' : ''}`}>{selected !== null ? ex.options[selected] : '___'}</span>{' '}
           {ex.word}

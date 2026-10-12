@@ -1,0 +1,223 @@
+id: u06
+title: La giornata
+subtitle: Godziny, dni tygodnia i codzienne czynności
+cefr: A1
+icon: "⏰"
+goals:
+  - Powiesz, która jest godzina, i umówisz się na konkretną porę
+  - Opowiesz o swoim zwykłym dniu
+  - Odmienisz czasowniki zwrotne i czasowniki na -ire
+
+vocab:
+  - {t: alzarsi, n: wstawać, pos: verb, forms: [mi alzo, ti alzi, si alza, ci alziamo, vi alzate, si alzano, alzo, alzi, alza, alziamo, alzate, alzano]}
+  - {t: svegliarsi, n: budzić się, pos: verb, forms: [mi sveglio, ti svegli, si sveglia, sveglio, svegli, sveglia, svegliamo, svegliate, svegliano]}
+  - {t: lavarsi, n: myć się, pos: verb, forms: [mi lavo, ti lavi, si lava, lavo, lavi, lava, laviamo, lavate, lavano]}
+  - {t: vestirsi, n: ubierać się, pos: verb, forms: [mi vesto, ti vesti, si veste, vesto, vesti, veste]}
+  - {t: dormire, n: spać, pos: verb, forms: [dormo, dormi, dorme, dormiamo, dormite, dormono], emoji: "😴"}
+  - {t: partire, n: wyjeżdżać, alt_n: [odjeżdżać], pos: verb, forms: [parto, parti, parte, partiamo, partite, partono]}
+  - {t: finire, n: kończyć, alt_n: [kończyć się], pos: verb, forms: [finisco, finisci, finisce, finiamo, finite, finiscono]}
+  - {t: studiare, n: uczyć się, alt_n: [studiować], pos: verb, forms: [studio, studi, studia, studiamo, studiate, studiano], emoji: "📚"}
+  - {t: mattina, n: rano, alt_n: [poranek], pos: noun, g: f, art: la, pl: mattine, emoji: "🌅"}
+  - {t: pomeriggio, n: popołudnie, pos: noun, g: m, art: il, pl: pomeriggi}
+  - {t: sera, n: wieczór, pos: noun, g: f, art: la, pl: sere, emoji: "🌆"}
+  - {t: notte, n: noc, pos: noun, g: f, art: la, pl: notti, emoji: "🌙"}
+  - {t: oggi, n: dzisiaj, alt_n: [dziś], pos: adv}
+  - {t: domani, n: jutro, pos: adv}
+  - {t: ieri, n: wczoraj, pos: adv}
+  - {t: ora, n: godzina, alt_n: [teraz], pos: noun, g: f, art: "l'", pl: ore, emoji: "🕐", note: "„Ora” jako przysłówek znaczy też „teraz”."}
+  - {t: giorno, n: dzień, pos: noun, g: m, art: il, pl: giorni, emoji: "📆"}
+  - {t: settimana, n: tydzień, pos: noun, g: f, art: la, pl: settimane}
+  - {t: lunedì, n: poniedziałek, pos: noun, g: m, art: il}
+  - {t: martedì, n: wtorek, pos: noun, g: m, art: il}
+  - {t: mercoledì, n: środa, pos: noun, g: m, art: il}
+  - {t: giovedì, n: czwartek, pos: noun, g: m, art: il}
+  - {t: venerdì, n: piątek, pos: noun, g: m, art: il}
+  - {t: sabato, n: sobota, pos: noun, g: m, art: il, note: "Rodzaj męski: il sabato."}
+  - {t: domenica, n: niedziela, pos: noun, g: f, art: la, note: "Jedyny dzień tygodnia w rodzaju żeńskim."}
+  - {t: presto, n: wcześnie, alt_n: [szybko, niedługo], pos: adv}
+  - {t: tardi, n: późno, pos: adv}
+  - {t: di solito, n: zwykle, alt_n: [zazwyczaj], pos: adv}
+  - {t: mai, n: nigdy, pos: adv, note: "Z przeczeniem: non dormo mai — nigdy nie śpię."}
+  - {t: mezzogiorno, n: południe, pos: noun, g: m, art: il, emoji: "🕛"}
+  - {t: mezzanotte, n: północ, pos: noun, g: f, art: la, emoji: "🌌"}
+  - {t: mezzo, n: pół, pos: adj, forms: [mezza]}
+  - {t: lezione, n: lekcja, alt_n: [zajęcia], pos: noun, g: f, art: la, pl: lezioni, emoji: "🏫"}
+
+sentences:
+  - {t: "Che ore sono?", n: "Która jest godzina?", alt_t: ["Che ora è?"], alt_n: ["Która godzina?"], gap: ore, gap_opts: [ora, orari]}
+  - {t: "Sono le otto.", n: "Jest ósma.", alt_n: ["Jest godzina ósma."], gap: le, gap_opts: [la, il]}
+  - {t: "È l'una.", n: "Jest pierwsza.", alt_n: ["Jest godzina pierwsza."], gap: È, gap_opts: [Sono, Ha]}
+  - {t: "Mi alzo alle sette.", n: "Wstaję o siódmej.", alt_t: ["Io mi alzo alle sette."], gap: alzo, gap_opts: [alzi, alza]}
+  - {t: "A che ora ti svegli?", n: "O której się budzisz?", alt_n: ["O której godzinie się budzisz?", "O której budzisz się?"], gap: svegli, gap_opts: [sveglio, sveglia]}
+  - {t: "Di solito mi sveglio presto.", n: "Zwykle budzę się wcześnie.", alt_n: ["Zazwyczaj budzę się wcześnie.", "Zwykle wcześnie się budzę."], gap: presto, gap_opts: [tardi, mai]}
+  - {t: "La domenica dormo fino a tardi.", n: "W niedziele śpię do późna.", alt_n: ["W niedzielę śpię do późna."], gap: dormo, gap_opts: [dormi, dorme]}
+  - {t: "Lavoro dal lunedì al venerdì.", n: "Pracuję od poniedziałku do piątku.", gap: dal, gap_opts: [del, nel]}
+  - {t: "Il sabato studio l'italiano.", n: "W soboty uczę się włoskiego.", alt_n: ["W sobotę uczę się włoskiego."], gap: studio, gap_opts: [studi, studia]}
+  - {t: "Marco si lava e si veste.", n: "Marco myje się i ubiera.", alt_n: ["Marco się myje i ubiera.", "Marco myje się i ubiera się."], gap: lava, gap_opts: [lavo, lavi]}
+  - {t: "Finisco di lavorare alle cinque.", n: "Kończę pracę o piątej.", alt_n: ["Kończę pracować o piątej."], gap: Finisco, gap_opts: [Finisce, Finiamo]}
+  - {t: "La lezione finisce a mezzogiorno.", n: "Lekcja kończy się w południe.", alt_n: ["Zajęcia kończą się w południe."], gap: finisce, gap_opts: [finisci, finiscono]}
+  - {t: "Oggi è martedì.", n: "Dzisiaj jest wtorek.", alt_n: ["Dziś jest wtorek."], gap: martedì, gap_opts: [lunedì, mercoledì]}
+  - {t: "Domani parto per Roma.", n: "Jutro wyjeżdżam do Rzymu.", gap: parto, gap_opts: [parti, parte]}
+  - {t: "Non dormo mai il pomeriggio.", n: "Nigdy nie śpię po południu.", gap: mai, gap_opts: [sempre, presto]}
+  - {t: "La sera siamo sempre a casa.", n: "Wieczorem zawsze jesteśmy w domu.", alt_n: ["Wieczorami zawsze jesteśmy w domu."], gap: sempre, gap_opts: [mai, tardi]}
+  - {t: "A che ora finisci oggi?", n: "O której dziś kończysz?", alt_n: ["O której godzinie dziś kończysz?", "O której kończysz dzisiaj?"], gap: finisci, gap_opts: [finisco, finisce]}
+  - {t: "Sono le dieci e mezza.", n: "Jest wpół do jedenastej.", alt_n: ["Jest dziesiąta trzydzieści."], gap: mezza, gap_opts: [mezzo, quarto]}
+  - {t: "È mezzogiorno.", n: "Jest południe.", gap: mezzogiorno, gap_opts: [mezzanotte, mattina]}
+  - {t: "Vi alzate presto?", n: "Wstajecie wcześnie?", alt_n: ["Czy wstajecie wcześnie?"], gap: alzate, gap_opts: [alziamo, alzano]}
+  - {t: "I bambini dormono.", n: "Dzieci śpią.", gap: dormono, gap_opts: [dorme, dormite]}
+  - {t: "Il mercoledì e il giovedì lavoro a casa.", n: "W środy i czwartki pracuję w domu.", alt_n: ["W środę i czwartek pracuję w domu."], gap: lavoro, gap_opts: [lavori, lavora]}
+  - {t: "Domani è sabato!", n: "Jutro jest sobota!", alt_n: ["Jutro sobota!"], gap: sabato, gap_opts: [domenica, venerdì]}
+  - {t: "Studiamo dalle nove a mezzogiorno.", n: "Uczymy się od dziewiątej do południa.", gap: Studiamo, gap_opts: [Studiate, Studiano]}
+  - {t: "Ieri era una settimana difficile.", n: "Wczoraj był trudny tydzień.", alt_t: ["È stata una settimana difficile."], alt_n: ["To był trudny tydzień."]}
+
+grammar:
+  - id: it-ore
+    title: "Która godzina? — Che ore sono?"
+    summary: "Sono le otto, è l'una, alle sette — godziny po włosku."
+    body: |
+      Pytamy **Che ore sono?** albo **Che ora è?** (obie formy są poprawne). Odpowiedź zawiera rodzajnik żeński, bo w domyśle jest słowo *le ore* (godziny):
+
+      | godzina | po włosku |
+      |---|---|
+      | 1:00 | **È l'una** |
+      | 2:00 | **Sono le due** |
+      | 8:00 | **Sono le otto** |
+      | 12:00 | **È mezzogiorno** |
+      | 24:00 | **È mezzanotte** |
+
+      Uwaga na liczbę: *È l'una* (jedna godzina → liczba pojedyncza), ale *Sono le due, le tre…* (mnoga).
+
+      ### Minuty
+      - **e un quarto** — kwadrans po: *sono le tre e un quarto* (3:15)
+      - **e mezza** — wpół do… (po!): *sono le dieci e mezza* (10:30)
+      - **meno un quarto** — za kwadrans: *sono le sei meno un quarto* (5:45)
+      - **e dieci, e venti…** — *sono le nove e venti* (9:20)
+
+      > Uwaga, pułapka: polskie „wpół do jedenastej” to 10:30, a po włosku liczymy od pełnej godziny w przód: **le dieci e mezza**.
+
+      ### O której?
+      **A che ora…?** — O której? Odpowiedź z przyimkiem ściągniętym: **alle** otto, **all'**una, **a** mezzogiorno. *Mi alzo alle sette.*
+    examples:
+      - {t: "Che ore sono? — Sono le quattro e un quarto.", n: "Która godzina? — Jest kwadrans po czwartej."}
+      - {t: "A che ora parte il treno? — All'una.", n: "O której odjeżdża pociąg? — O pierwszej."}
+      - {t: "La lezione finisce a mezzogiorno.", n: "Lekcja kończy się w południe."}
+    check:
+      - {q: "1:00 to:", options: ["Sono le una.", "È l'una.", "È una."], answer: 1}
+      - {q: "10:30 to:", options: ["Sono le dieci e mezza.", "Sono le undici e mezza.", "È mezza dieci."], answer: 0}
+      - {q: "Mi alzo ___ sette.", options: [le, alle, a], answer: 1}
+
+  - id: it-riflessivi
+    title: "Czasowniki zwrotne: alzarsi, svegliarsi"
+    summary: "Mi alzo, ti alzi, si alza — „się” po włosku zmienia się z osobą."
+    body: |
+      Czasowniki zwrotne mają w bezokoliczniku końcówkę **-si**: *alzarsi* (wstawać), *svegliarsi* (budzić się), *lavarsi* (myć się), *vestirsi* (ubierać się), *chiamarsi* (nazywać się).
+
+      W polskim „się” jest jedno dla wszystkich osób. We włoskim zaimek zwrotny zmienia się z osobą i stoi **przed** czasownikiem:
+
+      | osoba | zaimek | alzarsi | po polsku |
+      |---|---|---|---|
+      | io | **mi** | mi alzo | wstaję |
+      | tu | **ti** | ti alzi | wstajesz |
+      | lui / lei | **si** | si alza | wstaje |
+      | noi | **ci** | ci alziamo | wstajemy |
+      | voi | **vi** | vi alzate | wstajecie |
+      | loro | **si** | si alzano | wstają |
+
+      Sam czasownik odmienia się regularnie (tu: jak *-are*). Przeczenie stoi przed zaimkiem: **non mi** alzo presto.
+
+      > Nie wszystkie zwrotne czasowniki włoskie są zwrotne po polsku: *alzarsi* to „wstawać” (bez „się”), a *vestirsi* to „ubierać się”. Trzeba je zapamiętywać razem z *-si*.
+    examples:
+      - {t: "Mi sveglio alle sette e mi alzo alle sette e un quarto.", n: "Budzę się o siódmej i wstaję kwadrans po siódmej."}
+      - {t: "Marco si lava e si veste.", n: "Marco myje się i ubiera."}
+      - {t: "Non ci alziamo mai presto.", n: "Nigdy nie wstajemy wcześnie."}
+    check:
+      - {q: "Noi ___ alziamo alle otto.", options: [si, ci, vi], answer: 1}
+      - {q: "Loro ___ svegliano tardi.", options: [si, vi, ci], answer: 0}
+      - {q: "Jak powiesz „Nie wstaję wcześnie”?", options: ["Mi non alzo presto.", "Non mi alzo presto.", "Non alzo mi presto."], answer: 1}
+
+  - id: it-verbi-ire
+    title: "Czasowniki na -ire: dormire i finire"
+    summary: "Dwa wzory odmiany — jeden z dodatkiem -isc-."
+    body: |
+      Trzecia grupa czasowników kończy się na **-ire** i ma dwa wzory. Część odmienia się jak **dormire** (spać), a część — jak **finire** (kończyć), z dodatkowym **-isc-** w czterech osobach:
+
+      | osoba | dormire | finire |
+      |---|---|---|
+      | io | dorm**o** | fin**isco** |
+      | tu | dorm**i** | fin**isci** |
+      | lui / lei | dorm**e** | fin**isce** |
+      | noi | dorm**iamo** | fin**iamo** |
+      | voi | dorm**ite** | fin**ite** |
+      | loro | dorm**ono** | fin**iscono** |
+
+      Jak *dormire*: **partire** (wyjeżdżać), *aprire* (otwierać), *sentire* (czuć, słyszeć), *vestirsi*.
+      Jak *finire*: *capire* (rozumieć), *preferire* (woleć), *pulire* (sprzątać).
+
+      > Formy *noi* i *voi* nigdy nie mają -isc-: *finiamo, finite*. A *-isco* czytamy „isko”, *-isci* i *-isce* — „iszi”, „isze”.
+    examples:
+      - {t: "I bambini dormono.", n: "Dzieci śpią."}
+      - {t: "Finisco di lavorare alle cinque.", n: "Kończę pracę o piątej."}
+      - {t: "Non capisco.", n: "Nie rozumiem."}
+    check:
+      - {q: "Io ___ alle sei. (finire)", options: [fino, finisco, finiscio], answer: 1}
+      - {q: "Noi ___ domani. (partire)", options: [partiamo, partisciamo, partono], answer: 0}
+      - {q: "Voi ___ presto? (finire)", options: [finiscete, finite, finete], answer: 1}
+
+  - id: it-giorni
+    title: Dni tygodnia
+    summary: "Lunedì czy il lunedì? Mała różnica, duża zmiana znaczenia."
+    body: |
+      Dni tygodnia piszemy **małą literą**. Prawie wszystkie są rodzaju męskiego — wyjątkiem jest **la domenica**.
+
+      | po polsku | po włosku |
+      |---|---|
+      | poniedziałek | lunedì |
+      | wtorek | martedì |
+      | środa | mercoledì |
+      | czwartek | giovedì |
+      | piątek | venerdì |
+      | sobota | sabato |
+      | niedziela | domenica |
+
+      ### Z rodzajnikiem czy bez?
+      - **Lunedì** vado a Roma. — W (ten najbliższy) poniedziałek jadę do Rzymu.
+      - **Il lunedì** vado in palestra. — W poniedziałki (co tydzień) chodzę na siłownię.
+
+      Rodzajnik zmienia „w ten poniedziałek” na „w każdy poniedziałek”. Po polsku podobnie zmieniamy „w poniedziałek” na „w poniedziałki”.
+
+      > Od–do: **dal** lunedì **al** venerdì — od poniedziałku do piątku. Pory dnia: **la** mattina (rano), **il** pomeriggio (po południu), **la** sera (wieczorem), **di** notte (w nocy).
+    examples:
+      - {t: "Oggi è giovedì.", n: "Dziś jest czwartek."}
+      - {t: "La domenica dormo fino a tardi.", n: "W niedziele śpię do późna."}
+      - {t: "Lavoro dal lunedì al venerdì.", n: "Pracuję od poniedziałku do piątku."}
+    check:
+      - {q: "„W soboty gram w piłkę” — jak zacząć zdanie?", options: ["Sabato…", "Il sabato…", "La sabato…"], answer: 1}
+      - {q: "Który dzień jest rodzaju żeńskiego?", options: [sabato, domenica, venerdì], answer: 1}
+      - {q: "Od poniedziałku do piątku:", options: ["da lunedì a venerdì", "dal lunedì al venerdì", "del lunedì nel venerdì"], answer: 1}
+
+conjugations:
+  - {verb: alzarsi, n: wstawać, tense: presente, label: czas teraźniejszy, forms: [mi alzo, ti alzi, si alza, ci alziamo, vi alzate, si alzano], note: "Zaimek zwrotny stoi przed czasownikiem."}
+  - {verb: dormire, n: spać, tense: presente, label: czas teraźniejszy, forms: [dormo, dormi, dorme, dormiamo, dormite, dormono]}
+  - {verb: finire, n: kończyć, tense: presente, label: czas teraźniejszy, forms: [finisco, finisci, finisce, finiamo, finite, finiscono], note: "Wzór z -isc- (jak capire, preferire)."}
+
+stories:
+  - id: giornata-luca
+    title: Una mattina di Luca
+    emoji: "⏰"
+    intro: Siódma trzydzieści. Mama budzi Lukę, który jest pewien, że dziś sobota.
+    lines:
+      - [Mamma, "Luca! Sono le sette e mezza! Ti alzi o no?", "Luca! Jest wpół do ósmej! Wstajesz czy nie?"]
+      - [Luca, "Mamma, oggi è sabato… Dormo ancora un po'.", "Mamo, dzisiaj jest sobota… Pośpię jeszcze trochę."]
+      - [Mamma, "No, oggi è venerdì! Hai lezione alle nove.", "Nie, dzisiaj jest piątek! Masz lekcję o dziewiątej."]
+      - [Luca, "Venerdì? Oh no! Mi alzo subito!", "Piątek? O nie! Zaraz wstaję!"]
+      - [Luca, "Mi lavo, mi vesto e… dov'è il mio zaino?", "Myję się, ubieram i… gdzie jest mój plecak?"]
+      - [Mamma, "È in cucina, sulla sedia.", "Jest w kuchni, na krześle."]
+      - [Luca, "Grazie, mamma! A che ora finisce la scuola oggi?", "Dzięki, mamo! O której dziś kończy się szkoła?"]
+      - [Mamma, "Finisci all'una. Poi pranzi dai nonni.", "Kończysz o pierwszej. Potem jesz obiad u dziadków."]
+      - [Luca, "Perfetto. E stasera?", "Świetnie. A dziś wieczorem?"]
+      - [Mamma, "Stasera studi! Lunedì hai un esame.", "Dziś wieczorem się uczysz! W poniedziałek masz egzamin."]
+    questions:
+      - {q: "Jaki dzień jest naprawdę?", options: [sobota, piątek, poniedziałek], answer: 1}
+      - {q: "O której Luca ma lekcję?", options: ["o 7:30", "o 9:00", "o 13:00"], answer: 1}
+      - {q: "Gdzie jest plecak?", options: [w kuchni na krześle, w łazience, w samochodzie], answer: 0}
+      - {q: "Co Luca ma w poniedziałek?", options: [wolne, egzamin, urodziny], answer: 1}

@@ -28,8 +28,8 @@ export default defineConfig(({ mode }) => ({
         start_url: './',
         scope: './',
         display: 'standalone',
-        background_color: '#f2f4fb',
-        theme_color: '#1b2559',
+        background_color: '#eef0f5',
+        theme_color: '#151a3b',
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
@@ -38,6 +38,8 @@ export default defineConfig(({ mode }) => ({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+        // Panel administratora i rzadkie alfabety czcionek pobierają się tylko, gdy są potrzebne.
+        globIgnores: ['**/AdminScreen-*', '**/*-{greek,greek-ext,cyrillic,cyrillic-ext,vietnamese}-*'],
         navigateFallback: 'index.html',
         navigateFallbackDenylist: [/\/api\//],
         // Paczki kursów i tak trafiają do IndexedDB; API zawsze najpierw z sieci.
@@ -52,7 +54,7 @@ export default defineConfig(({ mode }) => ({
     }),
   ],
   server: {
-    port: 5173,
+    port: Number(process.env.PORT) || 5173,
     proxy: { '/api': 'http://localhost:8787' },
   },
   build: {

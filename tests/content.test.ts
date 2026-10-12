@@ -100,8 +100,11 @@ describe.each(dirs)('kurs %s', (dir) => {
   });
 
   it('pytania w teorii i historyjkach mają poprawne indeksy odpowiedzi', () => {
-    for (const g of index.grammar.values()) for (const q of g.check) expect(q.options[q.answer]).toBeDefined();
-    for (const s of index.stories.values()) for (const q of s.questions) expect(q.options[q.answer]).toBeDefined();
+    const all = [...[...index.grammar.values()].flatMap((g) => g.check), ...[...index.stories.values()].flatMap((s) => s.questions)];
+    for (const q of all) {
+      expect(q.options[q.answer], q.q).toBeDefined();
+      expect(new Set(q.options).size, `powtórzone opcje: ${q.q}`).toBe(q.options.length);
+    }
   });
 
   it('generuje rozwiązywalne ćwiczenia dla każdej lekcji (nowy i zaawansowany uczeń)', () => {

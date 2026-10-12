@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useApp, type Theme } from '../data/store.ts';
 import { db, USER_TABLES } from '../data/db.ts';
 import { isNative } from '../platform/native.ts';
@@ -210,6 +210,18 @@ export function SettingsScreen() {
           </button>
         </div>
       </section>
+
+      {!isNative && (
+        <section className="panel">
+          <h2 className="section-title">Treść kursów</h2>
+          <p className="muted small">
+            Dla autorów kursu: edycja rozdziałów, generowanie nowych z pomocą AI i ilustracje słówek. Wymaga konta administratora.
+          </p>
+          <Link to="/admin" className="btn btn-ghost">
+            <Icon name="settings" size={18} /> Panel administratora
+          </Link>
+        </section>
+      )}
 
       <Modal open={confirmReset} onClose={() => setConfirmReset(false)} title="Wyzerować postępy?">
         <p>Usuniesz ukończone lekcje, powtórki, statystyki i serię dni we wszystkich kursach. Ustawienia zostaną. Tej operacji nie da się cofnąć.</p>
