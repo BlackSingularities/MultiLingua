@@ -50,7 +50,7 @@ export class CourseIndex {
     for (const table of this.tables.values()) {
       table.forms.forEach((f, person) => {
         const key = f.toLowerCase();
-        if (key.includes(' ')) return;
+        if (key.includes(' ') || key.includes('|')) return;
         const list = this.formIndex.get(key) ?? [];
         list.push({ table, person });
         this.formIndex.set(key, list);

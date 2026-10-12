@@ -409,7 +409,7 @@ class Gen {
     const forms = this.ix.formIndex.get(lw);
     if (forms?.length) {
       const table = forms[0].table;
-      return [...new Set(table.forms.filter((f) => f.toLowerCase() !== lw && !f.includes(' ')))].map((f) => matchCase(f, word));
+      return [...new Set(table.forms.filter((f) => f.toLowerCase() !== lw && !f.includes(' ') && !f.includes('|')))].map((f) => matchCase(f, word));
     }
     const arts = this.ix.rules.articles;
     if (arts.includes(lw)) return arts.filter((a) => a !== lw).map((f) => matchCase(f, word));
@@ -472,7 +472,7 @@ class Gen {
       const lw = tok.toLowerCase();
       const forms = this.ix.formIndex.get(lw);
       if (forms?.length) {
-        const others = forms[0].table.forms.filter((f) => f.toLowerCase() !== lw && !f.includes(' '));
+        const others = forms[0].table.forms.filter((f) => f.toLowerCase() !== lw && !f.includes(' ') && !f.includes('|'));
         if (others.length) candidates.push({ i, wrong: matchCase(others[Math.floor(this.rng() * others.length)], tok) });
       }
       const arts = this.ix.rules.articles;
@@ -537,7 +537,8 @@ class Gen {
       table,
       person: p,
       personLabel: this.ix.rules.persons[p],
-      answers: [table.forms[p]],
+      // Forma może mieć warianty, np. „sono andato | sono andata”.
+      answers: table.forms[p].split('|').map((f) => f.trim()),
     };
   }
 

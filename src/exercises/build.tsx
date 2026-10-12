@@ -314,7 +314,7 @@ export function ConjugateEx({ ex, course, locked, outcome, setCheck }: ExProps<O
             return {
               ok: r.ok,
               partial: r.grade === 'accent' || r.grade === 'typo' ? r.grade : undefined,
-              correct: `${ex.personLabel} ${ex.answers[0]}`,
+              correct: `${ex.personLabel} ${r.ok ? r.best : ex.answers.join(' / ')}`,
               given: value,
             };
           },
@@ -339,7 +339,7 @@ export function ConjugateEx({ ex, course, locked, outcome, setCheck }: ExProps<O
             {ex.table.forms.map((f, i) => (
               <tr key={i} className={i === ex.person ? 'is-current' : ''}>
                 <th>{course.rules.persons[i]}</th>
-                <td lang={course.pack.target.code}>{f}</td>
+                <td lang={course.pack.target.code}>{f.replaceAll('|', '/')}</td>
               </tr>
             ))}
           </tbody>

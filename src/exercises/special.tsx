@@ -284,7 +284,7 @@ export function ConjTable({ table, persons, lang }: { table: { verb: string; n: 
             <tr key={i}>
               <th>{persons[i]}</th>
               <td lang={lang}>
-                <Say text={f}>{f}</Say>
+                <Say text={f.split('|')[0].trim()}>{f.replaceAll('|', '/')}</Say>
               </td>
             </tr>
           ))}

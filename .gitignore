@@ -1,6 +1,6 @@
 node_modules/
-dist/
-data/
+/dist/
+/data/
 *.log
 .env
 .env.*

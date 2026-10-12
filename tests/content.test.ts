@@ -61,7 +61,7 @@ function assertSolvable(ex: Exercise, index: CourseIndex) {
       if (ex.options) expect(ex.options).toContain(ex.answers[0]);
       break;
     case 'conjugate':
-      expect(ex.table.forms[ex.person]).toBe(ex.answers[0]);
+      expect(ex.table.forms[ex.person].split('|')[0].trim()).toBe(ex.answers[0]);
       break;
     case 'errorspot':
       expect(ex.tokens[ex.wrong].toLowerCase()).not.toBe(ex.fix.toLowerCase());
