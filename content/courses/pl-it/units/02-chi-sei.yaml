@@ -1,0 +1,207 @@
+id: u02
+title: Chi sei?
+subtitle: Narodowości, pochodzenie i rodzajniki
+cefr: A1
+icon: "🌍"
+goals:
+  - Powiesz, skąd jesteś i gdzie mieszkasz
+  - Rozpoznasz rodzaj rzeczownika po końcówce
+  - Dobierzesz właściwy rodzajnik — un, uno, una, il, lo, la
+
+vocab:
+  - {t: italiano, n: Włoch, alt_n: [włoski, Włoszka], pos: adj, forms: [italiana, italiani, italiane], emoji: "🍕"}
+  - {t: polacco, n: Polak, alt_n: [polski, Polka], pos: adj, forms: [polacca, polacchi, polacche]}
+  - {t: tedesco, n: Niemiec, alt_n: [niemiecki, Niemka], pos: adj, forms: [tedesca, tedeschi, tedesche]}
+  - {t: inglese, n: Anglik, alt_n: [angielski, Angielka], pos: adj, forms: [inglesi]}
+  - {t: spagnolo, n: Hiszpan, alt_n: [hiszpański, Hiszpanka], pos: adj, forms: [spagnola, spagnoli, spagnole]}
+  - {t: francese, n: Francuz, alt_n: [francuski, Francuzka], pos: adj, forms: [francesi]}
+  - {t: di, n: "z (pochodzenie)", alt_n: [z, od], pos: prep, note: "Pochodzenie z miasta: sono di Roma — jestem z Rzymu."}
+  - {t: dove, n: gdzie, pos: adv, forms: ["dov'è"]}
+  - {t: abitare, n: mieszkać, pos: verb, forms: [abito, abiti, abita, abitiamo, abitate, abitano]}
+  - {t: a, n: "w (przed miastem)", alt_n: [w, do], pos: prep, note: "Przed nazwą miasta: abito a Varsavia."}
+  - {t: in, n: "w (przed krajem)", alt_n: [w, do], pos: prep, note: "Przed nazwą kraju: abito in Polonia."}
+  - {t: Italia, n: Włochy, pos: noun, g: f, art: "l'", emoji: "🇮🇹"}
+  - {t: Polonia, n: Polska, pos: noun, g: f, art: la, emoji: "🇵🇱"}
+  - {t: città, n: miasto, pos: noun, g: f, art: la, pl: città, emoji: "🏙️", note: "Rzeczowniki z akcentem na końcu nie zmieniają się w liczbie mnogiej."}
+  - {t: ragazzo, n: chłopak, alt_n: [chłopiec], pos: noun, g: m, art: il, pl: ragazzi, emoji: "👦"}
+  - {t: ragazza, n: dziewczyna, alt_n: [dziewczynka], pos: noun, g: f, art: la, pl: ragazze, emoji: "👧"}
+  - {t: uomo, n: mężczyzna, alt_n: [człowiek], pos: noun, g: m, art: "l'", pl: uomini, emoji: "👨", note: "Liczba mnoga nieregularna: gli uomini."}
+  - {t: donna, n: kobieta, pos: noun, g: f, art: la, pl: donne, emoji: "👩"}
+  - {t: studente, n: student, pos: noun, g: m, art: lo, pl: studenti, emoji: "🎓", note: "Lo — bo zaczyna się od s + spółgłoska."}
+  - {t: studentessa, n: studentka, pos: noun, g: f, art: la, pl: studentesse}
+  - {t: insegnante, n: nauczyciel, alt_n: [nauczycielka], pos: noun, g: mf, art: "l'", pl: insegnanti, emoji: "🧑‍🏫"}
+  - {t: medico, n: lekarz, alt_n: [lekarka], pos: noun, g: m, art: il, pl: medici, emoji: "🩺"}
+  - {t: lavoro, n: praca, pos: noun, g: m, art: il, pl: lavori, emoji: "💼"}
+  - {t: un, n: jakiś, alt_n: [jeden], pos: det, forms: [uno, una, "un'"], note: "Rodzajnik nieokreślony — po polsku zwykle go nie tłumaczymy."}
+  - {t: chi, n: kto, pos: pron}
+  - {t: che cosa, n: co, alt_t: [cosa, che], pos: pron}
+  - {t: parlare, n: mówić, pos: verb, forms: [parlo, parli, parla, parliamo, parlate, parlano]}
+  - {t: "un po'", n: trochę, pos: adv, forms: ["po'"]}
+  - {t: ma, n: ale, pos: conj}
+  - {t: Roma, n: Rzym, pos: noun, g: f, emoji: "🏛️"}
+
+sentences:
+  - {t: "Di dove sei?", n: "Skąd jesteś?", gap: dove}
+  - {t: "Sono di Varsavia.", n: "Jestem z Warszawy.", gap: di, gap_opts: [a, in]}
+  - {t: "Sono polacco.", n: "Jestem Polakiem.", gap: polacco, gap_opts: [polacca, polacchi]}
+  - {t: "Anna è polacca.", n: "Anna jest Polką.", gap: polacca, gap_opts: [polacco, polacche]}
+  - {t: "Marco è italiano.", n: "Marco jest Włochem.", gap: italiano, gap_opts: [italiana, italiani]}
+  - {t: "Lei è tedesca?", n: "Czy pani jest Niemką?", alt_n: ["Pani jest Niemką?", "Ona jest Niemką?", "Czy ona jest Niemką?"], gap: tedesca, gap_opts: [tedesco, tedeschi]}
+  - {t: "Abito a Cracovia.", n: "Mieszkam w Krakowie.", gap: a, gap_opts: [in, di]}
+  - {t: "Dove abiti?", n: "Gdzie mieszkasz?", gap: abiti, gap_opts: [abito, abita]}
+  - {t: "Loro abitano in Italia.", n: "Oni mieszkają we Włoszech.", alt_n: ["Mieszkają we Włoszech.", "One mieszkają we Włoszech."], gap: in, gap_opts: [a, di]}
+  - {t: "Parli italiano?", n: "Mówisz po włosku?", alt_n: ["Czy mówisz po włosku?"], gap: Parli, gap_opts: [Parlo, Parla]}
+  - {t: "Parlo un po' di italiano.", n: "Mówię trochę po włosku.", alt_t: ["Parlo un po' d'italiano.", "Parlo un po' italiano."], gap: Parlo, gap_opts: [Parli, Parla]}
+  - {t: "Chi è lui?", n: "Kim on jest?", alt_n: ["Kto to jest?"], gap: Chi, gap_opts: [Che, Dove]}
+  - {t: "Lui è uno studente.", n: "On jest studentem.", gap: uno, gap_opts: [un, una]}
+  - {t: "Lei è una studentessa.", n: "Ona jest studentką.", gap: una, gap_opts: [un, uno]}
+  - {t: "Giulia è un'insegnante.", n: "Giulia jest nauczycielką.", gap: è, gap_opts: [sei, sono]}
+  - {t: "Paolo è un medico.", n: "Paolo jest lekarzem.", gap: un, gap_opts: [uno, una]}
+  - {t: "Lo studente è tedesco.", n: "Student jest Niemcem.", alt_n: ["Ten student jest Niemcem."], gap: Lo, gap_opts: [Il, La]}
+  - {t: "La ragazza è spagnola.", n: "Dziewczyna jest Hiszpanką.", alt_n: ["Ta dziewczyna jest Hiszpanką."], gap: La, gap_opts: [Il, Lo]}
+  - {t: "Il ragazzo parla inglese.", n: "Chłopak mówi po angielsku.", alt_n: ["Ten chłopak mówi po angielsku.", "Chłopiec mówi po angielsku."], gap: parla, gap_opts: [parlo, parli]}
+  - {t: "Roma è una città italiana.", n: "Rzym jest włoskim miastem.", alt_n: ["Rzym to włoskie miasto."], gap: una, gap_opts: [un, uno]}
+  - {t: "Chi parla francese?", n: "Kto mówi po francusku?", gap: parla, gap_opts: [parlo, parlano]}
+  - {t: "Noi parliamo polacco.", n: "Mówimy po polsku.", alt_n: ["My mówimy po polsku."], gap: parliamo, gap_opts: [parlate, parlano]}
+  - {t: "Voi abitate a Roma?", n: "Mieszkacie w Rzymie?", alt_n: ["Czy mieszkacie w Rzymie?", "Wy mieszkacie w Rzymie?"], gap: abitate, gap_opts: [abitiamo, abitano]}
+  - {t: "L'uomo e la donna sono amici.", n: "Mężczyzna i kobieta są przyjaciółmi.", gap: sono, gap_opts: [siamo, è]}
+  - {t: "Sono di Roma, ma abito a Milano.", n: "Jestem z Rzymu, ale mieszkam w Mediolanie.", gap: ma, gap_opts: [e, in]}
+  - {t: "Che cosa è? È un lavoro.", n: "Co to jest? To praca.", alt_t: ["Cos'è? È un lavoro.", "Che cos'è? È un lavoro."], alt_n: ["Co to? To praca."]}
+
+grammar:
+  - id: it-genere
+    title: Rodzaj i liczba rzeczowników
+    summary: "Po końcówce poznasz, czy rzeczownik jest męski, czy żeński."
+    body: |
+      Włoski ma tylko **dwa rodzaje**: męski i żeński (nie ma nijakiego, jak w polskim). Rodzaj zwykle zdradza końcówka:
+
+      | końcówka | rodzaj | przykład |
+      |---|---|---|
+      | **-o** | męski | *il ragazzo* — chłopak |
+      | **-a** | żeński | *la ragazza* — dziewczyna |
+      | **-e** | męski albo żeński | *il padre* — ojciec, *la notte* — noc |
+
+      Rzeczowniki na **-e** trzeba zapamiętać razem z rodzajnikiem — dlatego w słowniku zawsze podajemy *il* albo *la*.
+
+      ### Liczba mnoga
+      Włoska liczba mnoga powstaje przez zmianę ostatniej samogłoski:
+
+      | liczba pojedyncza | liczba mnoga |
+      |---|---|
+      | -o → **-i** | *ragazzo → ragazzi* |
+      | -a → **-e** | *ragazza → ragazze* |
+      | -e → **-i** | *studente → studenti*, *notte → notti* |
+
+      Wyjątki, które warto znać od początku:
+      - słowa z akcentem na końcu się nie zmieniają: *la città → le città*, *il caffè → i caffè*;
+      - *l'uomo → gli uomini* (mężczyzna → mężczyźni);
+      - słowa zapożyczone są nieodmienne: *il bar → i bar*, *lo sport → gli sport*.
+
+      > Po polsku „Włoch” i „włoski” to dwa słowa. Po włosku **italiano** znaczy jedno i drugie — a także „po włosku”: *parlo italiano*.
+
+      ### Narodowości
+      Narodowości to przymiotniki i odmieniają się jak przymiotniki: *Marco è italiano, Anna è italiana*. Te na **-e** mają jedną formę dla obu rodzajów: *lui è inglese, lei è inglese*. Piszemy je **małą literą**.
+    examples:
+      - {t: "Il ragazzo è italiano.", n: "Chłopak jest Włochem."}
+      - {t: "Le ragazze sono italiane.", n: "Dziewczyny są Włoszkami."}
+      - {t: "Lei è francese.", n: "Ona jest Francuzką."}
+      - {t: "Roma è una città, Milano e Napoli sono città.", n: "Rzym jest miastem, Mediolan i Neapol są miastami."}
+    check:
+      - {q: "Jaka jest liczba mnoga od „ragazza”?", options: [ragazzi, ragazze, ragazza], answer: 1}
+      - {q: "Jaka jest liczba mnoga od „la città”?", options: [le citte, le città, le cittì], answer: 1, explain: "Słowa z akcentem na końcu się nie zmieniają."}
+      - {q: "Anna è ___ (Polka).", options: [polacco, polacca, polacchi], answer: 1}
+      - {q: "Które słowo jest rodzaju żeńskiego?", options: [ragazzo, donna, uomo], answer: 1}
+
+  - id: it-articoli
+    title: "Rodzajniki: un, uno, una — il, lo, la"
+    summary: Jak wybrać rodzajnik w liczbie pojedynczej.
+    body: |
+      Polski nie ma rodzajników, więc to jedna z większych nowości. Rodzajnik stoi przed rzeczownikiem i zależy od jego **rodzaju** oraz od tego, **jak zaczyna się** następne słowo.
+
+      ### Rodzajnik nieokreślony (jakiś, jeden)
+      | | przed spółgłoską | przed s+spółgł., z, gn, ps | przed samogłoską |
+      |---|---|---|---|
+      | męski | **un** ragazzo | **uno** studente, **uno** zaino | **un** amico |
+      | żeński | **una** ragazza | **una** studentessa | **un'**amica |
+
+      ### Rodzajnik określony (ten konkretny)
+      | | przed spółgłoską | przed s+spółgł., z, gn, ps | przed samogłoską |
+      |---|---|---|---|
+      | męski | **il** ragazzo | **lo** studente | **l'**amico |
+      | żeński | **la** ragazza | **la** studentessa | **l'**amica |
+
+      Kiedy który? Rodzajnika nieokreślonego używamy, gdy mówimy o czymś po raz pierwszy albo o jednym z wielu: *Paolo è un medico* (jednym z wielu lekarzy). Określonego — gdy wiadomo, o kogo chodzi: *il medico di Paolo* (konkretny lekarz Paola).
+
+      > Przy zawodach po *essere* rodzajnik nieokreślony jest częsty, ale można go też pominąć: *Paolo è medico* i *Paolo è un medico* — oba zdania są poprawne.
+
+      Apostrof pojawia się tylko w rodzaju żeńskim: **un'amica**, ale **un amico** (bez apostrofu!).
+    examples:
+      - {t: "Lui è uno studente.", n: "On jest studentem."}
+      - {t: "Lei è un'insegnante.", n: "Ona jest nauczycielką."}
+      - {t: "Lo studente parla inglese.", n: "Student mówi po angielsku."}
+      - {t: "L'uomo e la donna sono amici.", n: "Mężczyzna i kobieta są przyjaciółmi."}
+    check:
+      - {q: "___ studente", options: [un, uno, una], answer: 1, explain: "s + spółgłoska → uno"}
+      - {q: "___ amica", options: [un, una, "un'"], answer: 2, explain: "Rodzaj żeński przed samogłoską → un'"}
+      - {q: "___ amico", options: ["un'", un, uno], answer: 1, explain: "Rodzaj męski przed samogłoską → un (bez apostrofu)"}
+      - {q: "___ ragazza è spagnola.", options: [Il, Lo, La], answer: 2}
+
+  - id: it-abitare-parlare
+    title: "Skąd jesteś? — czasowniki na -are"
+    summary: "Odmiana parlare i abitare oraz przyimki di, a, in."
+    body: |
+      Większość włoskich czasowników kończy się na **-are**. Odmieniają się według jednego wzoru: odcinamy *-are* i dodajemy końcówki. Wzorem są **parlare** (mówić) i **abitare** (mieszkać).
+
+      | osoba | końcówka | parlare | abitare |
+      |---|---|---|---|
+      | io | -o | parl**o** | abit**o** |
+      | tu | -i | parl**i** | abit**i** |
+      | lui / lei | -a | parl**a** | abit**a** |
+      | noi | -iamo | parl**iamo** | abit**iamo** |
+      | voi | -ate | parl**ate** | abit**ate** |
+      | loro | -ano | parl**ano** | abit**ano** |
+
+      > W formie *loro* akcent pada na trzecią sylabę od końca: **à**bitano, **pàr**lano. Nie mów „abitàno”!
+
+      ### Di, a, in — trzy małe przyimki
+      - **di** + miasto = pochodzenie: *Sono di Napoli* — jestem z Neapolu. Pytanie: *Di dove sei?*
+      - **a** + miasto = gdzie mieszkasz lub dokąd jedziesz: *Abito a Torino*.
+      - **in** + kraj lub region: *Abito in Italia, in Toscana*.
+
+      Po polsku w obu ostatnich przypadkach mówimy „w”, więc łatwo się pomylić. Zapamiętaj: **miasto → a, kraj → in**.
+    examples:
+      - {t: "Di dove sei? — Sono di Varsavia.", n: "Skąd jesteś? — Jestem z Warszawy."}
+      - {t: "Abito a Roma, in Italia.", n: "Mieszkam w Rzymie, we Włoszech."}
+      - {t: "Parliamo italiano e polacco.", n: "Mówimy po włosku i po polsku."}
+    check:
+      - {q: "Abito ___ Cracovia.", options: [in, a, di], answer: 1, explain: "Miasto → a"}
+      - {q: "Loro ___ in Polonia.", options: [abitano, abitate, abitiamo], answer: 0}
+      - {q: "Voi ___ inglese?", options: [parliamo, parlate, parlano], answer: 1}
+      - {q: "Jak zapytać „Skąd jesteś?”", options: ["Dove abiti?", "Di dove sei?", "Chi sei?"], answer: 1}
+
+conjugations:
+  - {verb: parlare, n: mówić, tense: presente, label: czas teraźniejszy, forms: [parlo, parli, parla, parliamo, parlate, parlano]}
+  - {verb: abitare, n: mieszkać, tense: presente, label: czas teraźniejszy, forms: [abito, abiti, abita, abitiamo, abitate, abitano]}
+
+stories:
+  - id: corso-di-lingua
+    title: Al corso di lingua
+    emoji: "🗺️"
+    intro: Druga lekcja w szkole językowej. Nauczycielka prosi, żeby każdy się przedstawił.
+    lines:
+      - [Insegnante, "Allora, ragazzi, chi siete? Di dove siete?", "No to kim jesteście? Skąd jesteście?"]
+      - [Hans, "Io sono Hans. Sono tedesco, di Berlino.", "Jestem Hans. Jestem Niemcem, z Berlina."]
+      - [Insegnante, "Benvenuto, Hans! E tu?", "Witaj, Hans! A ty?"]
+      - [Carmen, "Mi chiamo Carmen. Sono spagnola, ma abito a Firenze.", "Mam na imię Carmen. Jestem Hiszpanką, ale mieszkam we Florencji."]
+      - [Insegnante, "Parli italiano, Carmen?", "Mówisz po włosku, Carmen?"]
+      - [Carmen, "Sì, un po'. Parlo spagnolo, inglese e un po' di italiano.", "Tak, trochę. Mówię po hiszpańsku, po angielsku i trochę po włosku."]
+      - [Insegnante, "Brava! E tu?", "Brawo! A ty?"]
+      - [Anna, "Io sono Anna, sono polacca. Sono una studentessa.", "Jestem Anna, jestem Polką. Jestem studentką."]
+      - [Hans, "Polacca? Di dove?", "Polką? Skąd?"]
+      - [Anna, "Di Cracovia. È una città molto bella!", "Z Krakowa. To bardzo piękne miasto!"]
+      - [Insegnante, "Perfetto. Siete un gruppo internazionale!", "Świetnie. Jesteście międzynarodową grupą!"]
+    questions:
+      - {q: "Skąd jest Hans?", options: [z Berlina, z Florencji, z Krakowa], answer: 0}
+      - {q: "Gdzie mieszka Carmen?", options: [w Madrycie, we Florencji, w Rzymie], answer: 1, explain: "Abito a Firenze."}
+      - {q: "Jakimi językami mówi Carmen?", options: ["tylko po hiszpańsku", "po hiszpańsku, angielsku i trochę po włosku", "po niemiecku i po włosku"], answer: 1}
+      - {q: "Kim jest Anna?", options: [nauczycielką, studentką, lekarką], answer: 1}

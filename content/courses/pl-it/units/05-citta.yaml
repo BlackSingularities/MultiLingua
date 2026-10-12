@@ -1,0 +1,193 @@
+id: u05
+title: La casa e la città
+subtitle: Dom, miasto i pytanie o drogę
+cefr: A1
+icon: "🏘️"
+goals:
+  - Opiszesz swoje mieszkanie i okolicę
+  - Zapytasz o drogę i zrozumiesz wskazówki
+  - Użyjesz c'è / ci sono i przyimków ściągniętych (nel, sul, al…)
+
+vocab:
+  - {t: casa, n: dom, alt_n: [mieszkanie], pos: noun, g: f, art: la, pl: case, emoji: "🏠", note: "A casa — w domu, do domu (bez rodzajnika)."}
+  - {t: appartamento, n: mieszkanie, pos: noun, g: m, art: "l'", pl: appartamenti, emoji: "🏢"}
+  - {t: camera, n: pokój, alt_n: [sypialnia], pos: noun, g: f, art: la, pl: camere, emoji: "🛏️"}
+  - {t: cucina, n: kuchnia, pos: noun, g: f, art: la, pl: cucine, emoji: "🍳"}
+  - {t: bagno, n: łazienka, pos: noun, g: m, art: il, pl: bagni, emoji: "🛁"}
+  - {t: letto, n: łóżko, pos: noun, g: m, art: il, pl: letti, emoji: "🛌"}
+  - {t: tavolo, n: stół, pos: noun, g: m, art: il, pl: tavoli, emoji: "🪵"}
+  - {t: sedia, n: krzesło, pos: noun, g: f, art: la, pl: sedie, emoji: "🪑"}
+  - {t: finestra, n: okno, pos: noun, g: f, art: la, pl: finestre, emoji: "🪟"}
+  - {t: porta, n: drzwi, pos: noun, g: f, art: la, pl: porte, emoji: "🚪", note: "Po polsku „drzwi” mają tylko liczbę mnogą, po włosku: la porta — jedne drzwi."}
+  - {t: strada, n: ulica, alt_n: [droga], pos: noun, g: f, art: la, pl: strade, emoji: "🛣️"}
+  - {t: piazza, n: plac, alt_n: [rynek], pos: noun, g: f, art: la, pl: piazze, emoji: "⛲"}
+  - {t: negozio, n: sklep, pos: noun, g: m, art: il, pl: negozi, emoji: "🏪"}
+  - {t: supermercato, n: supermarket, pos: noun, g: m, art: il, pl: supermercati, emoji: "🛒"}
+  - {t: stazione, n: dworzec, alt_n: [stacja], pos: noun, g: f, art: la, pl: stazioni, emoji: "🚉"}
+  - {t: chiesa, n: kościół, pos: noun, g: f, art: la, pl: chiese, emoji: "⛪"}
+  - {t: museo, n: muzeum, pos: noun, g: m, art: il, pl: musei, emoji: "🏛️"}
+  - {t: ospedale, n: szpital, pos: noun, g: m, art: "l'", pl: ospedali, emoji: "🏥"}
+  - {t: banca, n: bank, pos: noun, g: f, art: la, pl: banche, emoji: "🏦"}
+  - {t: parco, n: park, pos: noun, g: m, art: il, pl: parchi, emoji: "🌳"}
+  - {t: farmacia, n: apteka, pos: noun, g: f, art: la, pl: farmacie, emoji: "💊"}
+  - {t: centro, n: centrum, pos: noun, g: m, art: il, pl: centri, emoji: "📍"}
+  - {t: "c'è", n: "jest (znajduje się)", alt_n: [jest], pos: phrase, forms: ["c'è"]}
+  - {t: ci sono, n: "są (znajdują się)", alt_n: [są], pos: phrase}
+  - {t: vicino, n: blisko, alt_n: [niedaleko, w pobliżu], pos: adv}
+  - {t: lontano, n: daleko, pos: adv}
+  - {t: qui, n: tutaj, alt_n: [tu], alt_t: [qua], pos: adv}
+  - {t: lì, n: tam, alt_t: [là], pos: adv}
+  - {t: a destra, n: na prawo, alt_n: [w prawo, po prawej], pos: phrase, emoji: "➡️"}
+  - {t: a sinistra, n: na lewo, alt_n: [w lewo, po lewej], pos: phrase, emoji: "⬅️"}
+  - {t: dritto, n: prosto, alt_t: [diritto], pos: adv, emoji: "⬆️"}
+  - {t: poi, n: potem, alt_n: [następnie], pos: adv}
+  - {t: sempre, n: zawsze, alt_n: [cały czas], pos: adv}
+  - {t: nuovo, n: nowy, alt_n: [nowa], pos: adj, forms: [nuova, nuovi, nuove]}
+  - {t: vecchio, n: stary, alt_n: [stara], pos: adj, forms: [vecchia, vecchi, vecchie]}
+  - {t: bello, n: piękny, alt_n: [ładny, piękna, ładna], pos: adj, forms: [bella, belli, belle, bel, bei, begli]}
+  - {t: lavorare, n: pracować, pos: verb, forms: [lavoro, lavori, lavora, lavoriamo, lavorate, lavorano]}
+
+sentences:
+  - {t: "C'è una farmacia qui vicino?", n: "Czy jest tu w pobliżu apteka?", alt_n: ["Jest tu w pobliżu apteka?", "Czy jest tu blisko apteka?", "Jest tu blisko apteka?", "Czy w pobliżu jest apteka?"], gap: vicino, gap_opts: [lontano, dritto]}
+  - {t: "Sì, c'è una farmacia in piazza.", n: "Tak, na placu jest apteka.", alt_n: ["Tak, jest apteka na placu."], gap: piazza, gap_opts: [strada, banca]}
+  - {t: "Nella casa ci sono due bagni.", n: "W domu są dwie łazienki.", gap: sono, gap_opts: [è, siamo]}
+  - {t: "Dov'è la stazione?", n: "Gdzie jest dworzec?", alt_t: ["Dove è la stazione?"], alt_n: ["Gdzie jest stacja?"], gap: stazione, gap_opts: [strada, piazza]}
+  - {t: "La stazione è lontano.", n: "Dworzec jest daleko.", gap: lontano, gap_opts: [vicino, qui]}
+  - {t: "Sempre dritto, poi a sinistra.", n: "Cały czas prosto, potem w lewo.", alt_n: ["Cały czas prosto, potem na lewo.", "Ciągle prosto, potem w lewo."], gap: sinistra, gap_opts: [destra, dritto]}
+  - {t: "Il museo è a destra.", n: "Muzeum jest na prawo.", alt_n: ["Muzeum jest po prawej.", "Muzeum jest po prawej stronie."], gap: destra, gap_opts: [sinistra, dritto]}
+  - {t: "Abito in un appartamento nuovo.", n: "Mieszkam w nowym mieszkaniu.", gap: nuovo, gap_opts: [nuova, nuovi]}
+  - {t: "La mia casa è vecchia, ma bella.", n: "Mój dom jest stary, ale piękny.", alt_n: ["Mój dom jest stary, ale ładny."], gap: vecchia, gap_opts: [vecchio, vecchie]}
+  - {t: "Il gatto è sul letto.", n: "Kot jest na łóżku.", alt_n: ["Kot leży na łóżku."], gap: sul, gap_opts: [nel, al]}
+  - {t: "La sedia è vicino alla finestra.", n: "Krzesło jest przy oknie.", alt_n: ["Krzesło stoi przy oknie.", "Krzesło jest blisko okna."], gap: alla, gap_opts: [al, alle]}
+  - {t: "Siamo nel parco.", n: "Jesteśmy w parku.", gap: nel, gap_opts: [nella, al]}
+  - {t: "La mamma è in cucina.", n: "Mama jest w kuchni.", gap: cucina, gap_opts: [camera, bagno]}
+  - {t: "Lavoro in una banca.", n: "Pracuję w banku.", gap: Lavoro, gap_opts: [Lavori, Lavora]}
+  - {t: "In centro ci sono molti negozi.", n: "W centrum jest dużo sklepów.", alt_n: ["W centrum jest wiele sklepów."], gap: negozi, gap_opts: [negozio, negozie]}
+  - {t: "La chiesa è in piazza.", n: "Kościół jest na placu.", alt_n: ["Kościół jest na rynku."], gap: chiesa, gap_opts: [banca, farmacia]}
+  - {t: "L'ospedale è lontano da qui.", n: "Szpital jest daleko stąd.", gap: lontano, gap_opts: [vicino, dritto]}
+  - {t: "In camera non c'è il bagno.", n: "W pokoju nie ma łazienki.", alt_n: ["Pokój nie ma łazienki."], gap: camera, gap_opts: [cucina, piazza]}
+  - {t: "La camera ha una finestra grande.", n: "Pokój ma duże okno.", gap: finestra, gap_opts: [porta, sedia]}
+  - {t: "Le case in Italia sono belle.", n: "Domy we Włoszech są piękne.", alt_n: ["Domy we Włoszech są ładne."], gap: belle, gap_opts: [bella, belli]}
+  - {t: "Il bar è qui, la banca è lì.", n: "Bar jest tutaj, bank jest tam.", alt_n: ["Bar jest tu, a bank tam.", "Bar jest tutaj, a bank jest tam."], gap: lì, gap_opts: [qui, poi]}
+  - {t: "Scusi, dov'è il museo?", n: "Przepraszam, gdzie jest muzeum?", gap: museo, gap_opts: [mercato, parco]}
+  - {t: "È vicino alla stazione.", n: "Jest blisko dworca.", alt_n: ["To blisko dworca.", "Jest niedaleko dworca."], gap: alla, gap_opts: [al, allo]}
+  - {t: "Nel centro c'è una bella piazza.", n: "W centrum jest piękny plac.", alt_n: ["W centrum jest ładny plac."], gap: bella, gap_opts: [bello, belle]}
+  - {t: "Il supermercato è a sinistra, dopo il parco.", n: "Supermarket jest po lewej, za parkiem.", alt_n: ["Supermarket jest na lewo, za parkiem."], gap: supermercato, gap_opts: [museo, ospedale]}
+
+grammar:
+  - id: it-ce-ci-sono
+    title: "C'è i ci sono — jest, są"
+    summary: "Kiedy mówić c'è, a kiedy po prostu è."
+    body: |
+      Polskie „jest” w znaczeniu „istnieje, znajduje się” to po włosku **c'è** (liczba pojedyncza) i **ci sono** (mnoga):
+
+      - **C'è** una farmacia qui vicino? — Czy jest tu w pobliżu apteka?
+      - In centro **ci sono** molti negozi. — W centrum jest dużo sklepów.
+
+      Po polsku przy liczbie mnogiej też często mówimy „jest” („jest dużo sklepów”), po włosku musi być **ci sono**.
+
+      ### C'è czy è?
+      | pytanie | znaczenie | przykład |
+      |---|---|---|
+      | **C'è** …? | czy coś w ogóle tu jest? | *C'è una banca?* — Jest tu (jakiś) bank? |
+      | **Dov'è** …? | gdzie jest ta konkretna rzecz? | *Dov'è la banca?* — Gdzie jest bank? |
+
+      Zauważ rodzajnik: po *c'è* zwykle stoi **nieokreślony** (*una* farmacia — jakaś), po *dov'è* — **określony** (*la* stazione — ta, którą znamy).
+
+      > Przeczenie: **non c'è** — nie ma (czegoś). *Non c'è il bagno in camera* — w pokoju nie ma łazienki. Po polsku zmienia się przypadek („łazienki”), po włosku nic.
+    examples:
+      - {t: "C'è un bar qui vicino?", n: "Jest tu w pobliżu jakiś bar?"}
+      - {t: "Ci sono due bagni.", n: "Są dwie łazienki."}
+      - {t: "Dov'è il bar Roma?", n: "Gdzie jest bar Roma?"}
+      - {t: "Oggi non c'è Marco.", n: "Dziś nie ma Marca."}
+    check:
+      - {q: "In piazza ___ tre bar.", options: ["c'è", ci sono, è], answer: 1}
+      - {q: "___ un supermercato qui vicino?", options: ["C'è", Ci sono, Sono], answer: 0}
+      - {q: "Szukasz konkretnego muzeum Uffizi. Pytasz:", options: ["C'è il museo?", "Dov'è il museo degli Uffizi?", "Ci sono musei?"], answer: 1}
+
+  - id: it-preposizioni-articolate
+    title: "Przyimki ściągnięte: nel, sul, al, del…"
+    summary: "W + ten = nel. Jak przyimek łączy się z rodzajnikiem."
+    body: |
+      Pięć częstych przyimków **łączy się z rodzajnikiem określonym** w jedno słowo. Brzmi to skomplikowanie, ale wzór jest regularny:
+
+      | | il | lo | l' | la | i | gli | le |
+      |---|---|---|---|---|---|---|---|
+      | **a** (do, w) | al | allo | all' | alla | ai | agli | alle |
+      | **di** (z, -ego) | del | dello | dell' | della | dei | degli | delle |
+      | **da** (od, u) | dal | dallo | dall' | dalla | dai | dagli | dalle |
+      | **in** (w) | nel | nello | nell' | nella | nei | negli | nelle |
+      | **su** (na) | sul | sullo | sull' | sulla | sui | sugli | sulle |
+
+      - Il gatto è **sul** letto (su + il). — Kot jest na łóżku.
+      - Siamo **nel** parco (in + il). — Jesteśmy w parku.
+      - È vicino **alla** stazione (a + la). — Jest blisko dworca.
+
+      Przyimki **con** (z), **per** (dla), **tra/fra** (między) się nie łączą: *con il latte*, *per la mamma*.
+
+      > Bez rodzajnika nie ma ściągania: *in Italia, a Roma, in piazza, in centro* — to stałe wyrażenia bez rodzajnika.
+    examples:
+      - {t: "Il libro è sul tavolo.", n: "Książka jest na stole."}
+      - {t: "Vado al supermercato.", n: "Idę do supermarketu."}
+      - {t: "La farmacia è nella piazza grande.", n: "Apteka jest na dużym placu."}
+    check:
+      - {q: "Il gatto è ___ letto. (su + il)", options: [sul, sullo, nel], answer: 0}
+      - {q: "Lavoro ___ ospedale. (in + l')", options: [nello, "nell'", nel], answer: 1}
+      - {q: "Vicino ___ stazione (a + la)", options: [al, alla, alle], answer: 1}
+      - {q: "Siamo ___ parco. (in + il)", options: [nel, nello, nella], answer: 0}
+
+  - id: it-direzioni
+    title: "Pytanie o drogę"
+    summary: "Destra, sinistra, dritto — i forma grzecznościowa w praktyce."
+    body: |
+      Pytając obcą osobę o drogę, używamy formy **Lei** — czyli zaczynamy od **Scusi** (przepraszam pana/panią), nie *Scusa*:
+
+      - **Scusi, dov'è** la stazione? — Przepraszam, gdzie jest dworzec?
+      - **Scusi, c'è** una farmacia qui vicino?
+      - **È lontano?** — Czy to daleko?
+
+      ### Wskazówki
+      - **sempre dritto** — cały czas prosto
+      - **a destra / a sinistra** — w prawo / w lewo
+      - **poi** — potem; **dopo** il parco — za parkiem
+      - **vicino a** — blisko; **lontano da** — daleko od
+      - **accanto a** — obok; **di fronte a** — naprzeciwko
+
+      ### Bello — jak rodzajnik
+      Przymiotnik **bello** przed rzeczownikiem przybiera formy podobne do rodzajnika: **bel** ragazzo (il), **bello** studente (lo), **bell'**albergo (l'), **bella** piazza, **bei** negozi (i), **begli** alberghi (gli), **belle** case. Po rzeczowniku jest regularny: *la piazza è bella*.
+
+      > Odpowiadający często powie *Vada…* (Niech pan idzie…), *Giri a destra* (Proszę skręcić w prawo) — to tryb rozkazujący w formie grzecznościowej. Wystarczy go rozumieć.
+    examples:
+      - {t: "Scusi, è lontano il museo?", n: "Przepraszam, czy muzeum jest daleko?"}
+      - {t: "Vada sempre dritto e poi giri a sinistra.", n: "Proszę iść cały czas prosto, a potem skręcić w lewo."}
+      - {t: "Che bel parco!", n: "Jaki piękny park!"}
+    check:
+      - {q: "Pytasz nieznajomego o drogę. Zaczynasz od:", options: ["Scusa", "Scusi", "Ciao"], answer: 1}
+      - {q: "„Na lewo” to:", options: [a destra, a sinistra, dritto], answer: 1}
+      - {q: "Che ___ piazza!", options: [bel, bello, bella], answer: 2}
+
+conjugations:
+  - {verb: lavorare, n: pracować, tense: presente, label: czas teraźniejszy, forms: [lavoro, lavori, lavora, lavoriamo, lavorate, lavorano]}
+
+stories:
+  - id: dove-farmacia
+    title: Dov'è la farmacia?
+    emoji: "🧭"
+    intro: Turysta w Weronie szuka apteki i zaczepia starszą panią na ulicy.
+    lines:
+      - [Turista, "Scusi, signora, c'è una farmacia qui vicino?", "Przepraszam panią, czy jest tu w pobliżu apteka?"]
+      - [Signora, "Sì, ce n'è una in piazza Dante.", "Tak, jest jedna na placu Dantego."]
+      - [Turista, "È lontano?", "Czy to daleko?"]
+      - [Signora, "No, è vicino. Cinque minuti a piedi.", "Nie, blisko. Pięć minut pieszo."]
+      - [Turista, "Come arrivo in piazza?", "Jak dojdę na plac?"]
+      - [Signora, "Vada sempre dritto, poi giri a sinistra.", "Proszę iść cały czas prosto, potem skręcić w lewo."]
+      - [Signora, "La farmacia è accanto alla chiesa, di fronte al museo.", "Apteka jest obok kościoła, naprzeciwko muzeum."]
+      - [Turista, "Accanto alla chiesa… E c'è anche un supermercato?", "Obok kościoła… A czy jest też supermarket?"]
+      - [Signora, "Ci sono due supermercati in centro, ma la domenica sono chiusi.", "W centrum są dwa supermarkety, ale w niedzielę są zamknięte."]
+      - [Turista, "Grazie mille, è molto gentile!", "Bardzo dziękuję, jest pani bardzo uprzejma!"]
+      - [Signora, "Prego, buona giornata!", "Proszę bardzo, miłego dnia!"]
+    questions:
+      - {q: "Czego szuka turysta?", options: [apteki, dworca, banku], answer: 0}
+      - {q: "Gdzie jest apteka?", options: [obok kościoła, naprzeciwko dworca, w parku], answer: 0}
+      - {q: "Ile zajmie droga?", options: [pięć minut pieszo, pół godziny autobusem, dwie godziny], answer: 0}
+      - {q: "Kiedy supermarkety w centrum są zamknięte?", options: [w sobotę, w niedzielę, wieczorem], answer: 1}
