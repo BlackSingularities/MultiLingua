@@ -377,6 +377,51 @@ export function compileCourse(dir: string): CompiledCourse {
 
 const LEARN_CHUNK = 6;
 
+/** Wyrazy, których potrzebują przykłady i pytania tematu teorii (poprawne odpowiedzi i cytaty). */
+export function grammarNeeds(g: GrammarArticle): string[] {
+  return [
+    ...g.examples.map((e) => e.t),
+    ...g.check.map((q) => q.options[q.answer]),
+    ...g.check.flatMap((q) => [...q.q.matchAll(/[„"«]([^”"»]+)[”"»]/g)].map((m) => m[1])),
+    ...g.check.filter((q) => /_{2,}/.test(q.q)).map((q) => q.q.replace(/\([^)]*\)/g, ' ')),
+  ].flatMap(matchTokens);
+}
+
+/**
+ * Dzieli słówka na lekcje. Kolejność autora zostaje, ale słowa potrzebne do teorii nr i
+ * trafiają najpóźniej do lekcji nr i — wtedy ścieżka może iść rytmem L1, T1, L2, T2…
+ * i każda teoria ćwiczy już poznane słowa.
+ */
+function chunkVocab(vocab: VocabItem[], grammar: GrammarArticle[], chunkCount: number): VocabItem[][] {
+  const byToken = new Map<string, VocabItem>();
+  for (const v of vocab) for (const k of vocabKeys(v)) if (k.length === 1 && !byToken.has(k[0])) byToken.set(k[0], v);
+  // Wyrażenia wielowyrazowe („fino a”) — po ich dłuższych słowach, jeśli nie są osobnymi hasłami.
+  for (const v of vocab) for (const k of vocabKeys(v)) if (k.length > 1) for (const t of k) if (t.length > 2 && !byToken.has(t)) byToken.set(t, v);
+  const deadline = new Map<VocabItem, number>();
+  grammar.forEach((g, i) => {
+    for (const t of grammarNeeds(g)) {
+      const v = byToken.get(t);
+      if (v && !deadline.has(v)) deadline.set(v, Math.min(i, chunkCount - 1));
+    }
+  });
+  const chunks: VocabItem[][] = Array.from({ length: chunkCount }, () => []);
+  const rest = [...vocab];
+  for (let c = 0; c < chunkCount; c++) {
+    // Rozmiar liczony na bieżąco z tego, co zostało — lekcje wychodzą równe.
+    const size = Math.ceil(rest.length / (chunkCount - c));
+    const forced = rest.filter((v) => (deadline.get(v) ?? Infinity) <= c);
+    const take = new Set(forced);
+    for (const v of rest) {
+      if (take.size >= size) break;
+      take.add(v);
+    }
+    const chunk = c === chunkCount - 1 ? rest.slice() : rest.filter((v) => take.has(v));
+    chunks[c] = chunk;
+    for (const v of chunk) rest.splice(rest.indexOf(v), 1);
+  }
+  return chunks.filter((c) => c.length > 0);
+}
+
 /**
  * Układa ścieżkę jednostki: lekcje słówek przeplatane teorią, potem historyjka,
  * mówienie i sprawdzian. Zdanie trafia do pierwszej lekcji, po której znane są
@@ -391,8 +436,7 @@ export function planLessons(
   stories: Story[],
 ): Lesson[] {
   const chunkCount = Math.max(1, Math.round(vocab.length / LEARN_CHUNK));
-  const chunks: VocabItem[][] = Array.from({ length: chunkCount }, () => []);
-  vocab.forEach((v, i) => chunks[Math.min(chunkCount - 1, Math.floor((i * chunkCount) / vocab.length))].push(v));
+  const chunks = chunkVocab(vocab, grammar, chunkCount);
 
   const lessonOfVocab = new Map<string, number>();
   chunks.forEach((c, i) => c.forEach((v) => lessonOfVocab.set(v.id, i)));
@@ -428,13 +472,27 @@ export function planLessons(
       .map((c) => c.id),
   }));
 
-  // Przeplot: L1, G1, L2, G2, L3, ... — reszta na końcu.
+  // Teoria trafia na ścieżkę po lekcji słówek, która wprowadza ostatnie słowo potrzebne
+  // do jej przykładów i pytań — żeby nie pytać o coś, czego uczeń jeszcze nie poznał.
+  // Bez takich wymagań: przeplot L1, G1, L2, G2… Kolejność tematów teorii zostaje.
+  const chunkOfToken = new Map<string, number>();
+  // Tylko hasła jednowyrazowe: „a destra” nie może sprawić, że samo „a” przesunie teorię.
+  chunks.forEach((c, i) => c.forEach((v) => vocabKeys(v).forEach((k) => {
+    if (k.length === 1 && !chunkOfToken.has(k[0])) chunkOfToken.set(k[0], i);
+  })));
+  chunks.forEach((c, i) => c.forEach((v) => vocabKeys(v).forEach((k) => {
+    if (k.length > 1) for (const t of k) if (t.length > 2 && !chunkOfToken.has(t)) chunkOfToken.set(t, i);
+  })));
+  const after: number[] = [];
+  grammar.forEach((g, i) => {
+    const need = Math.max(-1, ...grammarNeeds(g).map((t) => chunkOfToken.get(t) ?? -1));
+    after.push(Math.min(chunks.length - 1, Math.max(i, need, after[i - 1] ?? 0)));
+  });
   const path: Lesson[] = [];
-  const maxLen = Math.max(learn.length, grammarLessons.length);
-  for (let i = 0; i < maxLen; i++) {
-    if (learn[i]) path.push(learn[i]);
-    if (grammarLessons[i]) path.push(grammarLessons[i]);
-  }
+  learn.forEach((l, c) => {
+    path.push(l);
+    grammarLessons.forEach((g, i) => after[i] === c && path.push(g));
+  });
 
   stories.forEach((s, i) => path.push({
     id: `${unitId}-st${i + 1}`,

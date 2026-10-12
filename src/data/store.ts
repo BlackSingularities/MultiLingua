@@ -20,6 +20,8 @@ export interface Settings {
   speaking: boolean;
   autoplay: boolean;
   hard: boolean;
+  /** Ćwiczenia z wyborem sprawdzają się od razu po dotknięciu odpowiedzi. */
+  instant: boolean;
   rate: number;
   /** Wybrany głos syntezy dla danego tagu językowego. */
   voices: Record<string, string>;
@@ -36,6 +38,7 @@ export const DEFAULT_SETTINGS: Settings = {
   speaking: true,
   autoplay: true,
   hard: false,
+  instant: true,
   rate: 0.95,
   voices: {},
   theme: 'system',

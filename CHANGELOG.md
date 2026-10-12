@@ -3,6 +3,17 @@
 ## [Nieopublikowane]
 
 ### Nauka
+- **Pytania tylko o to, co było w materiale.** Każde pytanie i ćwiczenie jest przypinane do kroku teorii,
+  którego dotyczy, i pojawia się dopiero, gdy uczeń zobaczył wszystkie potrzebne słowa i formy
+  (np. pytanie o formę grzecznościową — zaraz po kroku „Forma grzecznościowa”). Odpowiedzi do wyboru
+  i kafelki składają się ze słów już poznanych.
+- Planer ścieżki układa lekcje słówek tak, by przed każdą teorią uczeń znał słowa z jej przykładów
+  i pytań; jednostki idą rytmem słówka → teoria → słówka → teoria.
+- Test treści i walidacja w panelu zgłaszają pytania, przykłady i zdania wychodzące poza materiał;
+  treść kursu poprawiona (nowe słówka: nipote, formaggio, venti, treno, capire, fino a).
+- **Sprawdzanie od razu po wyborze**: w ćwiczeniach z wyborem dotknięcie odpowiedzi ją ocenia,
+  a po poprawnej aplikacja sama przechodzi dalej (można wyłączyć w ustawieniach).
+- W treningach „Mówienie” i „Słuchanie” nie ma już przycisków „nie mogę teraz mówić/słuchać”.
 - **Teoria przeplatana z praktyką.** Artykuły gramatyczne są dzielone na krótkie kroki; po każdym
   kroku od razu przychodzą ćwiczenia z form, o których była mowa („Zaraz przećwiczysz: …”).
 - W lekcjach słówek pojawiają się krótkie wskazówki z teorii tuż przed słowami, których dotyczą.
@@ -11,6 +22,9 @@
 - Ekran wyniku pokazuje słowa poznane w lekcji.
 
 ### Wygląd
+- Teoria w nowym układzie: zestawy zwrotów jako słowniczek z wymową (dotknij słowa w języku kursu),
+  kompaktowe tabele odmian, wskazówki „Uwaga/Wskazówka”, przykłady w siatce, rozwijany „cały temat”
+  w kroku lekcji; ekran teorii podzielony na kroki ze spisem treści i formami do odsłuchania.
 - Nowy styl „leksykonu podróżnego”: szeryfowa Literata dla słów i nagłówków, przyciski w kolorze
   atramentu, zakreślacz dla tego, co ćwiczysz.
 - Ścieżka nauki jako trasa z przystankami, karta „następny przystanek” z podglądem słów lekcji,

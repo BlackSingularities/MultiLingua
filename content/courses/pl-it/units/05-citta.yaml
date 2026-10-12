@@ -99,11 +99,11 @@ grammar:
       - {t: "C'è un bar qui vicino?", n: "Jest tu w pobliżu jakiś bar?"}
       - {t: "Ci sono due bagni.", n: "Są dwie łazienki."}
       - {t: "Dov'è il bar Roma?", n: "Gdzie jest bar Roma?"}
-      - {t: "Oggi non c'è Marco.", n: "Dziś nie ma Marca."}
+      - {t: "Marco non c'è.", n: "Marca nie ma."}
     check:
       - {q: "In piazza ___ tre bar.", options: ["c'è", ci sono, è], answer: 1}
       - {q: "___ un supermercato qui vicino?", options: ["C'è", Ci sono, Sono], answer: 0}
-      - {q: "Szukasz konkretnego muzeum Uffizi. Pytasz:", options: ["C'è il museo?", "Dov'è il museo degli Uffizi?", "Ci sono musei?"], answer: 1}
+      - {q: "Szukasz konkretnego muzeum w mieście. Pytasz:", options: ["C'è il museo?", "Dov'è il museo?", "Ci sono musei?"], answer: 1, explain: "Konkretne, znane miejsce: dov'è…? Pytanie c'è…? zadajemy, gdy nie wiemy, czy coś w ogóle jest."}
 
   - id: it-preposizioni-articolate
     title: "Przyimki ściągnięte: nel, sul, al, del…"
@@ -127,8 +127,8 @@ grammar:
 
       > Bez rodzajnika nie ma ściągania: *in Italia, a Roma, in piazza, in centro* — to stałe wyrażenia bez rodzajnika.
     examples:
-      - {t: "Il libro è sul tavolo.", n: "Książka jest na stole."}
-      - {t: "Vado al supermercato.", n: "Idę do supermarketu."}
+      - {t: "Il gatto è sul tavolo.", n: "Kot jest na stole."}
+      - {t: "Abito vicino al parco.", n: "Mieszkam blisko parku."}
       - {t: "La farmacia è nella piazza grande.", n: "Apteka jest na dużym placu."}
     check:
       - {q: "Il gatto è ___ letto. (su + il)", options: [sul, sullo, nel], answer: 0}

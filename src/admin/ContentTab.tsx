@@ -223,7 +223,7 @@ function Editor({
 
   const revise = (withErrors: boolean) => run('ai', async () => {
     const r = await adminApi.post<Generated>('/generate/revise', {
-      course, file, text, instruction, errors: withErrors ? validation?.errors ?? [] : [],
+      course, file, text, instruction, errors: withErrors ? [...(validation?.errors ?? []), ...(validation?.coverage ?? [])] : [],
     });
     setUndo(text);
     setText(r.text);
@@ -314,6 +314,16 @@ function Editor({
           <pre>{validation.errors.join('\n\n')}</pre>
         </div>
       )}
+      {validation?.ok && (validation.coverage?.length ?? 0) > 0 && (
+        <div className="admin-coverage" role="status">
+          <strong>Do poprawy: pytania lub przykłady wychodzą poza materiał ({validation.coverage!.length})</strong>
+          <p className="muted small">
+            Uczeń dostałby pytanie o słowo, którego nie było w słówkach ani w teorii przed tym miejscem. Dodaj słowo do „vocab”
+            (albo formę do „forms”), wyjaśnij je w kroku teorii albo zmień pytanie.
+          </p>
+          <ul>{validation.coverage!.map((c) => <li key={c}>{c}</li>)}</ul>
+        </div>
+      )}
       {validation?.ok && validation.stats && (
         <p className="admin-stats">
           Kurs po zmianie: {validation.stats.units} rozdz., {validation.stats.lessons} lekcji, {validation.stats.words} słów,{' '}
@@ -360,9 +370,9 @@ function Editor({
           <button type="button" className="btn btn-ghost" onClick={() => void revise(false)} disabled={!!busy || !instruction.trim()}>
             <Icon name="sparkle" size={18} /> {busy === 'ai' ? 'Model pracuje… (do kilku minut)' : 'Wykonaj polecenie'}
           </button>
-          {validation && !validation.ok && (
+          {validation && (!validation.ok || (validation.coverage?.length ?? 0) > 0) && (
             <button type="button" className="btn btn-ghost" onClick={() => void revise(true)} disabled={!!busy}>
-              Napraw błędy walidacji z AI
+              {validation.ok ? 'Dopasuj pytania do materiału z AI' : 'Napraw błędy walidacji z AI'}
             </button>
           )}
         </div>

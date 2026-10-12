@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import type { Exercise } from '../engine/types.ts';
 import { SpeakButton, Say } from '../components/ui.tsx';
 import { WordArt } from '../components/WordArt.tsx';
-import { HintText, Instruction, useNumberKeys, type ExProps } from './shared.tsx';
+import { HintText, Instruction, useInstant, useNumberKeys, type ExProps } from './shared.tsx';
 
 type Of<T extends Exercise['type']> = Extract<Exercise, { type: T }>;
 
@@ -44,12 +44,16 @@ function OptionList({
 }
 
 /** Wspólny szkielet: wybór → rejestracja sprawdzenia. */
-function useChoice(answer: number, correctText: string, setCheck: ExProps<unknown>['setCheck'], explain?: string) {
+function useChoice(answer: number, correctText: string, { setCheck, submit }: Pick<ExProps<unknown>, 'setCheck' | 'submit'>, explain?: string) {
   const [selected, setSelected] = useState<number | null>(null);
   useEffect(() => {
     setCheck(selected === null ? null : () => ({ ok: selected === answer, correct: correctText, given: String(selected), explain }));
   }, [selected, answer, correctText, setCheck, explain]);
-  const select = useCallback((i: number) => setSelected(i), []);
+  const instant = useInstant(submit);
+  const select = useCallback((i: number) => {
+    setSelected(i);
+    instant();
+  }, [instant]);
   return { selected, select };
 }
 
@@ -112,8 +116,8 @@ function IntroContinue({ onGo }: { onGo: () => void }) {
   );
 }
 
-export function ChoiceEx({ ex, course, locked, setCheck }: ExProps<Of<'choice'>>) {
-  const { selected, select } = useChoice(ex.answer, ex.options[ex.answer], setCheck);
+export function ChoiceEx({ ex, course, locked, setCheck, submit }: ExProps<Of<'choice'>>) {
+  const { selected, select } = useChoice(ex.answer, ex.options[ex.answer], { setCheck, submit });
   const optLang = ex.promptSide === 't' ? 'pl' : course.pack.target.code;
   return (
     <div className="ex">
@@ -127,8 +131,8 @@ export function ChoiceEx({ ex, course, locked, setCheck }: ExProps<Of<'choice'>>
   );
 }
 
-export function PictureEx({ ex, locked, setCheck }: ExProps<Of<'picture'>>) {
-  const { selected, select } = useChoice(ex.answer, ex.options[ex.answer].label, setCheck);
+export function PictureEx({ ex, locked, setCheck, submit }: ExProps<Of<'picture'>>) {
+  const { selected, select } = useChoice(ex.answer, ex.options[ex.answer].label, { setCheck, submit });
   return (
     <div className="ex">
       <Instruction>Wybierz właściwy obrazek</Instruction>
@@ -153,8 +157,8 @@ export function PictureEx({ ex, locked, setCheck }: ExProps<Of<'picture'>>) {
   );
 }
 
-export function ListenEx({ ex, course, locked, setCheck }: ExProps<Of<'listen'>>) {
-  const { selected, select } = useChoice(ex.answer, ex.options[ex.answer], setCheck);
+export function ListenEx({ ex, course, locked, setCheck, submit }: ExProps<Of<'listen'>>) {
+  const { selected, select } = useChoice(ex.answer, ex.options[ex.answer], { setCheck, submit });
   return (
     <div className="ex">
       <Instruction>Co słyszysz?</Instruction>
@@ -167,8 +171,8 @@ export function ListenEx({ ex, course, locked, setCheck }: ExProps<Of<'listen'>>
   );
 }
 
-export function ArticleEx({ ex, locked, setCheck }: ExProps<Of<'article'>>) {
-  const { selected, select } = useChoice(ex.answer, `${ex.options[ex.answer]} ${ex.word}`, setCheck, ex.explain);
+export function ArticleEx({ ex, locked, setCheck, submit }: ExProps<Of<'article'>>) {
+  const { selected, select } = useChoice(ex.answer, `${ex.options[ex.answer]} ${ex.word}`, { setCheck, submit }, ex.explain);
   return (
     <div className="ex">
       <Instruction>Wybierz właściwy rodzajnik</Instruction>
@@ -185,9 +189,9 @@ export function ArticleEx({ ex, locked, setCheck }: ExProps<Of<'article'>>) {
   );
 }
 
-export function JudgeEx({ ex, course, locked, setCheck }: ExProps<Of<'judge'>>) {
+export function JudgeEx({ ex, course, locked, setCheck, submit }: ExProps<Of<'judge'>>) {
   const answer = ex.isRight ? 0 : 1;
-  const { selected, select } = useChoice(answer, ex.isRight ? 'Tak, tłumaczenie jest poprawne.' : `Nie. Poprawnie: ${ex.correct}`, setCheck);
+  const { selected, select } = useChoice(answer, ex.isRight ? 'Tak, tłumaczenie jest poprawne.' : `Nie. Poprawnie: ${ex.correct}`, { setCheck, submit });
   return (
     <div className="ex">
       <Instruction>Czy to dobre tłumaczenie?</Instruction>
@@ -203,9 +207,9 @@ export function JudgeEx({ ex, course, locked, setCheck }: ExProps<Of<'judge'>>) 
   );
 }
 
-export function QuestionEx({ ex, locked, setCheck }: ExProps<Of<'question'>>) {
+export function QuestionEx({ ex, locked, setCheck, submit }: ExProps<Of<'question'>>) {
   const q = ex.question;
-  const { selected, select } = useChoice(q.answer, q.options[q.answer], setCheck, q.explain);
+  const { selected, select } = useChoice(q.answer, q.options[q.answer], { setCheck, submit }, q.explain);
   return (
     <div className="ex">
       <Instruction>{ex.context ? `Pytanie do historyjki „${ex.context}”` : 'Sprawdź się'}</Instruction>

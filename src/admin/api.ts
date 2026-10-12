@@ -66,6 +66,8 @@ export interface CourseInfo {
 export interface Validation {
   ok: boolean;
   errors: string[];
+  /** Pytania, przykłady i zdania wychodzące poza pokazany materiał (zapis jest możliwy, ale warto poprawić). */
+  coverage?: string[];
   warnings: string[];
   stats: { units: number; lessons: number; words: number; sentences: number; grammar: number; stories: number; images: number } | null;
 }

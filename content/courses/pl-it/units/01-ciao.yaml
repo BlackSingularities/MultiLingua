@@ -105,7 +105,7 @@ grammar:
     check:
       - {q: "Tu ___ Luca?", options: [sei, sono, è], answer: 0, explain: "tu → sei"}
       - {q: "Noi ___ amici.", options: [siete, siamo, sono], answer: 1, explain: "noi → siamo"}
-      - {q: "Jak zapytać grzecznie nieznajomą osobę: „Czy pani jest Włoszką?”", options: ["Tu sei italiana?", "Lei è italiana?", "Voi siete italiana?"], answer: 1, explain: "Forma grzecznościowa to Lei + 3. osoba lp."}
+      - {q: "Pytasz grzecznie nieznajomego: „Czy pan jest panem Rossi?”", options: ["Tu sei il signor Rossi?", "Lei è il signor Rossi?", "Voi siete il signor Rossi?"], answer: 1, explain: "Forma grzecznościowa to Lei + 3. osoba lp: Lei è…"}
       - {q: "Które zdanie znaczy „Marco i Anna”?", options: ["Marco è Anna", "Marco e Anna"], answer: 1, explain: "e bez akcentu to spójnik „i”."}
 
   - id: it-stare-saluti

@@ -4,7 +4,7 @@ import type { Exercise } from '../engine/types.ts';
 import { checkAnswer, normalize } from '../engine/text.ts';
 import { inLanguage } from '../engine/generator.ts';
 import { SpeakButton } from '../components/ui.tsx';
-import { AnswerInput, HintText, Instruction, type ExProps } from './shared.tsx';
+import { AnswerInput, HintText, Instruction, type ExProps, useInstant } from './shared.tsx';
 
 type Of<T extends Exercise['type']> = Extract<Exercise, { type: T }>;
 
@@ -114,7 +114,7 @@ export function WriteEx({ ex, course, locked, setCheck }: ExProps<Of<'write'>>) 
   );
 }
 
-export function ClozeEx({ ex, course, locked, outcome, setCheck }: ExProps<Of<'cloze'>>) {
+export function ClozeEx({ ex, course, locked, outcome, setCheck, submit }: ExProps<Of<'cloze'>>) {
   const [value, setValue] = useState('');
   const [picked, setPicked] = useState<number | null>(null);
   const typed = !ex.options;
@@ -134,6 +134,7 @@ export function ClozeEx({ ex, course, locked, outcome, setCheck }: ExProps<Of<'c
           },
     );
   }, [value, picked, ex, typed, setCheck]);
+  const instant = useInstant(submit);
 
   const fill = typed ? value : picked !== null ? ex.options![picked] : '';
   return (
@@ -178,7 +179,10 @@ export function ClozeEx({ ex, course, locked, outcome, setCheck }: ExProps<Of<'c
               key={i}
               type="button"
               className={`chip${picked === i ? ' chip-on' : ''}`}
-              onClick={() => setPicked(i)}
+              onClick={() => {
+                setPicked(i);
+                instant();
+              }}
               disabled={locked}
               lang={course.pack.target.code}
             >
@@ -349,12 +353,13 @@ export function ConjugateEx({ ex, course, locked, outcome, setCheck }: ExProps<O
   );
 }
 
-export function ErrorSpotEx({ ex, course, locked, setCheck }: ExProps<Of<'errorspot'>>) {
+export function ErrorSpotEx({ ex, course, locked, setCheck, submit }: ExProps<Of<'errorspot'>>) {
   const [picked, setPicked] = useState<number | null>(null);
   const explain = useMemo(() => `„${ex.tokens[ex.wrong]}” → „${ex.fix}”. ${ex.translation}`, [ex]);
   useEffect(() => {
     setCheck(picked === null ? null : () => ({ ok: picked === ex.wrong, correct: ex.full, given: ex.tokens[picked], explain }));
   }, [picked, ex, setCheck, explain]);
+  const instant = useInstant(submit);
   return (
     <div className="ex">
       <Instruction>Znajdź błędne słowo</Instruction>
@@ -363,7 +368,7 @@ export function ErrorSpotEx({ ex, course, locked, setCheck }: ExProps<Of<'errors
         {ex.tokens.map((t, i) => {
           const state = locked ? (i === ex.wrong ? 'right' : i === picked ? 'wrong' : '') : i === picked ? 'selected' : '';
           return (
-            <button key={i} type="button" className={`err-word ${state}`} disabled={locked} onClick={() => setPicked(i)}>
+            <button key={i} type="button" className={`err-word ${state}`} disabled={locked} onClick={() => { setPicked(i); instant(); }}>
               {t}
             </button>
           );

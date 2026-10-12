@@ -27,6 +27,9 @@ mówienie, słuchanie, odmiana czasowników, liczby, powtórki rozłożone w cza
   (nagłówki `###`), a po każdym kroku przychodzą ćwiczenia z form, które ten krok wyróżnia.
   Lekcje słówek wplatają krótkie wskazówki z teorii tuż przed słowami, których dotyczą.
   Każdą lekcję można zrobić w trybie „teoria i ćwiczenia”, „tylko ćwiczenia” albo przeczytać samą teorię.
+- **Pytamy tylko o to, co było w materiale**: pytania i ćwiczenia trafiają za krok teorii, którego dotyczą,
+  i używają wyłącznie słów już poznanych. Pilnuje tego test treści (`tests/coverage.test.ts`)
+  i walidacja w panelu administratora.
 - **Ścieżka nauki** jako trasa z przystankami: plan lekcji przed startem, sprawdzian jednostki,
   „przeskocz tutaj testem”.
 - **Ilustracje słówek**: każde słowo ma swoją „tablicę” z miejscem na grafikę SVG

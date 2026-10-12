@@ -16,6 +16,7 @@ vocab:
   - {t: dormire, n: spać, pos: verb, forms: [dormo, dormi, dorme, dormiamo, dormite, dormono], emoji: "😴"}
   - {t: partire, n: wyjeżdżać, alt_n: [odjeżdżać], pos: verb, forms: [parto, parti, parte, partiamo, partite, partono]}
   - {t: finire, n: kończyć, alt_n: [kończyć się], pos: verb, forms: [finisco, finisci, finisce, finiamo, finite, finiscono]}
+  - {t: capire, n: rozumieć, pos: verb, forms: [capisco, capisci, capisce, capiamo, capite, capiscono], note: "Odmienia się jak finire: capisco, capisci…"}
   - {t: studiare, n: uczyć się, alt_n: [studiować], pos: verb, forms: [studio, studi, studia, studiamo, studiate, studiano], emoji: "📚"}
   - {t: mattina, n: rano, alt_n: [poranek], pos: noun, g: f, art: la, pl: mattine, emoji: "🌅"}
   - {t: pomeriggio, n: popołudnie, pos: noun, g: m, art: il, pl: pomeriggi}
@@ -24,6 +25,7 @@ vocab:
   - {t: oggi, n: dzisiaj, alt_n: [dziś], pos: adv}
   - {t: domani, n: jutro, pos: adv}
   - {t: ieri, n: wczoraj, pos: adv}
+  - {t: treno, n: pociąg, pos: noun, g: m, art: il, pl: treni, emoji: "🚆"}
   - {t: ora, n: godzina, alt_n: [teraz], pos: noun, g: f, art: "l'", pl: ore, emoji: "🕐", note: "„Ora” jako przysłówek znaczy też „teraz”."}
   - {t: giorno, n: dzień, pos: noun, g: m, art: il, pl: giorni, emoji: "📆"}
   - {t: settimana, n: tydzień, pos: noun, g: f, art: la, pl: settimane}
@@ -36,6 +38,7 @@ vocab:
   - {t: domenica, n: niedziela, pos: noun, g: f, art: la, note: "Jedyny dzień tygodnia w rodzaju żeńskim."}
   - {t: presto, n: wcześnie, alt_n: [szybko, niedługo], pos: adv}
   - {t: tardi, n: późno, pos: adv}
+  - {t: fino a, n: aż do, alt_n: [do], pos: prep, ex: ["Dormo fino alle nove.", "Śpię do dziewiątej."]}
   - {t: di solito, n: zwykle, alt_n: [zazwyczaj], pos: adv}
   - {t: mai, n: nigdy, pos: adv, note: "Z przeczeniem: non dormo mai — nigdy nie śpię."}
   - {t: mezzogiorno, n: południe, pos: noun, g: m, art: il, emoji: "🕛"}
@@ -68,7 +71,7 @@ sentences:
   - {t: "Il mercoledì e il giovedì lavoro a casa.", n: "W środy i czwartki pracuję w domu.", alt_n: ["W środę i czwartek pracuję w domu."], gap: lavoro, gap_opts: [lavori, lavora]}
   - {t: "Domani è sabato!", n: "Jutro jest sobota!", alt_n: ["Jutro sobota!"], gap: sabato, gap_opts: [domenica, venerdì]}
   - {t: "Studiamo dalle nove a mezzogiorno.", n: "Uczymy się od dziewiątej do południa.", gap: Studiamo, gap_opts: [Studiate, Studiano]}
-  - {t: "Ieri era una settimana difficile.", n: "Wczoraj był trudny tydzień.", alt_t: ["È stata una settimana difficile."], alt_n: ["To był trudny tydzień."]}
+  - {t: "La settimana finisce domani.", n: "Tydzień kończy się jutro.", alt_n: ["Tydzień skończy się jutro."], gap: finisce, gap_opts: [finisci, finiscono]}
 
 grammar:
   - id: it-ore

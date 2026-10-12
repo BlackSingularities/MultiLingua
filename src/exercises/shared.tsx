@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type RefObject } from 'react';
+import { useCallback, useEffect, useRef, useState, type RefObject } from 'react';
 import type { CourseIndex } from '../engine/course.ts';
 import type { AnswerOutcome } from '../engine/types.ts';
 import { tokenize } from '../engine/text.ts';
@@ -15,6 +15,25 @@ export interface ExProps<T> {
   setCheck: (fn: (() => AnswerOutcome) | null) => void;
   /** Ćwiczenie samo się kończy (pary, karta słówka, teoria). `silent` = bez panelu oceny. */
   finish: (o: AnswerOutcome, silent?: boolean) => void;
+  /** Sprawdź od razu (gdy włączone „sprawdzaj po wybraniu”); bez tego — nic nie robi. */
+  submit: () => void;
+  /** Sesja to trening tej umiejętności (Mówienie, Słuchanie) — bez „nie mogę teraz…”. */
+  dedicated: boolean;
+}
+
+/**
+ * Natychmiastowe sprawdzenie po wyborze. Wywołaj zwróconą funkcję przy wyborze;
+ * sprawdzenie rusza w efekcie PO zarejestrowaniu nowej funkcji sprawdzającej,
+ * więc hook trzeba wywołać po efekcie z `setCheck`.
+ */
+export function useInstant(submit: () => void) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (n) submit();
+    // Tylko po kolejnym wyborze.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [n]);
+  return useCallback(() => setN((x) => x + 1), []);
 }
 
 /** Tekst w języku docelowym z podpowiedziami słówek po dotknięciu wyrazu. */
