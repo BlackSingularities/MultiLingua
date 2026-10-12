@@ -189,19 +189,19 @@ stories:
     emoji: "🗺️"
     intro: Druga lekcja w szkole językowej. Nauczycielka prosi, żeby każdy się przedstawił.
     lines:
-      - [Insegnante, "Allora, ragazzi, chi siete? Di dove siete?", "No to kim jesteście? Skąd jesteście?"]
+      - [Insegnante, "Ragazzi, chi siete? Di dove siete?", "Kochani, kim jesteście? Skąd jesteście?"]
       - [Hans, "Io sono Hans. Sono tedesco, di Berlino.", "Jestem Hans. Jestem Niemcem, z Berlina."]
-      - [Insegnante, "Benvenuto, Hans! E tu?", "Witaj, Hans! A ty?"]
+      - [Insegnante, "Piacere, Hans! E tu?", "Miło mi, Hans! A ty?"]
       - [Carmen, "Mi chiamo Carmen. Sono spagnola, ma abito a Firenze.", "Mam na imię Carmen. Jestem Hiszpanką, ale mieszkam we Florencji."]
       - [Insegnante, "Parli italiano, Carmen?", "Mówisz po włosku, Carmen?"]
       - [Carmen, "Sì, un po'. Parlo spagnolo, inglese e un po' di italiano.", "Tak, trochę. Mówię po hiszpańsku, po angielsku i trochę po włosku."]
-      - [Insegnante, "Brava! E tu?", "Brawo! A ty?"]
+      - [Insegnante, "Molto bene! E tu?", "Bardzo dobrze! A ty?"]
       - [Anna, "Io sono Anna, sono polacca. Sono una studentessa.", "Jestem Anna, jestem Polką. Jestem studentką."]
       - [Hans, "Polacca? Di dove?", "Polką? Skąd?"]
-      - [Anna, "Di Cracovia. È una città molto bella!", "Z Krakowa. To bardzo piękne miasto!"]
-      - [Insegnante, "Perfetto. Siete un gruppo internazionale!", "Świetnie. Jesteście międzynarodową grupą!"]
+      - [Anna, "Di Cracovia. È una città polacca.", "Z Krakowa. To polskie miasto."]
+      - [Insegnante, "Molto bene, ragazzi! Parliamo italiano!", "Bardzo dobrze, kochani! Mówmy po włosku!"]
     questions:
-      - {q: "Skąd jest Hans?", options: [z Berlina, z Florencji, z Krakowa], answer: 0}
+      - {q: "Skąd jest Hans?", options: [z Berlina, z Florencji, z Krakowa], answer: 0, explain: "Sono tedesco, di Berlino."}
       - {q: "Gdzie mieszka Carmen?", options: [w Madrycie, we Florencji, w Rzymie], answer: 1, explain: "Abito a Firenze."}
       - {q: "Jakimi językami mówi Carmen?", options: ["tylko po hiszpańsku", "po hiszpańsku, angielsku i trochę po włosku", "po niemiecku i po włosku"], answer: 1}
-      - {q: "Kim jest Anna?", options: [nauczycielką, studentką, lekarką], answer: 1}
+      - {q: "Kim jest Anna?", options: [nauczycielką, studentką, lekarką], answer: 1, explain: "Sono una studentessa."}

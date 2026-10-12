@@ -108,7 +108,8 @@ export class Coverage {
   questionText(q: ChoiceQuestion): string {
     const parts: string[] = [];
     const isTarget = (t: string) => {
-      const ws = words(t);
+      // Krótkie słowa („i”, „a”, „e”) są w obu językach — nie liczą się do oceny.
+      const ws = words(t).filter((w) => w.length > 2);
       return ws.length > 0 && ws.filter((w) => this.lexicon.has(w)).length / ws.length >= 0.6;
     };
     const right = q.options[q.answer];
@@ -190,6 +191,32 @@ export function coverageProblems(ix: CourseIndex, split: (g: GrammarArticle) => 
     }
     for (const p of cov.place(g.examples, (e) => e.t, (e) => e.t, steps, before, 'last')) {
       if (p.step < 0) problems.push(`„${g.title}”: przykład „${p.item.t}” używa słów spoza materiału: ${p.missing.join(', ')}`);
+    }
+  }
+  // Historyjki: kwestie i cytaty w pytaniach — tylko słowa znane w miejscu historyjki na ścieżce.
+  for (const l of ix.path) {
+    if (l.kind !== 'story' || !l.story) continue;
+    const st = ix.stories.get(l.story);
+    if (!st) continue;
+    const taught = cov.taughtAt(l);
+    for (const line of st.lines) {
+      const m = cov.missing(line.t, taught);
+      if (m.length) problems.push(`Historyjka „${st.title}”: „${line.t}” — słowa spoza materiału: ${m.join(', ')}`);
+    }
+    for (const q of st.questions) {
+      const m = cov.missing(cov.questionText(q), taught);
+      if (m.length) problems.push(`Historyjka „${st.title}”: pytanie „${q.q}” — słowa spoza materiału: ${m.join(', ')}`);
+    }
+  }
+  // Przykłady na kartach nowych słów: tylko słowa z tej lekcji i wcześniejszych.
+  for (const l of ix.path) {
+    if (l.kind !== 'learn') continue;
+    const taught = cov.taughtAt(l);
+    for (const id of l.vocab) {
+      const v = ix.vocab.get(id);
+      if (!v?.ex) continue;
+      const m = cov.missing(v.ex.t, taught);
+      if (m.length) problems.push(`Słowo „${v.t}”: przykład „${v.ex.t}” — słowa spoza materiału: ${m.join(', ')}`);
     }
   }
   for (const u of ix.units) {

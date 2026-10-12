@@ -9,6 +9,7 @@ goals:
   - Użyjesz rodzajników w liczbie mnogiej i zaimków mio, tuo, suo
 
 vocab:
+  - {t: foto, n: zdjęcie, pos: noun, g: f, art: la, pl: foto, emoji: "📷", note: "Skrót od „fotografia” — w liczbie mnogiej się nie zmienia: le foto."}
   - {t: famiglia, n: rodzina, pos: noun, g: f, art: la, pl: famiglie, emoji: "👨‍👩‍👧"}
   - {t: padre, n: ojciec, pos: noun, g: m, art: il, pl: padri, emoji: "👨"}
   - {t: madre, n: matka, alt_n: [mama], pos: noun, g: f, art: la, pl: madri, emoji: "👩"}
@@ -93,7 +94,7 @@ grammar:
       Litera **h** jest niema — *ho* czytamy jak „o”, *hanno* jak „anno”. Jest w pisowni tylko po to, by odróżnić *ho* (mam) od *o* (albo), *ha* (ma) od *a* (w, do), *hanno* od *anno* (rok).
 
       ### Ile masz lat?
-      Tak jak po polsku, wiek „się ma”: **Quanti anni hai?** — *Ho trent'anni.* Nigdy nie mów „sono trenta”!
+      Tak jak po polsku, wiek „się ma”: **Quanti anni hai?** — *Ho venti anni.* Nigdy nie mów „sono venti”!
 
       > Po włosku pytamy *quanti anni* (ile lat), a odpowiadamy *ho … anni*. Słowo *anni* nie znika: *Ho otto anni* — mam osiem lat.
 
@@ -183,19 +184,19 @@ stories:
     emoji: "📷"
     intro: Anna pokazuje Marcowi zdjęcie swojej rodziny z Polski.
     lines:
-      - [Marco, "Che bella foto! Chi sono?", "Jakie ładne zdjęcie! Kto to jest?"]
-      - [Anna, "È la mia famiglia. Questo è mio padre, Piotr.", "To moja rodzina. To jest mój tata, Piotr."]
-      - [Marco, "E la signora accanto a lui?", "A ta pani obok niego?"]
-      - [Anna, "È mia madre. Si chiama Ewa ed è insegnante.", "To moja mama. Ma na imię Ewa i jest nauczycielką."]
+      - [Marco, "Che foto è? È la tua famiglia?", "Co to za zdjęcie? To twoja rodzina?"]
+      - [Anna, "Sì! Questo è mio padre, Piotr.", "Tak! To jest mój tata, Piotr."]
+      - [Marco, "E la signora?", "A ta pani?"]
+      - [Anna, "È mia madre. Si chiama Ewa. È insegnante.", "To moja mama. Ma na imię Ewa. Jest nauczycielką."]
       - [Marco, "Hai fratelli?", "Masz rodzeństwo?"]
-      - [Anna, "Sì, ho un fratello. Si chiama Tomek e ha quindici anni.", "Tak, mam brata. Ma na imię Tomek i ma piętnaście lat."]
+      - [Anna, "Sì, ho un fratello. Si chiama Tomek e ha dieci anni.", "Tak, mam brata. Ma na imię Tomek i ma dziesięć lat."]
       - [Marco, "E il cane? È vostro?", "A pies? Jest wasz?"]
       - [Anna, "Sì, è il nostro cane, Burek. È piccolo ma molto simpatico!", "Tak, to nasz pies, Burek. Jest mały, ale bardzo sympatyczny!"]
-      - [Marco, "Io non ho fratelli, ma ho due cugine.", "Ja nie mam rodzeństwa, ale mam dwie kuzynki."]
-      - [Anna, "Abitano a Roma?", "Mieszkają w Rzymie?"]
-      - [Marco, "No, abitano a Milano con i nonni.", "Nie, mieszkają w Mediolanie z dziadkami."]
+      - [Marco, "Io non ho fratelli, ma ho un gatto!", "Ja nie mam rodzeństwa, ale mam kota!"]
+      - [Anna, "E i tuoi genitori abitano a Roma?", "A twoi rodzice mieszkają w Rzymie?"]
+      - [Marco, "No, abitano a Milano. I miei nonni abitano a Roma.", "Nie, mieszkają w Mediolanie. Moi dziadkowie mieszkają w Rzymie."]
     questions:
-      - {q: "Kim jest Ewa?", options: [siostrą Anny, mamą Anny, babcią Anny], answer: 1}
-      - {q: "Ile lat ma brat Anny?", options: ["5", "15", "50"], answer: 1, explain: "Ha quindici anni — ma piętnaście lat."}
-      - {q: "Jaki jest Burek?", options: [duży i groźny, mały i sympatyczny, stary i leniwy], answer: 1}
-      - {q: "Gdzie mieszkają kuzynki Marca?", options: [w Rzymie, w Mediolanie, w Krakowie], answer: 1}
+      - {q: "Kim jest Ewa?", options: [siostrą Anny, mamą Anny, babcią Anny], answer: 1, explain: "È mia madre."}
+      - {q: "Ile lat ma brat Anny?", options: ["5", "10", "20"], answer: 1, explain: "Ha dieci anni — ma dziesięć lat."}
+      - {q: "Jaki jest Burek?", options: [duży i groźny, mały i sympatyczny, stary i leniwy], answer: 1, explain: "È piccolo ma molto simpatico."}
+      - {q: "Gdzie mieszkają rodzice Marca?", options: [w Rzymie, w Mediolanie, w Krakowie], answer: 1, explain: "Abitano a Milano."}

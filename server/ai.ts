@@ -103,6 +103,9 @@ ZASADY PEDAGOGICZNE (najważniejsze):
 6. Zdania: naturalne, krótkie (3–10 słów), z wariantami tłumaczeń w alt_n (różne poprawne polskie wersje).
    "gap" to słowo z danego zdania, które warto wyciąć w ćwiczeniu z luką (najlepiej forma z gramatyki rozdziału).
 7. Historyjka: dialog 6–10 kwestii [mówiący, tekst w języku kursu, tłumaczenie], 2–4 pytania po polsku.
+   Kwestie używają WYŁĄCZNIE słów z "vocab" tego i wcześniejszych rozdziałów oraz form z teorii
+   (imiona i nazwy miejsc wolno). Pytania dotyczą tego, co pada w dialogu. Przykład słówka ("ex")
+   używa tylko słów wprowadzonych do tej pory.
 8. Odmiany (conjugations): tabele dla czasowników z gramatyki rozdziału, dokładnie 6 form w kolejności osób z kursu.
 
 FORMAT:

@@ -146,10 +146,10 @@ grammar:
       | na -e | grand**e** | grand**e** | grand**i** | grand**i** |
 
       - *il caffè freddo, l'acqua fredda, i panini freddi, le birre fredde*
-      - *il cane grande, la casa grande, i cani grandi, le case grandi*
+      - *il cane grande, la torta grande, i cani grandi, le torte grandi*
 
       ### Gdzie stoi przymiotnik?
-      Zwykle **po** rzeczowniku: *un vino rosso, una città italiana*. Kilka częstych przymiotników (buono, bello, grande, piccolo) stoi często **przed**: *una buona pizza, un piccolo bar*.
+      Zwykle **po** rzeczowniku: *un caffè freddo, una città italiana*. Kilka częstych przymiotników (buono, bello, grande, piccolo) stoi często **przed**: *una buona pizza, un piccolo bar*.
 
       > Przed rzeczownikiem *buono* skraca się jak rodzajnik: **un buon** caffè, **una buona** torta. „Buon appetito!” i „Buongiorno!” to właśnie ta forma.
     examples:
@@ -174,18 +174,18 @@ stories:
     lines:
       - [Cameriere, "Buongiorno! Che cosa prendete?", "Dzień dobry! Co podać?"]
       - [Marco, "Per me un cappuccino e un cornetto, per favore.", "Dla mnie cappuccino i rogalik, proszę."]
-      - [Cameriere, "E per la signorina?", "A dla pani?"]
+      - [Cameriere, "E per lei, signora?", "A dla pani?"]
       - [Anna, "Vorrei un tè caldo con il latte.", "Poproszę gorącą herbatę z mlekiem."]
-      - [Cameriere, "Mi dispiace, il latte è finito. Va bene un tè al limone?", "Przykro mi, mleko się skończyło. Może być herbata z cytryną?"]
-      - [Anna, "Va bene, grazie. E anche un panino.", "Dobrze, dziękuję. I jeszcze kanapkę."]
-      - [Marco, "Anna, mangi un panino alle nove di mattina?", "Anna, jesz kanapkę o dziewiątej rano?"]
-      - [Anna, "Sì! Ho molta fame.", "Tak! Jestem bardzo głodna."]
+      - [Cameriere, "Scusi, non abbiamo latte. Prende un tè senza latte?", "Przepraszam, nie mamy mleka. Weźmie pani herbatę bez mleka?"]
+      - [Anna, "Sì, grazie. E anche un panino.", "Tak, dziękuję. I jeszcze kanapkę."]
+      - [Marco, "Anna, mangi anche un panino?", "Anna, jesz jeszcze kanapkę?"]
+      - [Anna, "Sì! Il panino è molto buono!", "Tak! Ta kanapka jest bardzo dobra!"]
       - [Cameriere, "Ecco a voi. Buon appetito!", "Proszę bardzo. Smacznego!"]
       - [Marco, "Scusi, quanto costa tutto?", "Przepraszam, ile kosztuje wszystko?"]
-      - [Cameriere, "Sono nove euro e cinquanta.", "Razem dziewięć euro pięćdziesiąt."]
-      - [Marco, "Ecco dieci euro. Tenga il resto!", "Proszę, dziesięć euro. Reszty nie trzeba!"]
+      - [Cameriere, "Sono nove euro.", "Razem dziewięć euro."]
+      - [Marco, "Ecco dieci euro. Grazie e arrivederci!", "Proszę, dziesięć euro. Dziękuję i do widzenia!"]
     questions:
-      - {q: "Co zamawia Marco?", options: [kawę i kanapkę, cappuccino i rogalika, herbatę z cytryną], answer: 1}
-      - {q: "Dlaczego Anna nie dostaje herbaty z mlekiem?", options: [mleko się skończyło, mleko jest zimne, kelner zapomniał], answer: 0}
-      - {q: "Ile kosztuje wszystko?", options: ["9,50 €", "10 €", "5 €"], answer: 0}
+      - {q: "Co zamawia Marco?", options: [kawę i kanapkę, cappuccino i rogalik, herbatę], answer: 1, explain: "Per me un cappuccino e un cornetto."}
+      - {q: "Dlaczego Anna nie dostaje herbaty z mlekiem?", options: [w barze nie ma mleka, mleko jest zimne, kelner zapomniał], answer: 0, explain: "Non abbiamo latte."}
+      - {q: "Ile kosztuje wszystko?", options: ["9 €", "10 €", "5 €"], answer: 0, explain: "Sono nove euro."}
       - {q: "Co mówi kelner, podając zamówienie?", options: ["Buon appetito!", "Il conto, per favore!", "Arrivederci!"], answer: 0}

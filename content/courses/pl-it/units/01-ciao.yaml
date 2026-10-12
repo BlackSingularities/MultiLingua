@@ -28,7 +28,7 @@ vocab:
   - {t: noi, n: my, pos: pron}
   - {t: voi, n: wy, pos: pron}
   - {t: loro, n: oni, alt_n: [one], pos: pron}
-  - {t: essere, n: być, pos: verb, forms: [sono, sei, è, siamo, siete], ex: ["Io sono Marco.", "Jestem Marco."]}
+  - {t: essere, n: być, pos: verb, forms: [sono, sei, è, siamo, siete], ex: ["Sono Marco.", "Jestem Marco."]}
   - {t: stare, n: mieć się, alt_n: [czuć się], pos: verb, forms: [sto, stai, sta, stiamo, state, stanno], note: "W pytaniu o samopoczucie: Come stai?"}
   - {t: come, n: jak, pos: adv}
   - {t: bene, n: dobrze, pos: adv, emoji: "👍"}
@@ -159,22 +159,22 @@ stories:
   - id: primo-giorno
     title: Il primo giorno
     emoji: "🏫"
-    intro: Pierwszy dzień w szkole językowej we Florencji. Marco poznaje nową koleżankę z grupy.
+    intro: Pierwszy dzień w szkole językowej we Florencji. Marco poznaje nową koleżankę z grupy i nauczycielkę.
     lines:
       - [Marco, "Ciao! Io sono Marco. E tu?", "Cześć! Jestem Marco. A ty?"]
       - [Anna, "Ciao, Marco! Mi chiamo Anna. Piacere!", "Cześć, Marco! Mam na imię Anna. Miło mi!"]
-      - [Marco, "Piacere mio! Come stai?", "Mnie również! Jak się masz?"]
+      - [Marco, "Piacere! Come stai?", "Miło mi! Jak się masz?"]
       - [Anna, "Sto bene, grazie. E tu?", "Dobrze, dziękuję. A ty?"]
-      - [Marco, "Anch'io sto bene. Sei di Roma?", "Ja też dobrze. Jesteś z Rzymu?"]
-      - [Anna, "No, non sono italiana. Sono di Cracovia!", "Nie, nie jestem Włoszką. Jestem z Krakowa!"]
-      - [Marco, "Davvero? Che bello!", "Naprawdę? Jak fajnie!"]
-      - [Signora Bianchi, "Buongiorno, ragazzi!", "Dzień dobry, kochani!"]
-      - [Anna, "Buongiorno, signora!", "Dzień dobry pani!"]
-      - [Signora Bianchi, "Io sono la vostra insegnante. Come state?", "Jestem waszą nauczycielką. Jak się macie?"]
-      - [Marco, "Molto bene, grazie!", "Bardzo dobrze, dziękujemy!"]
-      - [Signora Bianchi, "Benissimo! Allora, cominciamo!", "Świetnie! No to zaczynamy!"]
+      - [Marco, "Anch'io sto bene. Lui è Luca, un amico.", "Ja też dobrze. To jest Luca, mój kolega."]
+      - [Luca, "Ciao, Anna! Piacere!", "Cześć, Anna! Miło mi!"]
+      - [Anna, "Piacere, Luca! Voi siete amici?", "Miło mi, Luca! Jesteście przyjaciółmi?"]
+      - [Luca, "Sì, siamo amici.", "Tak, jesteśmy przyjaciółmi."]
+      - [Signora Bianchi, "Buongiorno!", "Dzień dobry!"]
+      - [Anna, "Buongiorno, signora! Come sta?", "Dzień dobry pani! Jak się pani miewa?"]
+      - [Signora Bianchi, "Molto bene, grazie. Io sono la signora Bianchi.", "Bardzo dobrze, dziękuję. Jestem pani Bianchi."]
+      - [Marco, "Piacere, signora!", "Miło nam panią poznać!"]
     questions:
-      - {q: "Jak ma na imię dziewczyna?", options: [Giulia, Anna, Maria], answer: 1}
-      - {q: "Skąd jest Anna?", options: [z Rzymu, z Krakowa, z Florencji], answer: 1, explain: "Sono di Cracovia — jestem z Krakowa."}
+      - {q: "Jak ma na imię dziewczyna?", options: [Giulia, Anna, Maria], answer: 1, explain: "Mi chiamo Anna."}
+      - {q: "Kim jest Luca dla Marca?", options: [bratem, kolegą, nauczycielem], answer: 1, explain: "Lui è Luca, un amico."}
       - {q: "Jak się ma Marco?", options: [dobrze, źle, tak sobie], answer: 0, explain: "Anch'io sto bene."}
-      - {q: "Kim jest signora Bianchi?", options: [mamą Marca, nauczycielką, kelnerką], answer: 1, explain: "Io sono la vostra insegnante."}
+      - {q: "Jak się nazywa pani nauczycielka?", options: [Rossi, Bianchi, Bruni], answer: 1, explain: "Io sono la signora Bianchi."}
