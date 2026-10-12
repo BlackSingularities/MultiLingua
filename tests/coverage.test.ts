@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { join, resolve } from 'node:path';
 import { compileCourse, listCourseDirs } from '../scripts/content-lib.ts';
 import { CourseIndex } from '../src/engine/course.ts';
-import { Coverage, questionTopic, stepText } from '../src/engine/coverage.ts';
+import { Coverage, coverageProblems, questionTopic, stepText } from '../src/engine/coverage.ts';
 import { buildSession, mulberry32 } from '../src/engine/generator.ts';
 import { splitArticle } from '../src/engine/theory.ts';
 import type { Exercise } from '../src/engine/types.ts';
@@ -61,6 +61,10 @@ describe.each(listCourseDirs(join(root, 'content', 'courses')))('pokrycie materi
       }
     }
     expect(problems).toEqual([]);
+  });
+
+  it('historyjki, przykłady na kartach słów i cała treść mieszczą się w materiale', () => {
+    expect(coverageProblems(index, (g) => splitArticle(g, (w) => index.isTarget(w)))).toEqual([]);
   });
 
   it('każde zdanie jednostki da się zbudować ze słów jednostki i wcześniejszych', () => {

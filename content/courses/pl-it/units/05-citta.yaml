@@ -176,18 +176,18 @@ stories:
     intro: Turysta w Weronie szuka apteki i zaczepia starszą panią na ulicy.
     lines:
       - [Turista, "Scusi, signora, c'è una farmacia qui vicino?", "Przepraszam panią, czy jest tu w pobliżu apteka?"]
-      - [Signora, "Sì, ce n'è una in piazza Dante.", "Tak, jest jedna na placu Dantego."]
+      - [Signora, "Sì, c'è una farmacia in piazza Dante.", "Tak, jest apteka na placu Dantego."]
       - [Turista, "È lontano?", "Czy to daleko?"]
-      - [Signora, "No, è vicino. Cinque minuti a piedi.", "Nie, blisko. Pięć minut pieszo."]
-      - [Turista, "Come arrivo in piazza?", "Jak dojdę na plac?"]
+      - [Signora, "No, è molto vicino.", "Nie, bardzo blisko."]
+      - [Turista, "Dov'è la piazza?", "Gdzie jest ten plac?"]
       - [Signora, "Vada sempre dritto, poi giri a sinistra.", "Proszę iść cały czas prosto, potem skręcić w lewo."]
       - [Signora, "La farmacia è accanto alla chiesa, di fronte al museo.", "Apteka jest obok kościoła, naprzeciwko muzeum."]
       - [Turista, "Accanto alla chiesa… E c'è anche un supermercato?", "Obok kościoła… A czy jest też supermarket?"]
-      - [Signora, "Ci sono due supermercati in centro, ma la domenica sono chiusi.", "W centrum są dwa supermarkety, ale w niedzielę są zamknięte."]
-      - [Turista, "Grazie mille, è molto gentile!", "Bardzo dziękuję, jest pani bardzo uprzejma!"]
-      - [Signora, "Prego, buona giornata!", "Proszę bardzo, miłego dnia!"]
+      - [Signora, "Sì, c'è un supermercato vicino alla stazione.", "Tak, jest supermarket blisko dworca."]
+      - [Turista, "Grazie, Lei è molto gentile!", "Dziękuję, jest pani bardzo uprzejma!"]
+      - [Signora, "Prego! Arrivederci!", "Proszę bardzo! Do widzenia!"]
     questions:
       - {q: "Czego szuka turysta?", options: [apteki, dworca, banku], answer: 0}
-      - {q: "Gdzie jest apteka?", options: [obok kościoła, naprzeciwko dworca, w parku], answer: 0}
-      - {q: "Ile zajmie droga?", options: [pięć minut pieszo, pół godziny autobusem, dwie godziny], answer: 0}
-      - {q: "Kiedy supermarkety w centrum są zamknięte?", options: [w sobotę, w niedzielę, wieczorem], answer: 1}
+      - {q: "Gdzie jest apteka?", options: [obok kościoła, naprzeciwko dworca, w parku], answer: 0, explain: "È accanto alla chiesa."}
+      - {q: "Czy apteka jest daleko?", options: ["nie, bardzo blisko", "tak, bardzo daleko", "w innym mieście"], answer: 0, explain: "È molto vicino."}
+      - {q: "Gdzie jest supermarket?", options: [blisko dworca, obok kościoła, w parku], answer: 0, explain: "C'è un supermercato vicino alla stazione."}

@@ -35,16 +35,21 @@ export class CourseIndex {
         this.path.push(l);
       });
     }
-    for (const s of this.sentences.values()) {
-      for (const text of [s.t, s.n]) {
-        const words = text.split(/\s+/);
-        words.forEach((w, i) => {
-          // Wielka litera po kropce, myślniku czy wykrzykniku to początek zdania, nie nazwa.
-          if (i === 0 || /[.!?…—–:"«]$/.test(words[i - 1])) return;
-          const clean = w.replace(/[^\p{L}']/gu, '');
-          if (/^\p{Lu}/u.test(clean)) this.properTokens.add(clean);
-        });
-      }
+    // Imiona i nazwy: ze zdań, historyjek (także imiona mówiących) i przykładów teorii.
+    const texts = [
+      ...[...this.sentences.values()].flatMap((s) => [s.t, s.n]),
+      ...[...this.stories.values()].flatMap((s) => s.lines.flatMap((l) => [l.t, l.n])),
+      ...[...this.grammar.values()].flatMap((g) => g.examples.flatMap((e) => [e.t, e.n])),
+    ];
+    for (const s of this.stories.values()) for (const l of s.lines) this.properTokens.add(l.speaker.replace(/[^\p{L}']/gu, ''));
+    for (const text of texts) {
+      const words = text.split(/\s+/);
+      words.forEach((w, i) => {
+        // Wielka litera po kropce, myślniku czy wykrzykniku to początek zdania, nie nazwa.
+        if (i === 0 || /[.!?…—–:"«]$/.test(words[i - 1])) return;
+        const clean = w.replace(/[^\p{L}']/gu, '');
+        if (/^\p{Lu}/u.test(clean)) this.properTokens.add(clean);
+      });
     }
     if (pack.target.code === 'en') this.properTokens.add('I');
     for (const table of this.tables.values()) {

@@ -212,15 +212,15 @@ stories:
       - [Mamma, "Luca! Sono le sette e mezza! Ti alzi o no?", "Luca! Jest wpół do ósmej! Wstajesz czy nie?"]
       - [Luca, "Mamma, oggi è sabato… Dormo ancora un po'.", "Mamo, dzisiaj jest sobota… Pośpię jeszcze trochę."]
       - [Mamma, "No, oggi è venerdì! Hai lezione alle nove.", "Nie, dzisiaj jest piątek! Masz lekcję o dziewiątej."]
-      - [Luca, "Venerdì? Oh no! Mi alzo subito!", "Piątek? O nie! Zaraz wstaję!"]
+      - [Luca, "Venerdì?! Mi alzo, mi alzo!", "Piątek?! Wstaję, wstaję!"]
       - [Luca, "Mi lavo, mi vesto e… dov'è il mio zaino?", "Myję się, ubieram i… gdzie jest mój plecak?"]
       - [Mamma, "È in cucina, sulla sedia.", "Jest w kuchni, na krześle."]
-      - [Luca, "Grazie, mamma! A che ora finisce la scuola oggi?", "Dzięki, mamo! O której dziś kończy się szkoła?"]
-      - [Mamma, "Finisci all'una. Poi pranzi dai nonni.", "Kończysz o pierwszej. Potem jesz obiad u dziadków."]
-      - [Luca, "Perfetto. E stasera?", "Świetnie. A dziś wieczorem?"]
-      - [Mamma, "Stasera studi! Lunedì hai un esame.", "Dziś wieczorem się uczysz! W poniedziałek masz egzamin."]
+      - [Luca, "Grazie, mamma! A che ora finisce la lezione oggi?", "Dzięki, mamo! O której dziś kończy się lekcja?"]
+      - [Mamma, "Finisci all'una. Il pomeriggio studi a casa.", "Kończysz o pierwszej. Po południu uczysz się w domu."]
+      - [Luca, "E la sera?", "A wieczorem?"]
+      - [Mamma, "La sera dormi presto. Domani è sabato!", "Wieczorem kładziesz się wcześnie. Jutro jest sobota!"]
     questions:
-      - {q: "Jaki dzień jest naprawdę?", options: [sobota, piątek, poniedziałek], answer: 1}
-      - {q: "O której Luca ma lekcję?", options: ["o 7:30", "o 9:00", "o 13:00"], answer: 1}
-      - {q: "Gdzie jest plecak?", options: [w kuchni na krześle, w łazience, w samochodzie], answer: 0}
-      - {q: "Co Luca ma w poniedziałek?", options: [wolne, egzamin, urodziny], answer: 1}
+      - {q: "Jaki dzień jest naprawdę?", options: [sobota, piątek, poniedziałek], answer: 1, explain: "Oggi è venerdì."}
+      - {q: "O której Luca ma lekcję?", options: ["o 7:30", "o 9:00", "o 13:00"], answer: 1, explain: "Hai lezione alle nove."}
+      - {q: "Gdzie jest plecak?", options: [w kuchni na krześle, w łazience, w samochodzie], answer: 0, explain: "È in cucina, sulla sedia."}
+      - {q: "Co Luca robi po południu?", options: [śpi, uczy się w domu, je obiad u dziadków], answer: 1, explain: "Il pomeriggio studi a casa."}

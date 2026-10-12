@@ -11,6 +11,8 @@
   i pytań; jednostki idą rytmem słówka → teoria → słówka → teoria.
 - Test treści i walidacja w panelu zgłaszają pytania, przykłady i zdania wychodzące poza materiał;
   treść kursu poprawiona (nowe słówka: nipote, formaggio, venti, treno, capire, fino a).
+- Historyjki przepisane na słowa i formy poznane do tego miejsca kursu (pytania dopasowane do dialogów);
+  przykłady na kartach słów i w teorii też tylko z poznanych słów. Test treści obejmuje teraz historyjki.
 - **Sprawdzanie od razu po wyborze**: w ćwiczeniach z wyborem dotknięcie odpowiedzi ją ocenia,
   a po poprawnej aplikacja sama przechodzi dalej (można wyłączyć w ustawieniach).
 - W treningach „Mówienie” i „Słuchanie” nie ma już przycisków „nie mogę teraz mówić/słuchać”.
