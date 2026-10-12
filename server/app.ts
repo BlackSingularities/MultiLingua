@@ -1,13 +1,15 @@
 // Serwer treści MultiLingua: udostępnia bazę kursów (SQLite, tylko odczyt)
 // aplikacji webowej i mobilnym. Postępy użytkowników NIE trafiają na serwer.
-import Fastify, { type FastifyInstance } from 'fastify';
+// Opcjonalnie (gdy podano katalog treści) obsługuje też panel administratora.
+import Fastify, { type FastifyInstance, type FastifyReply } from 'fastify';
 import compress from '@fastify/compress';
 import cors from '@fastify/cors';
 import fastifyStatic from '@fastify/static';
-import { DatabaseSync } from 'node:sqlite';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { AppMeta, CourseSummary, SearchHit } from '../src/data/types.ts';
+import type { AppMeta } from '../src/data/types.ts';
+import { ContentStore, type Blobs } from './content-store.ts';
+import { registerAdmin, type AdminOptions } from './admin.ts';
 
 export interface ServerOptions {
   dbPath: string;
@@ -15,15 +17,8 @@ export interface ServerOptions {
   appVersion: string;
   repo: string;
   logger?: boolean;
-}
-
-interface CourseRow {
-  id: string;
-  hash: string;
-  summary: string;
-  pack: Uint8Array;
-  pack_gz: Uint8Array;
-  pack_br: Uint8Array;
+  /** Panel administratora: katalog z kursami (YAML) i miejsce na dane panelu. */
+  admin?: Omit<AdminOptions, 'store'>;
 }
 
 // Aplikacje Capacitora działają z tych originów; web jest na tej samej domenie.
@@ -36,29 +31,10 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 
 export async function buildServer(opts: ServerOptions): Promise<FastifyInstance> {
-  if (!existsSync(opts.dbPath)) {
-    throw new Error(`Brak bazy treści ${opts.dbPath} — uruchom "npm run content".`);
-  }
-  const db = new DatabaseSync(opts.dbPath, { readOnly: true });
-  const meta = Object.fromEntries(
-    (db.prepare('SELECT key, value FROM meta').all() as { key: string; value: string }[]).map((r) => [r.key, r.value]),
-  );
-
-  // Paczki kursów są małe (dziesiątki KiB) — trzymamy je w pamięci.
-  const courses = new Map<string, CourseRow & { parsed: CourseSummary }>();
-  for (const row of db.prepare('SELECT id, hash, summary, pack, pack_gz, pack_br FROM courses ORDER BY position').all() as unknown as CourseRow[]) {
-    courses.set(row.id, { ...row, parsed: JSON.parse(row.summary) as CourseSummary });
-  }
-  const summaries = [...courses.values()].map((c) => c.parsed);
-  const unitStmt = db.prepare('SELECT data FROM units WHERE course = ? AND id = ?');
-  const searchStmt = db.prepare(`
-    SELECT kind, id, unit, t, n FROM search
-    WHERE search MATCH ? AND course = ?
-    ORDER BY rank LIMIT ?
-  `);
+  const store = new ContentStore(opts.dbPath);
 
   const repoUrl = `https://github.com/${opts.repo}`;
-  const appMeta: AppMeta = {
+  const appMeta = (): AppMeta => ({
     app: {
       version: opts.appVersion,
       apkUrl: `${repoUrl}/releases/latest/download/MultiLingua.apk`,
@@ -66,12 +42,13 @@ export async function buildServer(opts: ServerOptions): Promise<FastifyInstance>
       releasesUrl: `${repoUrl}/releases`,
       repoUrl,
     },
-    content: { version: meta.content_version ?? 'dev', builtAt: meta.built_at ?? '' },
-  };
+    content: { version: store.meta.content_version ?? 'dev', builtAt: store.meta.built_at ?? '' },
+  });
 
-  const app = Fastify({ logger: opts.logger ?? false, trustProxy: true });
+  const app = Fastify({ logger: opts.logger ?? false, trustProxy: true, bodyLimit: 2 * 1024 * 1024 });
   await app.register(cors, {
     origin: (origin, cb) => cb(null, !origin || ALLOWED_ORIGINS.has(origin) || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)),
+    // Tylko odczyt z innych originów — panel administratora działa wyłącznie z tej samej domeny.
     methods: ['GET', 'HEAD'],
     maxAge: 86400,
   });
@@ -83,51 +60,42 @@ export async function buildServer(opts: ServerOptions): Promise<FastifyInstance>
     return payload;
   });
 
-  app.get('/api/health', async () => ({ ok: true, content: appMeta.content.version, courses: courses.size }));
+  app.get('/api/health', async () => ({ ok: true, content: appMeta().content.version, courses: store.courses.size }));
 
   app.get('/api/meta', async (_req, reply) => {
     reply.header('Cache-Control', 'no-cache');
-    return appMeta;
+    return appMeta();
   });
 
   app.get('/api/courses', async (_req, reply) => {
     reply.header('Cache-Control', 'no-cache');
-    return { contentVersion: appMeta.content.version, courses: summaries };
+    return { contentVersion: appMeta().content.version, courses: store.summaries };
   });
 
   app.get<{ Params: { id: string } }>('/api/courses/:id/pack', async (req, reply) => {
-    const c = courses.get(req.params.id);
+    const c = store.courses.get(req.params.id);
     if (!c) return reply.code(404).send({ error: 'Nie ma takiego kursu.' });
-    const etag = `"${c.hash}"`;
-    reply.header('ETag', etag);
-    reply.header('Cache-Control', 'no-cache');
-    reply.header('Vary', 'Accept-Encoding');
-    if (req.headers['if-none-match'] === etag) return reply.code(304).send();
+    return sendCached(req.headers, reply, `"${c.hash}"`, c);
+  });
 
-    // Paczki są skompresowane z góry przy budowaniu bazy (brotli 11 / gzip 9).
-    const accept = String(req.headers['accept-encoding'] ?? '');
-    reply.type('application/json; charset=utf-8');
-    if (/\bbr\b/.test(accept)) {
-      reply.header('Content-Encoding', 'br');
-      return reply.send(Buffer.from(c.pack_br));
-    }
-    if (/\bgzip\b/.test(accept)) {
-      reply.header('Content-Encoding', 'gzip');
-      return reply.send(Buffer.from(c.pack_gz));
-    }
-    return reply.send(Buffer.from(c.pack));
+  // Ilustracje słówek (SVG) — osobna paczka, żeby treść kursu pozostała lekka.
+  app.get<{ Params: { id: string } }>('/api/courses/:id/images', async (req, reply) => {
+    if (!store.courses.has(req.params.id)) return reply.code(404).send({ error: 'Nie ma takiego kursu.' });
+    const row = store.images(req.params.id);
+    if (!row) return reply.code(404).send({ error: 'Ten kurs nie ma jeszcze ilustracji.' });
+    return sendCached(req.headers, reply, `"img-${row.hash}"`, row);
   });
 
   app.get<{ Params: { id: string; unit: string } }>('/api/courses/:id/units/:unit', async (req, reply) => {
-    const row = unitStmt.get(req.params.id, req.params.unit) as { data: string } | undefined;
-    if (!row) return reply.code(404).send({ error: 'Nie ma takiej jednostki.' });
+    const data = store.unit(req.params.id, req.params.unit);
+    if (!data) return reply.code(404).send({ error: 'Nie ma takiej jednostki.' });
     reply.type('application/json; charset=utf-8');
     reply.header('Cache-Control', 'no-cache');
-    return reply.send(row.data);
+    return reply.send(data);
   });
 
   app.get<{ Params: { id: string }; Querystring: { q?: string; limit?: string } }>('/api/courses/:id/search', async (req, reply) => {
-    if (!courses.has(req.params.id)) return reply.code(404).send({ error: 'Nie ma takiego kursu.' });
+    if (!store.courses.has(req.params.id)) return reply.code(404).send({ error: 'Nie ma takiego kursu.' });
     const terms = String(req.query.q ?? '')
       .slice(0, 80)
       .split(/[^\p{L}\p{N}]+/u)
@@ -137,9 +105,10 @@ export async function buildServer(opts: ServerOptions): Promise<FastifyInstance>
     const limit = Math.min(50, Math.max(1, Number(req.query.limit) || 20));
     // Każde słowo jako prefiks w cudzysłowie — bezpieczne wobec składni FTS5.
     const match = terms.map((t) => `"${t.replace(/"/g, '')}"*`).join(' ');
-    const hits = searchStmt.all(match, req.params.id, limit) as unknown as SearchHit[];
-    return { hits };
+    return { hits: store.search(match, req.params.id, limit) };
   });
+
+  if (opts.admin) await registerAdmin(app, { ...opts.admin, store });
 
   if (opts.staticDir && existsSync(opts.staticDir)) {
     const indexHtml = readFileSync(join(opts.staticDir, 'index.html'));
@@ -160,6 +129,25 @@ export async function buildServer(opts: ServerOptions): Promise<FastifyInstance>
     });
   }
 
-  app.addHook('onClose', async () => db.close());
+  app.addHook('onClose', async () => store.close());
   return app;
+}
+
+/** ETag + paczki skompresowane z góry przy budowaniu bazy (brotli 11 / gzip 9). */
+function sendCached(headers: Record<string, string | string[] | undefined>, reply: FastifyReply, etag: string, blobs: Blobs) {
+  reply.header('ETag', etag);
+  reply.header('Cache-Control', 'no-cache');
+  reply.header('Vary', 'Accept-Encoding');
+  if (headers['if-none-match'] === etag) return reply.code(304).send();
+  const accept = String(headers['accept-encoding'] ?? '');
+  reply.type('application/json; charset=utf-8');
+  if (/\bbr\b/.test(accept)) {
+    reply.header('Content-Encoding', 'br');
+    return reply.send(Buffer.from(blobs.pack_br));
+  }
+  if (/\bgzip\b/.test(accept)) {
+    reply.header('Content-Encoding', 'gzip');
+    return reply.send(Buffer.from(blobs.pack_gz));
+  }
+  return reply.send(Buffer.from(blobs.pack));
 }

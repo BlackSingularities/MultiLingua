@@ -7,6 +7,12 @@ services:
     init: true
     environment:
       GITHUB_REPO: BlackSingularities/MultiLingua
+      # Opcjonalnie: klucz OpenRouter i kod startowy panelu z pliku .env obok compose.yml.
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      ADMIN_SETUP_CODE: ${ADMIN_SETUP_CODE:-}
+    volumes:
+      # Treść edytowana w panelu administratora, baza treści i konto administratora.
+      - multilingua-var:/app/var
     networks:
       - webproxy
     read_only: true
@@ -16,7 +22,7 @@ services:
       - ALL
     security_opt:
       - no-new-privileges:true
-    mem_limit: 256m
+    mem_limit: 384m
     cpus: 1.0
     pids_limit: 64
     logging:
@@ -24,6 +30,9 @@ services:
       options:
         max-size: 10m
         max-file: "3"
+volumes:
+  multilingua-var:
+
 networks:
   webproxy:
     external: true

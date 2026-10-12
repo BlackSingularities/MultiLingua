@@ -1,7 +1,7 @@
 // Klient serwera treści. Web korzysta ze ścieżki względnej (ta sama domena),
 // aplikacje mobilne — z pełnego adresu redzikowski.com/multilingua.
 import { db } from './db.ts';
-import type { AppMeta, CoursePack, CourseSummary } from './types.ts';
+import type { AppMeta, CoursePack, CourseSummary, ImagePack } from './types.ts';
 
 export const API_BASE: string = (import.meta.env.VITE_API_BASE as string | undefined) ?? './api';
 
@@ -49,7 +49,7 @@ export async function fetchCourses(): Promise<CourseList> {
 
 export function summaryOf(p: CoursePack): CourseSummary {
   const { unitsData: _u, rules: _r, builtAt: _b, ...rest } = p;
-  return { ...rest, size: 0 };
+  return { ...rest, images: p.images ?? { count: 0, hash: '' }, size: 0 };
 }
 
 /** Kurs z pamięci urządzenia; jeśli go nie ma — pobiera z serwera. */
@@ -72,4 +72,22 @@ export async function refreshPack(id: string): Promise<CoursePack | null> {
   const remote = courses.find((c) => c.id === id);
   if (!remote || (cached && cached.hash === remote.hash)) return null;
   return downloadPack(id);
+}
+
+/**
+ * Ilustracje słówek dla paczki kursu: z pamięci urządzenia, a gdy ich tam nie ma
+ * albo są nieaktualne — z serwera. Bez sieci zwraca to, co jest zapisane (może być starsze).
+ */
+export async function loadImages(pack: CoursePack): Promise<Record<string, string>> {
+  const want = pack.images?.hash ?? '';
+  const cached = await db.images.get(pack.id);
+  if (!want) return {};
+  if (cached?.hash === want) return cached.images;
+  try {
+    const fresh = await getJson<ImagePack>(`/courses/${encodeURIComponent(pack.id)}/images`, 30000);
+    await db.images.put({ ...fresh, course: pack.id, fetchedAt: Date.now() });
+    return fresh.images;
+  } catch {
+    return cached?.images ?? {};
+  }
 }

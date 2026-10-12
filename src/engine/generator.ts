@@ -2,12 +2,13 @@
 // Zasada: im lepiej znasz element, tym trudniejsza forma ćwiczenia
 // (rozpoznawanie → rozumienie → samodzielna produkcja), a słabsze umiejętności
 // dostają więcej ćwiczeń.
-import type { Conjugation, Lesson, Sentence, VocabItem } from '../data/types.ts';
+import type { Conjugation, GrammarArticle, Lesson, Sentence, VocabItem } from '../data/types.ts';
 import type { CourseIndex } from './course.ts';
 import { numberAnswers, numberToWords, supportsNumbers } from './numbers.ts';
 import { stage as stageOf, strength, type SrsState } from './srs.ts';
 import { normalize, tokenize } from './text.ts';
-import type { Exercise, SessionMode, Skill } from './types.ts';
+import type { Exercise, LessonVariant, SessionMode, Skill } from './types.ts';
+import { splitArticle, stepMaterials, type StepMaterial, type TheoryStep } from './theory.ts';
 
 export interface GenContext {
   index: CourseIndex;
@@ -98,11 +99,11 @@ class Gen {
 
   // ——— dystraktory ———
 
-  vocabDistractors(v: VocabItem, k: number, needEmoji = false): VocabItem[] {
+  vocabDistractors(v: VocabItem, k: number, needArt = false): VocabItem[] {
     const seen = new Set([normalize(v.n), normalize(v.t)]);
     const unitIdx = this.ix.unitById.get(v.unit)?.index ?? 0;
     const candidates = this.allVocab.filter((x) => {
-      if (x.id === v.id || (needEmoji && !x.emoji)) return false;
+      if (x.id === v.id || (needArt && !hasArt(x))) return false;
       return !seen.has(normalize(x.n)) && !seen.has(normalize(x.t));
     });
     // Najpierw ta sama część mowy i bliskie jednostki — trudniejsze, sensowniejsze dystraktory.
@@ -168,7 +169,7 @@ class Gen {
   }
 
   picture(v: VocabItem): Exercise | null {
-    if (!v.emoji) return null;
+    if (!hasArt(v)) return null;
     const ds = this.vocabDistractors(v, 3, true);
     if (ds.length < 3) return null;
     const opts = shuffle([v, ...ds], this.rng);
@@ -179,7 +180,7 @@ class Gen {
       item: { id: v.id, kind: 'v' },
       prompt: this.ix.withArticle(v),
       audio: this.ix.withArticle(v),
-      options: opts.map((o) => ({ emoji: o.emoji!, label: o.n })),
+      options: opts.map((o) => ({ t: o.t, emoji: o.emoji, img: o.img, label: o.n })),
       answer: opts.indexOf(v),
     };
   }
@@ -215,6 +216,7 @@ class Gen {
       word: v.t,
       meaning: v.n,
       emoji: v.emoji,
+      img: v.img,
       options,
       answer: options.indexOf(v.article),
       explain: v.note ?? `${this.ix.withArticle(v)} — ${genderLabel(v.gender)}${v.plural ? `, l. mn. ${v.plural}` : ''}`,
@@ -278,7 +280,7 @@ class Gen {
       s === 0
         ? [
             { skill: 'reading', make: () => this.vocabChoice(v, 't2n') },
-            { skill: 'vocab', w: v.emoji ? 1.3 : 0, make: () => this.picture(v) },
+            { skill: 'vocab', w: v.img ? 1.6 : v.emoji ? 1.3 : 0, make: () => this.picture(v) },
             { skill: 'listening', w: this.ctx.audio ? 0.8 : 0, make: () => this.listenWord(v) },
           ]
         : s === 1
@@ -658,8 +660,8 @@ export function buildSession(mode: SessionMode, ctx: GenContext): Exercise[] {
       const lesson = ctx.index.lessons.get(mode.lessonId);
       if (!lesson) return [];
       switch (lesson.kind) {
-        case 'learn': return learnSession(g, lesson);
-        case 'grammar': return grammarSession(g, lesson);
+        case 'learn': return learnSession(g, lesson, mode.variant ?? 'mixed');
+        case 'grammar': return grammarSession(g, lesson, mode.variant ?? 'mixed');
         case 'story': return storySession(g, lesson);
         case 'speak': return speakSession(g, lesson);
         case 'test': return testSession(g, lesson.unit, 18, false);
@@ -678,16 +680,42 @@ export function buildSession(mode: SessionMode, ctx: GenContext): Exercise[] {
   }
 }
 
-function learnSession(g: Gen, lesson: Lesson): Exercise[] {
+/** Kroki teorii wszystkich artykułów jednostki (do wskazówek w lekcjach słówek). */
+export function unitSteps(ix: CourseIndex, unitId: string): { article: GrammarArticle; step: TheoryStep }[] {
+  const unit = ix.unitById.get(unitId);
+  if (!unit) return [];
+  return unit.grammar.flatMap((article) => splitArticle(article, (w) => ix.isTarget(w)).map((step) => ({ article, step })));
+}
+
+function vocabWords(v: VocabItem): string[] {
+  return [v.t, ...(v.forms ?? []), ...(v.plural ? [v.plural] : [])].flatMap((x) => tokenize(x).map((w) => w.toLowerCase()));
+}
+
+function learnSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercise[] {
   const ix = g.ix;
   const vocab = lesson.vocab.map((id) => ix.vocab.get(id)).filter((v): v is VocabItem => !!v);
   const fresh = vocab.filter((v) => !g.ctx.srs.has(v.id));
   const replay = fresh.length === 0;
   const head: Exercise[] = [];
+  // Wskazówki z teorii jednostki, które dotyczą właśnie poznawanych słów (najwyżej dwie na lekcję).
+  const steps = variant === 'mixed' ? unitSteps(ix, lesson.unit) : [];
+  const shownSteps = new Set<TheoryStep>();
 
   // Nowe słówka wprowadzamy grupami po trzy: karta → szybkie rozpoznanie → pary.
   for (let i = 0; i < fresh.length; i += 3) {
     const group = fresh.slice(i, i + 3);
+    const groupWords = new Set(group.flatMap(vocabWords));
+    const related = shownSteps.size < 2
+      ? steps.find(({ step }) => !shownSteps.has(step) && step.focus.filter((f) => groupWords.has(f)).length >= 1)
+      : undefined;
+    if (related) {
+      shownSteps.add(related.step);
+      const tables = ix.unitById.get(lesson.unit)?.conjugations.filter((t) => t.forms.some((f) => groupWords.has(f.toLowerCase()))) ?? [];
+      head.push({
+        key: key('tip'), type: 'theory', skill: 'grammar', article: related.article, tables: tables.slice(0, 1),
+        step: related.step, tip: true, upcoming: related.step.focus.filter((f) => groupWords.has(f)).slice(0, 6),
+      });
+    }
     for (const v of group) {
       head.push(g.intro(v));
       const quick = g.vocabChoice(v, 't2n') ?? g.picture(v);
@@ -741,34 +769,112 @@ function learnSession(g: Gen, lesson: Lesson): Exercise[] {
   return [...head, ...spread([...body, ...reviews], g.rng), ...sentenceEx].slice(0, 24);
 }
 
-function grammarSession(g: Gen, lesson: Lesson): Exercise[] {
+/**
+ * Lekcja teorii: krok artykułu → od razu ćwiczenia z tego, o czym był krok → kolejny krok.
+ * W wariancie „same ćwiczenia” pomijamy karty teorii, ale zostawiamy kolejność kroków.
+ */
+function grammarSession(g: Gen, lesson: Lesson, variant: LessonVariant): Exercise[] {
   const ix = g.ix;
   const article = lesson.grammar ? ix.grammar.get(lesson.grammar) : undefined;
   if (!article) return [];
   const tables = lesson.conjugations.map((id) => ix.tables.get(id)).filter((t): t is Conjugation => !!t);
-  const out: Exercise[] = [{ key: key('theory'), type: 'theory', skill: 'grammar', article, tables }];
-
-  const practice: Exercise[] = article.check.map((q) => ({
-    key: key('q'), type: 'question' as const, skill: 'grammar' as const, question: q,
-  }));
-  for (const t of tables) {
-    for (const p of sample([0, 1, 2, 3, 4, 5], 3, g.rng)) practice.push(g.conjugate(t, p));
-  }
   const unit = ix.unitById.get(lesson.unit);
-  const forms = new Set(tables.flatMap((t) => t.forms.map((f) => f.toLowerCase())));
-  const related = (unit?.sentences ?? []).filter((s) => tokenize(s.t).some((w) => forms.has(w.toLowerCase())));
-  for (const s of sample(related.length ? related : unit?.sentences ?? [], 3, g.rng)) {
-    const ex = g.cloze(s, false) ?? g.errorSpot(s);
-    if (ex) practice.push(ex);
+  const steps = splitArticle(article, (w) => ix.isTarget(w));
+  const known = new Set([...g.ctx.srs.keys()]);
+  // Zdania do ćwiczeń: z tej jednostki i wcześniejszych, ale tylko złożone ze znanych już słów
+  // (albo z tej jednostki — te uczeń właśnie poznaje).
+  const pool = [...ix.sentences.values()].filter((s) => {
+    const u = ix.unitById.get(s.unit);
+    if (!u || !unit || u.index > unit.index) return false;
+    return u.id === unit.id || (s.words ?? []).every((w) => known.has(w));
+  });
+  const materials = stepMaterials(steps, pool, tables, article.check);
+
+  // Krok bez własnego materiału do ćwiczeń łączymy z następnym (ostatni — z poprzednim),
+  // żeby po każdej karcie teorii od razu przychodziły ćwiczenia.
+  const drilled = new Set<string>();
+  const groups: { steps: StepMaterial[]; practice: Exercise[] }[] = [];
+  let pending: StepMaterial[] = [];
+  for (const m of materials) {
+    const practice = stepPractice(g, m, article.id, lesson.unit, drilled);
+    pending.push(m);
+    if (practice.length) {
+      groups.push({ steps: pending, practice });
+      pending = [];
+    }
   }
-  const err = related.length ? g.errorSpot(sample(related, 1, g.rng)[0]) : null;
-  if (err) practice.push(err);
-  for (const ex of sample(article.examples, 2, g.rng)) {
-    const s: Sentence = { id: `${article.id}-ex`, unit: lesson.unit, t: ex.t, n: ex.n };
-    const t = g.tiles(s, 'n2t');
-    if (t) practice.push({ ...t, item: undefined });
+  if (pending.length) {
+    if (groups.length) groups[groups.length - 1].steps.push(...pending);
+    else groups.push({ steps: pending, practice: [] });
   }
-  return [...out, ...spread(practice, g.rng)];
+
+  const out: Exercise[] = [];
+  groups.forEach((grp, index) => {
+    if (variant === 'mixed') {
+      const [first, ...rest] = grp.steps;
+      const step: TheoryStep = {
+        ...first.step,
+        index,
+        total: groups.length,
+        body: [first.step.body, ...rest.map((m) => `### ${m.step.title}\n${m.step.body}`)].join('\n\n'),
+        focus: [...new Set(grp.steps.flatMap((m) => m.step.focus))],
+        examples: grp.steps.flatMap((m) => m.step.examples),
+      };
+      const forms = grp.steps.flatMap((m) => m.forms);
+      out.push({
+        key: key('theory'), type: 'theory', skill: 'grammar', article,
+        tables: forms.length ? [...new Set(forms.map((f) => f.table))] : index === 0 ? tables : [],
+        step, upcoming: upcomingLabels({ ...first, step, forms }),
+      });
+    }
+    out.push(...grp.practice);
+  });
+
+  // Tabele, których formy nie padły w żadnym kroku — krótki trening na koniec.
+  for (const t of tables) {
+    if (drilled.has(t.id)) continue;
+    for (const p of sample([0, 1, 2, 3, 4, 5], 2, g.rng)) out.push(g.conjugate(t, p));
+  }
+  if (out.filter((e) => e.type !== 'theory').length < 5) {
+    const related = (unit?.sentences ?? []).filter((s) => !out.some((e) => e.item?.id === s.id));
+    for (const s of sample(related, 3, g.rng)) {
+      const ex = g.cloze(s, false) ?? g.errorSpot(s);
+      if (ex) out.push(ex);
+    }
+  }
+  return out;
+}
+
+/** Co pokażemy uczniowi jako „zaraz przećwiczysz”. */
+function upcomingLabels(m: StepMaterial): string[] {
+  const forms = m.forms.map((f) => f.table.forms[f.person].split('|')[0].trim());
+  return [...new Set([...forms, ...m.step.focus])].slice(0, 8);
+}
+
+/** 2–5 ćwiczeń dokładnie z materiału jednego kroku teorii. */
+function stepPractice(g: Gen, m: StepMaterial, articleId: string, unitId: string, drilled: Set<string>): Exercise[] {
+  const ex: Exercise[] = [];
+  for (const { table, person } of sample(m.forms, 3, g.rng)) {
+    ex.push(g.conjugate(table, person));
+    drilled.add(table.id);
+  }
+  // Luka trafia w formę z tabeli odmiany (np. „sono”), a dopiero potem w inne słowo z kroku.
+  const formWords = new Set(m.forms.flatMap(({ table, person }) => table.forms[person].split('|').map((f) => f.trim().toLowerCase())));
+  for (const s of m.sentences.slice(0, 2)) {
+    const toks = tokenize(s.t);
+    const word = toks.find((w) => formWords.has(w.toLowerCase())) ??
+      toks.filter((w) => m.step.focus.includes(w.toLowerCase())).sort((a, b) => b.length - a.length)[0];
+    const cloze = word ? g.cloze({ ...s, gap: word, gapOptions: undefined }, false) : null;
+    const made = cloze ?? g.errorSpot(s) ?? g.tiles(s, 'n2t');
+    if (made) ex.push(made);
+  }
+  const example = m.step.examples[Math.floor(g.rng() * m.step.examples.length)];
+  if (example && ex.length < 4) {
+    const t = g.tiles({ id: `${articleId}-ex`, unit: unitId, t: example.t, n: example.n }, 'n2t');
+    if (t) ex.push({ ...t, item: undefined });
+  }
+  for (const q of m.questions) ex.push({ key: key('q'), type: 'question', skill: 'grammar', question: q });
+  return spread(ex, g.rng).slice(0, 6);
 }
 
 function storySession(g: Gen, lesson: Lesson): Exercise[] {
@@ -921,4 +1027,9 @@ function speedRound(g: Gen): Exercise[] {
     }
   }
   return out;
+}
+
+/** Czy słówko ma coś do pokazania na obrazku (ilustrację SVG albo emoji). */
+function hasArt(v: VocabItem): boolean {
+  return !!(v.img || v.emoji);
 }

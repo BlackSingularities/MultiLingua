@@ -237,34 +237,71 @@ function SelfAssess({ text, onDone }: { text: string; onDone: (ok: boolean) => v
 
 export function TheoryEx({ ex, course, finish }: ExProps<Of<'theory'>>) {
   const a = ex.article;
+  const step = ex.step;
+  const lang = course.pack.target.code;
+  const examples = step ? step.examples : a.examples;
+  const body = step ? step.body : a.body;
+  // Gdy krok ma już własną tabelę odmiany, nie dublujemy jej tabelą z kursu.
+  const tables = /^\|/m.test(body) ? ex.tables.filter((t) => !body.includes(`**${t.forms[0].split('|')[0].trim()}**`)) : ex.tables;
+  const go = useCallback(() => finish({ ok: true, skipped: true }, true), [finish]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Enter' || e.repeat) return;
+      e.preventDefault();
+      go();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [go]);
+
   return (
-    <div className="ex ex-theory">
-      <p className="theory-kicker">Teoria</p>
-      <h2 className="theory-title">{a.title}</h2>
-      <p className="theory-summary">{a.summary}</p>
-      <Markdown source={a.body} />
-      {ex.tables.map((t) => (
-        <ConjTable key={t.id} table={t} persons={course.rules.persons} lang={course.pack.target.code} />
-      ))}
-      {a.examples.length > 0 && (
-        <section className="theory-examples">
-          <h3>Przykłady</h3>
-          <ul className="example-list">
-            {a.examples.map((e, i) => (
-              <li key={i}>
-                <SpeakButton text={e.t} size="sm" />
-                <div>
-                  <Say text={e.t} className="example-t">{e.t}</Say>
-                  <p className="muted">{e.n}{e.note ? ` — ${e.note}` : ''}</p>
-                </div>
-              </li>
+    <div className={`ex ex-theory${ex.tip ? ' is-tip' : ''}`}>
+      <p className="ex-kicker">
+        {ex.tip ? 'Zanim poznasz te słowa' : step && step.total > 1 ? `Teoria, krok ${step.index + 1} z ${step.total}` : 'Teoria'}
+      </p>
+      <article className="theory-card">
+        {step && step.total > 1 && !ex.tip && (
+          <ol className="theory-steps" aria-hidden>
+            {Array.from({ length: step.total }, (_, i) => (
+              <li key={i} className={i < step.index ? 'done' : i === step.index ? 'now' : ''} />
             ))}
-          </ul>
-        </section>
+          </ol>
+        )}
+        {!step && <p className="theory-kicker">{a.title}</p>}
+        <h2 className="theory-title">{step ? step.title : a.title}</h2>
+        {(!step || step.index === 0) && !ex.tip && <p className="theory-summary">{a.summary}</p>}
+        <Markdown source={body} />
+        {tables.map((t) => (
+          <ConjTable key={t.id} table={t} persons={course.rules.persons} lang={lang} />
+        ))}
+        {examples.length > 0 && (
+          <section className="theory-examples">
+            <h3>Przykłady</h3>
+            <ul className="example-list">
+              {examples.map((e, i) => (
+                <li key={i}>
+                  <SpeakButton text={e.t} size="sm" />
+                  <div>
+                    <Say text={e.t} className="example-t">{e.t}</Say>
+                    <p className="muted">{e.n}{e.note ? `${/[.!?…]$/.test(e.n) ? '' : '.'} ${e.note}` : ''}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </article>
+      {ex.upcoming && ex.upcoming.length > 0 && (
+        <p className="upcoming">
+          <span className="upcoming-label">{ex.tip ? 'Za chwilę spotkasz:' : 'Zaraz przećwiczysz:'}</span>
+          {ex.upcoming.map((w) => (
+            <span key={w} className="upcoming-chip" lang={lang}>{w}</span>
+          ))}
+        </p>
       )}
-      <div className="ex-footer-inline">
-        <button type="button" className="btn btn-primary btn-wide" onClick={() => finish({ ok: true, skipped: true }, true)}>
-          Rozumiem, przejdźmy do ćwiczeń
+      <div className="ex-footer-inline sticky">
+        <button type="button" className="btn btn-primary btn-wide" onClick={go}>
+          {ex.tip ? 'Jasne, dalej' : step ? 'Przećwicz to teraz' : 'Rozumiem, przejdźmy do ćwiczeń'}
         </button>
       </div>
     </div>

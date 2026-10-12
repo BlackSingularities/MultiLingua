@@ -54,6 +54,8 @@ const VocabSchema = z.object({
   pl: z.string().optional(),
   forms: strList,
   emoji: z.string().optional(),
+  /** Własna nazwa pliku ilustracji (bez .svg) — np. wspólny obrazek dla „amico” i „amica”. */
+  img: z.string().regex(/^[a-z0-9-]+$/).optional(),
   note: z.string().optional(),
   ex: z.tuple([str, str]).optional(),
 });
@@ -150,6 +152,42 @@ function fail(where: string, msg: string): never {
 export interface CompiledCourse {
   pack: CoursePack;
   json: string;
+  /** Ilustracje słówek: klucz → oczyszczony kod SVG. */
+  images: Record<string, string>;
+  /** Uwagi niepsujące kompilacji (np. pliki SVG bez przypisanego słówka). */
+  warnings: string[];
+}
+
+/** Domyślny klucz ilustracji słówka: identyfikator bez przedrostka „v-”. */
+export function imageKeyOf(vocabId: string): string {
+  return vocabId.replace(/^v-/, '');
+}
+
+export const MAX_SVG_BYTES = 64 * 1024;
+
+/**
+ * Sprawdza i lekko odchudza plik SVG ilustracji. Obrazki wyświetlamy przez <img>,
+ * więc i tak nie wykonają skryptów — ale odrzucamy je już tu, żeby do kursu
+ * nie trafiło nic, co nie jest czystą grafiką.
+ */
+export function checkSvg(where: string, source: string): string {
+  // trim() usuwa też znak BOM (U+FEFF).
+  const svg = source
+    .replace(/<\?xml[^>]*\?>/g, '')
+    .replace(/<!DOCTYPE[^>]*>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/>\s+</g, '><')
+    .trim();
+  if (Buffer.byteLength(svg) > MAX_SVG_BYTES) fail(where, `plik większy niż ${MAX_SVG_BYTES / 1024} KiB`);
+  if (!/^<svg[\s>]/.test(svg) || !svg.endsWith('</svg>')) fail(where, 'to nie jest pojedynczy element <svg>');
+  if (!/\sviewBox="[^"]+"/.test(svg.slice(0, svg.indexOf('>')))) fail(where, 'brak atrybutu viewBox w <svg>');
+  if (/<script|<foreignObject|<iframe|<image[\s>]/i.test(svg)) fail(where, 'niedozwolony element (script, foreignObject, iframe, image)');
+  if (/\son[a-z]+\s*=/i.test(svg)) fail(where, 'niedozwolony atrybut zdarzenia (on…)');
+  if (/(?:href|src)\s*=\s*"(?!#)/i.test(svg) || /url\((?!['"]?#)/i.test(svg)) {
+    fail(where, 'odwołania wolno robić tylko do elementów w tym samym pliku (#id)');
+  }
+  // <img> pokazuje SVG tylko z deklaracją przestrzeni nazw.
+  return svg.includes('xmlns=') ? svg : svg.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
 }
 
 export function compileCourse(dir: string): CompiledCourse {
@@ -200,6 +238,7 @@ export function compileCourse(dir: string): CompiledCourse {
       plural: v.pl,
       forms: v.forms,
       emoji: v.emoji,
+      img: v.img,
       note: v.note,
       ex: v.ex ? { t: v.ex[0], n: v.ex[1] } : undefined,
     }));
@@ -283,6 +322,32 @@ export function compileCourse(dir: string): CompiledCourse {
     allVocab.push(...vocab);
   });
 
+  // Ilustracje: plik images/<klucz>.svg; klucz = `img` z YAML albo id słówka bez „v-”.
+  const imageDir = join(dir, 'images');
+  const imageFiles = existsSync(imageDir)
+    ? new Map(readdirSync(imageDir).filter((f) => f.endsWith('.svg')).map((f) => [f.slice(0, -4), join(imageDir, f)]))
+    : new Map<string, string>();
+  const images: Record<string, string> = {};
+  const warnings: string[] = [];
+  for (const v of allVocab) {
+    const key = v.img ?? imageKeyOf(v.id);
+    const file = imageFiles.get(key);
+    if (!file) {
+      if (v.img) fail(join(imageDir, `${key}.svg`), `słówko "${v.t}" wskazuje ilustrację, której nie ma`);
+      delete v.img;
+      continue;
+    }
+    images[key] ??= checkSvg(file, readFileSync(file, 'utf8'));
+    v.img = key;
+  }
+  for (const [key, file] of imageFiles) {
+    if (!(key in images)) warnings.push(`${file}: żadne słówko nie używa tej ilustracji`);
+  }
+  const imageKeys = Object.keys(images).sort();
+  const imagesHash = imageKeys.length
+    ? createHash('sha256').update(JSON.stringify(imageKeys.map((k) => [k, images[k]]))).digest('hex').slice(0, 16)
+    : '';
+
   const count = <K extends keyof Unit>(k: K) =>
     units.reduce((n, u) => n + (Array.isArray(u[k]) ? (u[k] as unknown[]).length : 0), 0);
 
@@ -302,11 +367,12 @@ export function compileCourse(dir: string): CompiledCourse {
     sentences: count('sentences'),
     grammar: count('grammar'),
     stories: count('stories'),
+    images: { count: imageKeys.length, hash: imagesHash },
     unitsData: units,
   };
   const hash = createHash('sha256').update(JSON.stringify(body)).digest('hex').slice(0, 16);
   const pack: CoursePack = { ...body, hash, builtAt: new Date().toISOString() };
-  return { pack, json: JSON.stringify(pack) };
+  return { pack, json: JSON.stringify(pack), images, warnings };
 }
 
 const LEARN_CHUNK = 6;

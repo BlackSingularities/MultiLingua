@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { HashRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { useApp } from './data/store.ts';
 import { setupNative, syncStatusBar } from './platform/native.ts';
@@ -15,6 +15,9 @@ import { Conjugations } from './screens/Conjugations.tsx';
 import { Profile } from './screens/Profile.tsx';
 import { SettingsScreen } from './screens/Settings.tsx';
 
+// Panel administratora ładuje się osobno — uczniowie nie pobierają jego kodu.
+const AdminScreen = lazy(() => import('./admin/AdminScreen.tsx'));
+
 function useTheme() {
   const theme = useApp((s) => s.settings.theme);
   useEffect(() => {
@@ -24,7 +27,7 @@ function useTheme() {
       const dark = theme === 'dark' || (theme === 'system' && mq.matches);
       if (theme === 'system') root.removeAttribute('data-theme');
       else root.setAttribute('data-theme', theme);
-      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0f1530' : '#f2f4fb');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0d1022' : '#eef0f5');
       void syncStatusBar(dark);
     };
     apply();
@@ -78,6 +81,7 @@ export function App() {
         <Route path="/lekcja/:lessonId" element={<RequireCourse><SessionScreen /></RequireCourse>} />
         <Route path="/jednostka/:unitId/:action" element={<RequireCourse><SessionScreen /></RequireCourse>} />
         <Route path="/trening/:kind/:tableId?" element={<RequireCourse><SessionScreen /></RequireCourse>} />
+        <Route path="/admin" element={<Suspense fallback={<Spinner label="Wczytuję panel…" />}><AdminScreen /></Suspense>} />
         <Route element={<Shell />}>
           <Route index element={<RequireCourse><Home /></RequireCourse>} />
           <Route path="/kursy" element={<Courses />} />

@@ -49,6 +49,11 @@ export interface VocabItem {
   /** Odmienione formy występujące w zdaniach (pomagają łączyć słowa ze zdaniami). */
   forms?: string[];
   emoji?: string;
+  /**
+   * Klucz ilustracji SVG (nazwa pliku w content/courses/<kurs>/images/ bez .svg).
+   * Ustawiany przez kompilator tylko wtedy, gdy plik istnieje.
+   */
+  img?: string;
   note?: string;
   /** Przykładowe użycie. */
   ex?: { t: string; n: string };
@@ -165,12 +170,21 @@ export interface CourseSummary {
   /** Skrót treści — zmienia się przy każdej zmianie kursu. */
   hash: string;
   size: number;
+  /** Ilustracje słówek: liczba i skrót paczki (pusty, gdy kurs nie ma obrazków). */
+  images: { count: number; hash: string };
 }
 
 export interface CoursePack extends Omit<CourseSummary, 'size'> {
   rules: CourseRules;
   builtAt: string;
   unitsData: Unit[];
+}
+
+/** Paczka ilustracji kursu: klucz → kod SVG. Pobierana osobno od treści. */
+export interface ImagePack {
+  course: string;
+  hash: string;
+  images: Record<string, string>;
 }
 
 export interface AppMeta {

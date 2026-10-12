@@ -85,6 +85,29 @@ export class CourseIndex {
     return token.charAt(0).toLocaleLowerCase(this.pack.target.code) + token.slice(1);
   }
 
+  private targetWords?: Set<string>;
+
+  /** Czy wyraz należy do materiału w języku kursu (słówka, formy, zdania, przykłady). */
+  isTarget(word: string): boolean {
+    if (!this.targetWords) {
+      const set = new Set<string>();
+      const add = (text: string) => {
+        for (const w of text.toLowerCase().replace(/[’`]/g, "'").split(/[^\p{L}']+/u)) if (w) set.add(w.replace(/^'+|'+$/g, '') || w);
+      };
+      for (const v of this.vocab.values()) [v.t, ...(v.forms ?? []), v.plural ?? '', ...(v.altT ?? []), v.article ?? ''].forEach(add);
+      for (const s of this.sentences.values()) [s.t, ...(s.altT ?? [])].forEach(add);
+      for (const g of this.grammar.values()) g.examples.forEach((e) => add(e.t));
+      for (const t of this.tables.values()) t.forms.forEach((f) => add(f.replaceAll('|', ' ')));
+      this.rules.articles.forEach(add);
+      this.targetWords = set;
+    }
+    const w = word.toLowerCase();
+    // Imiona i nazwy (Marco, Roma) nie są materiałem do ćwiczenia.
+    const capital = w.charAt(0).toUpperCase() + w.slice(1);
+    if (this.properTokens.has(capital) && !this.lookup(w)) return false;
+    return this.targetWords.has(w);
+  }
+
   private wordMap?: Map<string, VocabItem>;
 
   /** Słówko dla pojedynczego wyrazu z tekstu (także form odmienionych i liczby mnogiej). */

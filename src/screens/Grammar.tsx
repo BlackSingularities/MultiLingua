@@ -98,9 +98,14 @@ export function GrammarArticleScreen() {
       {lesson && (
         <div className="article-cta">
           {canPractice ? (
-            <button type="button" className="btn btn-primary" onClick={() => navigate(`/lekcja/${lesson.id}`)}>
-              Przećwicz ten temat
-            </button>
+            <>
+              <button type="button" className="btn btn-primary" onClick={() => navigate(`/lekcja/${lesson.id}?tryb=cwiczenia`)}>
+                <Icon name="dumbbell" size={18} /> Przećwicz ten temat
+              </button>
+              <button type="button" className="btn btn-ghost" onClick={() => navigate(`/lekcja/${lesson.id}`)}>
+                Krok po kroku: teoria z ćwiczeniami
+              </button>
+            </>
           ) : (
             <p className="muted">
               <Icon name="lock" size={16} /> Ćwiczenia do tego tematu odblokujesz na ścieżce nauki.

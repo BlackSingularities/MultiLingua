@@ -119,7 +119,9 @@ export function Toasts() {
   );
 }
 
-export function Modal({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
+export function Modal({
+  open, onClose, title, children, className, hideTitle,
+}: { open: boolean; onClose: () => void; title: string; children: ReactNode; className?: string; hideTitle?: boolean }) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
@@ -129,9 +131,9 @@ export function Modal({ open, onClose, title, children }: { open: boolean; onClo
   if (!open) return null;
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal" role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()}>
+      <div className={`modal${className ? ` ${className}` : ''}`} role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()}>
         <header className="modal-head">
-          <h2>{title}</h2>
+          <h2 className={hideTitle ? 'sr-only' : undefined}>{title}</h2>
           <button type="button" className="icon-btn" onClick={onClose} aria-label="Zamknij">
             <Icon name="close" />
           </button>
