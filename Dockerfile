@@ -17,6 +17,9 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
 COPY server ./server
 COPY scripts/content-lib.ts scripts/content-db.ts ./scripts/
+# Serwer (panel administratora) korzysta z silnika kursu z aplikacji.
+COPY src/engine ./src/engine
+COPY src/data/types.ts ./src/data/types.ts
 COPY content/courses ./content-seed
 COPY --from=build /app/dist ./dist
 RUN mkdir -p /app/var && chown node:node /app/var
