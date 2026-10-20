@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
       disable: mode === 'mobile',
       registerType: 'autoUpdate',
       injectRegister: false,
-      includeAssets: ['favicon.svg', 'icons/*.png'],
+      includeAssets: ['favicon.png', 'icons/*.png'],
       manifest: {
         name: 'MultiLingua',
         short_name: 'MultiLingua',

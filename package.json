@@ -1,7 +1,7 @@
 {
   "name": "multilingua",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MultiLingua — rozbudowana aplikacja do nauki języków obcych (web, Android, iOS).",
   "type": "module",
   "license": "MIT",
