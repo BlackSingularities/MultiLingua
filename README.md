@@ -120,7 +120,7 @@ npm run check          # treść + typy + testy + build
 Wersja aplikacji jest w `package.json`. Podniesienie wersji na `main`
 (np. `npm version minor && git push --follow-tags`) uruchamia workflow **Release**:
 testy → podpisany APK (Android) + niepodpisany IPA (iOS) → wydanie `v<wersja>` na GitHubie
-z opisem z `CHANGELOG.md`. Każdy push na `main` wdraża też wersję webową na serwer.
+z opisem z `CHANGELOG.md`. Każdy wypchnięty tag `vX.Y.Z` wdraża też wersję webową na serwer.
 
 Sekrety repozytorium: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`,
 `ANDROID_KEY_ALIAS` (podpis APK), `DEPLOY_SSH_KEY`, `DEPLOY_KNOWN_HOSTS` (wdrożenie)

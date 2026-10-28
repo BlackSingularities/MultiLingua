@@ -187,12 +187,16 @@ function AboutApp() {
       )}
       <p className="muted small">
         Wersja 1.0 działa bez konta: postępy, powtórki i statystyki zapisują się tylko na tym urządzeniu. Treść kursów
-        pobierana jest z serwera i przechowywana lokalnie, więc nauka działa także offline.{' '}
-        {meta && (
-          <a href={meta.app.repoUrl} target="_blank" rel="noreferrer">
-            Kod źródłowy
-          </a>
-        )}
+        pobierana jest z serwera i przechowywana lokalnie, więc nauka działa także offline.
+      </p>
+      <p>
+        Pomysł i wykonanie: Adam Rędzikowski ·{' '}
+        <a href="https://redzikowski.com" target="_blank" rel="noreferrer">redzikowski.com</a>
+      </p>
+      <p>
+        <a className="btn btn-ghost btn-sm" href="https://buycoffee.to/adamredzikowski" target="_blank" rel="noreferrer">
+          ☕ Postaw kawę
+        </a>
       </p>
     </section>
   );
