@@ -194,6 +194,9 @@ function AboutApp() {
         <a href="https://redzikowski.com" target="_blank" rel="noreferrer">redzikowski.com</a>
       </p>
       <p>
+        Kontakt: <a href="mailto:kontakt@redzikowski.com">kontakt@redzikowski.com</a>
+      </p>
+      <p>
         <a className="btn btn-ghost btn-sm" href="https://buycoffee.to/adamredzikowski" target="_blank" rel="noreferrer">
           ☕ Postaw kawę
         </a>
