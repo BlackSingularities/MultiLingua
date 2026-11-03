@@ -25,3 +25,72 @@ rules:
   specialChars: [à, è, é, ì, ò, ù]
   articles: [il, lo, la, "l'", i, gli, le]
   elisions: ["l'", "un'", "dell'", "all'", "dall'", "nell'", "sull'", "c'", "dov'", "com'", "quest'", "quell'", "d'"]
+
+# Kompendium czasowników (pliki verbs/<bezokolicznik>.yaml): tryby, czasy i osoby.
+conjugation:
+  persons_pl:
+    io: ja
+    tu: ty
+    lui/lei: on/ona
+    noi: my
+    voi: wy
+    loro: oni/one
+    che io: (że) ja
+    che tu: (że) ty
+    che lui/lei: (że) on/ona
+    che noi: (że) my
+    che voi: (że) wy
+    che loro: (że) oni/one
+    Lei: Pan/Pani
+    presente: teraźniejszy
+    passato: przeszły
+  moods:
+    - id: indicativo
+      label: Indicativo
+      pl: tryb oznajmujący
+      color: "#2563eb"
+      persons: [io, tu, lui/lei, noi, voi, loro]
+      tenses:
+        - {id: presente, label: Presente, pl: czas teraźniejszy, use: "To, co dzieje się teraz, zwykle albo na pewno w najbliższej przyszłości."}
+        - {id: imperfetto, label: Imperfetto, pl: czas przeszły niedokonany, use: "Tło, opis i zwyczaje w przeszłości — „robiłem”, „bywało”."}
+        - {id: passato_prossimo, label: Passato prossimo, pl: czas przeszły złożony, aux: presente, use: "Zakończona czynność w przeszłości. Avere/essere w czasie teraźniejszym + imiesłów (participio passato)."}
+        - {id: trapassato_prossimo, label: Trapassato prossimo, pl: czas zaprzeszły, aux: imperfetto, use: "Coś, co stało się wcześniej niż inna przeszła czynność. Avere/essere w imperfetto + participio."}
+        - {id: passato_remoto, label: Passato remoto, pl: czas przeszły dokonany (odległy), use: "Odległa, zamknięta przeszłość — głównie w książkach, historii i na południu Włoch."}
+        - {id: trapassato_remoto, label: Trapassato remoto, pl: czas zaprzeszły literacki, aux: passato_remoto, use: "Rzadki, literacki: po „dopo che”, „appena” przed passato remoto."}
+        - {id: futuro_semplice, label: Futuro semplice, pl: czas przyszły prosty, use: "Przyszłość, plany i przypuszczenia („Sarà stanco” — pewnie jest zmęczony)."}
+        - {id: futuro_anteriore, label: Futuro anteriore, pl: czas przyszły uprzedni, aux: futuro_semplice, use: "Coś, co będzie już zrobione przed inną przyszłą chwilą, albo przypuszczenie o przeszłości."}
+    - id: congiuntivo
+      label: Congiuntivo
+      pl: tryb łączący
+      color: "#7c3aed"
+      persons: [che io, che tu, che lui/lei, che noi, che voi, che loro]
+      tenses:
+        - {id: presente, label: Congiuntivo presente, pl: teraźniejszy, use: "Po wyrażeniach opinii, życzenia, wątpliwości: penso che, voglio che, è importante che…"}
+        - {id: imperfetto, label: Congiuntivo imperfetto, pl: przeszły, use: "To samo w przeszłości i w zdaniach „gdyby”: se avessi tempo…"}
+        - {id: passato, label: Congiuntivo passato, pl: przeszły złożony, aux: presente, use: "Opinia o czymś, co już się wydarzyło: penso che sia partito."}
+        - {id: trapassato, label: Congiuntivo trapassato, pl: zaprzeszły, aux: imperfetto, use: "„Gdybym był zrobił”: se avessi saputo, sarei venuto."}
+    - id: condizionale
+      label: Condizionale
+      pl: tryb warunkowy
+      color: "#ea580c"
+      persons: [io, tu, lui/lei, noi, voi, loro]
+      tenses:
+        - {id: presente, label: Condizionale presente, pl: teraźniejszy, use: "Grzeczne prośby, życzenia i warunki: vorrei, potresti…?"}
+        - {id: passato, label: Condizionale passato, pl: przeszły, aux: presente, use: "Coś, co by się stało, ale się nie stało: sarei venuto, avrei comprato."}
+    - id: imperativo
+      label: Imperativo
+      pl: tryb rozkazujący
+      color: "#16a34a"
+      persons: [tu, Lei, noi, voi, loro]
+      tenses:
+        - {id: presente, label: Imperativo, pl: twierdzący, use: "Polecenia i zachęty. „Lei” to forma grzecznościowa (proszę pana/pani)."}
+        - {id: negativo, label: Imperativo negativo, pl: przeczący, use: "Dla „tu”: non + bezokolicznik (non andare!), dla reszty: non + forma twierdząca."}
+    - id: forme_indefinite
+      label: Forme indefinite
+      pl: formy nieosobowe
+      color: "#c0392b"
+      persons: [presente, passato]
+      tenses:
+        - {id: infinito, label: Infinito, pl: bezokolicznik, use: "Forma słownikowa; passato = avere/essere + participio (dopo aver mangiato)."}
+        - {id: participio, label: Participio, pl: imiesłów, use: "Participio passato tworzy czasy złożone; z essere zgadza się z podmiotem (andato/andata/andati/andate)."}
+        - {id: gerundio, label: Gerundio, pl: imiesłów przysłówkowy, use: "Robiąc coś — oraz stare + gerundio: sto mangiando (właśnie jem)."}

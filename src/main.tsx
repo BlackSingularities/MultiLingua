@@ -4,6 +4,7 @@ import '@fontsource-variable/literata/opsz.css';
 import '@fontsource-variable/literata/opsz-italic.css';
 import '@fontsource-variable/atkinson-hyperlegible-next';
 import './styles/app.css';
+import './styles/verbs.css';
 import { App } from './App.tsx';
 import { registerServiceWorker } from './platform/pwa.ts';
 

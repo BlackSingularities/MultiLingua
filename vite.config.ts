@@ -55,7 +55,7 @@ export default defineConfig(({ mode }) => ({
   ],
   server: {
     port: Number(process.env.PORT) || 5173,
-    proxy: { '/api': 'http://localhost:8787' },
+    proxy: { '/api': process.env.API_PROXY ?? 'http://localhost:8787' },
   },
   build: {
     target: 'es2022',

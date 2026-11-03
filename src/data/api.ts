@@ -1,7 +1,7 @@
 // Klient serwera treści. Web korzysta ze ścieżki względnej (ta sama domena),
 // aplikacje mobilne — z pełnego adresu redzikowski.com/multilingua.
 import { db } from './db.ts';
-import type { AppMeta, CoursePack, CourseSummary, ImagePack } from './types.ts';
+import type { AppMeta, CoursePack, CourseSummary, ImagePack, VerbPack } from './types.ts';
 
 export const API_BASE: string = (import.meta.env.VITE_API_BASE as string | undefined) ?? './api';
 
@@ -48,7 +48,7 @@ export async function fetchCourses(): Promise<CourseList> {
 }
 
 export function summaryOf(p: CoursePack): CourseSummary {
-  const { unitsData: _u, rules: _r, builtAt: _b, ...rest } = p;
+  const { unitsData: _u, rules: _r, builtAt: _b, verbIndex: _vi, voices: _vo, ...rest } = p;
   return { ...rest, images: p.images ?? { count: 0, hash: '' }, size: 0 };
 }
 
@@ -89,5 +89,21 @@ export async function loadImages(pack: CoursePack): Promise<Record<string, strin
     return fresh.images;
   } catch {
     return cached?.images ?? {};
+  }
+}
+
+/** Kompendium czasowników kursu — tak jak ilustracje: z pamięci urządzenia albo z serwera. */
+export async function loadVerbs(pack: CoursePack): Promise<VerbPack | null> {
+  const want = pack.verbs?.hash ?? '';
+  if (!want) return null;
+  const cached = await db.verbs.get(pack.id);
+  if (cached?.hash === want) return cached;
+  try {
+    const fresh = await getJson<VerbPack>(`/courses/${encodeURIComponent(pack.id)}/verbs`, 30000);
+    await db.verbs.put({ ...fresh, course: pack.id, fetchedAt: Date.now() });
+    return fresh;
+  } catch (e) {
+    if (cached) return cached;
+    throw e;
   }
 }

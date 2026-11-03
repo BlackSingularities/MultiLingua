@@ -1,0 +1,161 @@
+verb: lavorare
+n: pracować
+emoji: "💼"
+category: praca
+regular: true
+group: I koniugacja (-are), regularny
+auxiliary: avere
+transitive: "nieprzechodni (przechodni: lavorare il legno — obrabiać drewno)"
+ipa: /la.voˈra.re/
+stress: la-vo-RA-re (trzecia sylaba)
+note: >-
+  Odmienia się dokładnie jak parlare. „Gdzie” po lavorare: in banca, in ufficio, a casa, da casa (zdalnie),
+  per una ditta (dla firmy), come cameriere (jako kelner).
+
+forms:
+  indicativo:
+    presente:
+      - [lavoro, pracuję, "Lavoro in un ufficio in centro.", "Pracuję w biurze w centrum."]
+      - [lavori, pracujesz, "Lavori anche il sabato?", "Pracujesz też w soboty?"]
+      - [lavora, pracuje, "Mia madre lavora in ospedale.", "Mama pracuje w szpitalu."]
+      - [lavoriamo, pracujemy, "Lavoriamo da casa due giorni a settimana.", "Pracujemy zdalnie dwa dni w tygodniu."]
+      - [lavorate, pracujecie, "Lavorate insieme?", "Pracujecie razem?"]
+      - [lavorano, pracują, "Lavorano dalle nove alle cinque.", "Pracują od dziewiątej do piątej."]
+    imperfetto:
+      - [lavoravo, pracowałem/pracowałam, "Da studente lavoravo in un bar.", "Na studiach pracowałem w barze."]
+      - [lavoravi, pracowałeś/pracowałaś, "Lavoravi ancora quando ho chiamato?", "Jeszcze pracowałeś, kiedy dzwoniłem?"]
+      - [lavorava, pracował/pracowała, "Mio nonno lavorava in miniera.", "Mój dziadek pracował w kopalni."]
+      - [lavoravamo, pracowaliśmy/pracowałyśmy, "Lavoravamo fino a tardi.", "Pracowaliśmy do późna."]
+      - [lavoravate, pracowaliście/pracowałyście, "Lavoravate nella stessa ditta?", "Pracowaliście w tej samej firmie?"]
+      - [lavoravano, pracowali/pracowały, "Lavoravano nei campi tutta l'estate.", "Całe lato pracowali w polu."]
+    passato_prossimo:
+      - [ho lavorato, pracowałem/pracowałam, "Ieri ho lavorato dieci ore.", "Wczoraj pracowałem dziesięć godzin."]
+      - [hai lavorato, pracowałeś/pracowałaś, "Hai lavorato molto oggi?", "Dużo dziś pracowałeś?"]
+      - [ha lavorato, pracował/pracowała, "Ha lavorato all'estero per anni.", "Przez lata pracował za granicą."]
+      - [abbiamo lavorato, pracowaliśmy/pracowałyśmy, "Abbiamo lavorato bene insieme.", "Dobrze nam się razem pracowało."]
+      - [avete lavorato, pracowaliście/pracowałyście, "Avete lavorato tutto il weekend?", "Pracowaliście cały weekend?"]
+      - [hanno lavorato, pracowali/pracowały, "Hanno lavorato al progetto per mesi.", "Pracowali nad projektem miesiącami."]
+    trapassato_prossimo:
+      - [avevo lavorato, pracowałem (wcześniej), "Avevo lavorato tutta la notte.", "Przepracowałem całą noc."]
+      - [avevi lavorato, pracowałeś (wcześniej), "Avevi già lavorato con lui?", "Pracowałeś już wcześniej z nim?"]
+      - [aveva lavorato, pracował (wcześniej), "Aveva lavorato come guida turistica.", "Pracował wcześniej jako przewodnik."]
+      - [avevamo lavorato, pracowaliśmy (wcześniej), "Avevamo lavorato sodo per quel risultato.", "Ciężko pracowaliśmy na ten wynik."]
+      - [avevate lavorato, pracowaliście (wcześniej), "Avevate lavorato in Germania?", "Pracowaliście wcześniej w Niemczech?"]
+      - [avevano lavorato, pracowali (wcześniej), "Avevano lavorato senza pause.", "Pracowali bez przerw."]
+    passato_remoto:
+      - [lavorai, pracowałem, "Lavorai in quella fabbrica per vent'anni.", "Pracowałem w tamtej fabryce dwadzieścia lat."]
+      - [lavorasti, pracowałeś, "Lavorasti duramente da giovane.", "Za młodu ciężko pracowałeś."]
+      - [lavorò, pracował, "Leonardo lavorò a Milano per gli Sforza.", "Leonardo pracował w Mediolanie dla Sforzów."]
+      - [lavorammo, pracowaliśmy, "Lavorammo giorno e notte.", "Pracowaliśmy dniem i nocą."]
+      - [lavoraste, pracowaliście, "Lavoraste con grande passione.", "Pracowaliście z wielką pasją."]
+      - [lavorarono, pracowali, "Molti italiani lavorarono in Belgio.", "Wielu Włochów pracowało w Belgii."]
+    trapassato_remoto:
+      - [ebbi lavorato, pracowałem (wcześniej), "Dopo che ebbi lavorato, andai a cena.", "Po pracy poszedłem na kolację."]
+      - [avesti lavorato, pracowałeś (wcześniej), "Appena avesti lavorato un anno, ti promossero.", "Ledwie przepracowałeś rok, awansowali cię."]
+      - [ebbe lavorato, pracował (wcześniej), "Quando ebbe lavorato abbastanza, si riposò.", "Gdy dość się napracował, odpoczął."]
+      - [avemmo lavorato, pracowaliśmy (wcześniej), "Dopo che avemmo lavorato, festeggiammo.", "Po pracy świętowaliśmy."]
+      - [aveste lavorato, pracowaliście (wcześniej), "Appena aveste lavorato, vi pagarono.", "Gdy tylko popracowaliście, zapłacono wam."]
+      - [ebbero lavorato, pracowali (wcześniej), "Quando ebbero lavorato tutto il giorno, dormirono.", "Przepracowawszy cały dzień, zasnęli."]
+    futuro_semplice:
+      - [lavorerò, będę pracować, "Domani lavorerò da casa.", "Jutro będę pracować z domu."]
+      - [lavorerai, będziesz pracować, "Lavorerai anche ad agosto?", "Będziesz pracować także w sierpniu?"]
+      - [lavorerà, będzie pracować, "Lavorerà in una banca a Londra.", "Będzie pracować w banku w Londynie."]
+      - [lavoreremo, będziemy pracować, "Lavoreremo meno ore.", "Będziemy pracować krócej."]
+      - [lavorerete, będziecie pracować, "Lavorerete in squadra.", "Będziecie pracować w zespole."]
+      - [lavoreranno, będą pracować, "Lavoreranno per un'azienda italiana.", "Będą pracować dla włoskiej firmy."]
+    futuro_anteriore:
+      - [avrò lavorato, będę już po pracy, "Quando avrò lavorato abbastanza, andrò in pensione.", "Gdy przepracuję dość lat, przejdę na emeryturę."]
+      - [avrai lavorato, pewnie pracowałeś, "Avrai lavorato troppo, sei stanco.", "Pewnie za dużo pracowałeś, jesteś zmęczony."]
+      - [avrà lavorato, pewnie pracował, "Avrà lavorato fino a tardi.", "Pewnie pracował do późna."]
+      - [avremo lavorato, będziemy już po pracy, "A fine mese avremo lavorato trenta giorni di fila.", "Na koniec miesiąca przepracujemy trzydzieści dni z rzędu."]
+      - [avrete lavorato, pewnie pracowaliście, "Avrete lavorato sodo.", "Pewnie ciężko pracowaliście."]
+      - [avranno lavorato, pewnie pracowali, "Avranno lavorato in nero.", "Pewnie pracowali na czarno."]
+  congiuntivo:
+    presente:
+      - [lavori, (żebym) pracował; (że) pracuję, "Il capo vuole che io lavori sabato.", "Szef chce, żebym pracował w sobotę."]
+      - [lavori, (żebyś) pracował; (że) pracujesz, "Penso che tu lavori troppo.", "Myślę, że za dużo pracujesz."]
+      - [lavori, (żeby) pracował; (że) pracuje, "Non so dove lavori.", "Nie wiem, gdzie pracuje."]
+      - [lavoriamo, (żebyśmy) pracowali, "È meglio che lavoriamo insieme.", "Lepiej, żebyśmy pracowali razem."]
+      - [lavoriate, (żebyście) pracowali, "Spero che lavoriate con calma.", "Mam nadzieję, że pracujecie spokojnie."]
+      - [lavorino, (żeby) pracowali, "Bisogna che lavorino di più.", "Muszą więcej pracować."]
+    imperfetto:
+      - [lavorassi, (gdybym) pracował, "Se lavorassi meno, sarei più felice.", "Gdybym mniej pracował, byłbym szczęśliwszy."]
+      - [lavorassi, (gdybyś) pracował, "Pensavo che lavorassi in banca.", "Myślałem, że pracujesz w banku."]
+      - [lavorasse, (gdyby) pracował, "Se lavorasse vicino, verrebbe a piedi.", "Gdyby pracował blisko, przychodziłby pieszo."]
+      - [lavorassimo, (gdybyśmy) pracowali, "Se lavorassimo insieme, finiremmo prima.", "Gdybyśmy pracowali razem, skończylibyśmy szybciej."]
+      - [lavoraste, (gdybyście) pracowali, "Credevo che lavoraste di notte.", "Myślałem, że pracujecie nocami."]
+      - [lavorassero, (gdyby) pracowali, "Se lavorassero bene, li pagherebbero di più.", "Gdyby dobrze pracowali, płacono by im więcej."]
+    passato:
+      - [abbia lavorato, (że) pracowałem, "Pensano che io abbia lavorato poco.", "Myślą, że mało pracowałem."]
+      - [abbia lavorato, (że) pracowałeś, "Spero che tu non abbia lavorato troppo.", "Mam nadzieję, że nie przepracowałeś się."]
+      - [abbia lavorato, (że) pracował, "Credo che abbia lavorato in Svizzera.", "Myślę, że pracował w Szwajcarii."]
+      - [abbiamo lavorato, (że) pracowaliśmy, "Sembra che abbiamo lavorato per niente.", "Wygląda na to, że pracowaliśmy na próżno."]
+      - [abbiate lavorato, (że) pracowaliście, "Sono contento che abbiate lavorato bene.", "Cieszę się, że dobrze się wam pracowało."]
+      - [abbiano lavorato, (że) pracowali, "Non so quanto abbiano lavorato.", "Nie wiem, ile pracowali."]
+    trapassato:
+      - [avessi lavorato, (gdybym) był pracował, "Se avessi lavorato di più, avrei finito.", "Gdybym więcej pracował, skończyłbym."]
+      - [avessi lavorato, (gdybyś) był pracował, "Se avessi lavorato con noi, ti saresti divertito.", "Gdybyś pracował z nami, miałbyś frajdę."]
+      - [avesse lavorato, (gdyby) był pracował, "Pensavo che avesse lavorato tutta la notte.", "Myślałem, że pracował całą noc."]
+      - [avessimo lavorato, (gdybyśmy) byli pracowali, "Se avessimo lavorato meglio, avremmo vinto.", "Gdybyśmy lepiej pracowali, wygralibyśmy."]
+      - [aveste lavorato, (gdybyście) byli pracowali, "Se aveste lavorato con cura, non ci sarebbero errori.", "Gdybyście pracowali starannie, nie byłoby błędów."]
+      - [avessero lavorato, (gdyby) byli pracowali, "Se avessero lavorato, avrebbero guadagnato.", "Gdyby pracowali, zarobiliby."]
+  condizionale:
+    presente:
+      - [lavorerei, pracowałbym/pracowałabym, "Lavorerei volentieri in Italia.", "Chętnie pracowałbym we Włoszech."]
+      - [lavoreresti, pracowałbyś/pracowałabyś, "Lavoreresti di notte?", "Pracowałbyś w nocy?"]
+      - [lavorerebbe, pracowałby/pracowałaby, "Lavorerebbe meglio in silenzio.", "W ciszy pracowałby lepiej."]
+      - [lavoreremmo, pracowalibyśmy, "Lavoreremmo meno, se potessimo.", "Pracowalibyśmy mniej, gdybyśmy mogli."]
+      - [lavorereste, pracowalibyście, "Lavorereste per quella cifra?", "Pracowalibyście za taką kwotę?"]
+      - [lavorerebbero, pracowaliby, "Lavorerebbero anche gratis.", "Pracowaliby nawet za darmo."]
+    passato:
+      - [avrei lavorato, pracowałbym (wtedy), "Avrei lavorato, ma ero malato.", "Pracowałbym, ale byłem chory."]
+      - [avresti lavorato, pracowałbyś (wtedy), "Avresti lavorato con lui?", "Pracowałbyś z nim?"]
+      - [avrebbe lavorato, pracowałby (wtedy), "Avrebbe lavorato anche a Natale.", "Pracowałby nawet w Boże Narodzenie."]
+      - [avremmo lavorato, pracowalibyśmy (wtedy), "Avremmo lavorato meglio con più tempo.", "Mając więcej czasu, pracowalibyśmy lepiej."]
+      - [avreste lavorato, pracowalibyście (wtedy), "Avreste lavorato di meno in un'altra ditta.", "W innej firmie pracowalibyście mniej."]
+      - [avrebbero lavorato, pracowaliby (wtedy), "Avrebbero lavorato tutta la notte.", "Pracowaliby całą noc."]
+  imperativo:
+    presente:
+      - [lavora, pracuj, "Lavora con calma, non c'è fretta.", "Pracuj spokojnie, nie ma pośpiechu."]
+      - [lavori, niech Pan/Pani pracuje, "Lavori pure, non la disturbo.", "Proszę pracować, nie przeszkadzam."]
+      - [lavoriamo, pracujmy, "Lavoriamo insieme a questo progetto!", "Popracujmy razem nad tym projektem!"]
+      - [lavorate, pracujcie, "Lavorate in silenzio, per favore.", "Pracujcie w ciszy, proszę."]
+      - [lavorino, niech pracują, "Lavorino in coppia.", "Niech pracują w parach."]
+    negativo:
+      - [non lavorare, nie pracuj, "Non lavorare troppo!", "Nie przepracowuj się!"]
+      - [non lavori, niech Pan/Pani nie pracuje, "Non lavori oggi, è festa.", "Proszę dziś nie pracować, jest święto."]
+      - [non lavoriamo, nie pracujmy, "Non lavoriamo nel weekend.", "Nie pracujmy w weekend."]
+      - [non lavorate, nie pracujcie, "Non lavorate fino a tardi!", "Nie pracujcie do późna!"]
+      - [non lavorino, niech nie pracują, "Non lavorino senza casco.", "Niech nie pracują bez kasku."]
+  forme_indefinite:
+    infinito:
+      - [lavorare, pracować, "Mi piace lavorare in squadra.", "Lubię pracować w zespole."]
+      - [avere lavorato, "to, że się pracowało", "Dopo avere lavorato, faccio sport.", "Po pracy uprawiam sport."]
+    participio:
+      - [lavorante, pracownik; pracujący, "Un lavorante della bottega.", "Pracownik warsztatu."]
+      - [lavorato, obrobiony; przepracowany, "Legno lavorato a mano.", "Ręcznie obrobione drewno."]
+    gerundio:
+      - [lavorando, pracując, "Lavorando si impara.", "Pracując, człowiek się uczy."]
+      - [avendo lavorato, "przepracowawszy; ponieważ pracował", "Avendo lavorato tutto il giorno, è stanco.", "Ponieważ pracował cały dzień, jest zmęczony."]
+
+extras:
+  collocations:
+    gdzie i jak:
+      - [lavorare in ufficio / in banca, pracować w biurze / w banku, "Lavora in banca da vent'anni.", "Od dwudziestu lat pracuje w banku."]
+      - [lavorare da casa, pracować zdalnie, "Oggi lavoro da casa.", "Dziś pracuję z domu."]
+      - [lavorare come + zawód, pracować jako, "Lavoro come infermiera.", "Pracuję jako pielęgniarka."]
+      - [lavorare a tempo pieno / part-time, pracować na pełen etat / na pół etatu, "Lavoro part-time.", "Pracuję na pół etatu."]
+  idioms:
+    - [lavorare sodo, harować, "Ha lavorato sodo per comprare casa.", "Harował, żeby kupić dom."]
+    - [lavorare in nero, pracować na czarno, "Non voglio lavorare in nero.", "Nie chcę pracować na czarno."]
+    - [lavorare come un mulo, harować jak wół, "Lavora come un mulo tutto il giorno.", "Haruje jak wół cały dzień."]
+  phrases:
+    - [buon lavoro!, miłej pracy!, "Ciao, buon lavoro!", "Cześć, miłej pracy!"]
+    - [che lavoro fai?, czym się zajmujesz?, "Che lavoro fai? — Faccio il cuoco.", "Czym się zajmujesz? — Jestem kucharzem."]
+  related:
+    - [il lavoro, praca, "Cerco un nuovo lavoro.", "Szukam nowej pracy."]
+    - [il lavoratore / la lavoratrice, pracownik / pracowniczka, "I diritti dei lavoratori.", "Prawa pracowników."]
+    - [il laboratorio, "laboratorium; pracownia", "Un laboratorio di ceramica.", "Pracownia ceramiki."]
+  synonyms:
+    - {t: faticare, n: trudzić się, note: "Podkreśla wysiłek i zmęczenie.", ex: ["Ho faticato a trovare parcheggio.", "Ciężko mi było znaleźć parking."]}
+    - {t: impiegare, n: zatrudniać; zużywać (czas), note: "Impiegare un'ora = poświęcić godzinę.", ex: ["Ho impiegato un'ora per arrivare.", "Dojazd zajął mi godzinę."]}

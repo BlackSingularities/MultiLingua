@@ -12,6 +12,7 @@ import { GrammarList, GrammarArticleScreen } from './screens/Grammar.tsx';
 import { Vocabulary } from './screens/Vocabulary.tsx';
 import { Stories } from './screens/Stories.tsx';
 import { Conjugations } from './screens/Conjugations.tsx';
+import { VerbScreen } from './screens/Verbs.tsx';
 import { Profile } from './screens/Profile.tsx';
 import { SettingsScreen } from './screens/Settings.tsx';
 
@@ -89,6 +90,7 @@ export function App() {
           <Route path="/teoria" element={<RequireCourse><GrammarList /></RequireCourse>} />
           <Route path="/teoria/:id" element={<RequireCourse><GrammarArticleScreen /></RequireCourse>} />
           <Route path="/odmiana" element={<RequireCourse><Conjugations /></RequireCourse>} />
+          <Route path="/odmiana/:verbId" element={<RequireCourse><VerbScreen /></RequireCourse>} />
           <Route path="/slownik" element={<RequireCourse><Vocabulary /></RequireCourse>} />
           <Route path="/historie" element={<RequireCourse><Stories /></RequireCourse>} />
           <Route path="/profil" element={<Profile />} />

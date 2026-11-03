@@ -10,6 +10,7 @@ import { Icon } from '../components/Icon.tsx';
 import { Markdown } from '../components/Markdown.tsx';
 import { Say, SpeakButton, useSpeech } from '../components/ui.tsx';
 import { HintText, Instruction, type ExProps } from './shared.tsx';
+import { useStoryVoices } from '../components/useStoryVoices.ts';
 
 type Of<T extends Exercise['type']> = Extract<Exercise, { type: T }>;
 
@@ -344,13 +345,14 @@ export function StoryEx({ ex, course, finish }: ExProps<Of<'story'>>) {
   const s = ex.story;
   const [shown, setShown] = useState(1);
   const [translate, setTranslate] = useState<Set<number>>(new Set());
-  const { say, audioOn } = useSpeech();
+  const { say, audioOn, lang } = useSpeech();
   const endRef = useRef<HTMLDivElement>(null);
   const speakers = useMemo(() => [...new Set(s.lines.map((l) => l.speaker))], [s]);
+  const voices = useStoryVoices(speakers, s.id, lang, course.pack.voices);
 
   useEffect(() => {
     const line = s.lines[shown - 1];
-    if (line && audioOn) void say(line.t);
+    if (line && audioOn) void say(line.t, false, voices.get(line.speaker));
     endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shown]);
@@ -384,11 +386,11 @@ export function StoryEx({ ex, course, finish }: ExProps<Of<'story'>>) {
       <ol className="story-lines">
         {s.lines.slice(0, shown).map((l, i) => (
           <li key={i} className={`story-line speaker-${speakers.indexOf(l.speaker) % 4}${i === shown - 1 ? ' is-new' : ''}`}>
-            <span className="story-speaker">{l.speaker}</span>
+            <span className="story-speaker" title={voices.get(l.speaker)?.name ? `Głos: ${voices.get(l.speaker)!.name}` : undefined}>{l.speaker}</span>
             <div className="story-bubble">
               <div className="story-text-row">
                 <HintText text={l.t} course={course} />
-                <SpeakButton text={l.t} size="sm" />
+                <SpeakButton text={l.t} size="sm" voice={voices.get(l.speaker)} />
               </div>
               {translate.has(i) ? (
                 <p className="story-translation">{l.n}</p>

@@ -61,6 +61,7 @@ export interface CourseInfo {
   id: string;
   title: string;
   units: UnitInfo[];
+  verbs?: { file: string; verb?: string; n?: string; emoji?: string; error?: string }[];
 }
 
 export interface Validation {

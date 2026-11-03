@@ -1,0 +1,171 @@
+verb: fare
+n: robić; czynić
+emoji: "🛠️"
+category: podstawowe
+regular: false
+group: "II koniugacja (dawne facere), nieregularny"
+auxiliary: avere
+transitive: przechodni
+reflexive: farsi (stać się; zrobić sobie)
+ipa: /ˈfa.re/
+stress: FA-re (pierwsza sylaba)
+note: >-
+  Jeden z najczęstszych czasowników: robić, ale też pogoda (fa freddo — jest zimno), zawody (faccio l'insegnante),
+  zakupy (fare la spesa) i dziesiątki zwrotów. Wiele form bierze temat fac- (facevo, facendo, che io faccia).
+  Participio passato: fatto.
+
+forms:
+  indicativo:
+    presente:
+      - [faccio, robię, "Faccio colazione alle sette.", "Jem śniadanie o siódmej."]
+      - [fai, robisz, "Che lavoro fai?", "Czym się zajmujesz?"]
+      - [fa, robi, "Oggi fa molto caldo.", "Dziś jest bardzo gorąco."]
+      - [facciamo, robimy, "Facciamo una pausa?", "Zrobimy przerwę?"]
+      - [fate, robicie, "Che cosa fate stasera?", "Co robicie dziś wieczorem?"]
+      - [fanno, robią, "I bambini fanno i compiti.", "Dzieci odrabiają lekcje."]
+    imperfetto:
+      - [facevo, robiłem/robiłam, "Da giovane facevo molto sport.", "Za młodu dużo ćwiczyłem."]
+      - [facevi, robiłeś/robiłaś, "Che cosa facevi a quell'ora?", "Co robiłeś o tej porze?"]
+      - [faceva, robił/robiła, "Faceva freddo quella sera.", "Tamtego wieczoru było zimno."]
+      - [facevamo, robiliśmy/robiłyśmy, "Facevamo lunghe passeggiate.", "Chodziliśmy na długie spacery."]
+      - [facevate, robiliście/robiłyście, "Facevate rumore tutta la notte.", "Hałasowaliście całą noc."]
+      - [facevano, robili/robiły, "Facevano la pasta in casa.", "Robili makaron w domu."]
+    passato_prossimo:
+      - [ho fatto, zrobiłem/zrobiłam, "Ho fatto la spesa stamattina.", "Rano zrobiłem zakupy."]
+      - [hai fatto, zrobiłeś/zrobiłaś, "Hai fatto un buon viaggio?", "Miałeś dobrą podróż?"]
+      - [ha fatto, zrobił/zrobiła, "Ha fatto una torta buonissima.", "Upiekła pyszne ciasto."]
+      - [abbiamo fatto, zrobiliśmy/zrobiłyśmy, "Abbiamo fatto tardi ieri sera.", "Wczoraj wieczorem zasiedzieliśmy się do późna."]
+      - [avete fatto, zrobiliście/zrobiłyście, "Avete fatto bene a venire.", "Dobrze zrobiliście, że przyszliście."]
+      - [hanno fatto, zrobili/zrobiły, "Hanno fatto una festa per Anna.", "Urządzili przyjęcie dla Anny."]
+    trapassato_prossimo:
+      - [avevo fatto, zrobiłem/zrobiłam (wcześniej), "Avevo già fatto i bagagli.", "Byłem już spakowany."]
+      - [avevi fatto, zrobiłeś/zrobiłaś (wcześniej), "Avevi fatto una promessa.", "Złożyłeś wcześniej obietnicę."]
+      - [aveva fatto, zrobił/zrobiła (wcześniej), "Aveva fatto tutto da solo.", "Zrobił wszystko sam."]
+      - [avevamo fatto, zrobiliśmy/zrobiłyśmy (wcześniej), "Avevamo fatto un errore.", "Popełniliśmy wcześniej błąd."]
+      - [avevate fatto, zrobiliście/zrobiłyście (wcześniej), "Avevate fatto colazione?", "Zjedliście już śniadanie?"]
+      - [avevano fatto, zrobili/zrobiły (wcześniej), "Avevano fatto la stessa strada.", "Przeszli wcześniej tę samą drogę."]
+    passato_remoto:
+      - [feci, zrobiłem/zrobiłam, "Feci un lungo viaggio in Africa.", "Odbyłem długą podróż po Afryce."]
+      - [facesti, zrobiłeś/zrobiłaś, "Facesti una scelta coraggiosa.", "Dokonałeś odważnego wyboru."]
+      - [fece, zrobił/zrobiła, "Michelangelo fece il David.", "Michał Anioł wyrzeźbił Dawida."]
+      - [facemmo, zrobiliśmy/zrobiłyśmy, "Facemmo pace dopo anni.", "Pogodziliśmy się po latach."]
+      - [faceste, zrobiliście/zrobiłyście, "Faceste un ottimo lavoro.", "Wykonaliście świetną robotę."]
+      - [fecero, zrobili/zrobiły, "Fecero festa fino all'alba.", "Bawili się do świtu."]
+    trapassato_remoto:
+      - [ebbi fatto, zrobiłem/zrobiłam (wcześniej), "Appena ebbi fatto colazione, uscii.", "Gdy tylko zjadłem śniadanie, wyszedłem."]
+      - [avesti fatto, zrobiłeś/zrobiłaś (wcześniej), "Dopo che avesti fatto la domanda, aspettasti.", "Gdy zadałeś pytanie, czekałeś."]
+      - [ebbe fatto, zrobił/zrobiła (wcześniej), "Quando ebbe fatto i conti, sorrise.", "Gdy podliczył, uśmiechnął się."]
+      - [avemmo fatto, zrobiliśmy/zrobiłyśmy (wcześniej), "Dopo che avemmo fatto la pace, brindammo.", "Gdy się pogodziliśmy, wznieśliśmy toast."]
+      - [aveste fatto, zrobiliście/zrobiłyście (wcześniej), "Appena aveste fatto i bagagli, partimmo.", "Gdy tylko się spakowaliście, wyruszyliśmy."]
+      - [ebbero fatto, zrobili/zrobiły (wcześniej), "Quando ebbero fatto tutto, andarono a dormire.", "Gdy wszystko zrobili, poszli spać."]
+    futuro_semplice:
+      - [farò, zrobię, "Lo farò domani, promesso.", "Zrobię to jutro, obiecuję."]
+      - [farai, zrobisz, "Che cosa farai da grande?", "Kim będziesz, jak dorośniesz?"]
+      - [farà, zrobi, "Domani farà bel tempo.", "Jutro będzie ładna pogoda."]
+      - [faremo, zrobimy, "Faremo una gita in barca.", "Wybierzemy się na wycieczkę łodzią."]
+      - [farete, zrobicie, "Farete tardi stasera?", "Wrócicie dziś późno?"]
+      - [faranno, zrobią, "Faranno una sorpresa alla mamma.", "Zrobią mamie niespodziankę."]
+    futuro_anteriore:
+      - [avrò fatto, będę już miał zrobione, "Quando tornerai, avrò fatto tutto.", "Kiedy wrócisz, wszystko będzie zrobione."]
+      - [avrai fatto, pewnie zrobiłeś/zrobiłaś, "Avrai fatto fatica a trovarci.", "Pewnie trudno było nas znaleźć."]
+      - [avrà fatto, pewnie zrobił/zrobiła, "Chi avrà fatto questo disastro?", "Kto mógł narobić takiego bałaganu?"]
+      - [avremo fatto, będziemy już mieli zrobione, "Entro sera avremo fatto il trasloco.", "Do wieczora skończymy przeprowadzkę."]
+      - [avrete fatto, pewnie zrobiliście/zrobiłyście, "Avrete fatto un sacco di foto.", "Pewnie zrobiliście mnóstwo zdjęć."]
+      - [avranno fatto, pewnie zrobili/zrobiły, "Avranno fatto un incidente.", "Pewnie mieli wypadek."]
+  congiuntivo:
+    presente:
+      - [faccia, (żebym) zrobił; (że) robię, "Vuoi che io faccia il caffè?", "Chcesz, żebym zrobił kawę?"]
+      - [faccia, (żebyś) zrobił; (że) robisz, "Non so che lavoro tu faccia.", "Nie wiem, czym się zajmujesz."]
+      - [faccia, (żeby) zrobił; (że) robi, "Spero che faccia bel tempo.", "Mam nadzieję, że będzie ładna pogoda."]
+      - [facciamo, (żebyśmy) zrobili, "Vuole che facciamo presto.", "Chce, żebyśmy się pospieszyli."]
+      - [facciate, (żebyście) zrobili, "È importante che facciate attenzione.", "Ważne, żebyście uważali."]
+      - [facciano, (żeby) zrobili, "Lasciamo che facciano da soli.", "Pozwólmy im zrobić to samodzielnie."]
+    imperfetto:
+      - [facessi, (gdybym) zrobił, "Se facessi più sport, starei meglio.", "Gdybym więcej ćwiczył, czułbym się lepiej."]
+      - [facessi, (gdybyś) zrobił, "Pensavo che facessi il medico.", "Myślałem, że jesteś lekarzem."]
+      - [facesse, (gdyby) zrobił, "Se facesse meno freddo, usciremmo.", "Gdyby było mniej zimno, wyszlibyśmy."]
+      - [facessimo, (gdybyśmy) zrobili, "E se facessimo una pausa?", "A może zrobimy przerwę?"]
+      - [faceste, (gdybyście) zrobili, "Se faceste silenzio, potrei dormire.", "Gdybyście byli cicho, mógłbym spać."]
+      - [facessero, (gdyby) zrobili, "Voleva che facessero i compiti.", "Chciała, żeby odrobili lekcje."]
+    passato:
+      - [abbia fatto, (że) zrobiłem/zrobiłam, "Pensano che io abbia fatto un errore.", "Myślą, że popełniłem błąd."]
+      - [abbia fatto, (że) zrobiłeś/zrobiłaś, "Spero che tu abbia fatto buon viaggio.", "Mam nadzieję, że miałeś dobrą podróż."]
+      - [abbia fatto, (że) zrobił/zrobiła, "Non credo che l'abbia fatto apposta.", "Nie sądzę, żeby zrobił to celowo."]
+      - [abbiamo fatto, (że) zrobiliśmy/zrobiłyśmy, "Sembra che abbiamo fatto bene.", "Wygląda na to, że dobrze zrobiliśmy."]
+      - [abbiate fatto, (że) zrobiliście/zrobiłyście, "Sono contento che abbiate fatto pace.", "Cieszę się, że się pogodziliście."]
+      - [abbiano fatto, (że) zrobili/zrobiły, "Credo che abbiano fatto tardi.", "Myślę, że wrócili późno."]
+    trapassato:
+      - [avessi fatto, (gdybym) był zrobił, "Se avessi fatto attenzione, non sarei caduto.", "Gdybym uważał, nie przewróciłbym się."]
+      - [avessi fatto, (gdybyś) był zrobił, "Se avessi fatto prima, avresti trovato posto.", "Gdybyś się pospieszył, znalazłbyś miejsce."]
+      - [avesse fatto, (gdyby) był zrobił, "Pensavo che avesse fatto tutto lui.", "Myślałem, że on zrobił wszystko."]
+      - [avessimo fatto, (gdybyśmy) byli zrobili, "Se avessimo fatto la spesa, avremmo da mangiare.", "Gdybyśmy zrobili zakupy, mielibyśmy co jeść."]
+      - [aveste fatto, (gdybyście) byli zrobili, "Se aveste fatto silenzio, avreste sentito.", "Gdybyście byli cicho, usłyszelibyście."]
+      - [avessero fatto, (gdyby) byli zrobili, "Se avessero fatto prima, sarebbero arrivati.", "Gdyby się pospieszyli, dotarliby."]
+  condizionale:
+    presente:
+      - [farei, zrobiłbym/zrobiłabym, "Al posto tuo, farei lo stesso.", "Na twoim miejscu zrobiłbym to samo."]
+      - [faresti, zrobiłbyś/zrobiłabyś, "Mi faresti un favore?", "Wyświadczyłbyś mi przysługę?"]
+      - [farebbe, zrobiłby/zrobiłaby, "Farebbe di tutto per i figli.", "Zrobiłby wszystko dla dzieci."]
+      - [faremmo, zrobilibyśmy/zrobiłybyśmy, "Faremmo volentieri una gita.", "Chętnie wybralibyśmy się na wycieczkę."]
+      - [fareste, zrobilibyście/zrobiłybyście, "Che cosa fareste con un milione?", "Co zrobilibyście z milionem?"]
+      - [farebbero, zrobiliby/zrobiłyby, "Farebbero meglio a stare zitti.", "Lepiej by zrobili, gdyby milczeli."]
+    passato:
+      - [avrei fatto, zrobiłbym/zrobiłabym (wtedy), "Avrei fatto lo stesso.", "Zrobiłbym to samo."]
+      - [avresti fatto, zrobiłbyś/zrobiłabyś (wtedy), "Avresti fatto meglio a chiamare.", "Lepiej byś zrobił, gdybyś zadzwonił."]
+      - [avrebbe fatto, zrobiłby/zrobiłaby (wtedy), "Avrebbe fatto qualsiasi cosa.", "Zrobiłby cokolwiek."]
+      - [avremmo fatto, zrobilibyśmy/zrobiłybyśmy (wtedy), "Avremmo fatto prima in treno.", "Pociągiem byłoby szybciej."]
+      - [avreste fatto, zrobilibyście/zrobiłybyście (wtedy), "Avreste fatto lo stesso al mio posto.", "Na moim miejscu zrobilibyście to samo."]
+      - [avrebbero fatto, zrobiliby/zrobiłyby (wtedy), "Avrebbero fatto festa tutta la notte.", "Bawiliby się całą noc."]
+  imperativo:
+    presente:
+      - [fa' / fai, zrób; rób, "Fa' presto!", "Pospiesz się!"]
+      - [faccia, niech Pan/Pani zrobi, "Faccia pure con calma.", "Proszę się nie spieszyć."]
+      - [facciamo, zróbmy, "Facciamo così: io cucino e tu apparecchi.", "Zróbmy tak: ja gotuję, a ty nakrywasz."]
+      - [fate, zróbcie; róbcie, "Fate silenzio, per favore!", "Proszę o ciszę!"]
+      - [facciano, niech zrobią, "Facciano pure, non mi interessa.", "Niech robią, co chcą, mnie to nie obchodzi."]
+    negativo:
+      - [non fare, nie rób, "Non fare lo stupido!", "Nie wygłupiaj się!"]
+      - [non faccia, niech Pan/Pani nie robi, "Non faccia complimenti, si serva.", "Proszę się nie krępować, niech pan się częstuje."]
+      - [non facciamo, nie róbmy, "Non facciamo tardi stasera.", "Nie siedźmy dziś do późna."]
+      - [non fate, nie róbcie, "Non fate rumore, il bimbo dorme!", "Nie hałasujcie, dziecko śpi!"]
+      - [non facciano, niech nie robią, "Non facciano domande inutili.", "Niech nie zadają zbędnych pytań."]
+  forme_indefinite:
+    infinito:
+      - [fare, robić, "Non c'è niente da fare.", "Nic się nie da zrobić."]
+      - [avere fatto, "to, że się zrobiło", "Dopo avere fatto i compiti, gioco.", "Gdy odrobię lekcje, bawię się."]
+    participio:
+      - [facente, czyniący; pełniący, "Il facente funzione del direttore.", "Pełniący obowiązki dyrektora."]
+      - [fatto, zrobiony, "Un dolce fatto in casa.", "Domowe ciasto."]
+    gerundio:
+      - [facendo, robiąc, "Ho imparato facendo errori.", "Nauczyłem się, popełniając błędy."]
+      - [avendo fatto, "zrobiwszy; ponieważ zrobił", "Avendo fatto tardi, ha preso un taxi.", "Ponieważ się zasiedział, wziął taksówkę."]
+
+extras:
+  collocations:
+    codzienność:
+      - [fare colazione, jeść śniadanie, "Faccio colazione al bar.", "Jem śniadanie w barze."]
+      - [fare la spesa, robić zakupy (spożywcze), "Il sabato facciamo la spesa.", "W soboty robimy zakupy."]
+      - [fare la doccia, brać prysznic, "Faccio la doccia e arrivo.", "Biorę prysznic i już idę."]
+      - [fare una passeggiata, iść na spacer, "Facciamo una passeggiata in centro?", "Przejdziemy się po centrum?"]
+    pogoda:
+      - [fa caldo / freddo, jest gorąco / zimno, "D'inverno qui fa molto freddo.", "Zimą jest tu bardzo zimno."]
+      - [fa bel tempo, jest ładna pogoda, "Oggi fa bel tempo, usciamo!", "Dziś ładna pogoda, wyjdźmy!"]
+    zawód i pytania:
+      - [fare il/la + zawód, pracować jako, "Faccio l'ingegnere.", "Jestem inżynierem."]
+      - [fare una domanda, zadać pytanie, "Posso fare una domanda?", "Mogę zadać pytanie?"]
+  idioms:
+    - [fare finta, udawać, "Fa finta di non sentire.", "Udaje, że nie słyszy."]
+    - [fare due chiacchiere, uciąć sobie pogawędkę, "Passa da me, facciamo due chiacchiere.", "Wpadnij, pogadamy."]
+    - [fare le ore piccole, zarywać noce, "Ieri ho fatto le ore piccole.", "Wczoraj siedziałem do późna w nocy."]
+    - [farcela, dać radę, "Ce la faccio da solo, grazie.", "Dam sobie radę sam, dzięki."]
+  phrases:
+    - [non fa niente, nic nie szkodzi, "Scusa! — Non fa niente.", "Przepraszam! — Nic nie szkodzi."]
+    - [quanto fa?, ile to kosztuje? / ile to razem?, "Quanto fa in tutto?", "Ile to razem?"]
+    - [fammi sapere, daj mi znać, "Fammi sapere se vieni.", "Daj znać, czy przyjdziesz."]
+  related:
+    - [il fatto, "fakt; wydarzenie", "Il fatto è che non ho tempo.", "Rzecz w tym, że nie mam czasu."]
+    - [il fattore, czynnik, "Il tempo è un fattore importante.", "Czas jest ważnym czynnikiem."]
+    - [disfare, rozpakować; zepsuć, "Devo disfare la valigia.", "Muszę rozpakować walizkę."]
+  synonyms:
+    - {t: compiere, n: dokonać; wykonać, note: "Bardziej formalne; także „kończyć lata”: compiere vent'anni.", ex: ["Oggi compio trent'anni.", "Dziś kończę trzydzieści lat."]}
+    - {t: realizzare, n: zrealizować, note: "Doprowadzić plan lub marzenie do skutku.", ex: ["Ha realizzato il suo sogno.", "Spełnił swoje marzenie."]}

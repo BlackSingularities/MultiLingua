@@ -8,16 +8,18 @@ import { adminApi, AdminError, type CourseInfo, type Status } from './api.ts';
 import { ContentTab, type Draft } from './ContentTab.tsx';
 import { GenerateTab } from './GenerateTab.tsx';
 import { ImagesTab } from './ImagesTab.tsx';
+import { VoicesTab } from './VoicesTab.tsx';
 import { AiTab } from './AiTab.tsx';
 import { AccountTab } from './AccountTab.tsx';
 import './admin.css';
 
-type Tab = 'content' | 'generate' | 'images' | 'ai' | 'account';
+type Tab = 'content' | 'generate' | 'images' | 'voices' | 'ai' | 'account';
 
 const TABS: { id: Tab; label: string; icon: Parameters<typeof Icon>[0]['name'] }[] = [
   { id: 'content', label: 'Rozdziały', icon: 'book' },
   { id: 'generate', label: 'Nowy rozdział', icon: 'sparkle' },
   { id: 'images', label: 'Ilustracje', icon: 'grid' },
+  { id: 'voices', label: 'Głosy', icon: 'headphones' },
   { id: 'ai', label: 'Model AI', icon: 'bolt' },
   { id: 'account', label: 'Konto', icon: 'user' },
 ];
@@ -164,6 +166,7 @@ function Panel({ status, onLogout }: { status: Status; onLogout: () => void }) {
           {tab === 'content' && <ContentTab courses={courses} reload={loadCourses} draft={draft} clearDraft={() => setDraft(null)} />}
           {tab === 'generate' && <GenerateTab courses={courses} onDraft={openDraft} goToAi={() => setTab('ai')} />}
           {tab === 'images' && <ImagesTab courses={courses} />}
+          {tab === 'voices' && <VoicesTab courses={courses} />}
           {tab === 'ai' && <AiTab />}
           {tab === 'account' && <AccountTab courses={courses} onLogout={onLogout} />}
         </>

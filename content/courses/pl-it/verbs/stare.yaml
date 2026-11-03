@@ -1,0 +1,166 @@
+verb: stare
+n: mieć się; przebywać; stać
+emoji: "🧍"
+category: podstawowe
+regular: false
+group: I koniugacja (-are), nieregularny
+auxiliary: essere
+transitive: nieprzechodni
+ipa: /ˈsta.re/
+stress: STA-re (pierwsza sylaba)
+note: >-
+  Mówi o samopoczuciu (Come stai? — Sto bene), o przebywaniu gdzieś (sto a casa) i pozostawaniu w jakimś stanie
+  (stai zitto!). Z gerundio tworzy czas „właśnie teraz”: sto mangiando — właśnie jem.
+  Participio passato „stato” jest wspólne z essere.
+
+forms:
+  indicativo:
+    presente:
+      - [sto, "mam się; jestem", "Sto bene, grazie.", "Dobrze się czuję, dziękuję."]
+      - [stai, "masz się; jesteś", "Come stai oggi?", "Jak się dziś masz?"]
+      - [sta, "ma się; jest", "La nonna sta meglio.", "Babcia czuje się lepiej."]
+      - [stiamo, "mamy się; jesteśmy", "Stiamo a casa stasera.", "Zostajemy dziś wieczorem w domu."]
+      - [state, "macie się; jesteście", "State attenti alla strada!", "Uważajcie na ulicy!"]
+      - [stanno, "mają się; są", "I bambini stanno giocando.", "Dzieci właśnie się bawią."]
+    imperfetto:
+      - [stavo, czułem się/byłem, "Stavo per uscire quando hai chiamato.", "Właśnie miałem wyjść, kiedy zadzwoniłeś."]
+      - [stavi, czułeś się/byłeś, "Stavi dormendo?", "Spałeś?"]
+      - [stava, czuł się/był, "Il nonno stava sempre in giardino.", "Dziadek zawsze przesiadywał w ogrodzie."]
+      - [stavamo, czuliśmy się/byliśmy, "Stavamo bene insieme.", "Było nam razem dobrze."]
+      - [stavate, czuliście się/byliście, "Stavate parlando di me?", "Rozmawialiście o mnie?"]
+      - [stavano, czuli się/byli, "Stavano cenando quando sono arrivato.", "Jedli kolację, kiedy przyszedłem."]
+    passato_prossimo:
+      - [sono stato/stata, byłem/byłam (przebywałem), "Sono stato a casa tutto il giorno.", "Cały dzień byłem w domu."]
+      - [sei stato/stata, byłeś/byłaś, "Sei stata male ieri?", "Źle się wczoraj czułaś?"]
+      - [è stato/stata, był/była, "È stato zitto tutta la sera.", "Cały wieczór milczał."]
+      - [siamo stati/state, byliśmy/byłyśmy, "Siamo stati in montagna una settimana.", "Byliśmy tydzień w górach."]
+      - [siete stati/state, byliście/byłyście, "Siete stati bene in albergo?", "Dobrze wam było w hotelu?"]
+      - [sono stati/state, byli/były, "Sono stati in fila per un'ora.", "Stali w kolejce przez godzinę."]
+    trapassato_prossimo:
+      - [ero stato/stata, byłem/byłam (wcześniej), "Ero stato male, ma ora sto bene.", "Chorowałem, ale teraz czuję się dobrze."]
+      - [eri stato/stata, byłeś/byłaś (wcześniej), "Eri stato a Parigi prima?", "Byłeś wcześniej w Paryżu?"]
+      - [era stato/stata, był/była (wcześniej), "Era stato fuori tutta la notte.", "Był poza domem całą noc."]
+      - [eravamo stati/state, byliśmy/byłyśmy (wcześniej), "Eravamo stati lì l'anno prima.", "Byliśmy tam rok wcześniej."]
+      - [eravate stati/state, byliście/byłyście (wcześniej), "Eravate stati zitti fino a quel momento.", "Do tamtej chwili milczeliście."]
+      - [erano stati/state, byli/były (wcześniej), "Erano stati in ospedale per giorni.", "Przez wiele dni byli w szpitalu."]
+    passato_remoto:
+      - [stetti, byłem/byłam (przebywałem), "Stetti a Roma per due anni.", "Przebywałem w Rzymie przez dwa lata."]
+      - [stesti, byłeś/byłaś, "Stesti zitto per tutto il viaggio.", "Milczałeś przez całą podróż."]
+      - [stette, był/była, "Stette male per settimane.", "Chorował przez wiele tygodni."]
+      - [stemmo, byliśmy/byłyśmy, "Stemmo in quella casa a lungo.", "Długo mieszkaliśmy w tamtym domu."]
+      - [steste, byliście/byłyście, "Steste fuori fino a tardi.", "Byliście poza domem do późna."]
+      - [stettero, byli/były, "Stettero in silenzio.", "Trwali w milczeniu."]
+    trapassato_remoto:
+      - [fui stato/stata, byłem/byłam (wcześniej), "Dopo che fui stato lì, capii tutto.", "Kiedy już tam byłem, wszystko zrozumiałem."]
+      - [fosti stato/stata, byłeś/byłaś (wcześniej), "Appena fosti stato meglio, partisti.", "Gdy tylko poczułeś się lepiej, wyjechałeś."]
+      - [fu stato/stata, był/była (wcześniej), "Quando fu stato abbastanza, se ne andò.", "Gdy pobył wystarczająco długo, odszedł."]
+      - [fummo stati/state, byliśmy/byłyśmy (wcześniej), "Dopo che fummo stati in vacanza, tornammo al lavoro.", "Po urlopie wróciliśmy do pracy."]
+      - [foste stati/state, byliście/byłyście (wcześniej), "Appena foste stati pronti, uscimmo.", "Gdy tylko byliście gotowi, wyszliśmy."]
+      - [furono stati/state, byli/były (wcześniej), "Quando furono stati in silenzio, parlò lui.", "Gdy umilkli, przemówił on."]
+    futuro_semplice:
+      - [starò, będę (się miał), "Domani starò a casa.", "Jutro zostanę w domu."]
+      - [starai, będziesz, "Vedrai che starai meglio.", "Zobaczysz, że poczujesz się lepiej."]
+      - [starà, będzie, "Come starà Paolo?", "Ciekawe, jak się ma Paolo?"]
+      - [staremo, będziemy, "Staremo al mare due settimane.", "Będziemy nad morzem dwa tygodnie."]
+      - [starete, będziecie, "Starete bene in questo albergo.", "Będzie wam dobrze w tym hotelu."]
+      - [staranno, będą, "Staranno da noi per Natale.", "Zostaną u nas na święta."]
+    futuro_anteriore:
+      - [sarò stato/stata, będę już (był/była), "Per allora sarò stato a Milano.", "Do tego czasu będę już w Mediolanie."]
+      - [sarai stato/stata, pewnie byłeś/byłaś, "Sarai stato male dopo quella cena.", "Pewnie źle się czułeś po tej kolacji."]
+      - [sarà stato/stata, pewnie był/była, "Sarà stato a casa tutto il giorno.", "Pewnie cały dzień siedział w domu."]
+      - [saremo stati/state, będziemy już (byli/były), "A maggio saremo stati qui un anno.", "W maju minie rok, odkąd tu jesteśmy."]
+      - [sarete stati/state, pewnie byliście/byłyście, "Sarete stati in coda per ore.", "Pewnie staliście w kolejce godzinami."]
+      - [saranno stati/state, pewnie byli/były, "Saranno stati in ferie.", "Pewnie byli na urlopie."]
+  congiuntivo:
+    presente:
+      - [stia, (żebym) był/czuł się, "Pensano che io stia male.", "Myślą, że źle się czuję."]
+      - [stia, (żebyś) był/czuł się, "Spero che tu stia bene.", "Mam nadzieję, że dobrze się czujesz."]
+      - [stia, (żeby) był/czuł się, "Voglio che stia tranquillo.", "Chcę, żeby był spokojny."]
+      - [stiamo, (żebyśmy) byli, "È meglio che stiamo zitti.", "Lepiej, żebyśmy siedzieli cicho."]
+      - [stiate, (żebyście) byli, "Spero che stiate tutti bene.", "Mam nadzieję, że wszyscy macie się dobrze."]
+      - [stiano, (żeby) byli, "Credo che stiano arrivando.", "Myślę, że właśnie przyjeżdżają."]
+    imperfetto:
+      - [stessi, (gdybym) był/czuł się, "Se stessi meglio, uscirei.", "Gdybym czuł się lepiej, wyszedłbym."]
+      - [stessi, (gdybyś) był/czuł się, "Pensavo che stessi dormendo.", "Myślałem, że śpisz."]
+      - [stesse, (gdyby) był/czuł się, "Sembrava che stesse per piovere.", "Wyglądało na to, że zaraz będzie padać."]
+      - [stessimo, (gdybyśmy) byli, "Se stessimo più vicini, ci vedremmo spesso.", "Gdybyśmy mieszkali bliżej, widywalibyśmy się często."]
+      - [steste, (gdybyście) byli, "Credevo che steste scherzando.", "Myślałem, że żartujecie."]
+      - [stessero, (gdyby) byli, "Se stessero zitti, sentiremmo meglio.", "Gdyby byli cicho, lepiej byśmy słyszeli."]
+    passato:
+      - [sia stato/stata, (że) byłem/byłam, "Pensano che io sia stato male.", "Myślą, że chorowałem."]
+      - [sia stato/stata, (że) byłeś/byłaś, "Spero che tu sia stata bene a Napoli.", "Mam nadzieję, że dobrze ci było w Neapolu."]
+      - [sia stato/stata, (że) był/była, "Credo che sia stato a casa.", "Myślę, że był w domu."]
+      - [siamo stati/state, (że) byliśmy/byłyśmy, "Pare che siamo stati gli unici.", "Wygląda na to, że byliśmy jedyni."]
+      - [siate stati/state, (że) byliście/byłyście, "Sono contento che siate stati qui.", "Cieszę się, że tu byliście."]
+      - [siano stati/state, (że) byli/były, "Non credo che siano stati in Italia.", "Nie sądzę, żeby byli we Włoszech."]
+    trapassato:
+      - [fossi stato/stata, (gdybym) był/była (wcześniej), "Se fossi stato zitto, sarebbe andato tutto bene.", "Gdybym siedział cicho, wszystko poszłoby dobrze."]
+      - [fossi stato/stata, (gdybyś) był/była (wcześniej), "Se fossi stata a casa, ti avrei vista.", "Gdybyś była w domu, zobaczyłbym cię."]
+      - [fosse stato/stata, (gdyby) był/była (wcześniej), "Pensavo che fosse stato male.", "Myślałem, że był chory."]
+      - [fossimo stati/state, (gdybyśmy) byli/były (wcześniej), "Se fossimo stati attenti, non sarebbe successo.", "Gdybyśmy uważali, to by się nie stało."]
+      - [foste stati/state, (gdybyście) byli/były (wcześniej), "Se foste stati qui, avreste riso.", "Gdybyście tu byli, śmialibyście się."]
+      - [fossero stati/state, (gdyby) byli/były (wcześniej), "Se fossero stati meglio, sarebbero venuti.", "Gdyby czuli się lepiej, przyszliby."]
+  condizionale:
+    presente:
+      - [starei, byłbym/czułbym się, "Starei meglio con un caffè.", "Z kawą czułbym się lepiej."]
+      - [staresti, byłbyś/czułbyś się, "Staresti bene con questo vestito.", "Dobrze byś wyglądała w tej sukience."]
+      - [starebbe, byłby/czułby się, "Starebbe meglio a letto.", "W łóżku czułby się lepiej."]
+      - [staremmo, bylibyśmy, "Staremmo volentieri un giorno in più.", "Chętnie zostalibyśmy dzień dłużej."]
+      - [stareste, bylibyście, "Stareste più comodi qui.", "Tu byłoby wam wygodniej."]
+      - [starebbero, byliby, "Starebbero meglio in campagna.", "Na wsi byłoby im lepiej."]
+    passato:
+      - [sarei stato/stata, byłbym/byłabym (wtedy), "Sarei stato a casa, ma mi hanno chiamato.", "Zostałbym w domu, ale do mnie zadzwonili."]
+      - [saresti stato/stata, byłbyś/byłabyś (wtedy), "Saresti stata meglio con noi.", "Lepiej by ci było z nami."]
+      - [sarebbe stato/stata, byłby/byłaby (wtedy), "Sarebbe stato zitto, se l'avesse saputo.", "Milczałby, gdyby to wiedział."]
+      - [saremmo stati/state, bylibyśmy/byłybyśmy (wtedy), "Saremmo stati qui prima.", "Bylibyśmy tu wcześniej."]
+      - [sareste stati/state, bylibyście/byłybyście (wtedy), "Sareste stati bene al mare.", "Dobrze by wam było nad morzem."]
+      - [sarebbero stati/state, byliby/byłyby (wtedy), "Sarebbero stati più tranquilli a casa.", "W domu byliby spokojniejsi."]
+  imperativo:
+    presente:
+      - [sta' / stai, bądź; zostań, "Sta' tranquillo, ci penso io!", "Spokojnie, ja się tym zajmę!"]
+      - [stia, niech Pan/Pani będzie, "Stia comodo, signore.", "Proszę się nie fatygować."]
+      - [stiamo, bądźmy; zostańmy, "Stiamo calmi!", "Zachowajmy spokój!"]
+      - [state, bądźcie; zostańcie, "State zitti, per favore!", "Bądźcie cicho, proszę!"]
+      - [stiano, niech będą, "Stiano attenti ai gradini.", "Niech uważają na schody."]
+    negativo:
+      - [non stare, nie bądź; nie stój, "Non stare in piedi, siediti!", "Nie stój, usiądź!"]
+      - [non stia, niech Pan/Pani nie będzie, "Non stia lì al freddo!", "Niech pan nie stoi tam na zimnie!"]
+      - [non stiamo, nie bądźmy, "Non stiamo qui a perdere tempo!", "Nie traćmy tu czasu!"]
+      - [non state, nie bądźcie, "Non state alzati fino a tardi!", "Nie siedźcie do późna!"]
+      - [non stiano, niech nie będą, "Non stiano in piedi, si siedano.", "Niech nie stoją, niech usiądą."]
+  forme_indefinite:
+    infinito:
+      - [stare, mieć się; przebywać, "Voglio stare un po' da solo.", "Chcę pobyć trochę sam."]
+      - [essere stato/stata, "to, że się było", "Dopo essere stato in ospedale, sta meglio.", "Po pobycie w szpitalu czuje się lepiej."]
+    participio:
+      - [stante, stojący; obecny, "Seduta stante.", "Natychmiast, na miejscu."]
+      - [stato, był; przebywał (imiesłów), "Sono stato bene da voi.", "Dobrze mi było u was."]
+    gerundio:
+      - [stando, będąc; przebywając, "Stando a casa, risparmio.", "Siedząc w domu, oszczędzam."]
+      - [essendo stato/stata, "będąc wcześniej; ponieważ był", "Essendo stato male, non è venuto.", "Ponieważ był chory, nie przyszedł."]
+
+extras:
+  collocations:
+    samopoczucie:
+      - [stare bene / male, czuć się dobrze / źle, "Oggi sto male, ho la febbre.", "Źle się dziś czuję, mam gorączkę."]
+      - [stare meglio, czuć się lepiej, "Come va? — Sto meglio, grazie.", "Jak tam? — Lepiej, dziękuję."]
+    zachowanie i stan:
+      - [stare zitto, milczeć, "Stai zitto un momento!", "Bądź cicho przez chwilę!"]
+      - [stare attento, uważać, "Sta' attento, scotta!", "Uważaj, gorące!"]
+      - [stare in piedi, stać, "In autobus sto sempre in piedi.", "W autobusie zawsze stoję."]
+    konstrukcje:
+      - [stare + gerundio, właśnie coś robić, "Sto cucinando, ti richiamo.", "Właśnie gotuję, oddzwonię."]
+      - [stare per + bezokolicznik, zaraz coś zrobić, "Il treno sta per partire.", "Pociąg zaraz odjedzie."]
+  idioms:
+    - [stare con le mani in mano, siedzieć z założonymi rękami, "Non stare con le mani in mano, aiutami!", "Nie siedź bezczynnie, pomóż mi!"]
+    - [stare sulle spine, siedzieć jak na szpilkach, "Aspetto i risultati e sto sulle spine.", "Czekam na wyniki i siedzę jak na szpilkach."]
+    - [starci, "zgadzać się na coś; mieścić się", "Io ci sto, andiamo!", "Wchodzę w to, chodźmy!"]
+  phrases:
+    - [come stai? / come sta?, jak się masz? / jak się pan(i) ma?, "Buongiorno, signora, come sta?", "Dzień dobry pani, jak się pani miewa?"]
+    - [lascia stare!, daj spokój!, "Lascia stare, non importa.", "Daj spokój, nieważne."]
+  related:
+    - [lo stato, "stan; państwo", "Lo stato di salute è buono.", "Stan zdrowia jest dobry."]
+    - [la stanza, pokój, "La mia stanza è piccola.", "Mój pokój jest mały."]
+  synonyms:
+    - {t: essere, n: być, note: "Essere opisuje, kim lub jaki ktoś jest; stare — samopoczucie, położenie i chwilowy stan.", ex: ["È stanco, ma sta bene.", "Jest zmęczony, ale czuje się dobrze."]}
+    - {t: rimanere, n: zostawać, note: "Podkreśla pozostanie w miejscu dłużej, niż planowano.", ex: ["Rimango a casa stasera.", "Zostaję dziś wieczorem w domu."]}

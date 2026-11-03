@@ -4,6 +4,12 @@ import { speak, stopSpeaking } from '../platform/speech.ts';
 import { Icon } from './Icon.tsx';
 
 /** Dźwięk i mikrofon: czy wolno ich teraz użyć i funkcja „przeczytaj na głos”. */
+/** Konkretny głos (np. postaci w historyjce) zamiast głosu z ustawień. */
+export interface VoicePick {
+  voiceURI?: string;
+  pitch?: number;
+}
+
 export function useSpeech() {
   const settings = useApp((s) => s.settings);
   const course = useApp((s) => s.course);
@@ -16,24 +22,28 @@ export function useSpeech() {
   const audioOn = settings.listening && ttsOk !== false && now > muteAudioUntil;
   const micOn = settings.speaking && sttOk === true && now > muteMicUntil;
   const say = useCallback(
-    (text: string, slow = false) =>
-      speak(text, lang, { rate: settings.rate * (slow ? 0.6 : 1), voiceURI: settings.voices[lang] }).catch(() => {}),
+    (text: string, slow = false, voice?: VoicePick) =>
+      speak(text, lang, {
+        rate: settings.rate * (slow ? 0.6 : 1),
+        voiceURI: voice?.voiceURI ?? settings.voices[lang],
+        pitch: voice?.pitch,
+      }).catch(() => {}),
     [lang, settings.rate, settings.voices],
   );
   return { audioOn, micOn, ttsOk, sttOk, say, lang };
 }
 
 export function SpeakButton({
-  text, slow, size = 'md', autoPlay, label,
-}: { text: string; slow?: boolean; size?: 'sm' | 'md' | 'lg'; autoPlay?: boolean; label?: string }) {
+  text, slow, size = 'md', autoPlay, label, voice,
+}: { text: string; slow?: boolean; size?: 'sm' | 'md' | 'lg'; autoPlay?: boolean; label?: string; voice?: VoicePick }) {
   const { say, ttsOk } = useSpeech();
   const autoplaySetting = useApp((s) => s.settings.autoplay);
   const [playing, setPlaying] = useState(false);
   const play = useCallback(async () => {
     setPlaying(true);
-    await say(text, slow);
+    await say(text, slow, voice);
     setPlaying(false);
-  }, [say, text, slow]);
+  }, [say, text, slow, voice]);
 
   useEffect(() => {
     if (autoPlay && autoplaySetting && ttsOk !== false) void play();

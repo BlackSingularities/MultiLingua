@@ -1,0 +1,170 @@
+verb: avere
+n: mieć
+emoji: "🤲"
+category: podstawowe
+regular: false
+group: II koniugacja (-ere), nieregularny
+auxiliary: avere
+transitive: przechodni
+ipa: /aˈve.re/
+stress: a-VE-re (druga sylaba)
+note: >-
+  Oznacza posiadanie, ale też wiek i stany: ho vent'anni (mam 20 lat), ho fame (jestem głodny), ho freddo (jest mi zimno).
+  Jako czasownik posiłkowy tworzy czasy złożone większości czasowników (ho mangiato, avevo capito).
+  „H” na początku form (ho, hai, ha, hanno) się nie wymawia.
+
+forms:
+  indicativo:
+    presente:
+      - [ho, mam, "Ho due fratelli e una sorella.", "Mam dwóch braci i siostrę."]
+      - [hai, masz, "Hai un minuto per me?", "Masz dla mnie minutę?"]
+      - [ha, ma, "Mia nonna ha ottant'anni.", "Moja babcia ma osiemdziesiąt lat."]
+      - [abbiamo, mamy, "Abbiamo fame, andiamo a mangiare!", "Jesteśmy głodni, chodźmy coś zjeść!"]
+      - [avete, macie, "Avete una camera libera?", "Macie wolny pokój?"]
+      - [hanno, mają, "Hanno una casa al mare.", "Mają dom nad morzem."]
+    imperfetto:
+      - [avevo, miałem/miałam, "Da piccolo avevo un cane.", "Jako dziecko miałem psa."]
+      - [avevi, miałeś/miałaś, "Avevi ragione tu.", "Miałeś rację."]
+      - [aveva, miał/miała, "Aveva sempre il sorriso.", "Zawsze się uśmiechał."]
+      - [avevamo, mieliśmy/miałyśmy, "Avevamo poco tempo.", "Mieliśmy mało czasu."]
+      - [avevate, mieliście/miałyście, "Avevate già i biglietti?", "Mieliście już bilety?"]
+      - [avevano, mieli/miały, "Avevano paura del buio.", "Bali się ciemności."]
+    passato_prossimo:
+      - [ho avuto, miałem/miałam, "Ho avuto una giornata difficile.", "Miałem trudny dzień."]
+      - [hai avuto, miałeś/miałaś, "Hai avuto notizie da Paolo?", "Miałeś wiadomości od Paola?"]
+      - [ha avuto, miał/miała, "Ha avuto un bambino a maggio.", "Urodziła dziecko w maju."]
+      - [abbiamo avuto, mieliśmy/miałyśmy, "Abbiamo avuto fortuna.", "Mieliśmy szczęście."]
+      - [avete avuto, mieliście/miałyście, "Avete avuto problemi con il volo?", "Mieliście problemy z lotem?"]
+      - [hanno avuto, mieli/miały, "Hanno avuto un incidente.", "Mieli wypadek."]
+    trapassato_prossimo:
+      - [avevo avuto, miałem/miałam (wcześniej), "Avevo avuto la febbre, perciò non sono venuto.", "Miałem gorączkę, dlatego nie przyszedłem."]
+      - [avevi avuto, miałeś/miałaś (wcześniej), "Mi hai detto che avevi avuto un'idea.", "Powiedziałeś mi, że wpadłeś na pomysł."]
+      - [aveva avuto, miał/miała (wcześniej), "Aveva avuto una vita difficile.", "Miał wcześniej trudne życie."]
+      - [avevamo avuto, mieliśmy/miałyśmy (wcześniej), "Avevamo avuto lo stesso problema.", "Mieliśmy wcześniej ten sam problem."]
+      - [avevate avuto, mieliście/miałyście (wcześniej), "Avevate avuto tempo di prepararvi?", "Mieliście czas, żeby się przygotować?"]
+      - [avevano avuto, mieli/miały (wcześniej), "Avevano avuto tre figli.", "Mieli troje dzieci."]
+    passato_remoto:
+      - [ebbi, miałem/miałam, "Quell'anno ebbi molta fortuna.", "Tamtego roku miałem dużo szczęścia."]
+      - [avesti, miałeś/miałaś, "Avesti il coraggio di dirlo.", "Miałeś odwagę to powiedzieć."]
+      - [ebbe, miał/miała, "Leonardo ebbe molti allievi.", "Leonardo miał wielu uczniów."]
+      - [avemmo, mieliśmy/miałyśmy, "Avemmo una lunga discussione.", "Odbyliśmy długą rozmowę."]
+      - [aveste, mieliście/miałyście, "Aveste una bella idea.", "Mieliście świetny pomysł."]
+      - [ebbero, mieli/miały, "Ebbero tre figli.", "Mieli troje dzieci."]
+    trapassato_remoto:
+      - [ebbi avuto, miałem/miałam (wcześniej), "Appena ebbi avuto la notizia, partii.", "Gdy tylko dostałem wiadomość, wyjechałem."]
+      - [avesti avuto, miałeś/miałaś (wcześniej), "Dopo che avesti avuto la risposta, sorridesti.", "Gdy już dostałeś odpowiedź, uśmiechnąłeś się."]
+      - [ebbe avuto, miał/miała (wcześniej), "Quando ebbe avuto il permesso, entrò.", "Gdy dostał pozwolenie, wszedł."]
+      - [avemmo avuto, mieliśmy/miałyśmy (wcześniej), "Dopo che avemmo avuto i soldi, comprammo casa.", "Gdy mieliśmy już pieniądze, kupiliśmy dom."]
+      - [aveste avuto, mieliście/miałyście (wcześniej), "Appena aveste avuto tempo, veniste.", "Gdy tylko mieliście czas, przyszliście."]
+      - [ebbero avuto, mieli/miały (wcześniej), "Quando ebbero avuto la chiave, aprirono.", "Gdy dostali klucz, otworzyli."]
+    futuro_semplice:
+      - [avrò, będę miał/miała, "Domani avrò più tempo.", "Jutro będę miał więcej czasu."]
+      - [avrai, będziesz miał/miała, "Avrai fame dopo la palestra.", "Pewnie będziesz głodny po siłowni."]
+      - [avrà, będzie miał/miała, "Avrà trent'anni, più o meno.", "Ma pewnie około trzydziestu lat."]
+      - [avremo, będziemy mieli/miały, "Avremo una casa con giardino.", "Będziemy mieli dom z ogrodem."]
+      - [avrete, będziecie mieli/miały, "Avrete bisogno di un ombrello.", "Będziecie potrzebowali parasola."]
+      - [avranno, będą mieli/miały, "Avranno sicuramente fame.", "Na pewno będą głodni."]
+    futuro_anteriore:
+      - [avrò avuto, będę już miał/miała, "Quando avrò avuto la laurea, cercherò lavoro.", "Gdy już zdobędę dyplom, poszukam pracy."]
+      - [avrai avuto, będziesz już miał/miała, "Avrai avuto paura!", "Musiałeś się wtedy bać!"]
+      - [avrà avuto, pewnie miał/miała, "Avrà avuto un contrattempo.", "Pewnie coś mu wypadło."]
+      - [avremo avuto, będziemy już mieli/miały, "Per allora avremo avuto la risposta.", "Do tego czasu dostaniemy już odpowiedź."]
+      - [avrete avuto, pewnie mieliście/miałyście, "Avrete avuto tanto lavoro.", "Pewnie mieliście dużo pracy."]
+      - [avranno avuto, pewnie mieli/miały, "Avranno avuto i loro motivi.", "Pewnie mieli swoje powody."]
+  congiuntivo:
+    presente:
+      - [abbia, (żebym) miał/miała; (że) mam, "Pensano che io abbia torto.", "Myślą, że nie mam racji."]
+      - [abbia, (żebyś) miał/miała; (że) masz, "Spero che tu abbia tempo.", "Mam nadzieję, że masz czas."]
+      - [abbia, (żeby) miał/miała; (że) ma, "Credo che abbia vent'anni.", "Myślę, że ma dwadzieścia lat."]
+      - [abbiamo, (żebyśmy) mieli/miały; (że) mamy, "È meglio che abbiamo un piano.", "Lepiej, żebyśmy mieli plan."]
+      - [abbiate, (żebyście) mieli/miały; (że) macie, "Spero che abbiate fame!", "Mam nadzieję, że jesteście głodni!"]
+      - [abbiano, (żeby) mieli/miały; (że) mają, "Non penso che abbiano soldi.", "Nie sądzę, żeby mieli pieniądze."]
+    imperfetto:
+      - [avessi, (gdybym) miał/miała, "Se avessi tempo, leggerei di più.", "Gdybym miał czas, czytałbym więcej."]
+      - [avessi, (gdybyś) miał/miała, "Se avessi bisogno, chiamami.", "Gdybyś czegoś potrzebował, zadzwoń."]
+      - [avesse, (gdyby) miał/miała, "Pensavo che avesse una macchina.", "Myślałem, że ma samochód."]
+      - [avessimo, (gdybyśmy) mieli/miały, "Se avessimo un giardino, avremmo un cane.", "Gdybyśmy mieli ogród, mielibyśmy psa."]
+      - [aveste, (gdybyście) mieli/miały, "Se aveste fame, ditelo.", "Gdybyście byli głodni, powiedzcie."]
+      - [avessero, (gdyby) mieli/miały, "Se avessero più soldi, viaggerebbero.", "Gdyby mieli więcej pieniędzy, podróżowaliby."]
+    passato:
+      - [abbia avuto, (że) miałem/miałam, "Pensano che io abbia avuto fortuna.", "Myślą, że miałem szczęście."]
+      - [abbia avuto, (że) miałeś/miałaś, "Mi dispiace che tu abbia avuto problemi.", "Przykro mi, że miałeś problemy."]
+      - [abbia avuto, (że) miał/miała, "Credo che abbia avuto un incidente.", "Myślę, że miał wypadek."]
+      - [abbiamo avuto, (że) mieliśmy/miałyśmy, "Pare che abbiamo avuto ragione.", "Wygląda na to, że mieliśmy rację."]
+      - [abbiate avuto, (że) mieliście/miałyście, "Spero che abbiate avuto un buon viaggio.", "Mam nadzieję, że mieliście dobrą podróż."]
+      - [abbiano avuto, (że) mieli/miały, "Penso che abbiano avuto paura.", "Myślę, że się bali."]
+    trapassato:
+      - [avessi avuto, (gdybym) był miał/miała, "Se avessi avuto tempo, sarei venuto.", "Gdybym miał czas, przyszedłbym."]
+      - [avessi avuto, (gdybyś) był miał/miała, "Se avessi avuto bisogno, ti avrei aiutato.", "Gdybyś potrzebował, pomógłbym ci."]
+      - [avesse avuto, (gdyby) był miał/miała, "Pensavo che avesse avuto un problema.", "Myślałem, że miał jakiś problem."]
+      - [avessimo avuto, (gdybyśmy) byli mieli/miały, "Se avessimo avuto la mappa, non ci saremmo persi.", "Gdybyśmy mieli mapę, nie zgubilibyśmy się."]
+      - [aveste avuto, (gdybyście) byli mieli/miały, "Se aveste avuto pazienza, avreste visto.", "Gdybyście mieli cierpliwość, zobaczylibyście."]
+      - [avessero avuto, (gdyby) byli mieli/miały, "Se avessero avuto i biglietti, sarebbero entrati.", "Gdyby mieli bilety, weszliby."]
+  condizionale:
+    presente:
+      - [avrei, miałbym/miałabym, "Avrei una domanda.", "Miałbym pytanie."]
+      - [avresti, miałbyś/miałabyś, "Avresti un attimo?", "Miałbyś chwilkę?"]
+      - [avrebbe, miałby/miałaby, "Avrebbe una penna, per favore?", "Czy miałby pan długopis?"]
+      - [avremmo, mielibyśmy/miałybyśmy, "Avremmo bisogno di aiuto.", "Potrzebowalibyśmy pomocy."]
+      - [avreste, mielibyście/miałybyście, "Avreste voglia di uscire?", "Mielibyście ochotę wyjść?"]
+      - [avrebbero, mieliby/miałyby, "Avrebbero più tempo in estate.", "Latem mieliby więcej czasu."]
+    passato:
+      - [avrei avuto, miałbym/miałabym (wtedy), "Avrei avuto bisogno di te.", "Potrzebowałbym wtedy ciebie."]
+      - [avresti avuto, miałbyś/miałabyś (wtedy), "Avresti avuto ragione.", "Miałbyś rację."]
+      - [avrebbe avuto, miałby/miałaby (wtedy), "Avrebbe avuto più successo all'estero.", "Za granicą odniósłby większy sukces."]
+      - [avremmo avuto, mielibyśmy/miałybyśmy (wtedy), "Avremmo avuto più tempo.", "Mielibyśmy więcej czasu."]
+      - [avreste avuto, mielibyście/miałybyście (wtedy), "Avreste avuto freddo senza giacca.", "Byłoby wam zimno bez kurtki."]
+      - [avrebbero avuto, mieliby/miałyby (wtedy), "Avrebbero avuto paura.", "Baliby się."]
+  imperativo:
+    presente:
+      - [abbi, miej, "Abbi pazienza!", "Miej cierpliwość!"]
+      - [abbia, niech Pan/Pani ma, "Abbia pazienza, signora.", "Proszę o cierpliwość, pani."]
+      - [abbiamo, miejmy, "Abbiamo fiducia!", "Miejmy zaufanie!"]
+      - [abbiate, miejcie, "Abbiate coraggio!", "Miejcie odwagę!"]
+      - [abbiano, niech mają, "Abbiano pazienza ancora un po'.", "Niech jeszcze trochę poczekają."]
+    negativo:
+      - [non avere, nie miej, "Non avere paura!", "Nie bój się!"]
+      - [non abbia, niech Pan/Pani nie ma, "Non abbia fretta, signore.", "Proszę się nie spieszyć."]
+      - [non abbiamo, nie miejmy, "Non abbiamo paura di sbagliare!", "Nie bójmy się pomyłek!"]
+      - [non abbiate, nie miejcie, "Non abbiate dubbi!", "Nie miejcie wątpliwości!"]
+      - [non abbiano, niech nie mają, "Non abbiano timore di chiedere.", "Niech się nie boją pytać."]
+  forme_indefinite:
+    infinito:
+      - [avere, mieć, "È bello avere amici.", "Miło jest mieć przyjaciół."]
+      - [avere avuto, "to, że się miało", "Mi dispiace di non avere avuto tempo.", "Przykro mi, że nie miałem czasu."]
+    participio:
+      - [avente, mający, "Una persona avente diritto al rimborso.", "Osoba mająca prawo do zwrotu."]
+      - [avuto, miany (imiesłów), "Ho avuto un'idea.", "Wpadłem na pomysł."]
+    gerundio:
+      - [avendo, mając, "Avendo fame, ho mangiato subito.", "Będąc głodnym, od razu zjadłem."]
+      - [avendo avuto, mając wcześniej / ponieważ miał, "Avendo avuto la febbre, è rimasto a casa.", "Ponieważ miał gorączkę, został w domu."]
+
+extras:
+  collocations:
+    stany (zamiast polskiego „być”):
+      - [avere fame, być głodnym, "Ho fame, mangiamo?", "Jestem głodny, jemy?"]
+      - [avere sete, chcieć pić, "Hai sete? Ecco l'acqua.", "Chce ci się pić? Masz wodę."]
+      - [avere freddo / caldo, być zimno / gorąco, "Ho freddo, chiudi la finestra.", "Zimno mi, zamknij okno."]
+      - [avere sonno, być śpiącym, "Ha sonno, è tardi.", "Jest śpiący, jest późno."]
+      - [avere paura, bać się, "Ho paura dei ragni.", "Boję się pająków."]
+    z rzeczownikami:
+      - [avere … anni, mieć … lat, "Quanti anni hai? — Ne ho venti.", "Ile masz lat? — Dwadzieścia."]
+      - [avere ragione / torto, mieć rację / nie mieć racji, "Hai ragione, scusa.", "Masz rację, przepraszam."]
+      - [avere bisogno di, potrzebować, "Ho bisogno di un caffè.", "Potrzebuję kawy."]
+      - [avere voglia di, mieć ochotę na, "Hai voglia di un gelato?", "Masz ochotę na lody?"]
+      - [avere fretta, spieszyć się, "Scusa, ho fretta!", "Przepraszam, spieszę się!"]
+  idioms:
+    - [avere le mani bucate, mieć dziurawe ręce (rozrzutność), "Con i soldi ha le mani bucate.", "Pieniądze przeciekają mu przez palce."]
+    - [avere un diavolo per capello, być wściekłym, "Oggi il capo ha un diavolo per capello.", "Szef jest dziś wściekły."]
+    - [avere la testa fra le nuvole, bujać w obłokach, "Hai sempre la testa fra le nuvole!", "Zawsze bujasz w obłokach!"]
+    - [avercela con qualcuno, mieć do kogoś żal, "Ce l'hai con me?", "Masz do mnie żal?"]
+  phrases:
+    - [ce l'ho, mam (to), "Hai le chiavi? — Sì, ce l'ho.", "Masz klucze? — Tak, mam."]
+    - [non ho idea, nie mam pojęcia, "Dov'è Luca? — Non ho idea.", "Gdzie jest Luca? — Nie mam pojęcia."]
+    - [che cos'hai?, co ci jest?, "Che cos'hai? Sei pallido.", "Co ci jest? Jesteś blady."]
+  related:
+    - [gli averi, "majątek, dobytek", "Ha perso tutti i suoi averi.", "Stracił cały swój majątek."]
+    - [l'avere, ma (w księgowości), "Il dare e l'avere.", "Winien i ma."]
+  synonyms:
+    - {t: possedere, n: posiadać, note: "Bardziej formalne; podkreśla własność.", ex: ["Possiede tre appartamenti.", "Posiada trzy mieszkania."]}
+    - {t: tenere, n: trzymać; (na południu) mieć, note: "W standardowym włoskim „trzymać”; w mowie południowej zastępuje avere.", ex: ["Tieni la borsa, per favore.", "Potrzymaj torbę, proszę."]}

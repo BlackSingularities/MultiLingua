@@ -3,6 +3,7 @@
 import { Capacitor } from '@capacitor/core';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
 import { SpeechRecognition as NativeRecognition } from '@capacitor-community/speech-recognition';
+import type { DeviceVoice } from '../engine/voices.ts';
 
 const native = Capacitor.isNativePlatform();
 
@@ -36,6 +37,24 @@ export async function voicesFor(lang: string): Promise<SpeechSynthesisVoice[]> {
   return matching.sort((a, b) => score(a) - score(b));
 }
 
+let nativeVoices: Promise<{ name: string; lang: string; voiceURI: string }[]> | null = null;
+
+/**
+ * Głosy języka dostępne na tym urządzeniu — do przydzielania postaciom w historyjkach.
+ * W przeglądarce identyfikatorem jest voiceURI, w aplikacji: indeks z listy systemu.
+ */
+export async function deviceVoices(lang: string): Promise<DeviceVoice[]> {
+  const base = lang.split('-')[0].toLowerCase();
+  if (native) {
+    nativeVoices ??= TextToSpeech.getSupportedVoices().then((r) => r.voices).catch(() => []);
+    const all = await nativeVoices;
+    return all
+      .map((v, i) => ({ id: String(i), name: v.name || v.voiceURI, lang: v.lang }))
+      .filter((v) => v.lang.replace('_', '-').toLowerCase().startsWith(base));
+  }
+  return (await voicesFor(lang)).map((v) => ({ id: v.voiceURI, name: v.name, lang: v.lang }));
+}
+
 const supportCache = new Map<string, boolean>();
 
 export async function canSpeak(lang: string): Promise<boolean> {
@@ -56,16 +75,21 @@ export async function canSpeak(lang: string): Promise<boolean> {
 
 export interface SpeakOptions {
   rate?: number;
+  /** Głos: voiceURI w przeglądarce albo indeks głosu w aplikacji (z deviceVoices). */
   voiceURI?: string;
+  /** Wysokość głosu (1 = naturalna); różnicuje postaci w historyjkach. */
+  pitch?: number;
 }
 
 let current: SpeechSynthesisUtterance | null = null;
 
 export async function speak(text: string, lang: string, opts: SpeakOptions = {}): Promise<void> {
   const rate = opts.rate ?? 1;
+  const pitch = Math.min(2, Math.max(0.5, opts.pitch ?? 1));
   if (native) {
     await TextToSpeech.stop().catch(() => {});
-    await TextToSpeech.speak({ text, lang, rate, pitch: 1, volume: 1, category: 'playback' });
+    const voice = opts.voiceURI && /^\d+$/.test(opts.voiceURI) ? Number(opts.voiceURI) : undefined;
+    await TextToSpeech.speak({ text, lang, rate, pitch, volume: 1, category: 'playback', ...(voice !== undefined ? { voice } : {}) });
     return;
   }
   if (!('speechSynthesis' in window)) return;
@@ -77,6 +101,7 @@ export async function speak(text: string, lang: string, opts: SpeakOptions = {})
     u.lang = voice?.lang ?? lang;
     if (voice) u.voice = voice;
     u.rate = rate;
+    u.pitch = pitch;
     u.onend = () => resolve();
     u.onerror = () => resolve();
     current = u; // referencja chroni przed zbieraniem śmieci w Chrome (brak onend)

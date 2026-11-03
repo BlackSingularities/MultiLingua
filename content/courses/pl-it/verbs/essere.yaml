@@ -1,0 +1,166 @@
+verb: essere
+n: być
+emoji: "🙋"
+category: podstawowe
+regular: false
+group: II koniugacja (-ere), całkowicie nieregularny
+auxiliary: essere
+transitive: nieprzechodni
+ipa: /ˈɛs.se.re/
+stress: ES-se-re (pierwsza sylaba)
+note: >-
+  Najważniejszy czasownik języka: opisuje, kim i jaki ktoś jest, skąd pochodzi i gdzie się znajduje.
+  Jest też czasownikiem posiłkowym — z nim tworzą czasy złożone czasowniki ruchu, zmiany stanu
+  i wszystkie zwrotne (sono andato, mi sono alzato).
+
+forms:
+  indicativo:
+    presente:
+      - [sono, jestem, "Sono polacco, di Cracovia.", "Jestem Polakiem, z Krakowa."]
+      - [sei, jesteś, "Sei pronto per partire?", "Jesteś gotowy do wyjazdu?"]
+      - [è, jest, "Marta è molto simpatica.", "Marta jest bardzo sympatyczna."]
+      - [siamo, jesteśmy, "Siamo in ritardo, sbrigati!", "Jesteśmy spóźnieni, pospiesz się!"]
+      - [siete, jesteście, "Siete fratelli?", "Jesteście rodzeństwem?"]
+      - [sono, są, "I negozi sono chiusi la domenica.", "Sklepy są zamknięte w niedzielę."]
+    imperfetto:
+      - [ero, byłem/byłam, "Da bambino ero molto timido.", "Jako dziecko byłem bardzo nieśmiały."]
+      - [eri, byłeś/byłaś, "Dov'eri ieri sera?", "Gdzie byłeś wczoraj wieczorem?"]
+      - [era, był/była, "La casa era piccola ma accogliente.", "Dom był mały, ale przytulny."]
+      - [eravamo, byliśmy/byłyśmy, "Eravamo stanchi dopo il viaggio.", "Byliśmy zmęczeni po podróży."]
+      - [eravate, byliście/byłyście, "Eravate a casa quando ho chiamato?", "Byliście w domu, kiedy dzwoniłem?"]
+      - [erano, byli/były, "Le strade erano piene di gente.", "Ulice były pełne ludzi."]
+    passato_prossimo:
+      - [sono stato/stata, byłem/byłam, "Sono stato a Roma due volte.", "Byłem w Rzymie dwa razy."]
+      - [sei stato/stata, byłeś/byłaś, "Sei mai stata in Sicilia?", "Byłaś kiedyś na Sycylii?"]
+      - [è stato/stata, był/była, "È stata una bella giornata.", "To był piękny dzień."]
+      - [siamo stati/state, byliśmy/byłyśmy, "Siamo stati fortunati con il tempo.", "Mieliśmy szczęście z pogodą."]
+      - [siete stati/state, byliście/byłyście, "Siete stati gentilissimi, grazie!", "Byliście bardzo uprzejmi, dziękuję!"]
+      - [sono stati/state, byli/były, "I bambini sono stati bravi oggi.", "Dzieci były dziś grzeczne."]
+    trapassato_prossimo:
+      - [ero stato/stata, byłem/byłam (wcześniej), "Non ero mai stato in un posto così bello.", "Nigdy wcześniej nie byłem w tak pięknym miejscu."]
+      - [eri stato/stata, byłeś/byłaś (wcześniej), "Mi hai detto che eri già stato lì.", "Powiedziałeś mi, że już tam byłeś."]
+      - [era stato/stata, był/była (wcześniej), "Il film era stato un successo, quindi hanno fatto il seguito.", "Film odniósł sukces, więc nakręcono kontynuację."]
+      - [eravamo stati/state, byliśmy/byłyśmy (wcześniej), "Eravamo stati amici per anni.", "Byliśmy przyjaciółmi przez lata."]
+      - [eravate stati/state, byliście/byłyście (wcześniej), "Eravate stati avvisati del ritardo?", "Czy uprzedzono was o opóźnieniu?"]
+      - [erano stati/state, byli/były (wcześniej), "Erano già stati in vacanza a luglio, così ad agosto lavoravano.", "Byli już na wakacjach w lipcu, więc w sierpniu pracowali."]
+    passato_remoto:
+      - [fui, byłem/byłam, "Nel 1990 fui assunto in banca.", "W 1990 roku zostałem zatrudniony w banku."]
+      - [fosti, byłeś/byłaś, "Fosti tu a dirmelo per primo.", "To ty pierwszy mi o tym powiedziałeś."]
+      - [fu, był/była, "Dante fu un grande poeta.", "Dante był wielkim poetą."]
+      - [fummo, byliśmy/byłyśmy, "Fummo felici di rivederli.", "Byliśmy szczęśliwi, że ich znów widzimy."]
+      - [foste, byliście/byłyście, "Foste voi a vincere la gara.", "To wy wygraliście zawody."]
+      - [furono, byli/były, "I Romani furono grandi costruttori.", "Rzymianie byli wielkimi budowniczymi."]
+    trapassato_remoto:
+      - [fui stato/stata, byłem/byłam (wcześniej), "Dopo che fui stato a Napoli, tornai a casa.", "Gdy już byłem w Neapolu, wróciłem do domu."]
+      - [fosti stato/stata, byłeś/byłaś (wcześniej), "Appena fosti stato pronto, partimmo.", "Gdy tylko byłeś gotowy, wyruszyliśmy."]
+      - [fu stato/stata, był/była (wcześniej), "Quando fu stato chiaro, tutti tacquero.", "Gdy wszystko stało się jasne, wszyscy umilkli."]
+      - [fummo stati/state, byliśmy/byłyśmy (wcześniej), "Dopo che fummo stati in chiesa, pranzammo.", "Po tym, jak byliśmy w kościele, zjedliśmy obiad."]
+      - [foste stati/state, byliście/byłyście (wcześniej), "Appena foste stati liberi, vi chiamai.", "Gdy tylko byliście wolni, zadzwoniłem do was."]
+      - [furono stati/state, byli/były (wcześniej), "Quando furono stati informati, partirono.", "Gdy już zostali poinformowani, wyjechali."]
+    futuro_semplice:
+      - [sarò, będę, "Domani sarò a Milano.", "Jutro będę w Mediolanie."]
+      - [sarai, będziesz, "Sarai stanco dopo il lavoro.", "Pewnie będziesz zmęczony po pracy."]
+      - [sarà, będzie, "Sarà una festa bellissima.", "To będzie wspaniałe przyjęcie."]
+      - [saremo, będziemy, "Saremo pronti alle otto.", "Będziemy gotowi o ósmej."]
+      - [sarete, będziecie, "Sarete i benvenuti da noi.", "Będziecie u nas mile widziani."]
+      - [saranno, będą, "Saranno già a casa.", "Pewnie są już w domu."]
+    futuro_anteriore:
+      - [sarò stato/stata, będę już (był/była), "Quando arriverai, sarò già stato in banca.", "Kiedy przyjedziesz, będę już po wizycie w banku."]
+      - [sarai stato/stata, będziesz już (był/była), "Sarai stato stanco dopo un viaggio così.", "Pewnie byłeś zmęczony po takiej podróży."]
+      - [sarà stato/stata, pewnie był/była, "Sarà stato il vento.", "To pewnie był wiatr."]
+      - [saremo stati/state, będziemy już (byli/były), "A giugno saremo stati sposati dieci anni.", "W czerwcu minie dziesięć lat naszego małżeństwa."]
+      - [sarete stati/state, pewnie byliście/byłyście, "Sarete stati contenti del risultato.", "Pewnie byliście zadowoleni z wyniku."]
+      - [saranno stati/state, pewnie byli/były, "Saranno stati i vicini a fare rumore.", "To pewnie sąsiedzi hałasowali."]
+  congiuntivo:
+    presente:
+      - [sia, (żebym) był/była; (że) jestem, "Pensano che io sia italiano.", "Myślą, że jestem Włochem."]
+      - [sia, (żebyś) był/była; (że) jesteś, "Spero che tu sia contento.", "Mam nadzieję, że jesteś zadowolony."]
+      - [sia, (żeby) był/była; (że) jest, "Credo che sia troppo tardi.", "Myślę, że jest za późno."]
+      - [siamo, (żebyśmy) byli/były; (że) jesteśmy, "Vogliono che siamo puntuali.", "Chcą, żebyśmy byli punktualni."]
+      - [siate, (żebyście) byli/były; (że) jesteście, "Mi fa piacere che siate qui.", "Cieszę się, że tu jesteście."]
+      - [siano, (żeby) byli/były; (że) są, "Non so se siano già partiti.", "Nie wiem, czy już wyjechali."]
+    imperfetto:
+      - [fossi, (gdybym) był/była, "Se fossi ricco, viaggerei sempre.", "Gdybym był bogaty, ciągle bym podróżował."]
+      - [fossi, (gdybyś) był/była, "Se fossi in te, non lo farei.", "Na twoim miejscu bym tego nie robił."]
+      - [fosse, (gdyby) był/była, "Pensavo che fosse chiuso.", "Myślałem, że jest zamknięte."]
+      - [fossimo, (gdybyśmy) byli/były, "Se fossimo più vicini, ci vedremmo spesso.", "Gdybyśmy mieszkali bliżej, widywalibyśmy się często."]
+      - [foste, (gdybyście) byli/były, "Credevo che foste fratelli.", "Myślałem, że jesteście rodzeństwem."]
+      - [fossero, (gdyby) byli/były, "Se fossero qui, sarebbero felici.", "Gdyby tu byli, byliby szczęśliwi."]
+    passato:
+      - [sia stato/stata, (że) byłem/byłam, "Pensano che io sia stato maleducato.", "Myślą, że byłem niegrzeczny."]
+      - [sia stato/stata, (że) byłeś/byłaś, "Spero che tu sia stata bene in vacanza.", "Mam nadzieję, że dobrze się czułaś na wakacjach."]
+      - [sia stato/stata, (że) był/była, "Credo che sia stato un errore.", "Myślę, że to był błąd."]
+      - [siamo stati/state, (że) byliśmy/byłyśmy, "Pare che siamo stati gli ultimi.", "Wygląda na to, że byliśmy ostatni."]
+      - [siate stati/state, (że) byliście/byłyście, "Sono felice che siate stati bene.", "Cieszę się, że było wam dobrze."]
+      - [siano stati/state, (że) byli/były, "Non credo che siano stati loro.", "Nie sądzę, żeby to byli oni."]
+    trapassato:
+      - [fossi stato/stata, (gdybym) był/była (wcześniej), "Se fossi stato lì, ti avrei aiutato.", "Gdybym tam był, pomógłbym ci."]
+      - [fossi stato/stata, (gdybyś) był/była (wcześniej), "Se fossi stata attenta, non saresti caduta.", "Gdybyś uważała, nie przewróciłabyś się."]
+      - [fosse stato/stata, (gdyby) był/była (wcześniej), "Pensavo che fosse stato un incidente.", "Myślałem, że to był wypadek."]
+      - [fossimo stati/state, (gdybyśmy) byli/były (wcześniej), "Se fossimo stati puntuali, avremmo preso il treno.", "Gdybyśmy byli punktualni, zdążylibyśmy na pociąg."]
+      - [foste stati/state, (gdybyście) byli/były (wcześniej), "Se foste stati qui, vi sareste divertiti.", "Gdybyście tu byli, dobrze byście się bawili."]
+      - [fossero stati/state, (gdyby) byli/były (wcześniej), "Se fossero stati più gentili, sarei rimasto.", "Gdyby byli milsi, zostałbym."]
+  condizionale:
+    presente:
+      - [sarei, byłbym/byłabym, "Sarei felice di aiutarti.", "Chętnie bym ci pomógł."]
+      - [saresti, byłbyś/byłabyś, "Saresti così gentile da aspettare?", "Czy byłbyś tak uprzejmy i poczekał?"]
+      - [sarebbe, byłby/byłaby, "Sarebbe bello andare al mare.", "Byłoby miło pojechać nad morze."]
+      - [saremmo, bylibyśmy/byłybyśmy, "Saremmo contenti di vedervi.", "Bylibyśmy radzi was zobaczyć."]
+      - [sareste, bylibyście/byłybyście, "Sareste d'accordo con noi?", "Zgodzilibyście się z nami?"]
+      - [sarebbero, byliby/byłyby, "Sarebbero pronti a partire subito.", "Byliby gotowi wyjechać od razu."]
+    passato:
+      - [sarei stato/stata, byłbym/byłabym (wtedy), "Sarei stato felice di venire.", "Chętnie bym przyszedł."]
+      - [saresti stato/stata, byłbyś/byłabyś (wtedy), "Saresti stata bravissima come attrice.", "Byłabyś świetną aktorką."]
+      - [sarebbe stato/stata, byłby/byłaby (wtedy), "Sarebbe stato meglio aspettare.", "Lepiej byłoby poczekać."]
+      - [saremmo stati/state, bylibyśmy/byłybyśmy (wtedy), "Saremmo stati più tranquilli.", "Bylibyśmy spokojniejsi."]
+      - [sareste stati/state, bylibyście/byłybyście (wtedy), "Sareste stati i benvenuti.", "Bylibyście mile widziani."]
+      - [sarebbero stati/state, byliby/byłyby (wtedy), "Sarebbero stati contenti di saperlo.", "Ucieszyliby się, gdyby to wiedzieli."]
+  imperativo:
+    presente:
+      - [sii, bądź, "Sii paziente!", "Bądź cierpliwy!"]
+      - [sia, niech Pan/Pani będzie, "Sia gentile, mi aiuti.", "Proszę być tak miłym i mi pomóc."]
+      - [siamo, bądźmy, "Siamo onesti!", "Bądźmy szczerzy!"]
+      - [siate, bądźcie, "Siate puntuali, per favore!", "Bądźcie punktualni, proszę!"]
+      - [siano, niech będą, "Siano i benvenuti!", "Niech będą mile widziani!"]
+    negativo:
+      - [non essere, nie bądź, "Non essere triste!", "Nie bądź smutny!"]
+      - [non sia, niech Pan/Pani nie będzie, "Non sia timido, entri pure.", "Proszę się nie krępować, niech pan wejdzie."]
+      - [non siamo, nie bądźmy, "Non siamo pessimisti!", "Nie bądźmy pesymistami!"]
+      - [non siate, nie bądźcie, "Non siate in ritardo!", "Nie spóźnijcie się!"]
+      - [non siano, niech nie będą, "Non siano scortesi con i clienti.", "Niech nie będą niegrzeczni wobec klientów."]
+  forme_indefinite:
+    infinito:
+      - [essere, być, "Essere felici è importante.", "Bycie szczęśliwym jest ważne."]
+      - [essere stato/stata, "to, że się było", "Dopo essere stato in Italia, parlo meglio.", "Po pobycie we Włoszech mówię lepiej."]
+    participio:
+      - [ente, byt; istniejący (rzadkie), "In filosofia l'ente è ciò che esiste.", "W filozofii „ente” to to, co istnieje."]
+      - [stato, był (imiesłów), "Sono stato contento di vederti.", "Ucieszyłem się, że cię widzę."]
+    gerundio:
+      - [essendo, będąc, "Essendo stanco, sono andato a letto.", "Będąc zmęczonym, poszedłem spać."]
+      - [essendo stato/stata, będąc wcześniej / ponieważ był, "Essendo stato malato, non è venuto.", "Ponieważ był chory, nie przyszedł."]
+
+extras:
+  collocations:
+    z przymiotnikami:
+      - [essere stanco, być zmęczonym, "Oggi sono molto stanco.", "Jestem dziś bardzo zmęczony."]
+      - [essere contento, być zadowolonym, "Sei contento del nuovo lavoro?", "Jesteś zadowolony z nowej pracy?"]
+      - [essere in ritardo, być spóźnionym, "Scusa, sono in ritardo!", "Przepraszam, spóźniłem się!"]
+    z przyimkami:
+      - [essere di, pochodzić z; być czyimś, "Di dove sei? — Sono di Varsavia.", "Skąd jesteś? — Jestem z Warszawy."]
+      - [essere a casa, być w domu, "Stasera sono a casa.", "Dziś wieczorem jestem w domu."]
+      - [essere d'accordo, zgadzać się, "Sono d'accordo con te.", "Zgadzam się z tobą."]
+  idioms:
+    - [essere al verde, być spłukanym, "Fine mese, sono sempre al verde.", "Pod koniec miesiąca zawsze jestem spłukany."]
+    - [essere in gamba, "być zdolnym, zaradnym", "Tua figlia è proprio in gamba!", "Twoja córka jest naprawdę zdolna!"]
+    - [essere una buona forchetta, lubić dobrze zjeść, "Mio nonno è una buona forchetta.", "Mój dziadek lubi dobrze zjeść."]
+    - [essere nelle nuvole, bujać w obłokach, "Oggi Marco è nelle nuvole.", "Marco buja dziś w obłokach."]
+  phrases:
+    - [c'è / ci sono, jest / są (znajduje się), "C'è un bar qui vicino?", "Czy jest tu w pobliżu bar?"]
+    - [che ore sono?, która godzina?, "Scusi, che ore sono? — Sono le tre.", "Przepraszam, która godzina? — Trzecia."]
+    - [com'è?, jaki/jaka jest?, "Com'è la tua nuova casa?", "Jaki jest twój nowy dom?"]
+  related:
+    - [l'essere, istota, "L'essere umano è curioso.", "Człowiek jest ciekawski."]
+    - [l'esistenza, istnienie, "Una lunga esistenza tranquilla.", "Długie, spokojne życie."]
+  synonyms:
+    - {t: stare, n: być; czuć się, note: "Stare mówi o samopoczuciu i przebywaniu (sto bene, stai a casa?); essere — o tożsamości i cechach.", ex: ["Come stai? — Sto bene.", "Jak się masz? — Dobrze."]}
+    - {t: trovarsi, n: znajdować się, note: "Bardziej oficjalne określenie położenia.", ex: ["Il museo si trova in centro.", "Muzeum znajduje się w centrum."]}

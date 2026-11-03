@@ -28,7 +28,7 @@ export function SettingsScreen() {
     void voicesFor(lang).then(setVoices);
   }, [lang]);
 
-  const toggle = (k: 'sound' | 'listening' | 'speaking' | 'autoplay' | 'hard' | 'instant') => void update({ [k]: !settings[k] });
+  const toggle = (k: 'sound' | 'listening' | 'speaking' | 'autoplay' | 'hard' | 'instant' | 'storyVoices') => void update({ [k]: !settings[k] });
 
   const exportData = async () => {
     const dump: Record<string, unknown[]> = {};
@@ -166,6 +166,12 @@ export function SettingsScreen() {
             </select>
           </div>
         )}
+        <Switch
+          name="Różne głosy w historyjkach"
+          desc="Każda postać mówi własnym głosem — kobiety damskim, mężczyźni męskim, jeśli urządzenie ma takie głosy."
+          on={settings.storyVoices}
+          onToggle={() => toggle('storyVoices')}
+        />
       </section>
 
       <section className="panel">

@@ -25,6 +25,8 @@ export interface Settings {
   rate: number;
   /** Wybrany głos syntezy dla danego tagu językowego. */
   voices: Record<string, string>;
+  /** Historyjki czytane kilkoma głosami (kobiety i mężczyźni osobno), jeśli urządzenie je ma. */
+  storyVoices: boolean;
   theme: Theme;
 }
 
@@ -41,6 +43,7 @@ export const DEFAULT_SETTINGS: Settings = {
   instant: true,
   rate: 0.95,
   voices: {},
+  storyVoices: true,
   theme: 'system',
 };
 

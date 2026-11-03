@@ -1,0 +1,162 @@
+verb: abitare
+n: mieszkać
+emoji: "🏠"
+category: dom i miejsce
+regular: true
+group: I koniugacja (-are), regularny
+auxiliary: avere
+transitive: "nieprzechodni (rzadko przechodni: abitare una casa)"
+ipa: /a.biˈta.re/
+stress: "a-bi-TA-re; w formach osobowych akcent na początku: À-bi-to, À-bi-ta-no"
+note: >-
+  Uwaga na akcent: w bezokoliczniku pada na -TA-, ale w liczbie pojedynczej i 3. osobie mnogiej cofa się na
+  początek (àbito, àbiti, àbita, àbitano). Z miastem łączymy przyimkiem a (abito a Varsavia),
+  z ulicą — in (abito in via Roma).
+
+forms:
+  indicativo:
+    presente:
+      - [abito, mieszkam, "Abito a Varsavia da cinque anni.", "Mieszkam w Warszawie od pięciu lat."]
+      - [abiti, mieszkasz, "Dove abiti?", "Gdzie mieszkasz?"]
+      - [abita, mieszka, "Mia sorella abita in centro.", "Moja siostra mieszka w centrum."]
+      - [abitiamo, mieszkamy, "Abitiamo al terzo piano.", "Mieszkamy na trzecim piętrze."]
+      - [abitate, mieszkacie, "Abitate vicino al mare?", "Mieszkacie blisko morza?"]
+      - [abitano, mieszkają, "I miei genitori abitano in campagna.", "Moi rodzice mieszkają na wsi."]
+    imperfetto:
+      - [abitavo, mieszkałem/mieszkałam, "Da bambino abitavo a Danzica.", "Jako dziecko mieszkałem w Gdańsku."]
+      - [abitavi, mieszkałeś/mieszkałaś, "Abitavi già qui l'anno scorso?", "Mieszkałeś tu już w zeszłym roku?"]
+      - [abitava, mieszkał/mieszkała, "Abitava in una casa con giardino.", "Mieszkała w domu z ogrodem."]
+      - [abitavamo, mieszkaliśmy/mieszkałyśmy, "Abitavamo tutti nella stessa via.", "Wszyscy mieszkaliśmy na tej samej ulicy."]
+      - [abitavate, mieszkaliście/mieszkałyście, "Abitavate a Roma allora?", "Mieszkaliście wtedy w Rzymie?"]
+      - [abitavano, mieszkali/mieszkały, "Abitavano sopra un bar.", "Mieszkali nad barem."]
+    passato_prossimo:
+      - [ho abitato, mieszkałem/mieszkałam, "Ho abitato a Londra per tre anni.", "Mieszkałem w Londynie trzy lata."]
+      - [hai abitato, mieszkałeś/mieszkałaś, "Hai mai abitato all'estero?", "Mieszkałeś kiedyś za granicą?"]
+      - [ha abitato, mieszkał/mieszkała, "Ha abitato qui tutta la vita.", "Mieszkał tu całe życie."]
+      - [abbiamo abitato, mieszkaliśmy/mieszkałyśmy, "Abbiamo abitato in un piccolo paese.", "Mieszkaliśmy w małej miejscowości."]
+      - [avete abitato, mieszkaliście/mieszkałyście, "Avete abitato insieme?", "Mieszkaliście razem?"]
+      - [hanno abitato, mieszkali/mieszkały, "Hanno abitato in Francia.", "Mieszkali we Francji."]
+    trapassato_prossimo:
+      - [avevo abitato, mieszkałem (wcześniej), "Prima di Roma avevo abitato a Bari.", "Przed Rzymem mieszkałem w Bari."]
+      - [avevi abitato, mieszkałeś (wcześniej), "Avevi abitato lì da studente?", "Mieszkałeś tam jako student?"]
+      - [aveva abitato, mieszkał (wcześniej), "Aveva abitato in quella casa da bambina.", "Mieszkała w tym domu jako dziewczynka."]
+      - [avevamo abitato, mieszkaliśmy (wcześniej), "Avevamo abitato in centro per anni.", "Wcześniej przez lata mieszkaliśmy w centrum."]
+      - [avevate abitato, mieszkaliście (wcześniej), "Avevate abitato all'estero?", "Mieszkaliście wcześniej za granicą?"]
+      - [avevano abitato, mieszkali (wcześniej), "Avevano abitato sempre in città.", "Zawsze wcześniej mieszkali w mieście."]
+    passato_remoto:
+      - [abitai, mieszkałem, "Abitai a Firenze negli anni Ottanta.", "Mieszkałem we Florencji w latach osiemdziesiątych."]
+      - [abitasti, mieszkałeś, "Abitasti per poco in quella città.", "Krótko mieszkałeś w tamtym mieście."]
+      - [abitò, mieszkał, "Dante abitò a lungo a Ravenna.", "Dante długo mieszkał w Rawennie."]
+      - [abitammo, mieszkaliśmy, "Abitammo in una casa sul lago.", "Mieszkaliśmy w domu nad jeziorem."]
+      - [abitaste, mieszkaliście, "Abitaste in Sicilia per anni.", "Przez lata mieszkaliście na Sycylii."]
+      - [abitarono, mieszkali, "Gli Etruschi abitarono la Toscana.", "Etruskowie zamieszkiwali Toskanię."]
+    trapassato_remoto:
+      - [ebbi abitato, mieszkałem (wcześniej), "Dopo che ebbi abitato a Parigi, tornai.", "Gdy już pomieszkałem w Paryżu, wróciłem."]
+      - [avesti abitato, mieszkałeś (wcześniej), "Appena avesti abitato lì un anno, cambiasti casa.", "Ledwie rok tam pomieszkałeś, a już się przeprowadziłeś."]
+      - [ebbe abitato, mieszkał (wcześniej), "Quando ebbe abitato in città, capì la differenza.", "Gdy pomieszkał w mieście, zrozumiał różnicę."]
+      - [avemmo abitato, mieszkaliśmy (wcześniej), "Dopo che avemmo abitato insieme, ci sposammo.", "Gdy już razem pomieszkaliśmy, pobraliśmy się."]
+      - [aveste abitato, mieszkaliście (wcześniej), "Appena aveste abitato qui, vi piacque.", "Gdy tylko tu zamieszkaliście, spodobało się wam."]
+      - [ebbero abitato, mieszkali (wcześniej), "Quando ebbero abitato al nord, tornarono al sud.", "Pomieszkawszy na północy, wrócili na południe."]
+    futuro_semplice:
+      - [abiterò, będę mieszkać, "L'anno prossimo abiterò a Bologna.", "W przyszłym roku będę mieszkał w Bolonii."]
+      - [abiterai, będziesz mieszkać, "Dove abiterai dopo la laurea?", "Gdzie zamieszkasz po studiach?"]
+      - [abiterà, będzie mieszkać, "Abiterà con la nonna per un po'.", "Pomieszka przez jakiś czas z babcią."]
+      - [abiteremo, będziemy mieszkać, "Abiteremo in una casa più grande.", "Będziemy mieszkać w większym domu."]
+      - [abiterete, będziecie mieszkać, "Abiterete vicino a noi?", "Będziecie mieszkać blisko nas?"]
+      - [abiteranno, będą mieszkać, "Abiteranno in campagna.", "Zamieszkają na wsi."]
+    futuro_anteriore:
+      - [avrò abitato, będę już mieszkał, "A giugno avrò abitato qui dieci anni.", "W czerwcu minie dziesięć lat, odkąd tu mieszkam."]
+      - [avrai abitato, pewnie mieszkałeś, "Avrai abitato in tante città.", "Pewnie mieszkałeś w wielu miastach."]
+      - [avrà abitato, pewnie mieszkał, "Avrà abitato qui da bambino.", "Pewnie mieszkał tu jako dziecko."]
+      - [avremo abitato, będziemy już mieszkali, "Per allora avremo abitato in tre paesi.", "Do tego czasu pomieszkamy w trzech krajach."]
+      - [avrete abitato, pewnie mieszkaliście, "Avrete abitato vicino alla stazione.", "Pewnie mieszkaliście blisko dworca."]
+      - [avranno abitato, pewnie mieszkali, "Avranno abitato in quella villa.", "Pewnie mieszkali w tamtej willi."]
+  congiuntivo:
+    presente:
+      - [abiti, (żebym) mieszkał; (że) mieszkam, "Pensano che io abiti a Milano.", "Myślą, że mieszkam w Mediolanie."]
+      - [abiti, (żebyś) mieszkał; (że) mieszkasz, "Credo che tu abiti troppo lontano.", "Myślę, że mieszkasz za daleko."]
+      - [abiti, (żeby) mieszkał; (że) mieszka, "Non so dove abiti.", "Nie wiem, gdzie mieszka."]
+      - [abitiamo, (żebyśmy) mieszkali, "È bello che abitiamo vicini.", "Fajnie, że mieszkamy blisko siebie."]
+      - [abitiate, (żebyście) mieszkali, "Spero che abitiate in una zona tranquilla.", "Mam nadzieję, że mieszkacie w spokojnej okolicy."]
+      - [abitino, (żeby) mieszkali, "Penso che abitino in periferia.", "Myślę, że mieszkają na przedmieściach."]
+    imperfetto:
+      - [abitassi, (gdybym) mieszkał, "Se abitassi al mare, nuoterei ogni giorno.", "Gdybym mieszkał nad morzem, pływałbym codziennie."]
+      - [abitassi, (gdybyś) mieszkał, "Pensavo che abitassi da solo.", "Myślałem, że mieszkasz sam."]
+      - [abitasse, (gdyby) mieszkał, "Se abitasse più vicino, verrebbe spesso.", "Gdyby mieszkał bliżej, przychodziłby często."]
+      - [abitassimo, (gdybyśmy) mieszkali, "Se abitassimo in città, non useremmo la macchina.", "Gdybyśmy mieszkali w mieście, nie jeździlibyśmy samochodem."]
+      - [abitaste, (gdybyście) mieszkali, "Credevo che abitaste insieme.", "Myślałem, że mieszkacie razem."]
+      - [abitassero, (gdyby) mieszkali, "Se abitassero qui, li vedremmo spesso.", "Gdyby tu mieszkali, widywalibyśmy ich często."]
+    passato:
+      - [abbia abitato, (że) mieszkałem, "Pensano che io abbia abitato in America.", "Myślą, że mieszkałem w Ameryce."]
+      - [abbia abitato, (że) mieszkałeś, "Mi sembra che tu abbia abitato a Torino.", "Wydaje mi się, że mieszkałeś w Turynie."]
+      - [abbia abitato, (że) mieszkał, "Credo che abbia abitato qui per anni.", "Myślę, że mieszkał tu latami."]
+      - [abbiamo abitato, (że) mieszkaliśmy, "Pare che abbiamo abitato nella stessa via.", "Wygląda na to, że mieszkaliśmy na tej samej ulicy."]
+      - [abbiate abitato, (że) mieszkaliście, "Non sapevo che abbiate abitato in Spagna.", "Nie wiedziałem, że mieszkaliście w Hiszpanii."]
+      - [abbiano abitato, (że) mieszkali, "Penso che abbiano abitato all'estero.", "Myślę, że mieszkali za granicą."]
+    trapassato:
+      - [avessi abitato, (gdybym) był mieszkał, "Se avessi abitato in Italia, parlerei meglio.", "Gdybym mieszkał we Włoszech, mówiłbym lepiej."]
+      - [avessi abitato, (gdybyś) był mieszkał, "Se avessi abitato lì, lo sapresti.", "Gdybyś tam mieszkał, wiedziałbyś."]
+      - [avesse abitato, (gdyby) był mieszkał, "Pensavo che avesse abitato a Napoli.", "Myślałem, że mieszkał w Neapolu."]
+      - [avessimo abitato, (gdybyśmy) byli mieszkali, "Se avessimo abitato in centro, avremmo speso di più.", "Gdybyśmy mieszkali w centrum, wydalibyśmy więcej."]
+      - [aveste abitato, (gdybyście) byli mieszkali, "Se aveste abitato con noi, vi sareste divertiti.", "Gdybyście mieszkali z nami, dobrze byście się bawili."]
+      - [avessero abitato, (gdyby) byli mieszkali, "Se avessero abitato vicino, ci saremmo conosciuti.", "Gdyby mieszkali blisko, poznalibyśmy się."]
+  condizionale:
+    presente:
+      - [abiterei, mieszkałbym/mieszkałabym, "Abiterei volentieri a Venezia.", "Chętnie zamieszkałbym w Wenecji."]
+      - [abiteresti, mieszkałbyś/mieszkałabyś, "Abiteresti in campagna?", "Zamieszkałbyś na wsi?"]
+      - [abiterebbe, mieszkałby/mieszkałaby, "Abiterebbe ovunque pur di stare al caldo.", "Mieszkałby gdziekolwiek, byle było ciepło."]
+      - [abiteremmo, mieszkalibyśmy, "Abiteremmo in una casa più piccola.", "Mieszkalibyśmy w mniejszym domu."]
+      - [abitereste, mieszkalibyście, "Abitereste in un grattacielo?", "Zamieszkalibyście w wieżowcu?"]
+      - [abiterebbero, mieszkaliby, "Abiterebbero al mare, se potessero.", "Mieszkaliby nad morzem, gdyby mogli."]
+    passato:
+      - [avrei abitato, mieszkałbym (wtedy), "Avrei abitato lì per sempre.", "Mieszkałbym tam zawsze."]
+      - [avresti abitato, mieszkałbyś (wtedy), "Avresti abitato con loro?", "Zamieszkałbyś z nimi?"]
+      - [avrebbe abitato, mieszkałby (wtedy), "Avrebbe abitato in città, ma costava troppo.", "Mieszkałby w mieście, ale było za drogo."]
+      - [avremmo abitato, mieszkalibyśmy (wtedy), "Avremmo abitato insieme, se fosse stato possibile.", "Mieszkalibyśmy razem, gdyby to było możliwe."]
+      - [avreste abitato, mieszkalibyście (wtedy), "Avreste abitato meglio al sud.", "Lepiej by wam się mieszkało na południu."]
+      - [avrebbero abitato, mieszkaliby (wtedy), "Avrebbero abitato in Italia.", "Mieszkaliby we Włoszech."]
+  imperativo:
+    presente:
+      - [abita, mieszkaj, "Abita dove sei felice!", "Mieszkaj tam, gdzie jesteś szczęśliwy!"]
+      - [abiti, niech Pan/Pani mieszka, "Abiti pure qui finché vuole.", "Proszę tu mieszkać, jak długo pan chce."]
+      - [abitiamo, mieszkajmy, "Abitiamo vicino ai nonni!", "Zamieszkajmy blisko dziadków!"]
+      - [abitate, mieszkajcie, "Abitate in centro, è più comodo.", "Mieszkajcie w centrum, tak wygodniej."]
+      - [abitino, niech mieszkają, "Abitino pure dove vogliono.", "Niech mieszkają, gdzie chcą."]
+    negativo:
+      - [non abitare, nie mieszkaj, "Non abitare troppo lontano dal lavoro.", "Nie mieszkaj za daleko od pracy."]
+      - [non abiti, niech Pan/Pani nie mieszka, "Non abiti in quella zona, è rumorosa.", "Proszę nie mieszkać w tej okolicy, jest głośna."]
+      - [non abitiamo, nie mieszkajmy, "Non abitiamo più in affitto!", "Nie mieszkajmy już w wynajętym!"]
+      - [non abitate, nie mieszkajcie, "Non abitate vicino all'autostrada.", "Nie mieszkajcie blisko autostrady."]
+      - [non abitino, niech nie mieszkają, "Non abitino da soli, sono anziani.", "Niech nie mieszkają sami, są starsi."]
+  forme_indefinite:
+    infinito:
+      - [abitare, mieszkać, "Vorrei abitare in Toscana.", "Chciałbym mieszkać w Toskanii."]
+      - [avere abitato, "to, że się mieszkało", "Dopo avere abitato a Roma, conosco bene la città.", "Po mieszkaniu w Rzymie dobrze znam miasto."]
+    participio:
+      - [abitante, mieszkaniec; mieszkający, "Gli abitanti di Milano.", "Mieszkańcy Mediolanu."]
+      - [abitato, zamieszkany, "Un'isola poco abitata.", "Słabo zaludniona wyspa."]
+    gerundio:
+      - [abitando, mieszkając, "Abitando in centro, vado a piedi.", "Mieszkając w centrum, chodzę pieszo."]
+      - [avendo abitato, "mieszkawszy; ponieważ mieszkał", "Avendo abitato in Germania, parla tedesco.", "Ponieważ mieszkał w Niemczech, mówi po niemiecku."]
+
+extras:
+  collocations:
+    gdzie (przyimki):
+      - [abitare a + miasto, mieszkać w (mieście), "Abito a Cracovia.", "Mieszkam w Krakowie."]
+      - [abitare in + kraj / ulica, mieszkać w (kraju) / na (ulicy), "Abito in via Garibaldi 5.", "Mieszkam na ulicy Garibaldiego 5."]
+      - [abitare da + osoba, mieszkać u (kogoś), "Abito dai miei per ora.", "Na razie mieszkam u rodziców."]
+    jak:
+      - [abitare da solo, mieszkać samemu, "Abiti da solo o con amici?", "Mieszkasz sam czy z przyjaciółmi?"]
+      - [abitare in affitto, mieszkać w wynajętym, "Abitiamo in affitto.", "Wynajmujemy mieszkanie."]
+  idioms:
+    - [abitare a due passi, mieszkać o krok stąd, "Abito a due passi dalla stazione.", "Mieszkam dwa kroki od dworca."]
+    - [abitare in capo al mondo, mieszkać na końcu świata, "Abitano in capo al mondo!", "Mieszkają na końcu świata!"]
+  phrases:
+    - [dove abiti?, gdzie mieszkasz?, "Dove abiti? — In centro.", "Gdzie mieszkasz? — W centrum."]
+    - [abito qui vicino, mieszkam niedaleko, "Abito qui vicino, vieni a trovarmi.", "Mieszkam niedaleko, wpadnij."]
+  related:
+    - [l'abitazione, mieszkanie; lokal, "Un'abitazione di 80 metri quadri.", "Mieszkanie o powierzchni 80 metrów kwadratowych."]
+    - [l'abitante, mieszkaniec, "Il paese ha mille abitanti.", "Miejscowość ma tysiąc mieszkańców."]
+  synonyms:
+    - {t: vivere, n: żyć; mieszkać, note: "Vivere a Roma = abitare a Roma, ale vivere znaczy też „żyć”. W czasach złożonych zwykle z essere (sono vissuto).", ex: ["Vivo a Roma da due anni.", "Mieszkam w Rzymie od dwóch lat."]}
+    - {t: stare, n: przebywać; mieszkać (potocznie), note: "Potocznie: sto a Milano — mieszkam/jestem w Mediolanie.", ex: ["Dove stai adesso?", "Gdzie teraz mieszkasz?"]}

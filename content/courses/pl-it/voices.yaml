@@ -1,0 +1,19 @@
+# Głosy lektorów historyjek — ustawiane w panelu administratora (zakładka „Głosy”).
+# Urządzenie ucznia użyje tych głosów z listy, które ma (kolejność = pierwszeństwo);
+# gdy nie ma żadnego, dobiera głosy po nazwie, a postaci rozróżnia wysokością głosu.
+voices:
+  - {name: Microsoft Elsa Online (Natural) - Italian (Italy), gender: f}
+  - {name: Microsoft Diego Online (Natural) - Italian (Italy), gender: m}
+  - {name: Microsoft Isabella Online (Natural) - Italian (Italy), gender: f}
+  - {name: Microsoft Giuseppe Online (Natural) - Italian (Italy), gender: m}
+  - {name: Microsoft Elsa - Italian (Italy), gender: f}
+  - {name: Microsoft Cosimo - Italian (Italy), gender: m}
+  - {name: Alice, gender: f}
+  - {name: Federica, gender: f}
+  - {name: Luca, gender: m}
+  - {name: Paola, gender: f}
+  - {name: Google italiano, gender: f}
+speakers:
+  Insegnante: f
+  Turista: m
+stories: {}

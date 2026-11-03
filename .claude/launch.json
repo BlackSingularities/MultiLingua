@@ -4,15 +4,49 @@
     {
       "name": "multilingua",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["start"],
+      "runtimeArgs": [
+        "start"
+      ],
       "port": 8787
     },
     {
       "name": "web-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 5173,
       "autoPort": true
+    },
+    {
+      "name": "api-alt",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "--experimental-strip-types",
+        "--disable-warning=ExperimentalWarning",
+        "server/index.ts"
+      ],
+      "port": 8788,
+      "env": {
+        "PORT": "8788",
+        "DATA_DIR": "C:/Users/redzi/AppData/Local/Temp/claude/H--Piaskownica---Githubownik-Multilingua/816095db-889f-41bf-bef2-3ba0e1db069c/scratchpad/data",
+        "ADMIN_SETUP_CODE": "LOKALNYTEST1"
+      }
+    },
+    {
+      "name": "web-alt",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite",
+        "--port",
+        "5180",
+        "--strictPort"
+      ],
+      "port": 5180,
+      "env": {
+        "API_PROXY": "http://localhost:8788"
+      }
     }
   ]
 }

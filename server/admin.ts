@@ -20,6 +20,8 @@ import type { ContentStore } from './content-store.ts';
 import { CourseIndex } from '../src/engine/course.ts';
 import { coverageProblems } from '../src/engine/coverage.ts';
 import { splitArticle } from '../src/engine/theory.ts';
+import { guessGender } from '../src/engine/voices.ts';
+import type { CourseVoices } from '../src/data/types.ts';
 import { chat, extractYaml, listModels, loadCourseContext, revisePrompt, unitPrompt, type ModelInfo, type UnitBrief } from './ai.ts';
 
 export interface AdminOptions {
@@ -47,7 +49,7 @@ interface AdminFile {
 const COOKIE = 'ml_admin';
 const SESSION_MS = 12 * 3600_000;
 const COURSE_RE = /^[a-z]{2}-[a-z]{2}$/;
-const FILE_RE = /^(course\.yaml|units\/\d{2}-[a-z0-9-]+\.yaml)$/;
+const FILE_RE = /^(course\.yaml|voices\.yaml|units\/\d{2}-[a-z0-9-]+\.yaml|verbs\/[a-z]+\.yaml)$/;
 const KEY_RE = /^[a-z0-9-]+$/;
 export const DEFAULT_MODEL = 'anthropic/claude-sonnet-5.5';
 
@@ -355,7 +357,16 @@ export async function registerAdmin(app: FastifyInstance, opts: AdminOptions) {
             return { file: `units/${f}`, error: (e as Error).message };
           }
         });
-        return { id: d.name, title, units };
+        const verbDir = join(dir, 'verbs');
+        const verbs = (existsSync(verbDir) ? readdirSync(verbDir).filter((f) => f.endsWith('.yaml')).sort() : []).map((f) => {
+          try {
+            const v = yaml.load(readFileSync(join(verbDir, f), 'utf8')) as { verb?: string; n?: string; emoji?: string };
+            return { file: `verbs/${f}`, verb: v.verb, n: v.n, emoji: v.emoji };
+          } catch (e) {
+            return { file: `verbs/${f}`, error: (e as Error).message };
+          }
+        });
+        return { id: d.name, title, units, verbs };
       }),
     };
   });
@@ -397,7 +408,7 @@ export async function registerAdmin(app: FastifyInstance, opts: AdminOptions) {
 
   app.delete<{ Body: { course?: string; file?: string } }>('/api/admin/file', async (req) => {
     const { dir, path, file } = fileIn(req.body?.course, req.body?.file);
-    if (!file.startsWith('units/')) throw new HttpError(400, 'Można usuwać tylko rozdziały.');
+    if (!file.startsWith('units/') && !file.startsWith('verbs/')) throw new HttpError(400, 'Można usuwać tylko rozdziały i czasowniki.');
     if (!existsSync(path)) throw new HttpError(404, 'Nie ma takiego pliku.');
     const check = validate(dir, { [file]: null });
     if (!check.ok) return { ...check, deleted: false };
@@ -498,6 +509,71 @@ export async function registerAdmin(app: FastifyInstance, opts: AdminOptions) {
     await rebuild();
     markEdited();
     return { ok: true };
+  });
+
+  // ——— głosy lektorów historyjek ———
+
+  app.get<{ Querystring: { course?: string } }>('/api/admin/voices', async (req) => {
+    const dir = courseDir(req.query.course);
+    const { pack } = compileCourse(dir);
+    const file = join(dir, 'voices.yaml');
+    const raw = existsSync(file) ? ((yaml.load(readFileSync(file, 'utf8')) ?? {}) as Partial<CourseVoices>) : {};
+    const lines = new Map<string, number>();
+    const stories = pack.unitsData.flatMap((u) =>
+      u.stories.map((s) => {
+        const speakers = [...new Set(s.lines.map((l) => l.speaker))];
+        for (const l of s.lines) lines.set(l.speaker, (lines.get(l.speaker) ?? 0) + 1);
+        return {
+          id: s.id,
+          title: s.title,
+          emoji: s.emoji,
+          unitTitle: u.title,
+          speakers: speakers.map((name) => ({ name, sample: s.lines.find((l) => l.speaker === name)!.t })),
+          lines: s.lines.map((l) => [l.speaker, l.t]),
+        };
+      }),
+    );
+    return {
+      lang: pack.target.speech,
+      langName: pack.target.name,
+      config: { voices: raw.voices ?? [], speakers: raw.speakers ?? {}, stories: raw.stories ?? {} },
+      speakers: [...lines].map(([name, count]) => ({ name, count, guess: guessGender(name) ?? null })),
+      stories,
+    };
+  });
+
+  app.put<{ Body: { course?: string; config?: CourseVoices } }>('/api/admin/voices', async (req) => {
+    const dir = courseDir(req.body?.course);
+    const c = req.body?.config;
+    if (!c || !Array.isArray(c.voices) || typeof c.speakers !== 'object' || typeof c.stories !== 'object') {
+      throw new HttpError(400, 'Niepoprawne ustawienia głosów.');
+    }
+    // Zapisujemy tylko to, co ma znaczenie — puste wpisy wylatują, żeby plik był czytelny.
+    const clean: CourseVoices = {
+      voices: c.voices.filter((v) => v && typeof v.name === 'string' && v.name.trim()).map((v) => ({ name: v.name.trim(), gender: v.gender === 'm' ? 'm' : 'f' })),
+      speakers: Object.fromEntries(Object.entries(c.speakers).filter(([, g]) => g === 'f' || g === 'm')),
+      stories: Object.fromEntries(
+        Object.entries(c.stories)
+          .map(([sid, m]) => [sid, Object.fromEntries(Object.entries(m ?? {}).filter(([, v]) => typeof v === 'string' && v.trim()))] as const)
+          .filter(([, m]) => Object.keys(m).length > 0),
+      ),
+    };
+    if (clean.voices.length > 40) throw new HttpError(400, 'Za dużo głosów (najwyżej 40).');
+    const text = `# Głosy lektorów historyjek — ustawiane w panelu administratora (zakładka „Głosy”).\n${yaml.dump(clean, { lineWidth: 200 })}`;
+    const check = validate(dir, { 'voices.yaml': text });
+    if (!check.ok) return { ...check, saved: false };
+    const path = join(dir, 'voices.yaml');
+    const backup = existsSync(path) ? readFileSync(path, 'utf8') : null;
+    writeAtomic(path, text);
+    try {
+      await rebuild();
+    } catch (e) {
+      if (backup === null) rmSync(path, { force: true });
+      else writeAtomic(path, backup);
+      throw e;
+    }
+    markEdited();
+    return { ...check, saved: true };
   });
 
   // ——— eksport (żeby zmiany z serwera trafiły do repozytorium) ———

@@ -1,0 +1,169 @@
+verb: andare
+n: iść; jechać
+emoji: "🚶"
+category: ruch i podróż
+regular: false
+group: I koniugacja (-are), nieregularny
+auxiliary: essere
+transitive: nieprzechodni
+reflexive: andarsene (odejść, wynieść się)
+ipa: /anˈda.re/
+stress: an-DA-re (druga sylaba)
+note: >-
+  Włoski nie odróżnia „iść” od „jechać”: vado a Roma to i „idę”, i „jadę do Rzymu”. Sposób dodajemy osobno:
+  a piedi (pieszo), in macchina (samochodem), in treno (pociągiem). W czasie teraźniejszym i trybie łączącym
+  temat zmienia się na vad-/va- (vado, vai, va, vanno; che io vada), w przyszłym skraca się do andr- (andrò).
+
+forms:
+  indicativo:
+    presente:
+      - [vado, idę/jadę, "Vado a scuola a piedi.", "Chodzę do szkoły pieszo."]
+      - [vai, idziesz/jedziesz, "Dove vai stasera?", "Dokąd idziesz dziś wieczorem?"]
+      - [va, idzie/jedzie, "Marco va al lavoro in bici.", "Marco jeździ do pracy rowerem."]
+      - [andiamo, idziemy/jedziemy, "Andiamo al cinema sabato?", "Idziemy w sobotę do kina?"]
+      - [andate, idziecie/jedziecie, "Andate al mare quest'estate?", "Jedziecie tego lata nad morze?"]
+      - [vanno, idą/jadą, "I ragazzi vanno in palestra.", "Chłopcy idą na siłownię."]
+    imperfetto:
+      - [andavo, szedłem/chodziłem, "Da piccolo andavo sempre dai nonni.", "Jako dziecko zawsze jeździłem do dziadków."]
+      - [andavi, szedłeś/chodziłeś, "Andavi spesso in montagna?", "Często jeździłeś w góry?"]
+      - [andava, szedł/chodził, "Mia madre andava al mercato ogni sabato.", "Mama chodziła na targ w każdą sobotę."]
+      - [andavamo, szliśmy/chodziliśmy, "Andavamo a scuola insieme.", "Chodziliśmy razem do szkoły."]
+      - [andavate, szliście/chodziliście, "Dove andavate in vacanza?", "Dokąd jeździliście na wakacje?"]
+      - [andavano, szli/chodzili, "Andavano a ballare ogni venerdì.", "W każdy piątek chodzili tańczyć."]
+    passato_prossimo:
+      - [sono andato/andata, poszedłem/poszłam; pojechałem, "Ieri sono andato dal medico.", "Wczoraj poszedłem do lekarza."]
+      - [sei andato/andata, poszedłeś/poszłaś, "Sei andata alla festa?", "Poszłaś na imprezę?"]
+      - [è andato/andata, poszedł/poszła, "Luca è andato a Milano in treno.", "Luca pojechał do Mediolanu pociągiem."]
+      - [siamo andati/andate, poszliśmy/poszłyśmy, "Siamo andati a cena fuori.", "Poszliśmy na kolację na miasto."]
+      - [siete andati/andate, poszliście/poszłyście, "Siete andate al museo?", "Poszłyście do muzeum?"]
+      - [sono andati/andate, poszli/poszły, "Sono andati via presto.", "Wyszli wcześnie."]
+    trapassato_prossimo:
+      - [ero andato/andata, poszedłem/poszłam (wcześniej), "Quando sei arrivato, ero già andato via.", "Kiedy przyszedłeś, już wyszedłem."]
+      - [eri andato/andata, poszedłeś/poszłaś (wcześniej), "Mi hanno detto che eri andata a Roma.", "Powiedzieli mi, że pojechałaś do Rzymu."]
+      - [era andato/andata, poszedł/poszła (wcześniej), "Era andato a letto presto.", "Wcześniej poszedł spać."]
+      - [eravamo andati/andate, poszliśmy/poszłyśmy (wcześniej), "Eravamo andati lì da bambini.", "Byliśmy tam jako dzieci."]
+      - [eravate andati/andate, poszliście/poszłyście (wcześniej), "Eravate andati via senza salutare.", "Wyszliście bez pożegnania."]
+      - [erano andati/andate, poszli/poszły (wcześniej), "Erano andati in vacanza in Grecia.", "Pojechali na wakacje do Grecji."]
+    passato_remoto:
+      - [andai, poszedłem/poszłam, "Nel 2005 andai a vivere a Napoli.", "W 2005 roku zamieszkałem w Neapolu."]
+      - [andasti, poszedłeś/poszłaś, "Quella volta andasti via arrabbiato.", "Tamtym razem wyszedłeś zły."]
+      - [andò, poszedł/poszła, "Garibaldi andò in Sicilia con i Mille.", "Garibaldi popłynął na Sycylię z Tysiącem."]
+      - [andammo, poszliśmy/poszłyśmy, "Andammo a vedere il mare.", "Poszliśmy zobaczyć morze."]
+      - [andaste, poszliście/poszłyście, "Andaste in America in nave.", "Popłynęliście do Ameryki statkiem."]
+      - [andarono, poszli/poszły, "Andarono avanti senza paura.", "Szli naprzód bez strachu."]
+    trapassato_remoto:
+      - [fui andato/andata, poszedłem/poszłam (wcześniej), "Appena fui andato via, cominciò a piovere.", "Gdy tylko wyszedłem, zaczęło padać."]
+      - [fosti andato/andata, poszedłeś/poszłaś (wcześniej), "Dopo che fosti andato, piansi.", "Kiedy odszedłeś, płakałam."]
+      - [fu andato/andata, poszedł/poszła (wcześniej), "Quando fu andato a letto, la casa tacque.", "Gdy poszedł spać, dom ucichł."]
+      - [fummo andati/andate, poszliśmy/poszłyśmy (wcześniej), "Dopo che fummo andati via, arrivò la polizia.", "Gdy już wyszliśmy, przyjechała policja."]
+      - [foste andati/andate, poszliście/poszłyście (wcześniej), "Appena foste andati, chiusi la porta.", "Gdy tylko wyszliście, zamknąłem drzwi."]
+      - [furono andati/andate, poszli/poszły (wcześniej), "Quando furono andati, restammo soli.", "Gdy odeszli, zostaliśmy sami."]
+    futuro_semplice:
+      - [andrò, pójdę/pojadę, "Domani andrò in banca.", "Jutro pójdę do banku."]
+      - [andrai, pójdziesz/pojedziesz, "Andrai in Italia quest'anno?", "Pojedziesz w tym roku do Włoch?"]
+      - [andrà, pójdzie/pojedzie, "Andrà tutto bene.", "Wszystko będzie dobrze."]
+      - [andremo, pójdziemy/pojedziemy, "Andremo al mare ad agosto.", "W sierpniu pojedziemy nad morze."]
+      - [andrete, pójdziecie/pojedziecie, "Andrete alla festa di Giulia?", "Pójdziecie na imprezę Giulii?"]
+      - [andranno, pójdą/pojadą, "Andranno a vivere insieme.", "Zamieszkają razem."]
+    futuro_anteriore:
+      - [sarò andato/andata, będę już (po wyjściu), "Quando arriverai, sarò già andato via.", "Kiedy przyjdziesz, już mnie nie będzie."]
+      - [sarai andato/andata, pewnie poszedłeś/poszłaś, "Sarai andata a letto tardi.", "Pewnie późno poszłaś spać."]
+      - [sarà andato/andata, pewnie poszedł/poszła, "Dov'è Marco? — Sarà andato a casa.", "Gdzie jest Marco? — Pewnie poszedł do domu."]
+      - [saremo andati/andate, będziemy już (po wyjeździe), "Per Natale saremo già andati via.", "Na święta już nas tu nie będzie."]
+      - [sarete andati/andate, pewnie poszliście/poszłyście, "Sarete andati in pizzeria, come sempre.", "Pewnie poszliście do pizzerii, jak zawsze."]
+      - [saranno andati/andate, pewnie poszli/poszły, "Saranno andati al bar.", "Pewnie poszli do baru."]
+  congiuntivo:
+    presente:
+      - [vada, (żebym) szedł/poszedł, "Vogliono che io vada con loro.", "Chcą, żebym poszedł z nimi."]
+      - [vada, (żebyś) szedł/poszedł, "È meglio che tu vada adesso.", "Lepiej idź już teraz."]
+      - [vada, (żeby) szedł/poszedł, "Spero che vada tutto bene.", "Mam nadzieję, że wszystko pójdzie dobrze."]
+      - [andiamo, (żebyśmy) szli/poszli, "Propone che andiamo in treno.", "Proponuje, żebyśmy pojechali pociągiem."]
+      - [andiate, (żebyście) szli/poszli, "Non voglio che andiate da soli.", "Nie chcę, żebyście szli sami."]
+      - [vadano, (żeby) szli/poszli, "Bisogna che vadano subito.", "Muszą iść natychmiast."]
+    imperfetto:
+      - [andassi, (gdybym) szedł/poszedł, "Se andassi a piedi, arriverei tardi.", "Gdybym szedł pieszo, spóźniłbym się."]
+      - [andassi, (gdybyś) szedł/poszedł, "Pensavo che andassi in vacanza.", "Myślałem, że jedziesz na urlop."]
+      - [andasse, (gdyby) szedł/poszedł, "Voleva che andasse con lui.", "Chciał, żeby poszła z nim."]
+      - [andassimo, (gdybyśmy) szli/poszli, "E se andassimo al cinema?", "A może pójdziemy do kina?"]
+      - [andaste, (gdybyście) szli/poszli, "Se andaste in Sicilia, vi piacerebbe.", "Gdybyście pojechali na Sycylię, spodobałoby się wam."]
+      - [andassero, (gdyby) szli/poszli, "Se andassero piano, non cadrebbero.", "Gdyby szli powoli, nie przewróciliby się."]
+    passato:
+      - [sia andato/andata, (że) poszedłem/poszłam, "Pensano che io sia andato via.", "Myślą, że wyszedłem."]
+      - [sia andato/andata, (że) poszedłeś/poszłaś, "Spero che tu sia andata dal dottore.", "Mam nadzieję, że poszłaś do lekarza."]
+      - [sia andato/andata, (że) poszedł/poszła, "Credo che sia andato in ufficio.", "Myślę, że poszedł do biura."]
+      - [siamo andati/andate, (że) poszliśmy/poszłyśmy, "Pare che siamo andati nel posto sbagliato.", "Wygląda na to, że poszliśmy w złe miejsce."]
+      - [siate andati/andate, (że) poszliście/poszłyście, "Mi fa piacere che siate andati alla mostra.", "Cieszę się, że poszliście na wystawę."]
+      - [siano andati/andate, (że) poszli/poszły, "Non so se siano già andati.", "Nie wiem, czy już poszli."]
+    trapassato:
+      - [fossi andato/andata, (gdybym) był poszedł, "Se fossi andato prima, avrei trovato posto.", "Gdybym poszedł wcześniej, znalazłbym miejsce."]
+      - [fossi andato/andata, (gdybyś) był poszedł, "Se fossi andata con lui, ti saresti divertita.", "Gdybyś poszła z nim, dobrze byś się bawiła."]
+      - [fosse andato/andata, (gdyby) był poszedł, "Pensavo che fosse andato a casa.", "Myślałem, że poszedł do domu."]
+      - [fossimo andati/andate, (gdybyśmy) byli poszli, "Se fossimo andati in macchina, saremmo già lì.", "Gdybyśmy pojechali samochodem, bylibyśmy już na miejscu."]
+      - [foste andati/andate, (gdybyście) byli poszli, "Se foste andati a Venezia, l'avreste vista.", "Gdybyście pojechali do Wenecji, zobaczylibyście ją."]
+      - [fossero andati/andate, (gdyby) byli poszli, "Se fossero andati via, li avremmo visti.", "Gdyby wyszli, zobaczylibyśmy ich."]
+  condizionale:
+    presente:
+      - [andrei, poszedłbym/pojechałbym, "Andrei volentieri a Parigi.", "Chętnie pojechałbym do Paryża."]
+      - [andresti, poszedłbyś/pojechałbyś, "Andresti a prendere il pane?", "Poszedłbyś po chleb?"]
+      - [andrebbe, poszedłby/pojechałby, "Andrebbe bene alle sei?", "Czy szósta by pasowała?"]
+      - [andremmo, poszlibyśmy/pojechalibyśmy, "Andremmo in spiaggia, ma piove.", "Poszlibyśmy na plażę, ale pada."]
+      - [andreste, poszlibyście/pojechalibyście, "Ci andreste con noi?", "Pojechalibyście tam z nami?"]
+      - [andrebbero, poszliby/pojechaliby, "Andrebbero a vivere in campagna.", "Zamieszkaliby na wsi."]
+    passato:
+      - [sarei andato/andata, poszedłbym/poszłabym (wtedy), "Sarei andato, ma ero malato.", "Poszedłbym, ale byłem chory."]
+      - [saresti andato/andata, poszedłbyś/poszłabyś (wtedy), "Ci saresti andata da sola?", "Poszłabyś tam sama?"]
+      - [sarebbe andato/andata, poszedłby/poszłaby (wtedy), "Sarebbe andato tutto bene.", "Wszystko poszłoby dobrze."]
+      - [saremmo andati/andate, poszlibyśmy/poszłybyśmy (wtedy), "Saremmo andati al concerto.", "Poszlibyśmy na koncert."]
+      - [sareste andati/andate, poszlibyście/poszłybyście (wtedy), "Sareste andati in treno?", "Pojechalibyście pociągiem?"]
+      - [sarebbero andati/andate, poszliby/poszłyby (wtedy), "Sarebbero andati via comunque.", "I tak by odeszli."]
+  imperativo:
+    presente:
+      - [va' / vai, idź; jedź, "Va' a dormire, è tardi!", "Idź spać, jest późno!"]
+      - [vada, niech Pan/Pani idzie, "Vada sempre dritto.", "Proszę iść cały czas prosto."]
+      - [andiamo, chodźmy; jedźmy, "Andiamo, è ora!", "Chodźmy, już czas!"]
+      - [andate, idźcie; jedźcie, "Andate piano in macchina!", "Jedźcie ostrożnie!"]
+      - [vadano, niech idą, "Vadano pure, ci penso io.", "Niech idą, ja się tym zajmę."]
+    negativo:
+      - [non andare, nie idź; nie jedź, "Non andare via!", "Nie odchodź!"]
+      - [non vada, niech Pan/Pani nie idzie, "Non vada da quella parte, è chiuso.", "Proszę nie iść w tamtą stronę, jest zamknięte."]
+      - [non andiamo, nie chodźmy, "Non andiamo in centro, c'è traffico.", "Nie jedźmy do centrum, są korki."]
+      - [non andate, nie idźcie; nie jedźcie, "Non andate troppo lontano!", "Nie odchodźcie za daleko!"]
+      - [non vadano, niech nie idą, "Non vadano da soli di notte.", "Niech nie chodzą sami w nocy."]
+  forme_indefinite:
+    infinito:
+      - [andare, iść; jechać, "Mi piace andare in bici.", "Lubię jeździć na rowerze."]
+      - [essere andato/andata, "to, że się poszło", "Dopo essere andato in Italia, parlo meglio.", "Po wyjeździe do Włoch mówię lepiej."]
+    participio:
+      - [andante, idący; (muz.) andante, "Un ritmo andante.", "Umiarkowane tempo."]
+      - [andato, poszedł (imiesłów), "È andata bene!", "Poszło dobrze!"]
+    gerundio:
+      - [andando, idąc; jadąc, "Andando a scuola, ho incontrato Anna.", "Idąc do szkoły, spotkałem Annę."]
+      - [essendo andato/andata, "pójdziwszy; ponieważ poszedł", "Essendo andato via presto, non l'ho visto.", "Ponieważ wyszedł wcześnie, nie widziałem go."]
+
+extras:
+  collocations:
+    dokąd (a / in / da):
+      - [andare a + miasto, jechać do (miasta), "Vado a Firenze domani.", "Jutro jadę do Florencji."]
+      - [andare in + kraj/region, jechać do (kraju), "Andiamo in Spagna.", "Jedziemy do Hiszpanii."]
+      - [andare da + osoba, iść do (kogoś), "Vado dal dentista.", "Idę do dentysty."]
+    czym:
+      - [andare a piedi, iść pieszo, "Vado a piedi, è vicino.", "Idę pieszo, to blisko."]
+      - [andare in macchina / in treno, jechać samochodem / pociągiem, "Andiamo in treno, è più comodo.", "Jedźmy pociągiem, to wygodniejsze."]
+    z bezokolicznikiem:
+      - [andare a + bezokolicznik, iść coś zrobić, "Vado a fare la spesa.", "Idę zrobić zakupy."]
+  idioms:
+    - [andare d'accordo, dogadywać się, "Vado d'accordo con mia sorella.", "Dogaduję się z siostrą."]
+    - [andare a ruba, rozchodzić się jak świeże bułeczki, "I biglietti sono andati a ruba.", "Bilety rozeszły się błyskawicznie."]
+    - [andare in bianco, nie udać się, "Il piano è andato in bianco.", "Plan spalił na panewce."]
+    - [andarsene, "wyjść; wynieść się", "Me ne vado, ciao!", "Spadam, cześć!"]
+  phrases:
+    - [come va?, jak leci?, "Ciao Paolo, come va? — Bene!", "Cześć Paolo, jak leci? — Dobrze!"]
+    - [va bene, dobrze; w porządku, "Ci vediamo alle otto? — Va bene!", "Widzimy się o ósmej? — Dobra!"]
+    - [andiamo!, chodźmy!; no dalej!, "Dai, andiamo, siamo in ritardo!", "No chodź, jesteśmy spóźnieni!"]
+  related:
+    - [l'andata, "droga tam; jazda w jedną stronę", "Un biglietto di andata e ritorno.", "Bilet w obie strony."]
+    - [l'andamento, przebieg; tendencja, "L'andamento dei prezzi.", "Kształtowanie się cen."]
+  synonyms:
+    - {t: camminare, n: chodzić; spacerować, note: "Sam ruch pieszo, bez celu w zdaniu; andare zawsze dokądś prowadzi.", ex: ["Mi piace camminare in montagna.", "Lubię chodzić po górach."]}
+    - {t: venire, n: przychodzić, note: "Venire — ruch w stronę mówiącego lub rozmówcy; andare — w inną stronę.", ex: ["Vieni da me stasera?", "Przyjdziesz do mnie wieczorem?"]}
+    - {t: partire, n: wyjeżdżać, note: "Wyruszyć w podróż, opuścić miejsce.", ex: ["Parto domani per Roma.", "Wyjeżdżam jutro do Rzymu."]}

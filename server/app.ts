@@ -86,6 +86,14 @@ export async function buildServer(opts: ServerOptions): Promise<FastifyInstance>
     return sendCached(req.headers, reply, `"img-${row.hash}"`, row);
   });
 
+  // Kompendium czasowników — pełne tabele odmiany, pobierane dopiero po wejściu w „Odmianę”.
+  app.get<{ Params: { id: string } }>('/api/courses/:id/verbs', async (req, reply) => {
+    if (!store.courses.has(req.params.id)) return reply.code(404).send({ error: 'Nie ma takiego kursu.' });
+    const row = store.verbs(req.params.id);
+    if (!row) return reply.code(404).send({ error: 'Ten kurs nie ma jeszcze kompendium czasowników.' });
+    return sendCached(req.headers, reply, `"verbs-${row.hash}"`, row);
+  });
+
   app.get<{ Params: { id: string; unit: string } }>('/api/courses/:id/units/:unit', async (req, reply) => {
     const data = store.unit(req.params.id, req.params.unit);
     if (!data) return reply.code(404).send({ error: 'Nie ma takiej jednostki.' });

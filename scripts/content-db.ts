@@ -38,6 +38,14 @@ const SCHEMA = `
     pack_gz BLOB NOT NULL,
     pack_br BLOB NOT NULL
   ) WITHOUT ROWID;
+  CREATE TABLE verbs (
+    course TEXT PRIMARY KEY REFERENCES courses(id),
+    hash TEXT NOT NULL,
+    count INTEGER NOT NULL,
+    pack BLOB NOT NULL,
+    pack_gz BLOB NOT NULL,
+    pack_br BLOB NOT NULL
+  ) WITHOUT ROWID;
   CREATE TABLE units (
     course TEXT NOT NULL REFERENCES courses(id),
     id TEXT NOT NULL,
@@ -97,6 +105,7 @@ export function buildContentDb(coursesRoot: string, outFile: string): BuildRepor
   db.exec(SCHEMA);
   const insCourse = db.prepare('INSERT INTO courses VALUES (?, ?, ?, ?, ?, ?, ?)');
   const insImages = db.prepare('INSERT INTO images VALUES (?, ?, ?, ?, ?, ?)');
+  const insVerbs = db.prepare('INSERT INTO verbs VALUES (?, ?, ?, ?, ?, ?)');
   const insUnit = db.prepare('INSERT INTO units VALUES (?, ?, ?, ?, ?)');
   const insVocab = db.prepare('INSERT INTO vocab VALUES (?, ?, ?, ?, ?, ?)');
   const insSentence = db.prepare('INSERT INTO sentences VALUES (?, ?, ?, ?, ?)');
@@ -105,10 +114,10 @@ export function buildContentDb(coursesRoot: string, outFile: string): BuildRepor
   const versionHash = createHash('sha256');
 
   db.exec('BEGIN');
-  compiled.forEach(({ pack, json, images, warnings }, position) => {
+  compiled.forEach(({ pack, json, images, warnings, verbs }, position) => {
     report.warnings.push(...warnings);
     const { raw, gz, br } = compress(json);
-    const { unitsData: _units, rules: _rules, builtAt: _b, ...rest } = pack;
+    const { unitsData: _units, rules: _rules, builtAt: _b, verbIndex: _vi, voices: _vo, ...rest } = pack;
     const summary: CourseSummary = { ...rest, size: gz.length };
     insCourse.run(pack.id, position, pack.hash, JSON.stringify(summary), raw, gz, br);
     versionHash.update(pack.hash);
@@ -116,6 +125,10 @@ export function buildContentDb(coursesRoot: string, outFile: string): BuildRepor
       const media = compress(JSON.stringify({ course: pack.id, hash: pack.images.hash, images }));
       insImages.run(pack.id, pack.images.hash, pack.images.count, media.raw, media.gz, media.br);
       versionHash.update(pack.images.hash);
+    }
+    if (verbs) {
+      const vp = compress(JSON.stringify(verbs));
+      insVerbs.run(pack.id, verbs.hash, verbs.verbs.length, vp.raw, vp.gz, vp.br);
     }
     for (const u of pack.unitsData) {
       insUnit.run(pack.id, u.id, u.index, u.title, JSON.stringify(u));
@@ -135,7 +148,7 @@ export function buildContentDb(coursesRoot: string, outFile: string): BuildRepor
     report.lines.push(
       `${pack.id}: ${pack.units} jedn., ${pack.lessons} lekcji, ${pack.words} słówek, ${pack.sentences} zdań, ` +
         `${pack.grammar} tematów gramatyki, ${pack.stories} historyjek, ` +
-        `${pack.images.count}/${pack.words} ilustracji — ${(gz.length / 1024).toFixed(1)} KiB gzip`,
+        `${pack.images.count}/${pack.words} ilustracji, ${verbs?.verbs.length ?? 0} czasowników w kompendium — ${(gz.length / 1024).toFixed(1)} KiB gzip`,
     );
   });
 

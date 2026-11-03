@@ -22,7 +22,7 @@ export class ContentStore {
   courses = new Map<string, CourseEntry>();
   summaries: CourseSummary[] = [];
   meta: Record<string, string> = {};
-  private stmts!: { unit: StatementSync; images: StatementSync; search: StatementSync };
+  private stmts!: { unit: StatementSync; images: StatementSync; verbs: StatementSync | null; search: StatementSync };
 
   constructor(dbPath: string) {
     if (!existsSync(dbPath)) throw new Error(`Brak bazy treści ${dbPath} — uruchom "npm run content".`);
@@ -45,6 +45,10 @@ export class ContentStore {
     this.stmts = {
       unit: this.db.prepare('SELECT data FROM units WHERE course = ? AND id = ?'),
       images: this.db.prepare('SELECT hash, pack, pack_gz, pack_br FROM images WHERE course = ?'),
+      // Starsze bazy (sprzed kompendium) nie mają tej tabeli.
+      verbs: this.db.prepare("SELECT name FROM sqlite_master WHERE name = 'verbs'").get()
+        ? this.db.prepare('SELECT hash, pack, pack_gz, pack_br FROM verbs WHERE course = ?')
+        : null,
       search: this.db.prepare(`
         SELECT kind, id, unit, t, n FROM search
         WHERE search MATCH ? AND course = ?
@@ -59,6 +63,10 @@ export class ContentStore {
 
   images(course: string): Blobs | undefined {
     return this.stmts.images.get(course) as unknown as Blobs | undefined;
+  }
+
+  verbs(course: string): Blobs | undefined {
+    return this.stmts.verbs?.get(course) as unknown as Blobs | undefined;
   }
 
   search(match: string, course: string, limit: number): SearchHit[] {

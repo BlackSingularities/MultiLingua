@@ -1,0 +1,164 @@
+verb: parlare
+n: mówić; rozmawiać
+emoji: "🗣️"
+category: komunikacja
+regular: true
+group: I koniugacja (-are), wzorcowy regularny
+auxiliary: avere
+transitive: "przechodni i nieprzechodni"
+reflexive: parlarsi (rozmawiać ze sobą)
+ipa: /parˈla.re/
+stress: par-LA-re (druga sylaba)
+note: >-
+  Wzór całej I koniugacji: odetnij -are i dodaj końcówki (parl-o, parl-i, parl-a…). Tak samo odmieniają się
+  abitare, lavorare, comprare i setki innych. Języków używamy bez rodzajnika: parlo italiano.
+
+forms:
+  indicativo:
+    presente:
+      - [parlo, mówię, "Parlo italiano e inglese.", "Mówię po włosku i po angielsku."]
+      - [parli, mówisz, "Parli troppo veloce!", "Mówisz za szybko!"]
+      - [parla, mówi, "Lei parla con il direttore.", "Ona rozmawia z dyrektorem."]
+      - [parliamo, mówimy, "Parliamo di calcio?", "Pogadamy o piłce?"]
+      - [parlate, mówicie, "Parlate polacco a casa?", "Mówicie w domu po polsku?"]
+      - [parlano, mówią, "Parlano sempre di lavoro.", "Ciągle rozmawiają o pracy."]
+    imperfetto:
+      - [parlavo, mówiłem/mówiłam, "Parlavo con Anna quando sei entrato.", "Rozmawiałem z Anną, kiedy wszedłeś."]
+      - [parlavi, mówiłeś/mówiłaś, "Di chi parlavi?", "O kim mówiłeś?"]
+      - [parlava, mówił/mówiła, "Il nonno parlava il dialetto.", "Dziadek mówił gwarą."]
+      - [parlavamo, mówiliśmy/mówiłyśmy, "Parlavamo per ore al telefono.", "Rozmawialiśmy godzinami przez telefon."]
+      - [parlavate, mówiliście/mówiłyście, "Parlavate di me?", "Mówiliście o mnie?"]
+      - [parlavano, mówili/mówiły, "Parlavano a voce bassa.", "Rozmawiali cicho."]
+    passato_prossimo:
+      - [ho parlato, powiedziałem; rozmawiałem, "Ho parlato con il medico.", "Rozmawiałem z lekarzem."]
+      - [hai parlato, rozmawiałeś/rozmawiałaś, "Hai parlato con tua madre?", "Rozmawiałeś z mamą?"]
+      - [ha parlato, rozmawiał/rozmawiała, "Ha parlato per un'ora.", "Mówił przez godzinę."]
+      - [abbiamo parlato, rozmawialiśmy/rozmawiałyśmy, "Ne abbiamo parlato ieri.", "Rozmawialiśmy o tym wczoraj."]
+      - [avete parlato, rozmawialiście/rozmawiałyście, "Avete parlato del viaggio?", "Rozmawialiście o wyjeździe?"]
+      - [hanno parlato, rozmawiali/rozmawiały, "Hanno parlato tutta la sera.", "Rozmawiali cały wieczór."]
+    trapassato_prossimo:
+      - [avevo parlato, rozmawiałem (wcześniej), "Ne avevo già parlato con lui.", "Już wcześniej z nim o tym rozmawiałem."]
+      - [avevi parlato, rozmawiałeś (wcześniej), "Avevi parlato bene di lei.", "Dobrze się o niej wyrażałeś."]
+      - [aveva parlato, rozmawiał (wcześniej), "Non aveva mai parlato in pubblico.", "Nigdy wcześniej nie przemawiał publicznie."]
+      - [avevamo parlato, rozmawialiśmy (wcześniej), "Avevamo parlato di questo progetto.", "Rozmawialiśmy wcześniej o tym projekcie."]
+      - [avevate parlato, rozmawialiście (wcześniej), "Avevate parlato con il capo?", "Rozmawialiście wcześniej z szefem?"]
+      - [avevano parlato, rozmawiali (wcześniej), "Avevano parlato di sposarsi.", "Rozmawiali o ślubie."]
+    passato_remoto:
+      - [parlai, mówiłem; przemówiłem, "Quel giorno parlai con il sindaco.", "Tamtego dnia rozmawiałem z burmistrzem."]
+      - [parlasti, mówiłeś; przemówiłeś, "Parlasti con grande coraggio.", "Mówiłeś z wielką odwagą."]
+      - [parlò, mówił; przemówił, "Il presidente parlò alla nazione.", "Prezydent przemówił do narodu."]
+      - [parlammo, mówiliśmy, "Parlammo fino all'alba.", "Rozmawialiśmy do świtu."]
+      - [parlaste, mówiliście, "Parlaste a lungo con lui.", "Długo z nim rozmawialiście."]
+      - [parlarono, mówili, "Parlarono di pace.", "Mówili o pokoju."]
+    trapassato_remoto:
+      - [ebbi parlato, rozmawiałem (wcześniej), "Dopo che ebbi parlato, tutti applaudirono.", "Gdy skończyłem mówić, wszyscy klaskali."]
+      - [avesti parlato, rozmawiałeś (wcześniej), "Appena avesti parlato, capii.", "Gdy tylko przemówiłeś, zrozumiałem."]
+      - [ebbe parlato, rozmawiał (wcześniej), "Quando ebbe parlato, si sedette.", "Gdy skończył mówić, usiadł."]
+      - [avemmo parlato, rozmawialiśmy (wcześniej), "Dopo che avemmo parlato, ci sentimmo meglio.", "Po rozmowie poczuliśmy się lepiej."]
+      - [aveste parlato, rozmawialiście (wcześniej), "Appena aveste parlato, se ne andò.", "Gdy tylko przemówiliście, odszedł."]
+      - [ebbero parlato, rozmawiali (wcześniej), "Quando ebbero parlato, decisero.", "Po rozmowie podjęli decyzję."]
+    futuro_semplice:
+      - [parlerò, będę mówić; porozmawiam, "Domani parlerò con il capo.", "Jutro porozmawiam z szefem."]
+      - [parlerai, będziesz mówić, "Fra un anno parlerai benissimo.", "Za rok będziesz świetnie mówić."]
+      - [parlerà, będzie mówić, "Il professore parlerà di Dante.", "Profesor będzie mówił o Dantem."]
+      - [parleremo, będziemy mówić, "Ne parleremo dopo cena.", "Porozmawiamy o tym po kolacji."]
+      - [parlerete, będziecie mówić, "Parlerete solo in italiano.", "Będziecie mówić tylko po włosku."]
+      - [parleranno, będą mówić, "Parleranno di noi per anni.", "Będą o nas mówić latami."]
+    futuro_anteriore:
+      - [avrò parlato, będę już po rozmowie, "Quando avrò parlato con lui, ti chiamo.", "Gdy z nim porozmawiam, zadzwonię do ciebie."]
+      - [avrai parlato, pewnie rozmawiałeś, "Avrai parlato con tutti.", "Pewnie ze wszystkimi rozmawiałeś."]
+      - [avrà parlato, pewnie rozmawiał, "Avrà parlato troppo.", "Pewnie za dużo powiedział."]
+      - [avremo parlato, będziemy już po rozmowie, "Dopo che avremo parlato, decideremo.", "Gdy porozmawiamy, zdecydujemy."]
+      - [avrete parlato, pewnie rozmawialiście, "Avrete parlato di me!", "Pewnie mnie obgadywaliście!"]
+      - [avranno parlato, pewnie rozmawiali, "Avranno parlato del problema.", "Pewnie rozmawiali o problemie."]
+  congiuntivo:
+    presente:
+      - [parli, (żebym) mówił; (że) mówię, "Vogliono che io parli per primo.", "Chcą, żebym mówił pierwszy."]
+      - [parli, (żebyś) mówił; (że) mówisz, "Penso che tu parli bene.", "Myślę, że dobrze mówisz."]
+      - [parli, (żeby) mówił; (że) mówi, "Bisogna che parli con lui.", "Musisz z nim porozmawiać."]
+      - [parliamo, (żebyśmy) mówili, "È ora che parliamo seriamente.", "Czas, żebyśmy porozmawiali poważnie."]
+      - [parliate, (żebyście) mówili, "Preferisco che parliate piano.", "Wolę, żebyście mówili wolno."]
+      - [parlino, (żeby) mówili, "Credo che parlino tedesco.", "Myślę, że mówią po niemiecku."]
+    imperfetto:
+      - [parlassi, (gdybym) mówił, "Se parlassi cinese, lavorerei a Pechino.", "Gdybym mówił po chińsku, pracowałbym w Pekinie."]
+      - [parlassi, (gdybyś) mówił, "Vorrei che parlassi più piano.", "Chciałbym, żebyś mówił wolniej."]
+      - [parlasse, (gdyby) mówił, "Parlava come se parlasse a un bambino.", "Mówił, jakby mówił do dziecka."]
+      - [parlassimo, (gdybyśmy) mówili, "Se ne parlassimo, sarebbe meglio.", "Gdybyśmy o tym porozmawiali, byłoby lepiej."]
+      - [parlaste, (gdybyście) mówili, "Pensavo che parlaste spagnolo.", "Myślałem, że mówicie po hiszpańsku."]
+      - [parlassero, (gdyby) mówili, "Se parlassero meno, lavorerebbero di più.", "Gdyby mniej gadali, więcej by pracowali."]
+    passato:
+      - [abbia parlato, (że) rozmawiałem, "Pensa che io abbia parlato male di lui.", "Myśli, że źle o nim mówiłem."]
+      - [abbia parlato, (że) rozmawiałeś, "Spero che tu abbia parlato chiaro.", "Mam nadzieję, że mówiłeś jasno."]
+      - [abbia parlato, (że) rozmawiał, "Credo che abbia parlato con la polizia.", "Myślę, że rozmawiał z policją."]
+      - [abbiamo parlato, (że) rozmawialiśmy, "Sembra che abbiamo parlato al vento.", "Wygląda na to, że mówiliśmy do ściany."]
+      - [abbiate parlato, (że) rozmawialiście, "Sono contento che ne abbiate parlato.", "Cieszę się, że o tym porozmawialiście."]
+      - [abbiano parlato, (że) rozmawiali, "Non so se abbiano parlato.", "Nie wiem, czy rozmawiali."]
+    trapassato:
+      - [avessi parlato, (gdybym) był rozmawiał, "Se avessi parlato prima, avrei evitato guai.", "Gdybym odezwał się wcześniej, uniknąłbym kłopotów."]
+      - [avessi parlato, (gdybyś) był rozmawiał, "Se mi avessi parlato, ti avrei aiutato.", "Gdybyś ze mną porozmawiał, pomógłbym ci."]
+      - [avesse parlato, (gdyby) był rozmawiał, "Pensavo che avesse parlato con te.", "Myślałem, że z tobą rozmawiał."]
+      - [avessimo parlato, (gdybyśmy) byli rozmawiali, "Se avessimo parlato, ci saremmo capiti.", "Gdybyśmy porozmawiali, zrozumielibyśmy się."]
+      - [aveste parlato, (gdybyście) byli rozmawiali, "Se aveste parlato chiaro, sarebbe stato meglio.", "Gdybyście mówili jasno, byłoby lepiej."]
+      - [avessero parlato, (gdyby) byli rozmawiali, "Se avessero parlato, non litigherebbero.", "Gdyby porozmawiali, nie kłóciliby się."]
+  condizionale:
+    presente:
+      - [parlerei, mówiłbym; porozmawiałbym, "Parlerei volentieri con te.", "Chętnie bym z tobą porozmawiał."]
+      - [parleresti, mówiłbyś, "Parleresti più forte, per favore?", "Mógłbyś mówić głośniej?"]
+      - [parlerebbe, mówiłby, "Parlerebbe ore di politica.", "Mógłby godzinami mówić o polityce."]
+      - [parleremmo, mówilibyśmy, "Ne parleremmo, se avessimo tempo.", "Porozmawialibyśmy o tym, gdybyśmy mieli czas."]
+      - [parlereste, mówilibyście, "Parlereste con lui al posto mio?", "Porozmawialibyście z nim za mnie?"]
+      - [parlerebbero, mówiliby, "Parlerebbero solo di calcio.", "Mówiliby tylko o piłce."]
+    passato:
+      - [avrei parlato, porozmawiałbym (wtedy), "Avrei parlato, ma avevo paura.", "Odezwałbym się, ale się bałem."]
+      - [avresti parlato, porozmawiałbyś (wtedy), "Avresti parlato con lei?", "Porozmawiałbyś z nią?"]
+      - [avrebbe parlato, porozmawiałby (wtedy), "Avrebbe parlato, se gliel'avessimo chiesto.", "Powiedziałby, gdybyśmy go zapytali."]
+      - [avremmo parlato, porozmawialibyśmy (wtedy), "Ne avremmo parlato con calma.", "Porozmawialibyśmy o tym spokojnie."]
+      - [avreste parlato, porozmawialibyście (wtedy), "Avreste parlato di più, lo so.", "Mówilibyście więcej, wiem to."]
+      - [avrebbero parlato, porozmawialiby (wtedy), "Avrebbero parlato tutta la notte.", "Rozmawialiby całą noc."]
+  imperativo:
+    presente:
+      - [parla, mów, "Parla più piano, per favore!", "Mów wolniej, proszę!"]
+      - [parli, niech Pan/Pani mówi, "Parli pure, la ascolto.", "Proszę mówić, słucham."]
+      - [parliamo, mówmy; porozmawiajmy, "Parliamo d'altro!", "Porozmawiajmy o czymś innym!"]
+      - [parlate, mówcie, "Parlate in italiano, ragazzi!", "Mówcie po włosku, dzieciaki!"]
+      - [parlino, niech mówią, "Parlino uno alla volta.", "Niech mówią po kolei."]
+    negativo:
+      - [non parlare, nie mów, "Non parlare con la bocca piena!", "Nie mów z pełnymi ustami!"]
+      - [non parli, niech Pan/Pani nie mówi, "Non parli così forte, signore.", "Proszę nie mówić tak głośno."]
+      - [non parliamo, nie mówmy, "Non parliamo di lavoro stasera.", "Nie rozmawiajmy dziś o pracy."]
+      - [non parlate, nie mówcie, "Non parlate durante il film!", "Nie rozmawiajcie podczas filmu!"]
+      - [non parlino, niech nie mówią, "Non parlino tutti insieme.", "Niech nie mówią wszyscy naraz."]
+  forme_indefinite:
+    infinito:
+      - [parlare, mówić, "Mi piace parlare con te.", "Lubię z tobą rozmawiać."]
+      - [avere parlato, "to, że się rozmawiało", "Dopo avere parlato con lei, sto meglio.", "Po rozmowie z nią czuję się lepiej."]
+    participio:
+      - [parlante, mówiący, "Un pappagallo parlante.", "Gadająca papuga."]
+      - [parlato, mówiony, "L'italiano parlato è diverso da quello scritto.", "Mówiony włoski różni się od pisanego."]
+    gerundio:
+      - [parlando, mówiąc, "Parlando si impara.", "Mówiąc, człowiek się uczy."]
+      - [avendo parlato, "porozmawiawszy; ponieważ rozmawiał", "Avendo parlato con il medico, è più tranquillo.", "Po rozmowie z lekarzem jest spokojniejszy."]
+
+extras:
+  collocations:
+    z kim i o czym:
+      - [parlare con qualcuno, rozmawiać z kimś, "Devo parlare con te.", "Muszę z tobą porozmawiać."]
+      - [parlare di qualcosa, mówić o czymś, "Parliamo del viaggio.", "Porozmawiajmy o podróży."]
+      - [parlare a qualcuno, mówić do kogoś, "Parla ai bambini con dolcezza.", "Mówi do dzieci łagodnie."]
+    jak:
+      - [parlare piano / forte, mówić cicho/wolno / głośno, "Parla piano, il bimbo dorme.", "Mów cicho, dziecko śpi."]
+      - [parlare chiaro, mówić jasno, "Parliamoci chiaro.", "Powiedzmy sobie jasno."]
+  idioms:
+    - [parlare al vento, mówić do ściany, "Con lui parlo al vento.", "Z nim to jak mówienie do ściany."]
+    - [parlare del più e del meno, rozmawiać o wszystkim i o niczym, "Abbiamo parlato del più e del meno.", "Rozmawialiśmy o wszystkim i o niczym."]
+    - [parlare a vanvera, gadać bez sensu, "Non parlare a vanvera!", "Nie gadaj bzdur!"]
+  phrases:
+    - [chi parla?, kto mówi? (przez telefon), "Pronto, chi parla?", "Halo, kto mówi?"]
+    - [non se ne parla!, nie ma mowy!, "Uscire con questo tempo? Non se ne parla!", "Wychodzić w taką pogodę? Nie ma mowy!"]
+  related:
+    - [la parola, słowo, "Non capisco questa parola.", "Nie rozumiem tego słowa."]
+    - [il parlamento, parlament, "Il parlamento ha votato la legge.", "Parlament przegłosował ustawę."]
+    - [la parlantina, gadane, "Ha una bella parlantina.", "Ma niezłe gadane."]
+  synonyms:
+    - {t: dire, n: powiedzieć, note: "Dire — przekazać konkretną treść (dire la verità); parlare — mówić, rozmawiać jako czynność.", ex: ["Dimmi la verità!", "Powiedz mi prawdę!"]}
+    - {t: chiacchierare, n: gawędzić; plotkować, note: "Luźna, przyjacielska rozmowa.", ex: ["Chiacchieriamo davanti a un caffè.", "Pogadajmy przy kawie."]}

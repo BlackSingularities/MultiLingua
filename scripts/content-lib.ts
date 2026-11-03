@@ -7,7 +7,8 @@ import { join } from 'node:path';
 import yaml from 'js-yaml';
 import { z } from 'zod';
 import type {
-  Conjugation, CoursePack, GrammarArticle, Lesson, Sentence, Story, Unit, VocabItem,
+  Conjugation, CoursePack, CourseVoices, GrammarArticle, Lesson, Sentence, Story, Unit, VerbEntry, VerbExtra,
+  VerbLayout, VerbPack, VerbSummary, VocabItem,
 } from '../src/data/types.ts';
 
 const str = z.string().min(1);
@@ -33,7 +34,67 @@ const CourseSchema = z.object({
     articles: z.array(str).default([]),
     elisions: z.array(str).default([]),
   }),
+  /** Układ trybów i czasów dla kompendium czasowników (katalog verbs/). */
+  conjugation: z.object({
+    persons_pl: z.record(z.string(), str).default({}),
+    moods: z.array(z.object({
+      id: z.string().regex(/^[a-z_]+$/),
+      label: str,
+      pl: str,
+      color: z.string().regex(/^#[0-9a-fA-F]{6}$/),
+      persons: z.array(str).min(1).optional(),
+      tenses: z.array(z.object({
+        id: z.string().regex(/^[a-z_]+$/),
+        label: str,
+        pl: str,
+        use: z.string().optional(),
+        persons: z.array(str).min(1).optional(),
+        /** Czas złożony: id czasu posiłkowego w tym samym trybie. */
+        aux: z.string().optional(),
+      })).min(1),
+    })).min(1),
+  }).optional(),
 });
+
+/** Hasło dodatkowe: [wyrażenie, znaczenie, przykład?, tłumaczenie przykładu?] albo obiekt z uwagą. */
+const ExtraSchema = z.union([
+  z.tuple([str, str]),
+  z.tuple([str, str, str, str]),
+  z.object({ t: str, n: str, note: z.string().optional(), ex: z.tuple([str, str]).optional() }),
+]);
+const ExtraSection = z.union([z.array(ExtraSchema).min(1), z.record(z.string(), z.array(ExtraSchema).min(1))]);
+
+export const VERB_EXTRAS: { id: string; title: string }[] = [
+  { id: 'collocations', title: 'Kolokacje' },
+  { id: 'idioms', title: 'Wyrażenia idiomatyczne' },
+  { id: 'phrases', title: 'Zwroty i związki frazeologiczne' },
+  { id: 'related', title: 'Słowa pokrewne' },
+  { id: 'synonyms', title: 'Synonimy i słowa podobne' },
+];
+
+const VerbSchema = z.object({
+  verb: str,
+  n: str,
+  emoji: str,
+  category: str,
+  regular: z.boolean(),
+  group: str,
+  auxiliary: str,
+  transitive: str,
+  reflexive: z.string().optional(),
+  ipa: z.string().optional(),
+  stress: z.string().optional(),
+  note: z.string().optional(),
+  /** forms[tryb][czas] = wiersze [forma, tłumaczenie, przykład, tłumaczenie przykładu]. */
+  forms: z.record(z.string(), z.record(z.string(), z.array(z.union([z.tuple([str, str]), z.tuple([str, str, str, str])])))),
+  extras: z.object(Object.fromEntries(VERB_EXTRAS.map((e) => [e.id, ExtraSection.optional()]))).strict().default({}),
+}).strict();
+
+const VoicesSchema = z.object({
+  voices: z.array(z.object({ name: str.max(200), gender: z.enum(['f', 'm']) })).default([]),
+  speakers: z.record(z.string(), z.enum(['f', 'm'])).default({}),
+  stories: z.record(z.string(), z.record(z.string(), str.max(200))).default({}),
+}).strict();
 
 const ChoiceSchema = z.object({
   q: str,
@@ -156,6 +217,8 @@ export interface CompiledCourse {
   images: Record<string, string>;
   /** Uwagi niepsujące kompilacji (np. pliki SVG bez przypisanego słówka). */
   warnings: string[];
+  /** Kompendium czasowników (null, gdy kurs go nie ma). */
+  verbs: VerbPack | null;
 }
 
 /** Domyślny klucz ilustracji słówka: identyfikator bez przedrostka „v-”. */
@@ -348,6 +411,9 @@ export function compileCourse(dir: string): CompiledCourse {
     ? createHash('sha256').update(JSON.stringify(imageKeys.map((k) => [k, images[k]]))).digest('hex').slice(0, 16)
     : '';
 
+  const verbs = compileVerbs(dir, course.conjugation, allVocab, course.id);
+  const voices = compileVoices(dir, units, warnings);
+
   const count = <K extends keyof Unit>(k: K) =>
     units.reduce((n, u) => n + (Array.isArray(u[k]) ? (u[k] as unknown[]).length : 0), 0);
 
@@ -368,11 +434,156 @@ export function compileCourse(dir: string): CompiledCourse {
     grammar: count('grammar'),
     stories: count('stories'),
     images: { count: imageKeys.length, hash: imagesHash },
+    ...(verbs ? {
+      verbs: { count: verbs.verbs.length, hash: verbs.hash },
+      verbIndex: verbs.verbs.map((v): VerbSummary => ({
+        id: v.id, verb: v.verb, n: v.n, emoji: v.emoji, category: v.category, regular: v.regular, auxiliary: v.auxiliary, unit: v.unit,
+      })),
+    } : {}),
+    ...(voices ? { voices } : {}),
     unitsData: units,
   };
   const hash = createHash('sha256').update(JSON.stringify(body)).digest('hex').slice(0, 16);
   const pack: CoursePack = { ...body, hash, builtAt: new Date().toISOString() };
-  return { pack, json: JSON.stringify(pack), images, warnings };
+  return { pack, json: JSON.stringify(pack), images, warnings, verbs };
+}
+
+type LayoutSrc = NonNullable<z.infer<typeof CourseSchema>['conjugation']>;
+
+/** Kompendium czasowników: pliki verbs/<bezokolicznik>.yaml według układu z course.yaml. */
+function compileVerbs(dir: string, layoutSrc: LayoutSrc | undefined, vocab: VocabItem[], courseId: string): VerbPack | null {
+  const verbDir = join(dir, 'verbs');
+  const files = existsSync(verbDir) ? readdirSync(verbDir).filter((f) => f.endsWith('.yaml')).sort() : [];
+  if (!files.length) return null;
+  if (!layoutSrc) fail(join(dir, 'course.yaml'), 'kurs ma katalog verbs/, ale brak sekcji "conjugation" z układem trybów i czasów');
+
+  const layout: VerbLayout = {
+    personsPl: layoutSrc.persons_pl,
+    moods: layoutSrc.moods.map((m) => ({
+      id: m.id,
+      label: m.label,
+      pl: m.pl,
+      color: m.color,
+      tenses: m.tenses.map((t) => {
+        const persons = t.persons ?? m.persons;
+        if (!persons) fail(join(dir, 'course.yaml'), `czas ${m.id}.${t.id} nie ma listy osób (persons)`);
+        if (t.aux && !m.tenses.some((x) => x.id === t.aux)) fail(join(dir, 'course.yaml'), `czas ${m.id}.${t.id}: nie ma czasu posiłkowego "${t.aux}"`);
+        return { id: t.id, label: t.label, pl: t.pl, use: t.use, persons, ...(t.aux ? { aux: { mood: m.id, tense: t.aux } } : {}) };
+      }),
+    })),
+  };
+
+  const verbs: VerbEntry[] = files.map((file) => {
+    const where = join(verbDir, file);
+    const parsed = VerbSchema.safeParse(yaml.load(readFileSync(where, 'utf8')));
+    if (!parsed.success) fail(where, z.prettifyError(parsed.error));
+    const v = parsed.data;
+    const id = slug(v.verb).replace(/-/g, '');
+    if (file !== `${id}.yaml`) fail(where, `plik powinien nazywać się ${id}.yaml`);
+
+    const forms: VerbEntry['forms'] = {};
+    for (const mood of layout.moods) {
+      const src = v.forms[mood.id];
+      if (!src) fail(where, `brak trybu "${mood.id}"`);
+      forms[mood.id] = {};
+      for (const tense of mood.tenses) {
+        const rows = src[tense.id];
+        if (!rows) fail(where, `brak czasu ${mood.id}.${tense.id}`);
+        if (rows.length !== tense.persons.length) {
+          fail(where, `${mood.id}.${tense.id}: ${rows.length} wierszy, a powinno być ${tense.persons.length} (${tense.persons.join(', ')})`);
+        }
+        forms[mood.id][tense.id] = rows.map((r) => ({ f: r[0], n: r[1], ...(r.length === 4 ? { ex: { t: r[2], n: r[3] } } : {}) }));
+      }
+      const extra = Object.keys(src).filter((t) => !mood.tenses.some((x) => x.id === t));
+      if (extra.length) fail(where, `${mood.id}: nieznane czasy ${extra.join(', ')}`);
+    }
+    const extraMoods = Object.keys(v.forms).filter((m) => !layout.moods.some((x) => x.id === m));
+    if (extraMoods.length) fail(where, `nieznane tryby ${extraMoods.join(', ')}`);
+
+    const toExtra = (e: z.infer<typeof ExtraSchema>): VerbExtra => {
+      if (Array.isArray(e)) return { t: e[0], n: e[1], ...(e.length === 4 ? { ex: { t: e[2], n: e[3] } } : {}) };
+      return { t: e.t, n: e.n, note: e.note, ...(e.ex ? { ex: { t: e.ex[0], n: e.ex[1] } } : {}) };
+    };
+    const extras = VERB_EXTRAS.flatMap(({ id: sid, title }) => {
+      const sec = (v.extras as Record<string, z.infer<typeof ExtraSection> | undefined>)[sid];
+      if (!sec) return [];
+      const groups = Array.isArray(sec)
+        ? [{ label: '', items: sec.map(toExtra) }]
+        : Object.entries(sec).map(([label, items]) => ({ label, items: items.map(toExtra) }));
+      return [{ id: sid, title, groups }];
+    });
+
+    const inVocab = vocab.find((x) => x.pos === 'verb' && x.t.toLowerCase() === v.verb.toLowerCase());
+    return {
+      id,
+      verb: v.verb,
+      n: v.n,
+      emoji: v.emoji,
+      category: v.category,
+      regular: v.regular,
+      group: v.group,
+      auxiliary: v.auxiliary,
+      transitive: v.transitive,
+      reflexive: v.reflexive,
+      ipa: v.ipa,
+      stress: v.stress,
+      note: v.note,
+      unit: inVocab?.unit,
+      forms,
+      extras,
+    };
+  });
+
+  // Czasy złożone: każda forma musi zaczynać się od odpowiedniej formy czasownika posiłkowego
+  // (sono andato ← sono; mi sono alzato ← sono). Wyłapuje literówki i pomylone osoby.
+  const byVerb = new Map(verbs.map((v) => [v.verb, v]));
+  for (const v of verbs) {
+    const auxVerbs = v.auxiliary.split('/').map((a) => byVerb.get(a.trim())).filter((x): x is VerbEntry => !!x);
+    if (!auxVerbs.length) continue;
+    for (const mood of layout.moods) {
+      for (const tense of mood.tenses) {
+        if (!tense.aux) continue;
+        v.forms[mood.id][tense.id].forEach((row, i) => {
+          const form = row.f.replace(/^(che\s+)?((mi|ti|si|ci|vi)\s+)?/i, '').toLowerCase();
+          const ok = auxVerbs.some((a) => {
+            const auxRow = a.forms[tense.aux!.mood]?.[tense.aux!.tense]?.[i];
+            return !!auxRow && auxRow.f.split('/').some((af) => form.startsWith(`${af.trim().replace(/^che\s+/i, '').toLowerCase()} `));
+          });
+          if (!ok) fail(join(verbDir, `${v.id}.yaml`), `${mood.id}.${tense.id} (${tense.persons[i]}): „${row.f}” nie zaczyna się od formy czasownika posiłkowego (${v.auxiliary})`);
+        });
+      }
+    }
+  }
+
+  const hash = createHash('sha256').update(JSON.stringify([layout, verbs])).digest('hex').slice(0, 16);
+  return { course: courseId, hash, layout, verbs };
+}
+
+/** Głosy lektorów historyjek (voices.yaml, ustawiane w panelu administratora). */
+function compileVoices(dir: string, units: Unit[], warnings: string[]): CourseVoices | null {
+  const file = join(dir, 'voices.yaml');
+  if (!existsSync(file)) return null;
+  const parsed = VoicesSchema.safeParse(yaml.load(readFileSync(file, 'utf8')) ?? {});
+  if (!parsed.success) fail(file, z.prettifyError(parsed.error));
+  const src = parsed.data;
+  const stories = new Map(units.flatMap((u) => u.stories).map((s) => [s.id, s]));
+  const allSpeakers = new Set([...stories.values()].flatMap((s) => s.lines.map((l) => l.speaker)));
+  const out: CourseVoices = { voices: src.voices, speakers: {}, stories: {} };
+  for (const [name, g] of Object.entries(src.speakers)) {
+    if (allSpeakers.has(name)) out.speakers[name] = g;
+    else warnings.push(`${file}: w historyjkach nie ma postaci „${name}”`);
+  }
+  for (const [sid, map] of Object.entries(src.stories)) {
+    const story = stories.get(sid) ?? stories.get(`st-${sid}`);
+    if (!story) {
+      warnings.push(`${file}: nie ma historyjki „${sid}”`);
+      continue;
+    }
+    const names = new Set(story.lines.map((l) => l.speaker));
+    const kept = Object.fromEntries(Object.entries(map).filter(([sp]) => names.has(sp)));
+    if (Object.keys(kept).length) out.stories[story.id] = kept;
+  }
+  return out;
 }
 
 const LEARN_CHUNK = 6;

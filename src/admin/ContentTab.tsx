@@ -83,6 +83,23 @@ export function ContentTab({
                   </button>
                 </li>
               ))}
+              {c.verbs && c.verbs.length > 0 && (
+                <li>
+                  <details className="file-group" open={sel?.course === c.id && sel.file.startsWith('verbs/')}>
+                    <summary>📋 Kompendium czasowników <span className="muted">({c.verbs.length})</span></summary>
+                    <ul>
+                      {c.verbs.map((v) => (
+                        <li key={v.file}>
+                          <button type="button" className={`file-item${sel?.course === c.id && sel.file === v.file ? ' on' : ''}`} onClick={() => pick({ course: c.id, file: v.file })}>
+                            <span className="file-icon" aria-hidden>{v.emoji ?? '📄'}</span>
+                            <span className="file-text"><strong>{v.verb ?? v.file}</strong><span>{v.error ? 'błąd w pliku' : v.n}</span></span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </li>
+              )}
               {active?.isNew && active.course === c.id && !c.units.some((u) => u.file === active.file) && (
                 <li>
                   <button type="button" className={`file-item is-draft${sel?.file === active.file ? ' on' : ''}`} onClick={() => setSel({ course: active.course, file: active.file })}>
@@ -205,7 +222,7 @@ function Editor({
   });
 
   const save = () => run('save', async () => {
-    if (!/^(course\.yaml|units\/\d{2}-[a-z0-9-]+\.yaml)$/.test(file)) throw new Error('Nazwa pliku: units/NN-nazwa.yaml (małe litery, cyfry, myślniki).');
+    if (!/^(course\.yaml|units\/\d{2}-[a-z0-9-]+\.yaml|verbs\/[a-z]+\.yaml)$/.test(file)) throw new Error('Nazwa pliku: units/NN-nazwa.yaml albo verbs/bezokolicznik.yaml (małe litery, cyfry, myślniki).');
     const r = await adminApi.put<Validation & { saved: boolean; lines?: string[] }>('/file', {
       course, file, text, previous: !isNew && file !== initialFile ? initialFile : undefined,
     });
