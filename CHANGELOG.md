@@ -1,3 +1,7 @@
+## 1.0.2
+
+- The update prompt only says that a new version is available – no change list, links or download source.
+
 ## 1.0.1 — Transparent application icon
 
 - Use the transparent application mark in launcher, splash and existing branding surfaces.

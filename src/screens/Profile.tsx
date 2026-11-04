@@ -173,9 +173,7 @@ function AboutApp() {
             <a href={meta.app.apkUrl} target="_blank" rel="noreferrer">Pobierz aktualizację</a>
           ) : !isNative ? (
             <button type="button" className="link-btn" onClick={() => location.reload()}>Odśwież stronę</button>
-          ) : (
-            <a href={meta.app.releasesUrl} target="_blank" rel="noreferrer">Zobacz wydania</a>
-          )}
+          ) : null}
         </p>
       )}
       {!isNative && meta && (

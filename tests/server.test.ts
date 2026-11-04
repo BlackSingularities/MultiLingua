@@ -26,7 +26,11 @@ describe.skipIf(!existsSync(dbPath))('API serwera treści', () => {
   it('meta podaje wersję i link do APK', async () => {
     const r = await app.inject('/api/meta');
     expect(r.json().app.version).toBe('9.9.9');
-    expect(r.json().app.apkUrl).toContain('owner/repo/releases/latest/download/MultiLingua.apk');
+    expect(r.json().app.apkUrl).toContain('/api/app/MultiLingua.apk');
+    expect(r.json().app.apkUrl).not.toContain('github');
+    const apk = await app.inject('/api/app/MultiLingua.apk');
+    expect(apk.statusCode).toBe(302);
+    expect(apk.headers.location).toContain('owner/repo/releases/latest/download/MultiLingua.apk');
   });
 
   it('lista kursów i paczka z ETag oraz kompresją', async () => {

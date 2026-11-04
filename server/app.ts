@@ -33,14 +33,16 @@ const ALLOWED_ORIGINS = new Set([
 export async function buildServer(opts: ServerOptions): Promise<FastifyInstance> {
   const store = new ContentStore(opts.dbPath);
 
-  const repoUrl = `https://github.com/${opts.repo}`;
-  const appMeta = (): AppMeta => ({
+  // Pliki wydań pobierane są przez przekierowanie z tego serwera – aplikacja nie pokazuje
+  // linków do repozytorium ani listy wydań, tylko komunikat o nowej wersji.
+  const releaseFile = (name: string) => `https://github.com/${opts.repo}/releases/latest/download/${name}`;
+  const appMeta = (origin = ''): AppMeta => ({
     app: {
       version: opts.appVersion,
-      apkUrl: `${repoUrl}/releases/latest/download/MultiLingua.apk`,
-      iosUrl: `${repoUrl}/releases/latest/download/MultiLingua-unsigned.ipa`,
-      releasesUrl: `${repoUrl}/releases`,
-      repoUrl,
+      apkUrl: `${origin}/api/app/MultiLingua.apk`,
+      iosUrl: `${origin}/api/app/MultiLingua-unsigned.ipa`,
+      releasesUrl: '',
+      repoUrl: '',
     },
     content: { version: store.meta.content_version ?? 'dev', builtAt: store.meta.built_at ?? '' },
   });
@@ -62,10 +64,13 @@ export async function buildServer(opts: ServerOptions): Promise<FastifyInstance>
 
   app.get('/api/health', async () => ({ ok: true, content: appMeta().content.version, courses: store.courses.size }));
 
-  app.get('/api/meta', async (_req, reply) => {
+  app.get('/api/meta', async (req, reply) => {
     reply.header('Cache-Control', 'no-cache');
-    return appMeta();
+    return appMeta(`${req.protocol}://${req.host}`);
   });
+
+  app.get('/api/app/MultiLingua.apk', async (_req, reply) => reply.redirect(releaseFile('MultiLingua.apk')));
+  app.get('/api/app/MultiLingua-unsigned.ipa', async (_req, reply) => reply.redirect(releaseFile('MultiLingua-unsigned.ipa')));
 
   app.get('/api/courses', async (_req, reply) => {
     reply.header('Cache-Control', 'no-cache');
