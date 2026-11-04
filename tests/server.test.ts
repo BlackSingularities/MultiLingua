@@ -11,9 +11,13 @@ const dbPath = join(root, 'data', 'content.db');
 
 describe.skipIf(!existsSync(dbPath))('API serwera treści', () => {
   let app: FastifyInstance;
+  const fetched: string[] = [];
 
   beforeAll(async () => {
-    app = await buildServer({ dbPath, appVersion: '9.9.9', repo: 'owner/repo' });
+    app = await buildServer({
+      dbPath, appVersion: '9.9.9', repo: 'owner/repo',
+      fetchRelease: (async (url: string) => { fetched.push(String(url)); return new Response('APK', { headers: { 'content-length': '3' } }); }) as typeof fetch,
+    });
   });
   afterAll(() => app.close());
 
@@ -29,8 +33,10 @@ describe.skipIf(!existsSync(dbPath))('API serwera treści', () => {
     expect(r.json().app.apkUrl).toContain('/api/app/MultiLingua.apk');
     expect(r.json().app.apkUrl).not.toContain('github');
     const apk = await app.inject('/api/app/MultiLingua.apk');
-    expect(apk.statusCode).toBe(302);
-    expect(apk.headers.location).toContain('owner/repo/releases/latest/download/MultiLingua.apk');
+    expect(apk.statusCode).toBe(200);
+    expect(apk.headers.location).toBeUndefined();
+    expect(apk.body).toBe('APK');
+    expect(fetched[0]).toContain('owner/repo/releases/latest/download/MultiLingua.apk');
   });
 
   it('lista kursów i paczka z ETag oraz kompresją', async () => {

@@ -7,6 +7,7 @@ import cors from '@fastify/cors';
 import fastifyStatic from '@fastify/static';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { Readable } from 'node:stream';
 import type { AppMeta } from '../src/data/types.ts';
 import { ContentStore, type Blobs } from './content-store.ts';
 import { registerAdmin, type AdminOptions } from './admin.ts';
@@ -16,6 +17,8 @@ export interface ServerOptions {
   staticDir?: string;
   appVersion: string;
   repo: string;
+  /** Do testów: zamiennik fetch przy pobieraniu plików wydania. */
+  fetchRelease?: typeof fetch;
   logger?: boolean;
   /** Panel administratora: katalog z kursami (YAML) i miejsce na dane panelu. */
   admin?: Omit<AdminOptions, 'store'>;
@@ -69,8 +72,19 @@ export async function buildServer(opts: ServerOptions): Promise<FastifyInstance>
     return appMeta(`${req.protocol}://${req.host}`);
   });
 
-  app.get('/api/app/MultiLingua.apk', async (_req, reply) => reply.redirect(releaseFile('MultiLingua.apk')));
-  app.get('/api/app/MultiLingua-unsigned.ipa', async (_req, reply) => reply.redirect(releaseFile('MultiLingua-unsigned.ipa')));
+  // Plik wydania przechodzi przez ten serwer – użytkownik nie widzi adresu repozytorium.
+  const serveRelease = (name: string, type: string) => async (_req: unknown, reply: FastifyReply) => {
+    const res = await (opts.fetchRelease ?? fetch)(releaseFile(name), { redirect: 'follow' });
+    if (!res.ok || !res.body) return reply.code(502).send({ error: 'Plik aktualizacji jest chwilowo niedostępny' });
+    reply.header('Content-Type', type);
+    reply.header('Content-Disposition', `attachment; filename="${name}"`);
+    reply.header('Cache-Control', 'no-cache');
+    const len = res.headers.get('content-length');
+    if (len) reply.header('Content-Length', len);
+    return reply.send(Readable.fromWeb(res.body as import('node:stream/web').ReadableStream));
+  };
+  app.get('/api/app/MultiLingua.apk', serveRelease('MultiLingua.apk', 'application/vnd.android.package-archive'));
+  app.get('/api/app/MultiLingua-unsigned.ipa', serveRelease('MultiLingua-unsigned.ipa', 'application/octet-stream'));
 
   app.get('/api/courses', async (_req, reply) => {
     reply.header('Cache-Control', 'no-cache');
