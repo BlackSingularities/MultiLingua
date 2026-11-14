@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Ikona aplikacji bez tła: na ekranie głównym widać sam kolorowy emblemat, spójnie z trybem „Bez tła” w OpenDesktop.
+
 ## 1.0.3
 
 - No mention of GitHub anywhere in the app: new update server address, error messages without third-party host names.
